@@ -46,7 +46,7 @@
 			
 			However, recent experiments during the XX$^{th}$ and XXI$^{st}$ centuries have demonstrated that instantaneous propagation of interaction is indeed not the case in general. Our worldview is distorted by our perception of both time and space. In the scale of the universe and the cosmos, both time and space are unfathomably large in comparison to our own human scale. Thus, if we do not pay careful attention, many of the true secrets of the universe will remain hidden, as they did for thousands of years. 
 			
-			In actuality, any and all changes among the interactions of free bodies will occur after a period of time, even if it is really, really, really small. We can denote this time as $\tau$, such that when we divide the distance $x$ between these bodies by this time, we obtain the \textbf{maximum velocity of propagation of interaction}:
+			In actuality, any and all changes among the interactions of free bodies will occur after a period of time, even if it is really, really, really small. We can denote this time as $\tau$, such that when we divide the distance $x$ between these bodies by this time, we obtain the \textbf{maximum velocity of propagation of interaction} $\varv$:
 			
 			\begin{equation}
 				\label{eq:VelocityInteraction}
@@ -65,31 +65,42 @@
 			$$ \vec{v} = \vec{v}_a + \vec{v}_b$$
 			over the overall mechanical system. However, this is clearly a contradiction to the velocity of propagation of interaction, which will be different in different inertial frames of reference. It has been shown that the velocity of light is completely independent of its direction, for example. This means that time is actually not absolute, as assumed in Classical Mechanics, and so simultaneous events in one frame of reference may not be simultaneous in another frame of reference.
 			\begin{exmp}
-				Take a look at the following graph
+				Take a look at the following figure.
 				\begin{figure}[h]
-					\begin{tikzpicture}[scale=1]
-						\draw [step=0.5cm, grey, opacity=0.25] (-1.5,-1.5) grid (3.5,3);
-						% Frame K
-						\draw [->, thick] (0,0) -- (0,2) node (yaxis) [above] {$y$};
-						\draw [->, thick] (0,0) -- (2,0) node (xaxis) [right] {$x$};
-						\draw [->, thick] (0,0) -- (-1.21, -1.21) node (zaxis) [below] {$z$};
-						% Frame K'
-						\draw [->, blue, thick] (1,0.5) -- (1,2.5) node (yaxis) [above] {$y'$};
-						\draw [->, blue, thick] (1,0.5) -- (3,0.5) node (xaxis) [right] {$x'$};
-						\draw [->, blue, thick] (1,0.5) -- (-0.21, -0.71) node (zaxis) [below] {$z'$};
-						% Points on K'
-						\draw [-, blue] (1.5, 0.7) -- (1.5, 0.3) node [above=3mm] {\footnotesize$B$};		
-						\draw [-, blue] (2, 0.7) -- (2, 0.3) node [above=3mm] {\footnotesize$A$};
-						\draw [-, blue] (2.5, 0.7) -- (2.5, 0.3) node [above=3mm] {\footnotesize$C$};	
-						\draw [->, blue, >=stealth] (1.9, 0.8) -- (1.6, 0.8);
-						\draw [->, blue, >=stealth] (2.1, 0.8) -- (2.4, 0.8);
+					\begin{subfigure}{0.4\textwidth}
+						\center
+						\begin{tikzpicture}[scale=1]
+							\draw [step=0.5cm, grey, opacity=0.25] (-1.5,-1.5) grid (3.5,3);
+							% Frame K
+							\draw [->, blue, very thick, >=stealth] (1.5, 2) -- (2.5, 2) node [above =3mm, left=2mm] {$\vec{V}$} ;
 							
-					\end{tikzpicture}
+							\draw [->, thick] (0,0) -- (0,2) node (yaxis) [above] {$y$};
+							\draw [->, thick] (0,0) -- (2,0) node (xaxis) [right] {$x$};
+							\draw [->, thick] (0,0) -- (-1.21, -1.21) node (zaxis) [below] {$z$};
+							% Frame K'
+							\draw [->, blue, thick] (1,0.5) -- (1,2.5) node (yaxis) [above] {$y'$};
+							\draw [->, blue, thick] (1,0.5) -- (3,0.5) node (xaxis) [right] {$x'$};
+							\draw [->, blue, thick] (1,0.5) -- (-0.21, -0.71) node (zaxis) [below] {$z'$};
+							% Points on K'
+							\draw [-, blue] (1.5, 0.7) -- (1.5, 0.3) node [above=3mm] {\footnotesize$B$};		
+							\draw [-, blue] (2, 0.7) -- (2, 0.3) node [above=3mm] {\footnotesize$A$};
+							\draw [-, blue] (2.5, 0.7) -- (2.5, 0.3) node [above=3mm] {\footnotesize$C$};	
+							\draw [->, blue, >=stealth] (1.9, 0.8) -- (1.6, 0.8);
+							\draw [->, blue, >=stealth] (2.1, 0.8) -- (2.4, 0.8);
+								
+						\end{tikzpicture}
+					\end{subfigure}
+					\hfill
+					\begin{minipage}{0.56\columnwidth}
+						\begin{spacing}{1.5}
+							We have two inertial frames $K$ and $K'$ with coordinates defined by $(x,y,z)$ and $(x',y',z')$ correspondingly. The frame $K'$ moves relative to $K$ at a constant velocity $\vec{V}$ in the $x$ axis direction. Suppose a signal propagates from a source point $A$ in the $K'$ frame in both directions of the $x'$ axis. The velocity of propagation of interaction on the frame $K'$ is constant and equal to $c$, as in all inertial frames. Therefore, the signal propagating an interaction from a source $A$ to equidistant sinks $B$ and $C$ in opposing directions will reach the sinks at the same time relative to this inertial frame.
+						\end{spacing}
+					\end{minipage}
 				\end{figure}
+				
+				Now shift our perspective to the frame of reference $K$. In this case, the propagation may not occur simultaneously from source $A$ to the sinks $B$ and $C$. The limiting aspect of the velocity of propagation to the value $c$ implies that the maximum velocity of propagation in the $K$ frame must be $c$ as well. Thus, as the sink $B$ moves towards the source $A$ relative to the frame $K$ while sink $C$ moves away from the source $A$, the signal will reach the sink $B$ before it reaches the sink $C$.
 			
 			\end{exmp}
-			
-			
 			
 			
 \end{document}
