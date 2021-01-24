@@ -1,0 +1,141 @@
+%UsePackages
+\usepackage{amsmath, amsfonts, amssymb, amsthm, array, chemfig, cite, circuitikz, etoolbox, empheq, enumerate, epsfig, epstopdf, eucal, eufrak, fancyhdr, float, listings, lstautogobble, mathtools, makecell, mathrsfs, mathtools, multirow, multicol, placeins, setspace, siunitx, subcaption, stmaryrd, textcomp, tabto, tikz, titling, txfonts, upgreek, url, xcolor, tikz}
+\usepackage[pagebackref]{hyperref}
+\usepackage[font=singlespacing, 
+font={small}]{caption}
+\usepackage[left=2.5cm, top=2.5cm, right=2.5cm, bottom=2.5cm]{geometry}
+\usepackage[version=3]{mhchem}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[makeroom]{cancel}	
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usetikzlibrary{calc, patterns, angles, quotes}
+%Colors
+\definecolor{green}{rgb}{0.0, 0.42, 0.24}
+\definecolor{grey}{rgb}{0.36, 0.54, 0.66}
+
+%Patches
+\lstset{
+	keywordstyle=\color{green},
+	basicstyle=\scriptsize\ttfamily,
+	commentstyle=\ttfamily\itshape\color{grey},
+	stringstyle=\ttfamily,
+	showstringspaces=false,
+	columns=fullflexible,
+	breaklines=true,
+	postbreak=\raisebox{0ex}[0ex][0ex]{\color{red}$\hookrightarrow$\space},
+	frame=single,
+	autogobble=true,
+}
+
+%Page Styling
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{14.5pt}
+
+\hypersetup{
+	colorlinks,
+	linkcolor={blue!95!black},
+	citecolor={black!100!black},
+	urlcolor={blue!100!black}
+}
+
+\setlength{\tabcolsep}{4pt}
+\linespread{1.5}
+
+%Environments
+\newenvironment{just}
+{\renewcommand\qedsymbol{$\boxast$}\begin{proof}[Justification]}
+	{\end{proof}}
+\newenvironment{sol}
+{\renewcommand\qedsymbol{$\boxcircle$}\begin{proof}[Solution]}
+	{\end{proof}}
+\newenvironment{cproof}
+{\renewcommand\qedsymbol{$\boxbox$}\begin{proof}[Proof (Claim)]}
+	{\end{proof}}
+\newenvironment{sproof}
+{\renewcommand\qedsymbol{$\box$}\begin{proof}[Proof (Sketch)]}
+	{\end{proof}}
+
+%Definitions (doc)
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25, 0) -- (1, .7) -- (.25, .15) -- cycle;}
+
+%NewCommands
+% Math Shortcuts
+\newcommand{\for}{\quad \text{for} \quad}
+\newcommand{\vel}{\mathfrak{v}}
+\newcommand{\e}{\epsilon}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Pol}{\mathbb{P}}
+\newcommand{\Lgr}{\mathscr{L}}
+\newcommand{\pset}{\mathcal{P}}
+\newcommand{\thickhat}[1]{\mathbf{\hat{\text{$#1$}}}}
+\newcommand{\thickbar}[1]{\mathbf{\bar{\text{$#1$}}}}
+\newcommand{\thicktilde}[1]{\mathbf{\tilde{\text{$#1$}}}}
+\newcommand{\sbullet}[1][.5]{\mathbin{\vcenter{\hbox}{\scalebox{#1}{$\bullet$}}}}
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+%Plain Theorems & Numbering
+\theoremstyle{plain}{
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lem}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{conj}[thm]{Conjencture}
+	\newtheorem{genr}[thm]{Generalization}
+	\newtheorem{cor}[thm]{Corollary}
+	\newtheorem{axiom}{Axiom}[section]
+	\newtheorem*{claim}{Claim}
+	\newtheorem*{conj*}{Conjencture}
+	\newtheorem*{fact}{Fact}
+}
+\numberwithin{equation}{section}
+
+%Definitions (text)
+\theoremstyle{definition}{
+	\newtheorem{exmp}{Example}[section]
+	\newtheorem{defn}{Definition}[section]
+	\newtheorem{obs}{Observation}[section]
+	\newtheorem{exe}{Exercise}[section]
+	
+	\newtheorem*{defn*}{Definition}
+	\newtheorem*{exmp*}{Example}
+	\newtheorem*{rem}{Remark}
+	\newtheorem*{term}{Terminology}
+	\newtheorem*{note}{Note}
+	\newtheorem*{exe*}{Exercise}
+}
+
+%Paired Delimiters
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\makeatletter
+\let\oldabs\abs
+\def\abs{@ifstar{\oldabs}{\oldabs*}}
+
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+\makeatother
+\let\oldnorm\norm
+\def\norm{@if{\oldnorm}{\oldnorm*}}
+
+%Redefining Proof QED symbol
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par 
+	\pushQED{\qed}%
+	\normalfont \topsep6\p@\@plus6\p@\relax
+	\trivlist
+	\item[\hskip\labelsep
+	\itshape
+	#1\@addpunct{.}]\mbox{}\\*
+}{%
+	\popQED\endtrivlist\@endpefalse
+}
+\makeatother
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+%Centering Text Box
+\makeatletter
+\g@addto@macro\@floatboxreset{\centering}
+\makeatother

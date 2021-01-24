@@ -1,0 +1,95 @@
+% Styling and set-up
+\documentclass{article}
+\usepackage{NotesStyle}
+\graphicspath{./figs/}
+
+% Cover info
+
+\title{Phys 514 \\
+	\large Relativity}
+
+\author{April Sada Solomon}
+\date{Winter 2021}
+
+
+% Document
+\begin{document}
+
+	\clearpage
+	% Displays title info
+	\maketitle
+	
+	\vspace{2cm}
+	
+	% Course description, displayed on cover page
+	\renewcommand{\abstractname}{Course Description}
+	\begin{abstract}
+		The Principle of Relativity, Relativistic Mechanics, Relativistic Charge, Relativistic Maxwell Equations, Electromagnetic  Waves, Light Propagation, Field Theory, Manifolds, Spacetime Curvature, Gravitation, Schwarzchild Solution, Black Holes, Perturbations, Radiation, Introduction to Cosmology, Introduction to QFT in Spacetime. 
+	\end{abstract}
+	
+	\newpage
+	
+	\tableofcontents
+	
+	\newpage
+	
+	% Start page count after the TOC
+	\setcounter{page}{1}
+	\cfoot{\thepage}
+	
+	% Notes body
+	\section{The Principle of Relativity}
+		\subsection{Velocity of Propagation of Interaction}
+			In nature we often describe the processes and phenomena that occurs using frames of reference, that is, defined spatial and temporal coordinates which are considered to be both homogeneous and isotropic. When a free body propagates in a frame of reference at a constant velocity through time, that frame of reference is understood to be inertial. Extending this notion to multiple systems, a couple of frames moving uniformly relative to each other, where one is said to be inertial, implies that the other is inertial as well. The same applies for infinitely many frames of reference, as long as they move uniformly relative to one another.
+			
+			Through many experiments along the course of history, physicists have demonstrated that the laws of physics hold in all inertial frames of reference, implying that the \textbf{principle of relativity} is true. This means that the equations of motion are understood to be invariant with respect to transformations of coordinates and time. Furthermore, the interactions that material objects are subjected to are described through potential energy functions with respect to the position of the particles in the system. We assume this to be the case as we also assume these interactions to occur instantaneously, and to a degree, they do. 
+			
+			However, recent experiments during the XX$^{th}$ and XXI$^{st}$ centuries have demonstrated that instantaneous propagation of interaction is indeed not the case in general. Our worldview is distorted by our perception of both time and space. In the scale of the universe and the cosmos, both time and space are unfathomably large in comparison to our own human scale. Thus, if we do not pay careful attention, many of the true secrets of the universe will remain hidden, as they did for thousands of years. 
+			
+			In actuality, any and all changes among the interactions of free bodies will occur after a period of time, even if it is really, really, really small. We can denote this time as $\tau$, such that when we divide the distance $x$ between these bodies by this time, we obtain the \textbf{maximum velocity of propagation of interaction}:
+			
+			\begin{equation}
+				\label{eq:VelocityInteraction}
+				\boxed{\varv = \frac{x}{\tau}}
+			\end{equation}
+			This limit to the velocity or propagation very clearly implies that any material object cannot have a velocity higher than this. In particle physics, we assume elementary particles propagate signals of their dynamics to other particles via units of information. In this case, the velocity of propagation is called \textbf{signal velocity}. With this limit and the principle of relativity, it becomes evident that the maximum velocity of propagation will remain the same in all inertial frames, meaning it is a universal constant and denoted 
+			\begin{equation}
+				\label{var:LightSpeed}
+				\boxed {c = 2.998 \times 10^8 \quad [\text{m } \text{s}^{-1}]}
+			\end{equation}
+			This is the \textbf{speed of propagation of light signals in a vacuum}. It very much so emphasizes and underlines the reasoning for why it is apparently instantaneous for interactions to occur in our eyes, yet not the case in reality. The speed at which signals are propagated is so fast that we are too small to notice it relatively. 
+			
+			Albert Einstein later refined and generalized Galileo's principle of relativity to what is today known as the Theory of General Relativity. This refinement subsequently led to the modification of mechanics themselves into Relativistic Mechanics. In this case, the propagation of interaction occurs with respect to time as well as position of the bodies in a reference frame. In Newtonian or Classical Mechanics, we assume that interactions only occur with respect to position of the bodies in a frame, as the propagation of interaction is considered instantaneous. In more broader terms, Newtonian Mechanics assumes that the relations of different events in space depend solely on the reference system defined, such that two events happening simultaneously can be well-defined over every reference frame in the system. Contrary to Relativistic Mechanics, Classical Mechanics assumes time to be absolute and independent of the reference frame.
+			
+			Recall that in classical mechanics, a reference frame $A$ moving with relative velocity $\vec{v}_A$ to another moving reference frame $B$ with velocity $\vec{v}_B$ will have a well defined relative velocity
+			$$ \vec{v} = \vec{v}_a + \vec{v}_b$$
+			over the overall mechanical system. However, this is clearly a contradiction to the velocity of propagation of interaction, which will be different in different inertial frames of reference. It has been shown that the velocity of light is completely independent of its direction, for example. This means that time is actually not absolute, as assumed in Classical Mechanics, and so simultaneous events in one frame of reference may not be simultaneous in another frame of reference.
+			\begin{exmp}
+				Take a look at the following graph
+				\begin{figure}[h]
+					\begin{tikzpicture}[scale=1]
+						\draw [step=0.5cm, grey, opacity=0.25] (-1.5,-1.5) grid (3.5,3);
+						% Frame K
+						\draw [->, thick] (0,0) -- (0,2) node (yaxis) [above] {$y$};
+						\draw [->, thick] (0,0) -- (2,0) node (xaxis) [right] {$x$};
+						\draw [->, thick] (0,0) -- (-1.21, -1.21) node (zaxis) [below] {$z$};
+						% Frame K'
+						\draw [->, blue, thick] (1,0.5) -- (1,2.5) node (yaxis) [above] {$y'$};
+						\draw [->, blue, thick] (1,0.5) -- (3,0.5) node (xaxis) [right] {$x'$};
+						\draw [->, blue, thick] (1,0.5) -- (-0.21, -0.71) node (zaxis) [below] {$z'$};
+						% Points on K'
+						\draw [-, blue] (1.5, 0.7) -- (1.5, 0.3) node [above=3mm] {\footnotesize$B$};		
+						\draw [-, blue] (2, 0.7) -- (2, 0.3) node [above=3mm] {\footnotesize$A$};
+						\draw [-, blue] (2.5, 0.7) -- (2.5, 0.3) node [above=3mm] {\footnotesize$C$};	
+						\draw [->, blue, >=stealth] (1.9, 0.8) -- (1.6, 0.8);
+						\draw [->, blue, >=stealth] (2.1, 0.8) -- (2.4, 0.8);
+							
+					\end{tikzpicture}
+				\end{figure}
+			
+			\end{exmp}
+			
+			
+			
+			
+\end{document}
