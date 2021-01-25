@@ -1,5 +1,7 @@
 % Styling and set-up
 \documentclass{article}
+
+
 \usepackage{NotesStyle}
 \graphicspath{./figs/}
 
@@ -24,7 +26,7 @@
 	% Course description, displayed on cover page
 	\renewcommand{\abstractname}{Course Description}
 	\begin{abstract}
-		The Principle of Relativity, Relativistic Mechanics, Relativistic Charge, Relativistic Maxwell Equations, Electromagnetic  Waves, Light Propagation, Field Theory, Manifolds, Spacetime Curvature, Gravitation, Schwarzchild Solution, Black Holes, Perturbations, Radiation, Introduction to Cosmology, Introduction to QFT in Spacetime. 
+		The Principle of Relativity, Special Relativity, Manifolds, Spacetime Curvature, Gravitation, Schwarzchild Solution, Black Holes, Perturbations, Radiation, Introduction to Cosmology, Introduction to QFT in Spacetime. 
 	\end{abstract}
 	
 	\newpage
@@ -46,11 +48,11 @@
 			
 			However, recent experiments during the XX$^{th}$ and XXI$^{st}$ centuries have demonstrated that instantaneous propagation of interaction is indeed not the case in general. Our worldview is distorted by our perception of both time and space. In the scale of the universe and the cosmos, both time and space are unfathomably large in comparison to our own human scale. Thus, if we do not pay careful attention, many of the true secrets of the universe will remain hidden, as they did for thousands of years. 
 			
-			In actuality, any and all changes among the interactions of free bodies will occur after a period of time, even if it is really, really, really small. We can denote this time as $\tau$, such that when we divide the distance $x$ between these bodies by this time, we obtain the \textbf{maximum velocity of propagation of interaction} $\varv$:
+			In actuality, any and all changes among the interactions of free bodies will occur after a period of time, even if it is really, really, really small. We can denote this time as $\triangle t$, such that when we divide the distance $\triangle x$ between these bodies by this time, we obtain the \textbf{velocity of propagation of interaction} $v$:
 			
 			\begin{equation}
 				\label{eq:VelocityInteraction}
-				\boxed{\varv = \frac{x}{\tau}}
+				\boxed{v = \frac{\triangle x}{\triangle t}}
 			\end{equation}
 			This limit to the velocity or propagation very clearly implies that any material object cannot have a velocity higher than this. In particle physics, we assume elementary particles propagate signals of their dynamics to other particles via units of information. In this case, the velocity of propagation is called \textbf{signal velocity}. With this limit and the principle of relativity, it becomes evident that the maximum velocity of propagation will remain the same in all inertial frames, meaning it is a universal constant and denoted 
 			\begin{equation}
@@ -93,7 +95,7 @@
 					\hfill
 					\begin{minipage}{0.56\columnwidth}
 						\begin{spacing}{1.5}
-							We have two inertial frames $K$ and $K'$ with coordinates defined by $(\hat{x},\hat{y},\hat{z})$ and $(\hat{x}',\hat{y}',\hat{z}')$ correspondingly. The frame $K'$ moves relative to $K$ at a constant velocity $\vec{V}$ in the $\hat{x}$ axis direction. Suppose a signal propagates from a source point $A$ in the $K'$ frame in both directions of the $\hat{x}'$ axis. The velocity of propagation of interaction on the frame $K'$ is constant and equal to $c$, as in all inertial frames. Therefore, the signal propagating an interaction from a source $A$ to equidistant sinks $B$ and $C$ in opposing directions will reach the sinks at the same time relative to this inertial frame.
+							We have two inertial frames $K$, where the observer lies, and $K'$, where an observation occurs. We have coordinates defined by $(\hat{x},\hat{y},\hat{z})$ and $(\hat{x}',\hat{y}',\hat{z}')$ correspondingly. The frame $K'$ moves relative to $K$ at a constant velocity $\vec{V}$ in the $\hat{x}$ axis direction. Suppose a signal propagates from a source point $A$ in the $K'$ frame in both directions of the $\hat{x}'$ axis. The velocity of propagation of interaction on the frame $K'$ is constant and equal to $c$, as in all inertial frames. Therefore, the signal propagating an interaction from a source $A$ to equidistant sinks $B$ and $C$ in opposing directions will reach the sinks at the same time relative to this inertial frame.
 						\end{spacing}
 					\end{minipage}
 				\end{figure}
@@ -109,7 +111,7 @@
 				An \textbf{event} or \textbf{world point} is defined as a point in $\M$. 
 			\end{defn}
 			\begin{defn}
-				A \textbf{world line} is a set of smoothly connected world points in $M$. For instance, the worldline for an elementary particle determines the coordinates of the particle at all moments in time.
+				A \textbf{world line} is a parametrized, one-dimensional continuous curve in $\M$ defined as a set of events. For instance, the worldline for an elementary particle determines the coordinates of the particle at all moments in time.
 			\end{defn}
 			
 			We will now express the \textbf{Principle of Invariance} of $c$. We again consider two frames of reference $K$ and $K'$ moving relative to each other with constant velocities.
@@ -129,7 +131,7 @@
 						% Points on K
 						\filldraw (-1, 1) circle (2pt) node [above=1mm] {\smaller $(t_1, x_1, y_1, z_1)$} node [below=1mm, blue] {\smaller $(t_1', x_1', y_1', z_1')$};
 						\filldraw (2, 2) circle (2pt) node [above,] {\smaller $(t_2, x_2, y_2, z_2)$ }node [below=1mm, blue] {\smaller $(t_2', x_2', y_2', z_2')$};
-						\draw [->, thick, green, >=stealth] (-1,1) -- (2,2) node [below=2mm, left=11mm] {\smaller$\varv = c$} ;
+						\draw [->, thick, green, >=stealth] (-1,1) -- (2,2) node [below=2mm, left=11mm] {\smaller$v = c$} ;
 					\end{tikzpicture}
 				\end{subfigure}
 				\hfill
@@ -149,13 +151,12 @@
 			\end{equation}
 			Furthermore, we define the coordinates for these events in the reference frame $K'$ as $(t_1', x_1', y_1', z_1')$ and $(t_2', x_2', y_2', z_2')$ respectively. Similarly, we have the following interval $(s')^2$ between events in this frame:
 			$$ 0 = - c^2 (t_2' - t_1')^2 + (x_2' - x_1')^2 + (y_2' - y_1')^2 + (z_2' - z_1')^2 = (s')^2$$
-			The principal of invariance of the speed of light $c$ thus states that the speed of light will remain constant in any reference frame, so if the interval $s^2 = 0$ in $K$, then it will be also 0 in all reference frames. Furthermore, if the two events are infinitely close to each other then we can define the \textbf{differential interval} $ds^2$ between them as:
+			The principal of invariance of the speed of light $c$ thus states that the speed of light will remain constant in any reference frame, so if the interval $s^2 = 0$ in $K$, then it will be also 0 in all reference frames. Furthermore, if the two events are infinitely close to each other then we can define the \textbf{differential interval} or \textbf{line element} $ds^2$ between them as:
 			\begin{equation}
 				\label{eq:IntervalDifferential}
 				\boxed{ds^2 =  - c^2 dt^2 + dx^2 + dy^2 + dz^2}
 			\end{equation}
 		
-			\pagebreak
 		
 			We can then generalize\footnote{In some textbooks like \textit{The Classical Theory of Fields} by \textit{Landau and Lifshitz}, where most of my notes came from, the notation is inverted such that $\M = \{ p: p = +\alpha_t \hat{t} - \alpha_x \hat{x} - \alpha_y \hat{y} - \alpha_z \hat{z} \}$. The reason for this is because we are taking the square of the interval $s^2$, so either notation is allowed. However, \textit{care must be taken to avoid confusing which one we are using}!} $\M$ to be defined in the space spanned by $\{ \hat{ct}, \hat{x}, \hat{y}, \hat{z}\}$, where for simplicity we usually assume $c=1$ such that $\M = \{ p: p = -\alpha_t \hat{t} + \alpha_x \hat{x} + \alpha_y \hat{y} + \alpha_z \hat{z} \}$ where $\alpha_i$ for $i = t,x,y,z$ are constants denoting the time and coordinates of a propagation between two events, which may be infinitely close to each other. Recall that if $ds^2 = 0$ in $K$, then $(ds')^2 = 0$ for every other reference frame $K'$, and as both are infinitesimally small, we can say they are also proportional to each other:
 			$$ ds^2 \propto (ds')^2 \implies ds^2 = k (ds')^2$$
@@ -169,4 +170,140 @@
 			\begin{thm}
 				The interval $s^2$ between two arbitrary events is the same in all inertial frames of reference. The interval is thus invariant under transformations from one inertial system to another.
 			\end{thm} 
+			Recalling the case of two frames of reference $K$ and $K'$ with two events $(t_1,x_1,y_1,z_1)$ and $(t_2,x_2,y_2,z_2)$, as well as the length of propagation $\ell^2 = c^2(t_2-t_1)^2$, we define $t_{2,1}=t_2-t_1$ such that the interval in each frame becomes
+			\begin{align*}
+				s_{2,1}^2 &= - c^2 t_{2,1}^2 + \ell_{2,1}^2 \\
+				(s_{2,1}')^2 &= - c^2 (t_{2,1}')^2 + (\ell_{2,1}')^2 
+			\end{align*}
+			Which directly implies that
+			$$ - c^2 t_{2,1}^2 + \ell_{2,1}^2 = - c^2 (t_{2,1}')^2 + (\ell_{2,1}')^2 $$
+			For the two events to occur at the same point in space inside the $K'$ frame of reference, we would need
+			$$ (\ell_{2,1}')^2 = 0 \implies s_{2,1}^2 = - c^2 t_{2,1}^2 + \ell_{2,1}^2 = - c^2(t_{2,1}')^2 < 0 $$
+			\begin{thm}
+				A reference frame $K'$ where two events occur at the same point such that $(\ell_{2,1}')^2 = 0$ will exist if and only if an initial reference frame $K$ where the two events were defined has a negative valued interval $s_{2,1}^2 < 0$. 
+			\end{thm}
+		\subsection{Proper Time}
+			\begin{defn}
+				We say that events are \textbf{time-like separated} whenever $s_{2,1}^2 < 0$, implying that the velocity of propagation is less than the speed of light.
+			\end{defn}
+			\begin{defn}
+				We say that events are \textbf{space-like separated} whenever $s_{2,1}^2 > 0$, implying that the velocity of propagation is more than the speed of light, so these two events cannot be connected due to the principle of invariance.
+			\end{defn}
+			\begin{defn}
+				We say that events are \textbf{light-like separated} or \textbf{null-like separated} whenever the interval of the two events is zero: $s_{2,1}^2 = 0$
+			\end{defn}
+			Furthermore, we can say for the case of time-like separation that signal propagation between events may occur towards the future or towards the past:
+			\begin{align*}
+				s_{2,1}^2 < 0 \land t_{2,1} > 0 &\implies \text{ Signals propagate to the \textbf{future}} \\
+				s_{2,1}^2 < 0 \land t_{2,1} < 0 &\implies \text{ Signals propagate to the \textbf{past}}
+			\end{align*}
+			In conclusion, $s_{2,1}^2 < 0$ in some reference frame $K$ will imply that there exists another frame of reference $K'$ in which the two events can occur simultaneously.
+			\begin{defn}
+				The \textbf{proper time} $\tau_{2,1}^2$ between two time-like separated events in a reference frame $K'$ will be defined as
+				\vspace{1cm}
+				\begin{equation}
+					\label{eq:ProperTime}
+					\boxed{\tau_{2,1}^2 = (t_{2,1}')^2 = t_{2,1}^2 - \frac{\ell_{2,1}^2}{c^2} = -\frac{s_{2,1}^2}{c^2}}
+				\end{equation}
+			\end{defn}
+		
+		\pagebreak
+			Now, let us change notation to provide more convenience. We will define the coordinates of $\M$ in the following way:
+			$$ x^\mu = \begin{cases}
+				\mu=0: & x^0 = ct_{2,1} \\
+				\mu=1: & x^1 = x_{2,1} \\
+				\mu=2: & x^2 = y_{2,1} \\
+				\mu=3: & x^3 = z_{2,1}
+			\end{cases} \implies x^i = \begin{cases}
+			i=1: & x^1=x_{2,1} \\
+			i=2: & x^2=y_{2,1} \\
+			i=3: & x^3=z_{2,1}
+		\end{cases}$$
+		As such, we can thus define a tensor $x^\mu \in \M$ and its own transpose $x^\nu = (x^\mu)^T$ Now, we can make our calculations much more reliable by introducing another concept.
+		
+		\begin{defn}
+			A \textbf{metric tensor} is defined as a function which takes two tensors$\vec{v}$ and $\vec{w}$ and produces a real scalar value that generalizes properties of the dot product. In the case of $\M$, the \textbf{metric of spacetime} is defined as
+			$$ s_{2,1}^2 = \begin{pmatrix}
+			-c^2 & 0 & 0 & 0 \\
+			0 & 1 & 0 & 0 \\
+			0 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 1
+			\end{pmatrix} \cdot \begin{pmatrix}
+			t_{2,1} & x_{2,1} & y_{2,1} & z_{2,1} 
+			\end{pmatrix} \cdot \begin{pmatrix}
+			t_{2,1} \\
+			x_{2,1} \\
+			y_{2,1} \\
+			z_{2,1}
+			\end{pmatrix} = - c^2 t_{2,1}^2 + x_{2,1}^2 + y_{2,1}^2 + z_{2,1}^2$$
+			And in the much cleaner \textbf{Einstein summation notation}, we get:
+			\begin{equation}
+				\label{eq:EinsteinSummation}
+				\boxed{s_{2,1}^2 = \eta_{\mu, \nu} x^\mu x^\nu}
+			\end{equation}
+		\end{defn}
+	\noindent
+		This allows us to have a much cleaner definition for the \textbf{proper time} assuming that $c=1$:
+		\begin{equation}
+			\label{eq:ProperTimeGR}
+			\boxed{\tau_{2,1}^2 = - \eta_{\mu, \nu} x^\mu x^\nu = -s_{2,1}^2}
+		\end{equation}
+		\begin{thm}
+			The proper time $\tau_{2,1}^2$ between two time-like separated events measures the time elapsed as seen by an observer moving on a straight path between the events on the reference frame $K'$.
+		\end{thm}
+		Notice that if the spatial distance in the initial reference frame $K$ does not change among the two events such that the event is static in space ($\ell_{2,1}=0$) while displacing in time $t_{2,1}$, then it follows that
+		$ \tau_{2,1}^2 = (t_{2,1}')^2 = t_{2,1}^2 \implies \tau_{2,1} = t_{2,1}$. This extrapolates to the fact that the proper time $\tau_{2,1}$ between two events will be invariant regardless of the speed of the inertial frame of the observer, which in this case $K'$. However, in most general cases where the frames are not inertial, the proper (observed) time $\tau_{2,1}$ and the event time $t_{2,1}$ will not be equal.
+		
+		\begin{figure}[h]
+			\begin{subfigure}{0.4\textwidth}
+				\center
+				\begin{tikzpicture}[scale=1]
+					\draw (2,2) node []{$\M$} ;
+					\draw [step=0.5cm, grey, opacity=0.25] (-2.5,-2.5) grid (2.5,2.5);
+					\draw [->, thick,  blue, >=stealth] (-1,-2) -- (-1,1.95);
+					\draw [->, thick, green, >=stealth] (-1,-2) -- (1.45,-0.05);
+					\draw [->, thick, green, >=stealth] (1.5,0) -- (-0.95,1.95);
+					\draw [->] (-2, -2.5) -- (-2, 2) node (taxis) [above] {$t$};
+					\draw [->] (-2.5, -2) -- (2, -2) node (xaxis) [right] {$x$};
+					\filldraw (-1, -2) circle (2pt) node [right =2mm, below] {$A$}
+						(-1, 2 ) circle (2pt) node [right =2mm, above] {$C$}
+						(-1, 0) circle (2pt) node [right =2mm, below] {$B$}
+						(1.5, 0) circle (2pt) node [right =2mm, below] {$B'$};
+					\draw [<->, blue] (-1.5, -2) -- (-1.5, 2) node [left=2mm, below=1.9cm] {$\triangle t$};
+					\draw [<->, green, >=stealth] (-0.95, 0) -- (1.45, 0) node [left=1.3cm, above=-0.2mm] {$\triangle x$};
+				\end{tikzpicture}
+			\end{subfigure}
+			\hfill
+			\begin{minipage}{0.56\textwidth}
+				\begin{spacing}{1.5}
+					Here, we see the famous \textit{twin's paradox}. We have two observers relative to a frame of reference, usually considered twins, that will go from a point $A(t,x) = (0, 0)$ to a point $C(t,x)=(\triangle t, 0)$ in $\M$. The first twin will remain static in space while the second will go to point $B' (t,x) = \left(\frac{\triangle t}{2}, \triangle x\right)$ before reaching point $C$, where $\triangle x = \frac12 v \triangle t$ for propagation velocity $v$. The proper time for the trajectory of the first twin from $A$ to $B$ is clearly $\tau_{B,A} = \frac{\triangle t}{2}$, but for the second twin, the proper time from $A$ to $B'$ is given by
+				\end{spacing}
+			\end{minipage}
+		\end{figure} 
+		\vspace{-0.5cm}
+		$$ \tau_{B',A}^2 = \left(\frac{\triangle t}{2}\right)^2 - (\triangle x)^2 $$
+		\begin{equation}
+			\label{eq:RelativeProperTime}
+			\therefore \boxed{\tau_{B',A} = \frac{\triangle t}{2} \sqrt{1 - v^2} }
+		\end{equation}
+	
+		By symmetry, it follows that $\tau_{C,B} = \tau{B,A}$ and $\tau_{B', A} = \tau_{C, B'}$. Considering the entire sequence of movement for both twins, we have
+		\begin{align*}
+			\tau_{C,B,A} &= \triangle t \\
+			\tau_{C,B',A} &= \sqrt{1 - v^2} \triangle t
+ 		\end{align*}
+ 		Clearly, $\tau_{C,B,A} > \tau_{C,B',A}$, and so the second twin is younger than the first twin by the time they both reach the point $C$. This implies that the proper time $\tau$ along some world line is related to the interval $s^2$ traversed through spacetime. Contrary to Classical Mechanics, this implies that non-straight paths are shorter in proper time in Relativistic Mechanics. Because $\M$ is a differentiable manifold, we can redefine the \textbf{line element} as
+ 		\begin{equation}
+ 			\label{eq:LineElement}
+ 			 \boxed{ds^2  = \eta_{\mu, \nu} dx^\mu dx^\nu}
+ 		\end{equation}
+ 		We will now get the parametrization for a worldline by defining the spacetime curve $x^\mu (\lambda)$ to be able to calculate derivatives from coordinates of the line element. Thus, we will be able to compute a path integrals to define proper distance and proper time respectively:
+ 		\begin{align*}
+ 			\triangle \mathcal{S} &= \int \sqrt{ \eta_{\mu, \nu} \frac{dx^\mu}{d\lambda} \frac{dx^\nu}{d\lambda}} d\lambda \\
+ 			\triangle \tau &= \int \sqrt{- \eta_{\mu, \nu} \frac{dx^\mu}{d\lambda} \frac{dx^\nu}{d\lambda}} d\lambda
+ 		\end{align*}
+ 		
+ 		This leads us to an important conclusion about elementary particles. Massive particles will propagate with a time-like separation while massless particles will propagate with a space-like separation. However, the distinction between Special and General Relativity only becomes apparent when considering very large masses that can bend spacetime itself. In Special Relativity, bodies that do not bend space time significantly can be assumed to be in flat spacetime at all times.
+ 		
+ 		
 \end{document}
