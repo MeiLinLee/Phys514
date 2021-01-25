@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  24 JAN 2021 13:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  24 JAN 2021 23:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1203,7 +1203,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 42.
 \c@obs=\count371
 \c@exe=\count372
 LaTeX Font Info:    Trying to load font information for OT1+txr on input line 1
-38.
+40.
  (c:/texlive/2020/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )) (./Phys514_Notes.aux)
@@ -1411,34 +1411,47 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.63 			
-         [1]pdfTeX warning (ext4): destination with the same identifier (name{p
-age.2}) has been already used, duplicate ignored
+         [1]
+LaTeX Font Info:    Trying to load font information for U+eus on input line 106
+.
+ (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/ueus.fd
+File: ueus.fd 2013/01/14 v3.01 Euler Script
+)pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
+ been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.106 \end{document}
-                     [2] (./Phys514_Notes.aux)
+l.107 			\end{defn}
+                    [2]
+Underfull \hbox (badness 1009) in paragraph at lines 138--139
+[]\OT1/txr/m/n/10 We as-sume the co-or-di-nate of each frame to be $([]\OML/txm
+i/m/it/10 ; []; []\OT1/txr/m/n/10 )$ and
+ []
+
+[3] [4] (./Phys514_Notes.aux)
 Package rerunfilecheck Info: File `Phys514_Notes.out' has not changed.
-(rerunfilecheck)             Checksum: CEED044AA44C3131B7EB2D062FA205D5;149.
+(rerunfilecheck)             Checksum: 575E08D35EE863F5282F2976EF978D3F;207.
  ) 
 Here is how much of TeX's memory you used:
- 41357 strings out of 479304
- 931930 string characters out of 5871213
- 1472221 words of memory out of 5000000
- 57875 multiletter control sequences out of 15000+600000
- 453229 words of font info for 149 fonts, out of 8000000 for 9000
+ 41409 strings out of 479304
+ 932624 string characters out of 5871213
+ 1477304 words of memory out of 5000000
+ 57899 multiletter control sequences out of 15000+600000
+ 460029 words of font info for 164 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 143i,11n,144p,965b,1098s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 143i,11n,144p,1112b,1098s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texm
-f-dist/fonts/type1/public/txfonts/rtxmi.pfb><c:/texlive/2020/texmf-dist/fonts/t
-ype1/public/txfonts/rtxr.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/txf
-onts/txmia.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/txfonts/txsy.pfb>
-<c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2020/t
-exmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/fonts/ty
-pe1/urw/times/utmri8a.pfb>
-Output written on Phys514_Notes.pdf (4 pages, 52909 bytes).
+f-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb><c:/texlive/2020/texmf-dist
+/fonts/type1/public/txfonts/rtxb.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pu
+blic/txfonts/rtxmi.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/txfonts/r
+txr.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/txfonts/txmia.pfb><c:/te
+xlive/2020/texmf-dist/fonts/type1/public/txfonts/txsy.pfb><c:/texlive/2020/texm
+f-dist/fonts/type1/public/txfonts/txsya.pfb><c:/texlive/2020/texmf-dist/fonts/t
+ype1/urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utm
+r8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Phys514_Notes.pdf (6 pages, 73442 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
- 10 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 111 PDF objects out of 1000 (max. 8388607)
+ 92 compressed objects within 1 object stream
+ 22 named destinations out of 1000 (max. 500000)
+ 37 words of extra memory for PDF output out of 10000 (max. 10000000)
 

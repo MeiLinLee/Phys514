@@ -74,17 +74,17 @@
 							% Frame K
 							\draw [->, blue, very thick, >=stealth] (1.5, 2) -- (2.5, 2) node [above =3mm, left=2mm] {$\vec{V}$} ;
 							
-							\draw [->, thick] (0,0) -- (0,2) node (yaxis) [above] {$y$};
-							\draw [->, thick] (0,0) -- (2,0) node (xaxis) [right] {$x$};
-							\draw [->, thick] (0,0) -- (-1.21, -1.21) node (zaxis) [below] {$z$};
+							\draw [->] (0,0) -- (0,2) node (yaxis) [above] {$\hat{y}$};
+							\draw [->] (0,0) -- (2,0) node (xaxis) [right] {$\hat{x}$};
+							\draw [->] (0,0) -- (-1.21, -1.21) node (zaxis) [below] {$\hat{z}$};
 							% Frame K'
-							\draw [->, blue, thick] (1,0.5) -- (1,2.5) node (yaxis) [above] {$y'$};
-							\draw [->, blue, thick] (1,0.5) -- (3,0.5) node (xaxis) [right] {$x'$};
-							\draw [->, blue, thick] (1,0.5) -- (-0.21, -0.71) node (zaxis) [below] {$z'$};
+							\draw [->, blue] (1,0.5) -- (1,2.5) node (yaxis) [above] {$\hat{y}'$};
+							\draw [->, blue] (1,0.5) -- (3,0.5) node (xaxis) [right] {$\hat{x}'$};
+							\draw [->, blue] (1,0.5) -- (-0.21, -0.71) node (zaxis) [below] {$\hat{z}'$};
 							% Points on K'
-							\draw [-, blue] (1.5, 0.7) -- (1.5, 0.3) node [above=3mm] {\footnotesize$B$};		
-							\draw [-, blue] (2, 0.7) -- (2, 0.3) node [above=3mm] {\footnotesize$A$};
-							\draw [-, blue] (2.5, 0.7) -- (2.5, 0.3) node [above=3mm] {\footnotesize$C$};	
+							\draw [-, blue] (1.5, 0.7) -- (1.5, 0.3) node [above=3mm] {\smaller$B$};		
+							\draw [-, blue] (2, 0.7) -- (2, 0.3) node [above=3mm] {\smaller$A$};
+							\draw [-, blue] (2.5, 0.7) -- (2.5, 0.3) node [above=3mm] {\smaller$C$};	
 							\draw [->, blue, >=stealth] (1.9, 0.8) -- (1.6, 0.8);
 							\draw [->, blue, >=stealth] (2.1, 0.8) -- (2.4, 0.8);
 								
@@ -93,7 +93,7 @@
 					\hfill
 					\begin{minipage}{0.56\columnwidth}
 						\begin{spacing}{1.5}
-							We have two inertial frames $K$ and $K'$ with coordinates defined by $(x,y,z)$ and $(x',y',z')$ correspondingly. The frame $K'$ moves relative to $K$ at a constant velocity $\vec{V}$ in the $x$ axis direction. Suppose a signal propagates from a source point $A$ in the $K'$ frame in both directions of the $x'$ axis. The velocity of propagation of interaction on the frame $K'$ is constant and equal to $c$, as in all inertial frames. Therefore, the signal propagating an interaction from a source $A$ to equidistant sinks $B$ and $C$ in opposing directions will reach the sinks at the same time relative to this inertial frame.
+							We have two inertial frames $K$ and $K'$ with coordinates defined by $(\hat{x},\hat{y},\hat{z})$ and $(\hat{x}',\hat{y}',\hat{z}')$ correspondingly. The frame $K'$ moves relative to $K$ at a constant velocity $\vec{V}$ in the $\hat{x}$ axis direction. Suppose a signal propagates from a source point $A$ in the $K'$ frame in both directions of the $\hat{x}'$ axis. The velocity of propagation of interaction on the frame $K'$ is constant and equal to $c$, as in all inertial frames. Therefore, the signal propagating an interaction from a source $A$ to equidistant sinks $B$ and $C$ in opposing directions will reach the sinks at the same time relative to this inertial frame.
 						\end{spacing}
 					\end{minipage}
 				\end{figure}
@@ -101,6 +101,72 @@
 				Now shift our perspective to the frame of reference $K$. In this case, the propagation may not occur simultaneously from source $A$ to the sinks $B$ and $C$. The limiting aspect of the velocity of propagation to the value $c$ implies that the maximum velocity of propagation in the $K$ frame must be $c$ as well. Thus, as the sink $B$ moves towards the source $A$ relative to the frame $K$ while sink $C$ moves away from the source $A$, the signal will reach the sink $B$ before it reaches the sink $C$.
 			
 			\end{exmp}
+		\subsection{Intervals}
+			\begin{defn}
+				\textbf{Minkowski spacetime} $\M$ is defined as a 4-dimensional manifold\footnote{More on this later.} of 3 coordinates of Euclidean space and 1 coordinate for time.
+			\end{defn}
+			\begin{defn}
+				An \textbf{event} or \textbf{world point} is defined as a point in $\M$. 
+			\end{defn}
+			\begin{defn}
+				A \textbf{world line} is a set of smoothly connected world points in $M$. For instance, the worldline for an elementary particle determines the coordinates of the particle at all moments in time.
+			\end{defn}
 			
+			We will now express the \textbf{Principle of Invariance} of $c$. We again consider two frames of reference $K$ and $K'$ moving relative to each other with constant velocities.
+			\begin{figure}[h]
+				\begin{subfigure}{0.4\textwidth}
+					\center
+					\begin{tikzpicture}[scale=1]
+						\draw [step=0.5cm, grey, opacity=0.25] (-1.5,-1.5) grid (3.5,3);
+						% Frame K
+						\draw [->] (0,0) -- (0,2) node (yaxis) [above] {$\hat{y}$};
+						\draw [->] (0,0) -- (2,0) node (xaxis) [right, above] {$\hat{x}$};
+						\draw [->] (0,0) -- (-1.21, -1.21) node (zaxis) [below] {$\hat{z}$};
+						% Frame K'
+						\draw [->, blue] (1,0) -- (1,2) node (yaxis) [above] {$\hat{y}'$};
+						\draw [->, blue] (1,0) -- (3,0) node (xaxis) [right, above] {$\hat{x}'$};
+						\draw [->, blue] (1,0) -- (-0.21, -1.21) node (zaxis) [below] {$\hat{z}'$};
+						% Points on K
+						\filldraw (-1, 1) circle (2pt) node [above=1mm] {\smaller $(t_1, x_1, y_1, z_1)$} node [below=1mm, blue] {\smaller $(t_1', x_1', y_1', z_1')$};
+						\filldraw (2, 2) circle (2pt) node [above,] {\smaller $(t_2, x_2, y_2, z_2)$ }node [below=1mm, blue] {\smaller $(t_2', x_2', y_2', z_2')$};
+						\draw [->, thick, green, >=stealth] (-1,1) -- (2,2) node [below=2mm, left=11mm] {\smaller$\varv = c$} ;
+					\end{tikzpicture}
+				\end{subfigure}
+				\hfill
+				\begin{minipage}{0.56\columnwidth}
+					\begin{spacing}{1.5}
+						We assume the coordinate of each frame to be $(\hat{x}, \hat{y}, \hat{z})$ and $(\hat{x}', \hat{y}', \hat{z}')$ respectively such that $\hat{x}$ and $\hat{x}'$ coincide while $\hat{y}$ and $\hat{y}'$, and $\hat{z}$ and $\hat{z}'$, are parallel correspondingly. We define a first event on the frame $K$ as $(t_1,x_1,y_1,z_1)$ as the source point of a signal propagating onto another event denoted $(t_2, x_2, y_2, z_2)$ with speed $c$. We thus arrive at the following conclusion after defining the relative length of propagation as $\ell^2 = c^2 (t_2 - t_1)^2$:
+						$$ (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 = c^2 (t_2 - t_1)^2 = \ell^2$$
+					\end{spacing}
+				\end{minipage}
+			\end{figure}
+			\vspace{-1cm}
 			
+			We can now rearrange the above to denote a relationship called the \textbf{interval} $s^2$ of these two events in $K$:
+			\begin{equation}
+				\label{eq:Interval}
+				\boxed{0 = - c^2 (t_2 - t_1)^2 + (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 = s^2}
+			\end{equation}
+			Furthermore, we define the coordinates for these events in the reference frame $K'$ as $(t_1', x_1', y_1', z_1')$ and $(t_2', x_2', y_2', z_2')$ respectively. Similarly, we have the following interval $(s')^2$ between events in this frame:
+			$$ 0 = - c^2 (t_2' - t_1')^2 + (x_2' - x_1')^2 + (y_2' - y_1')^2 + (z_2' - z_1')^2 = (s')^2$$
+			The principal of invariance of the speed of light $c$ thus states that the speed of light will remain constant in any reference frame, so if the interval $s^2 = 0$ in $K$, then it will be also 0 in all reference frames. Furthermore, if the two events are infinitely close to each other then we can define the \textbf{differential interval} $ds^2$ between them as:
+			\begin{equation}
+				\label{eq:IntervalDifferential}
+				\boxed{ds^2 =  - c^2 dt^2 + dx^2 + dy^2 + dz^2}
+			\end{equation}
+		
+			\pagebreak
+		
+			We can then generalize\footnote{In some textbooks like \textit{The Classical Theory of Fields} by \textit{Landau and Lifshitz}, where most of my notes came from, the notation is inverted such that $\M = \{ p: p = +\alpha_t \hat{t} - \alpha_x \hat{x} - \alpha_y \hat{y} - \alpha_z \hat{z} \}$. The reason for this is because we are taking the square of the interval $s^2$, so either notation is allowed. However, \textit{care must be taken to avoid confusing which one we are using}!} $\M$ to be defined in the space spanned by $\{ \hat{ct}, \hat{x}, \hat{y}, \hat{z}\}$, where for simplicity we usually assume $c=1$ such that $\M = \{ p: p = -\alpha_t \hat{t} + \alpha_x \hat{x} + \alpha_y \hat{y} + \alpha_z \hat{z} \}$ where $\alpha_i$ for $i = t,x,y,z$ are constants denoting the time and coordinates of a propagation between two events, which may be infinitely close to each other. Recall that if $ds^2 = 0$ in $K$, then $(ds')^2 = 0$ for every other reference frame $K'$, and as both are infinitesimally small, we can say they are also proportional to each other:
+			$$ ds^2 \propto (ds')^2 \implies ds^2 = k (ds')^2$$
+			Where the constant $k$ will depend on the absolute value of the relative velocity between the two reference frames. It will not depend on time nor space as that would contradict the homogeneity of both, meaning that different points in time and space would not be equivalent. Moreover, it cannot depend on the direction of relative velocity as that would violate the isotropy of space.
+			
+			To examine this in more detail, we consider three different reference frames $K$, $K_1$, and $K_2$ such that $V_1$ and $V_2$ are the relative velocities of $K_1$ and $K_2$ due to $K$ correspondingly. Hence,
+			$$ ds^2 = k(V_1)ds_1^2 = k(V_2)ds_2^2 $$ 
+			$$ \therefore ds_1^2 = \frac{k(V_2)ds^2}{k(V_1)} = k(V_{2,1})ds^2$$
+			By the above, we are able to see that the angle between the relative velocities is irrelevant to get the constant $k(V_{2,1})$. As we did with the speed of light, we can then equate $k=1$ such that
+			$$ ds_1^2 = ds_2^2 \implies s_1^2 = s_2^2 $$
+			\begin{thm}
+				The interval $s^2$ between two arbitrary events is the same in all inertial frames of reference. The interval is thus invariant under transformations from one inertial system to another.
+			\end{thm} 
 \end{document}
