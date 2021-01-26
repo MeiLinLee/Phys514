@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  25 JAN 2021 05:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  26 JAN 2021 17:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1286,15 +1286,15 @@ l.104
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6] [7] (./Phys514_Notes.aux)
+[6] [7] [8] [9] (./Phys514_Notes.aux)
 Package rerunfilecheck Info: File `Phys514_Notes.out' has not changed.
-(rerunfilecheck)             Checksum: 41012907EDC1CE27378E90AAEAA98EA1;267.
+(rerunfilecheck)             Checksum: 99ACC8EE470C3955715C2BE4A793B7AA;339.
  ) 
 Here is how much of TeX's memory you used:
- 40923 strings out of 479304
- 926404 string characters out of 5871213
- 1482258 words of memory out of 5000000
- 57431 multiletter control sequences out of 15000+600000
+ 40945 strings out of 479304
+ 926679 string characters out of 5871213
+ 1482374 words of memory out of 5000000
+ 57436 multiletter control sequences out of 15000+600000
  421549 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  143i,12n,144p,1112b,1098s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1319,10 +1319,10 @@ nts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmti10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msam10.pfb>
-Output written on Phys514_Notes.pdf (9 pages, 278895 bytes).
+Output written on Phys514_Notes.pdf (11 pages, 288230 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 164 compressed objects within 2 object streams
- 39 named destinations out of 1000 (max. 500000)
- 45 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 234 PDF objects out of 1000 (max. 8388607)
+ 196 compressed objects within 2 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

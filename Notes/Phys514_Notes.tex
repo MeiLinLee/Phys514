@@ -304,6 +304,47 @@
  		\end{align*}
  		
  		This leads us to an important conclusion about elementary particles. Massive particles will propagate with a time-like separation while massless particles will propagate with a space-like separation. However, the distinction between Special and General Relativity only becomes apparent when considering very large masses that can bend spacetime itself. In Special Relativity, bodies that do not bend space time significantly can be assumed to be in flat spacetime at all times.
- 		
+ 	\subsection{Lorentz Transformations}
+ 		We will now look at coordinate transformations. In other words, we wish to find a relation between the various inertial frames such that their coordinate systems leave the interval as defined in equation (\ref{eq:EinsteinSummation}) invariant.
+ 		\begin{defn}
+ 			A \textbf{translation} is defined as a shift in coordinates on space or time such that
+ 			\begin{equation}
+ 				\label{eq:Translation}
+ 				\boxed{x^\mu \to x^{\mu '} = \delta_\mu^{\mu'} (x^\mu + a^\mu)}
+ 			\end{equation}
+ 			where $a^\mu$ is a set of 4 coefficients and $\delta_\mu^{\mu'}$ is a four dimensional \href{https://mathworld.wolfram.com/KroneckerDelta.html}{Kronecker delta}.
+ 		\end{defn}
+ 		Notice that translations will not alter $x_{2,1}^\mu$ as the metric stays the same, as we are only doing a change in coordinates with respect to a different coordinate system over the same metric, so the interval $s_{2,1}^2$ remains invariant as well.
+ 		\begin{defn}
+ 			A \textbf{boost} transformation is an offset by some constant velocity vector over the general coordinates $x^\mu$. A \textbf{spatial rotation} is transformation defined as a change in orientation over the spatial coordinates $x^i$. Both can be represented by an $\M$ independent matrix given by $\Lambda_\nu^{\mu '}$ such that\footnote{Both equations are the same, 1.11b is just a more compact form of 1.11a.}
+ 			\begin{subequations}
+ 				\label{eq:Boost-RotationMatrix}
+ 				\begin{empheq}[box=\widefbox]{align}
+ 					x^{\mu '} &= \Lambda_\nu^{\mu '} x^\nu \\
+ 					x_{2,1}' &= \Lambda x_{2,1}
+ 				\end{empheq}
+ 			\end{subequations}
+ 		\end{defn}
+ 		Contrary to translations, boosts and rotations will change $x_{2,1}^\mu$ by multiplying it by a matrix $\Lambda_{\nu}^{\mu '}$. Also note that matrix transformations are not commutative unless the matrices used are diagonalizable, while translations are, so the order in a matrix transform is important while in a translation it is irrelevant. To illustrate:
+ 		\begin{align*}
+ 			s_{2,1}^2 &= (x_{2,1})^T \eta (x_{2,1}) \\
+ 				&= (x_{2,1}')^T \eta (x_{2,1}') \\
+ 				&= (x_{2,1})^T \Lambda^T   \eta \Lambda (x_{2,1})
+ 		\end{align*}
+ 		This leads to the following result in both notations:
+ 		\begin{subequations}
+ 			\label{eq:MatrixTransform}
+ 			\begin{empheq}[box=\widefbox]{align}
+ 				\eta &= \Lambda^T \eta \Lambda \\
+ 				\eta_{\rho, \sigma} &= \Lambda_{\rho}^{\mu '} \eta_{\mu', \nu'} \Lambda_{\sigma}^{\nu '} = \Lambda_{\rho}^{\mu '} \Lambda_{\sigma}^{\nu '} \eta_{\mu', \nu'}
+ 			\end{empheq}
+ 		\end{subequations}
+ 		So we wish to find matrices $\Lambda_\nu^{\mu '}$ such that $\eta_{\mu', \nu'} = \eta_{\rho, \sigma}$. \begin{defn}
+ 			The matrices which satisfy \hyperref[eq:MatrixTransform]{$\eta_{\rho, \sigma} = \Lambda_{\rho}^{\mu '} \Lambda_{\sigma}^{\nu '} \eta_{\mu', \nu'}$} are denoted as \textbf{Lorentz transformations}. The group of all Lorentz transformations under matrix multiplication is denoted as the \textbf{Lorentz group}.
+ 		\end{defn}
+ 		\begin{defn}
+ 			The \textbf{3D Rotations group} $SO(3)$ is the set of all $3 \times 3$ matrices $R$ under multiplication that are all orthogonal. This means that $R^T R$ equals a $3\times3$ identity matrix $\mathcal{I}$:
+ 			$$ R^T R = \mathcal{I}$$
+ 		\end{defn}
  		
 \end{document}
