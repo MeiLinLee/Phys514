@@ -325,7 +325,7 @@
  				\end{empheq}
  			\end{subequations}
  		\end{defn}
- 		Contrary to translations, boosts and rotations will change $x_{2,1}^\mu$ by multiplying it by a matrix $\Lambda_{\nu}^{\mu '}$. Also note that matrix transformations are not commutative unless the matrices used are diagonalizable, while translations are, so the order in a matrix transform is important while in a translation it is irrelevant. To illustrate:
+ 		Contrary to translations, boosts and rotations will change $x_{2,1}^\mu$ by multiplying it by a matrix $\Lambda_{\nu}^{\mu '}$. Also note that matrix transformations are not commutative unless the matrices used are diagonalizable so the order in a matrix transform is important while in a translation it is irrelevant. The interval $s_{2,1}^2$ will hence remain invariant. To illustrate:
  		\begin{align*}
  			s_{2,1}^2 &= (x_{2,1})^T \eta (x_{2,1}) \\
  				&= (x_{2,1}')^T \eta (x_{2,1}') \\
@@ -340,11 +340,104 @@
  			\end{empheq}
  		\end{subequations}
  		So we wish to find matrices $\Lambda_\nu^{\mu '}$ such that $\eta_{\mu', \nu'} = \eta_{\rho, \sigma}$. \begin{defn}
- 			The matrices which satisfy \hyperref[eq:MatrixTransform]{$\eta_{\rho, \sigma} = \Lambda_{\rho}^{\mu '} \Lambda_{\sigma}^{\nu '} \eta_{\mu', \nu'}$} are denoted as \textbf{Lorentz transformations}. The group of all Lorentz transformations under matrix multiplication is denoted as the \textbf{Lorentz group}.
+ 			The matrices $\Lambda$ which satisfy \hyperref[eq:MatrixTransform]{$\eta_{\rho, \sigma} = \Lambda_{\rho}^{\mu '} \Lambda_{\sigma}^{\nu '} \eta_{\mu', \nu'}$} are denoted as \textbf{Lorentz transformations}. The group of all Lorentz transformations under matrix multiplication is denoted as the \textbf{Lorentz group} $SO(3,1)$. The matrices in the group will follow a \textbf{Lorentzian metric} where the eigenvalues are of the form $(-,+,+,+)$ or $(+,-,-,-)$. Note that often Lorentzian transformations will not commute, as the group is nonabelian.
  		\end{defn}
  		\begin{defn}
  			The \textbf{3D Rotations group} $SO(3)$ is the set of all $3 \times 3$ matrices $R$ under multiplication that are all orthogonal. This means that $R^T R$ equals a $3\times3$ identity matrix $\mathcal{I}$:
- 			$$ R^T R = \mathcal{I}$$
+ 			$$ \mathcal{I} = R^T \mathcal{I} R = R^T R \mathcal{I} $$
+ 			The matrices in the group will follow an \textbf{Euclidean metric} where the eigenvalues are of the form $(+,+,+)$. Like the Lorentz group, the matrices are nonabelian, so they do not commute.
  		\end{defn}
+ 		\begin{exmp}
+ 			Lorentzian transformation for a rotation in the $xy$-plane with $\theta$ as a periodic variable with period $2\pi$.
+ 			$$ \Lambda_{\nu}^{\mu '} = \begin{pmatrix}
+ 				1 &	0	&	0	&	0	\\
+ 				0	&	\cos \theta &	\sin \theta &	0 \\
+ 				0	&	-\sin \theta &	\cos \theta	&	0\\
+ 				0	&	0	&	0	&	1
+ 			\end{pmatrix}$$
+ 		\end{exmp}
+ 		\begin{exmp}
+ 			\label{ex:1.3}
+ 			Lorentzian transformation for a boost in the $xt$-plane with $\phi$ as a variable with domain $(-\infty, +\infty)$. It can be thought of as a "rotation between space and time":
+ 			$$ \Lambda_{\nu}^{\mu '} = \begin{pmatrix}
+ 				\cosh \phi &	-\sinh \phi	&	0	&	0	\\
+ 				-\sinh \phi	&	\cosh \phi &	0 	&	0 \\
+ 				0	&	0 	&	1	&	0\\
+ 				0	&	0	&	0	&	1
+ 			\end{pmatrix}$$
+ 		\end{exmp}
+ 		\begin{defn}
+ 			The nonabelian \textbf{Poincar\'{e} Group} denotes the set of $10 \times 10$ diagonalizable matrices that encompass the 10 degrees of freedom of translations on $x^\mu$ (4 degrees of freedom), rotations on $x^i$ (3 degrees of freedom), and boosts of both $x^0$ and some $x^i$ (3 degrees of freedom).
+ 		\end{defn}
+ 	\vspace{1cm}
+ 		\begin{note}
+ 			The difference between "boosting" a frame of reference and "accelerating" an object is the same as the difference between "rotating" a frame of reference and "spinning" an object; the first occurs as a change of coordinates, and the second occurs as a consequence of the equations of motion.
+ 		\end{note}
+ 	\pagebreak
+ 		\begin{exmp}
+ 			Considering the Lorentzian transformation in Example \ref{ex:1.3}, we can get the transformed coordinates as follows:
+ 			\begin{align*}
+ 				t' &= t \cosh \phi -  x \sinh \phi \\
+ 				x' &= -t \sinh \phi + x \cosh \phi
+ 			\end{align*}
+ 			By setting $x' = 0$, we get the velocity at this point in space.
+ 			$$
+ 				t \sinh \phi = x \cosh \phi \implies v = \frac{x}{t} = \frac{\sinh \phi}{\cosh \phi} = \tanh \phi
+ 			$$
+ 			Hence, we can set $\phi = \tanh^{-1} \left( v\right)$ such that
+ 			\begin{align*}
+ 				t' &= t \left(\frac{1}{\sqrt{1 - v^2}}\right) -  x\left(\frac{v}{\sqrt{1 - v^2}}\right) \\
+ 				x' &= -t \left(\frac{v}{\sqrt{1 - v^2}}\right) + x \left(\frac{1}{\sqrt{1 - v^2}}\right)
+ 			\end{align*}
+ 			Let us define $\gamma = (1 - v^2)^{-\nicefrac12}$ to get a much cleaner notation of \textbf{standard Lorentzian transformations}:
+ 			\begin{subequations}
+ 				\label{eq:StandardLorentzTransform}
+ 				\begin{empheq}[box=\widefbox]{align}
+ 					t' &= \gamma (t - vx) \\
+ 					x' &= \gamma (-vt + x)
+ 				\end{empheq}
+ 			\end{subequations}
+ 			Graphically an arbitrary Lorentzian transformation that relates coordinates $(t', x')$ to the $(t,x)$ coordinates would look like the following. Note that the event remains unchanged relatively inside the light cone given by the limits $|x| \leq |t|$ and $|x'| \leq |t'|$.
+ 			\begin{figure}[h]
+ 				\center
+ 				\begin{tikzpicture}[scale=1.6]
+ 					% Grid
+ 					\filldraw [green, opacity=0.25] (-3, 1) -- (-3, 3) -- (3,3) -- (3,2) -- (-0.5, -1.5);
+ 					\filldraw [green, opacity=0.25] (-1, -2) -- (-0.5, -1.5) -- (0,-2);
+ 					\filldraw [red, opacity=0.1] (-3,1) -- (-0.5, -1.5) -- (-1, -2) -- (-3, -2);
+ 					\filldraw [red, opacity=0.1] (3,2) -- (-0.5, -1.5) -- (0, -2) -- (3, -2);
+ 					\draw [step=0.5cm, grey, opacity=0.25] (-3,-2) grid (3,3);
+ 					% Axes
+ 					\draw [->, thick, >=stealth] (-0.5, -2) -- (-0.5, 2.5)
+ 						node [above] {$t$};
+ 					\draw [->, thick, >=stealth] (-3, -1.5) -- (2.5, -1.5)
+ 						node [right] {$x$};
+ 					\draw [->, thick,blue, >=stealth] (-0.62, -2) -- (0.5, 2.5)
+ 						node [above] {$t'$};
+ 					\draw [->, thick, blue, >=stealth] (-1.95, -2) -- (2.5, -0.5)
+ 						node [right] {$x'$};
+ 					% Light cone
+ 					\draw [green] (1.5, 2.85) node [] {Time-like, $s^2 < 0$} (1.5, 2.65) node [] {Future} (-0.33, -1.88) node [] {\smaller Past} ;
+ 					\draw [red] (2.5, 0) node [] {Space-like} (2.5,-0.23) node [] {$s^2 > 0$};
+ 					\draw [black] (2 , 1.3) node [] {\small$x = t$}
+ 					(-1.5,0)node [] {\small$x = -t$}
+ 					;
+ 					\draw [blue] (2.5 , 1) node [] {\small$x' = t'$}
+ 					(-2,-0.5)node [] {\small$x' = -t$}
+ 					;
+ 					\draw [very thick, olive] (-1, -2) -- (3, 2)
+ 					;
+ 					\draw [very thick, olive] (-3, 1) -- (0, -2);
+ 					% Event is the same
+ 					\draw [dashed] (-0.5, 1.5) -- (1.5, 1.5);
+ 					\draw [dashed] (1.5, -1.5) -- (1.5, 1.5);
+ 					\draw [dotted, thick, blue] (0.21, 1.2) -- (1.5, 1.5);
+ 					\draw [dotted, thick, blue] (0.7, -1.08) -- (1.5, 1.5);
+ 					\filldraw [black] (1.5, 1.5) circle (1.5pt) node [above=2mm] {\small Event}; 
+ 					
+ 				\end{tikzpicture}
+ 			\end{figure} 
+ 		\end{exmp}
+ 		The takeaway here is that, despite the drawing, the axes of the Lorentzian remain orthogonal. The reason being
  		
 \end{document}

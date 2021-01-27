@@ -1,0 +1,310 @@
+\documentclass{article}
+
+
+\usepackage{NotesStyle}
+
+% Cover info
+
+\title{Phys 514 \\
+	\large Problem Set 1}
+
+\author{April Sada Solomon - 260708051}
+\date{Winter 2021}
+
+\begin{document}
+	\maketitle
+	\newpage
+	\tableofcontents
+	\newpage
+	
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	\cfoot{\thepage}
+	\section{Dealing with constants}
+	\subsection{Dimensions of c and G}
+		We know that $c$ denotes the speed of light, so we can deduct the units of $c$ by simple unit analysis:
+		$$ c = \max \frac{dl}{dt} \implies \boxed{[c] = \frac{[\text{length}]}{[\text{time}]}}$$
+		On the other hand, the gravitational constant $G$ can be obtained by unit analysis of Newtonian Mechanics:
+		$$
+			\frac{d}{dt} p(\vec{v}) = - \frac{\partial}{\partial r} U \left( \vec{r} \right) \implies \frac{[\text{mass}]\cdot[\text{length}]}{[\text{time}]^2}
+		$$
+		Now, we set the potential function to fit Newtonian Gravitation:
+		$$ \frac{d}{dt} p(\vec{v}) = -G \frac{m M}{r^2} \hat{r} \implies [G] \frac{[\text{mass}]^2}{[\text{length}]^2} = \frac{[\text{mass}]\cdot[\text{length}]}{[\text{time}]^2}$$
+		$$ \therefore \boxed{[G] = \frac{[\text{length}]^3}{[\text{mass}] \cdot [\text{time}]^2}} $$
+	\subsection{Black hole radius in terms of mass M}
+		Recall the Schwarzschild radius $r_s$ to determine the radius of the event horizon of a black hole:
+		$$ r_s = \frac{2GM}{c^2} $$
+		Using SI units and our answers for 1.1, we can approximate the magnitudes of $c$ and $G$ to 2 significant figures for simplicity such that $c \approx 3.0 \times 10^8$ [m][s]$^{-1}$ and $G \approx 6.7 \times 10^{-11}$ [m]$^3$[kg]$^{-1}$[s]$^{-2}$. Hence:
+		$$ r_s \approx \frac{2 (6.7 \times 10^{-11})M}{(3.0 \times 10^{8})^2} \quad\quad \frac{[\text{m}^3 \cdot \text{kg}^{-1} \cdot \text{s}^{-2}]}{[\text{m}\cdot\text{s}^{-1}]^2}$$
+		$$ \therefore \boxed{r_s \approx 1.5 \times 10^{-27} M \quad [\text{m}]\cdot[\text{kg}]^{-1}}$$
+		The units $[\text{kg}]^{-1}$ will be cancelled out when a mass $M$ in [kg] is plugged in, resulting in a radius in [m].
+	\subsection{Calculating black hole radius}
+	\subsubsection{Atom Bomb Baby}
+		$$M_p \approx 1.7 \times 10^{-27} \text{[kg]} \implies \boxed{r_s \approx 2.5 \times 10^{-55} \text{[m]}}$$
+	\subsubsection{What A Wonderful World}
+		$$M_E \approx 6.0 \times 10^{24} \text{[kg]} \implies \boxed{r_s \approx 8.8 \times 10^{-3} \text{[m]}}$$
+	\subsubsection{Bring The Sun/Toussaint L'Ouverture}
+		$$M_\odot \approx 2.0 \times 10^{30} \text{[kg]} \implies \boxed{r_s \approx 2.9 \times 10^{3} \text{[m]}}$$
+	\subsubsection{Black Hole Sun M87}
+		$$M_\bullet \approx 2.0 \times 10^{40} \text{[kg]} \implies \boxed{r_s \approx 2.9 \times 10^{13} \text{[m]}}$$
+	\subsection{Angular diameter of M87 SMBH}
+		Given an astronomical object of diameter $d$ at a given distance $D$ from the observer, we can measure its angular diameter with trigonometry:
+		$$ \delta = 2 \arctan\left(\frac{d}{2D}\right)$$ 
+		Therefore, given a diameter $d \approx 6.0 \time 10^{13}$ [m] and a distance of $D \approx 50 \times 10^6$ [ly] $\approx 4.7 \times 10^{23}$ [m], we have:
+		$$ \boxed{\delta \approx 1.3 \times 10^{-10} [\deg] \approx 4.7 \times 10^{-7} \,\,["]}$$
+		For comparison, let $D \approx 3.8 \times 10^8$ [m], which is the approximate distance to the moon, and let $d \approx 8.8 \times 10^{-2}$ [m] be the average diameter of an orange. Thus
+		$$ \delta \approx 2.1 \times 10^{-1} [\deg] \approx 7.6 \times 10^{-7} \,\,["]$$
+		which is on the same order of angular magnitude as the black hole. So taking a picture of the M87 SMBH using the Event Horizon Telescope is like seeing an orange on the moon with the naked eye.
+	\subsection{Surface gravity of M87 SMBH}
+		Recall that the gravitational force on some mass $m$ at the surface of the Earth, of mass $M_E \approx 6.0 \times 10^{24}$ [kg] and radius $R \approx 6.4 \times 10^6$ [m], is given by
+		$$ \frac{F}{m} \approx \frac{GM}{R^2} \approx 9.8\text{[m][s]}^{-2}$$
+		We now simply replace the values for the M87 SMBH so as to measure the gravitational force at the event horizon, or the "surface" of the black hole:
+		$$ \boxed{\frac{F}{m} \approx 1.5 \times 10^3 \text{[m][s]}^{-2}}$$
+	\subsection{GR proof with Mercury's orbital anomaly}
+		We can follow through Einstein's footsteps when he solved his \href{https://en.wikisource.org/wiki/The_Foundation_of_the_Generalised_Theory_of_Relativity#C._The_Theory_of_the_Gravitation-Field}{field equations}. We find the curvature of the geodesic of a photon as it passes some distance $\triangle x$ from some mass $M$. If $M$ is not significantly large, then the geodesic will behave like a straight path through spacetime. However, when $M$ is sufficiently large such that it bends spacetime, then the geodesic will be bent accordingly to the distance $\triangle x$ from the mass $M$. Recall the geodesic equation:
+		$$ \frac{d^2 x^\mu}{d\ell^2}  + \Gamma_{\nu, \lambda}^{\mu} \frac{d x^\nu}{d\ell}\frac{dx^\lambda}{d\ell} = 0$$
+		Where $\ell$ is the parametrization with respect to the worldline. As in the particular case of the mass of Mercury $m$ and the mass of the Sun $M$, we have that $m \ll M$ such that $m$ orbits the mass $M$, so the geodesic equation becomes:
+		$$ \left(\frac{dr}{d\tau} \right)^2 = \left(\frac{E}{mc}\right)^2 - \left(1 - \frac{r_s}{r} \right) \left( c^2 + \frac{h^2}{r^2}\right)$$
+		where $h = r \times v = \frac{L}{\mu}$ is the specific relative angular momentum, $r$ is the distance from $m$ to $M$, $c$ is the speed of light, $r_s$ is the Schwarzschild radius of $M$, $E$ is the total energy of the system, and $\tau$ represents proper time. Recalling the definition of the Schwarzschild radius $r_s = \frac{2GM}{c^2}$, we can rewrite the above equation to:
+		$$ \frac{m}{2} \left(\frac{d r}{d\tau}\right)^2 = \left(\frac{E^2}{2 m c^2} - \frac{mc^2}{2}\right) + \frac{GMm}{r} - \frac{L^2}{2\mu r^2} + \frac{G(M+m)L^2}{c^2 \mu r^3}$$
+		Which yields the following gravitational potential:
+		$$ U(r) = - \frac{GMm}{r} + \frac{L^2}{2\mu r^2} - \frac{G(M+m)L^2}{c^2 \mu r^3}$$
+		The first two terms denote a Newtonian gravitational potential and the angular centrifugal force respectively. The third term is a relativistic term that will alter the orbits to elliptical curves that precess over time, rightfully explaining the anomaly in Mercury's orbit as Einstein predicted. It will marginally increase the anomaly on the orbit the closer $m$ is to $M$. Effectively, this is why we only see evidence of this effect in Mercury and not in any other solar system body.
+	\pagebreak
+	\section{Order of Events}
+		Indeed, Figures 1.3 and 1.7 of Carroll's book give remarkable insight to answer this question. We carefully position the diagram such that we get the respective order as desired:
+		\begin{figure}[h]
+			\center
+			\begin{tikzpicture}[scale=1.6]
+				
+				\draw [step=0.5cm, grey, opacity=0.25] (-3,-2) grid (3,3);
+				% Axes
+				\draw [->, thick, >=stealth] (-0.5, -2) -- (-0.5, 2.5)
+				node [above] {$t$};
+				\draw [->, thick, green, >=stealth] (-0.35, -2) -- (-1.7, 2.5) 
+				node [above] {$t''$};
+				\draw [->, thick,blue, >=stealth] (-0.2, -2) -- (-3, 2.5)
+				node [above] {$t'$};
+				\draw [->, thick, >=stealth] (-3, -1.5) -- (2.5, -1.5)
+				node [right] {$x$};
+				\draw [->, thick, green, >=stealth] (-2, -2) -- (2.5, -0.5)
+				node [right] {$x'$};
+				\draw [->, thick, blue, >=stealth] (-1.24, -2) -- (2.5, 0.5)
+				node [right] {$x''$};
+				
+				\draw [dashed, thick] (-0.5, -0.4) -- (2, -0.4);
+				\draw [dashed, thick] (-0.5, -0.5) -- (0.75, -0.5);
+				\draw [dashed, thick] (-0.5, -0.95) -- (-0.2, -0.95);
+				
+				\draw [dashed, thick, green] (-0.55, -1.33) -- (2, -0.4);
+				\draw [dashed, thick, green] (-0.65, -0.95) -- (0.75, -0.5);
+				\draw [dashed, thick, green] (-0.6, -1.07) -- (-0.2, -0.95);
+				
+				\draw [dashed, thick, blue] (-0.24, -1.88) -- (2, -0.4);
+				\draw [dashed, thick, blue] (-0.55, -1.41) -- (0.75, -0.5);
+				\draw [dashed, thick, blue] (-0.66, -1.27) -- (-0.2, -0.95);
+				
+				
+				\filldraw (-0.2, -0.95) circle (1pt) node [above] {A}
+				(0.75, -0.5) circle (1pt) node [above] {B}
+				(2, -0.4) circle (1pt) node [above] {C};
+			\end{tikzpicture}
+		\end{figure}
+	
+		Indeed, on frame $\mathcal{O}$ we have the sequence of events $ABC$, on the frame $\mathcal{O}'$ we have the sequence $CBA$, and on the frame $\mathcal{O}''$ we have the sequence $CAB$, as required. As Carroll notes in his book, translations and transformations on a metric will leave the metric invariant, yet as time can be "rotated" through boosts as well through these transformations, a set of events may differ in order in different frames of reference, as shown in the diagram.
+		
+	\pagebreak
+	\section{Minkowski spacetime}
+	We have $\M$ defined over the usual Cartesian coordinates $x^\mu = (t,x,y,z)$ with a general line element:
+	$$ds^2 = \eta_{\mu, \nu} dx^\mu dx^\nu = -dt^2 + dx^2 + dy^2 + dz^2 $$
+	Now consider a new, different set of coordinates $x^{\mu '}$ such that we can write the original coordinates as a function of the new ones: $x^\mu = x^{\mu} (x^{\mu '})$
+	\subsection{Infinitesimal displacements}
+	It is easy to see from the coordinates given that
+	$$ dx^\mu = (dt, dx, dy, dz) $$
+	Now, we follow the given hint by applying the Taylor expansion to $x^\mu (x^{\mu '} + dx^{\mu '})$:
+	$$ 	x^\mu (x^{\mu '} + dx^{\mu '}) = x^\mu (x^{\mu '}) + \frac{\partial x^\mu}{\partial x^{\mu'}}(dx^{\mu'}) + \dots $$
+	$$ \therefore x^{\mu} (x^{\mu '} + dx^{\mu '}) - x^\mu (x^{\mu '}) \approx \frac{\partial x^\mu}{\partial x^{\mu '}} dx^{\mu '}$$
+	And we know that $ x^{\mu} (x^{\mu '} + dx^{\mu '}) - x^\mu (x^{\mu '}) = dx^\mu $, so
+	$$ \boxed{dx^\mu = \frac{\partial x^\mu}{\partial x^{\mu'}} dx^{\mu '}}$$
+	\subsection{Matrix inverse}
+	We have $x^\mu (x^{\mu'})$ which yields the matrix:
+	$$ \begin{pmatrix}
+		x^{0} (x^{0^\prime} , x^{1^\prime} , x^{2^\prime},  x^{3^\prime} ) \\
+		x^{1} (x^{0^\prime} , x^{1^\prime} , x^{2^\prime},  x^{3^\prime} ) \\
+		x^{2} (x^{0^\prime} , x^{1^\prime} , x^{2^\prime},  x^{3^\prime} ) \\
+		x^{3} (x^{0^\prime} , x^{1^\prime} , x^{2^\prime},  x^{3^\prime} ) 
+	\end{pmatrix}^T $$
+	Therefore:
+	\begin{equation}
+		\label{eq:3.1}
+		\frac{\partial x^\alpha}{\partial x^\beta} = \frac{\partial x^\alpha}{\partial x^{0^\prime}}\frac{\partial x^{0^\prime}}{\partial x^\beta} + \frac{\partial x^\alpha}{\partial x^{1^\prime}}\frac{\partial x^{1^\prime}}{\partial x^\beta} + \frac{\partial x^\alpha}{\partial x^{2^\prime}}\frac{\partial x^{2^\prime}}{\partial x^\beta} + \frac{\partial x^\alpha}{\partial x^{3^\prime}}\frac{\partial x^{3^\prime}}{\partial x^\beta}
+	\end{equation}
+	Such that $\alpha = \beta \implies \frac{\partial x^\alpha}{\partial x^\beta} = 1$ and $\alpha \neq \beta \implies \frac{\partial x^\alpha}{\partial x^\beta} = 0$. We can now define a Jacobian for $\frac{\partial x^\mu}{\partial x^{\mu'}}$  where
+	
+	$$ J =  \frac{\partial x^\mu}{\partial x^{\mu'}} = \frac{\partial (x^0, x^1, x^2, x^3)}{\partial (x^{0^\prime} , x^{1^\prime} , x^{2^\prime},  x^{3^\prime} ) }, \quad J_{\alpha, \beta} = \frac{\partial x^\alpha}{\partial x^{\beta^\prime}}$$
+	
+	We can also define an inverse Jacobian for $\frac{\partial x^{\mu'}}{\partial x^{\mu}}$:
+	
+	$$ J' =  \frac{\partial x^{\mu'}}{\partial x^{\mu}} = \frac{\partial(x^{0^\prime} , x^{1^\prime} , x^{2^\prime},  x^{3^\prime} )}{\partial (x^0, x^1, x^2, x^3) }, \quad J_{\sigma, \rho}' = \frac{\partial x^{\sigma'}}{\partial x^{\rho}}$$
+	
+	An $n \times n$ matrix $A$ can only have an inverse if there exists another $n \times n$ matrix $B$ such that $AA^{-1} = A^{-1}A = I$ where $I$ is the $n\times n$ identity matrix. Another requirement is that $\det(A)\neq0$. Therefore:
+	\begin{align*}
+		JJ' \to (JJ')_{\alpha, \beta} &= \sum_{k} J_{\alpha, k} J_{k, \beta}' \\
+		&= \sum_k \frac{\partial x^\alpha}{\partial x^{k'}} \frac{\partial x^{k'}}{\partial x^\beta} \\
+		\intertext{By the chain rule with equation (\ref{eq:3.1}):}
+		JJ' \to (JJ')_{\alpha, \beta}&= \frac{\partial x^\alpha}{\partial x^\beta}
+	\end{align*}
+	To conclude, we see that
+	$$ (JJ')_{\alpha, \beta} = \begin{cases}
+		\alpha = \beta, & 1\\
+		\alpha \neq \beta, & 0
+	\end{cases}$$
+	Now recall that for $n \times n$ matrices, we have $\det(A)\det(B) = \det(AB)$. Thus, we apply this to $J$ and $J'$ to get
+	$$ \det(J)\det(J')=\det(JJ')=\det(I)=1\neq0$$
+	This proves that $J$ is invertible as its determinant is nonzero and there exists a matrix $J'$ such that $JJ'=I$, so $\frac{\partial x^\mu}{\partial x^{\mu '}}$ is the inverse of $\frac{\partial x^{\mu'}}{\partial x^\mu}$.
+	\subsection{Spherical Coordinates}
+	Following from Problem 3.2, we can use the Jacobian matrix to check if $\frac{\partial x^\mu}{\partial x^{\mu '}}$. Our Jacobian for this problem is:
+	\vspace{1cm}
+	$$ J_{n,m} = \frac{\partial x^n}{\partial x^{m'}} : \begin{cases}
+		x^0 = t\\
+		x^1 = r\sin \theta \cos \phi \\
+		x^2 = r \sin \theta \sin \phi \\
+		x^3 = r \cos \theta
+	\end{cases}$$
+	$$ \therefore J = \frac{\partial \left(t, r \sin \theta \cos \phi, r \sin \theta \sin \phi, r \cos \theta \right)}{\partial (t, r, \theta, \phi)} : \begin{cases}
+		x^{0'} = t \\
+		x^{1'} = r \\
+		x^{2'} = \theta \\
+		x^{3'} = \phi
+	\end{cases}$$
+	\begin{align*}
+		\therefore J &=
+			\begin{pmatrix}
+				\frac{t}{dt} 	&	\frac{t}{dr}		&	\frac{t}{d\theta}	&	\frac{t}{d\phi} \\
+				\frac{r\sin \theta \cos \phi}{dt}		&	\frac{r\sin \theta \cos \phi}{dr}		&	\frac{r\sin \theta \cos \phi}{d\theta}	&	\frac{r\sin \theta \cos \phi}{d\phi} \\
+				\frac{r \sin \theta \sin \phi}{dt}		&	\frac{r \sin \theta \sin \phi}{dr}		&	\frac{r \sin \theta \sin \phi}{d\theta}	&	\frac{r \sin \theta \sin \phi}{d\phi} \\
+				\frac{r \cos \theta}{dt}		&	\frac{r \cos \theta}{dr}		&	\frac{r \cos \theta}{d\theta}	&	\frac{r \cos \theta}{d\phi} 
+			\end{pmatrix} 
+			\\&=
+			\begin{pmatrix}
+				1 & 0 & 0 & 0 \\
+				0 & \sin \theta \cos \phi & r \cos \theta \cos \phi & -r \sin \theta \sin \phi \\
+				0 & \sin \theta \sin \phi & r \cos \theta \sin \phi & r \sin \theta \cos \phi \\
+				0 & \cos \theta & -r \sin \theta & 0 \\
+			\end{pmatrix}
+	\end{align*}
+	\begin{align*}
+		\therefore \det(J) &=
+		\begin{vmatrix}
+			\sin \theta \cos \phi & r \cos \theta \cos \phi & -r \sin \theta \sin \phi \\
+			\sin \theta \sin \phi & r \cos \theta \sin \phi & r \sin \theta \cos\phi \\
+			\cos \theta & -r \sin \theta & 0
+		\end{vmatrix}  \\
+		&= (\sin \theta \cos \phi) 
+		\begin{vmatrix}
+			 r \cos \theta \sin \phi & r \sin \theta \cos\phi \\
+			 -r \sin \theta & 0
+		\end{vmatrix}
+		- ( r \cos \theta \cos \phi)
+		\begin{vmatrix}
+				\sin \theta \sin \phi &  r \sin \theta \cos\phi \\
+				\cos \theta & 0
+		\end{vmatrix}
+		\\
+		&\quad\quad\quad\quad\quad\quad\quad\quad- (r \sin \theta \sin \phi)
+		\begin{vmatrix}
+			\sin \theta \sin \phi & r \cos \theta \sin \phi \\
+			\cos \theta & -r \sin \theta
+		\end{vmatrix} \\
+		&= r^2 \left( \sin^3 \theta \cos^2 \phi + \sin^3 \theta \sin^2 \phi + \sin \theta \left(\cos^2 \theta \cos^2 \phi + \cos^2 \theta \sin^2 \phi \right)\right) \\
+		&= r^2 \left( \sin^3 \sin \theta \cos^2 \theta \right) \\
+		&= r^2 \sin \theta \left(\sin^2 \theta + \cos^2 \theta\right) \\
+		&= r^2 \sin \theta
+	\end{align*}
+	And so, the cases where $\det(J) = 0$ occur at $r=0$ and $\theta = n\pi, \quad n \in \N$, so $J$ is not invertible everywhere. 
+	
+	We follow through the displacement now.
+	\begin{align*}
+		dx^\mu &= \frac{\partial x^\mu}{\partial x^{\mu '}} d x^{\mu'} \\
+			&= r^2 \sin\theta dx^{\mu '}
+	\end{align*}
+	Which we can now integrate
+	$$ \int dx^\mu = \int r^2 \sin \theta dx^{\mu '} $$
+	$$ \therefore \int dt \iiint dxdydx = \int dt \iiint r^2 \sin \theta dr d\theta d\phi$$
+	$$ \therefore dx^\mu = (x^{1'}) \sin (x^{0'}) dx^{\mu '} $$
+	As expected.
+	\subsection{Line Element}
+	Given the general form of the line element $ds^2 = \eta_{\mu, \nu} dx^\mu dx^\nu$ where $dx^\mu = \frac{\partial x^\mu}{\partial x^{\mu '}}dx^{\mu '}$, we work with the coordinate system given in Problem 3.3 such that
+	\begin{align*}
+	 	ds^2  &= \eta_{\mu, \nu} \left( \frac{\partial x^\mu}{\partial x^{\mu '}} dx^{\mu '} \right)\left( \frac{\partial x^\nu}{\partial x^{\nu '}} dx^{\nu '} \right)\\
+	 	&= \begin{pmatrix}
+	 		-1 & 0 & 0 & 0 \\
+	 		0 & 1 & 0 & 0 \\
+	 		0 & 0 & 1 & 0 \\
+	 		0 & 0 & 0 & 1
+	 	\end{pmatrix}
+ 		\begin{pmatrix}
+ 			1 & 0 & 0 & 0 \\
+ 			0 & \sin \theta \cos \phi & r \cos \theta \cos \phi & -r \sin \theta \sin \phi \\
+ 			0 & \sin \theta \sin \phi & r \cos \theta \sin \phi & r \sin \theta \cos \phi \\
+ 			0 & \cos \theta & -r \sin \theta & 0 \\
+ 		\end{pmatrix}^2
+ 		\begin{pmatrix}
+ 			dt \\
+ 			dr \\
+ 			d\theta \\
+ 			d \phi
+ 		\end{pmatrix} \\
+ 	&= -dt^2 + \left(cos \theta dr - \sin \theta d \theta \right) + \left( \sin\theta \cos \phi dr + \cos \theta \cos \phi d \theta - \sin \theta \sin \phi d \phi \right)^2\\
+ 	&\quad\quad\quad\quad\quad\quad\quad\quad + \left( \sin \theta \sin \phi dr + \sin \theta \cos \phi d \theta + \sin \theta \cos \phi d \phi \right)^2 \\
+ 	&= -dt^2 + dr^2 + r^2 d\theta^2 + r^2 \sin^2 \theta d\theta^2
+	 \end{align*}
+ 
+ 	\pagebreak
+ 	
+ 	\section{Worldline parametrization}
+ 	\subsection{Constant velocity}
+ 	Considering Minkowski spacetime $\M$ on some worldline $x^\mu (\lambda)$ where $\lambda$ are points on the worldline and $x^\mu = (t,x,y,z)$ denotes the usual coordinates, we denote the differential $\frac{\partial x^\mu}{\partial \lambda} = \dot{x}^{\mu}$. Hence, let us denote two differential equations:
+ 	$$ \ddot{x}^{\mu} = 0, \quad \dot{t} \neq 0$$
+ 	$$ \therefore t(\lambda) = \gamma \lambda + c \implies \lambda = \frac{t-c}{\gamma}$$
+ 	It follows that
+ 	$$ \frac{\partial \lambda}{\partial t} = \frac{1}{\gamma} \implies \frac{\partial^2 \lambda}{\partial t^2} = 0 $$
+ 	Thus:
+ 	$$\ddot{x}^\mu (\lambda) = \ddot{x}^\mu \left( \frac{t-c}{\gamma} \right)$$
+ 	$$\therefore \frac{\partial x^{i}}{\partial t} = \frac{\partial x^{i}}{\partial \lambda} \frac{\partial \lambda}{\partial t} $$
+ 	$$\therefore \frac{\partial^2 x^{i}}{\partial t^2} = \frac{\partial x^{i}}{\partial \lambda} \frac{\partial^2 \lambda}{\partial t^2} + \frac{\partial^2 x^i}{\partial \lambda^2}\left(\frac{\partial \lambda}{\partial t}\right)^2 $$
+ 	$$ \therefore \frac{\partial^2 x^{i}}{\partial t^2} = \frac{1}{\gamma^2} \frac{\partial^2 x^{i}}{\partial \lambda^2}$$
+ 	Hence, $\ddot{x}^i = 0 \implies \frac{\partial^2 x^i}{\partial t^2} = 0$, so velocity is constant
+ 	
+ 	\subsection{Extreme Action (no, not that kind)}
+ 	The extrema of the action is found when the derivative $\dot{S} = \delta S$ of the action is equal to zero. Thus, considering
+ 	$$S = \int ds = \int d \lambda \sqrt{\eta_{\mu, \nu} \dot{x}^\mu \dot{x}^\nu}$$
+ 	we have
+ 	\begin{align*}
+ 		\delta S &= \delta \int ds = \int d \lambda \delta \left( \sqrt{ \eta_{\mu, \nu} \dot{x}^\mu \dot{x}^\nu} \right) \\
+ 		&= \int d \lambda \frac{\delta \left(\eta_{\mu, \nu} \dot{x}^\mu \dot{x}^\nu \right)}{2 \sqrt{\eta_{\mu, \nu} \dot{x}^\mu \dot{x}^\nu}} \\
+ 		&= \int \frac{d\lambda}{2 \sqrt{\eta_{\mu, \nu} \dot{x}^\mu \dot{x}^\nu}} \delta \left( \eta_{\mu, \nu} \dot{x}^\mu \dot{x}^\nu \right)\\
+ 		&=0
+ 	\end{align*}
+ \pagebreak
+ 	\begin{align*}
+ 		\therefore \delta (\eta_{\mu, \nu}\dot{x}^\mu \dot{x}^\nu) &= 0  \\
+ 		&= \dot{x}^\mu \dot{x}^\nu \partial_\kappa \eta_{\mu, \nu} \delta x^\kappa + 2 \eta_{\mu, \nu} \dot{x}^\mu \delta \dot{x}^\nu \\
+ 		&= \delta x^\mu \left( 2 \eta_{\mu, \nu} \ddot{x}^\nu + \dot{x}^\kappa \dot{x}^\nu \left(\partial_\kappa \eta_{\mu, \nu} + \partial_\mu \eta_{\kappa, \nu} + \partial_\nu \eta_{\mu, \kappa} \right)\right) \\
+ 		&= \left( 2 \eta_{\mu, \nu} \ddot{x}^\nu + \dot{x}^\kappa \dot{x}^\nu \left(\partial_\kappa \eta_{\mu, \nu} + \partial_\mu \eta_{\kappa, \nu} + \partial_\nu \eta_{\mu, \kappa} \right) \right)  
+ 		\intertext{Multiply everything by $\nicefrac{\eta^{\mu, \nu}}{2}$ such that}
+ 		&= \ddot{x}^\nu + \frac12 \dot{x}^\kappa \dot{x}^\nu \left( \eta^{\mu, \nu} \left( \partial_\kappa \eta_{\mu, \nu} + \partial_\mu \eta_{\kappa, \nu} + \partial_\nu \eta_{\mu, \kappa}\right) \right)
+ 	\end{align*}
+ 	Hence, we have $$\Gamma_{\mu, \nu}^\lambda = \frac12 \eta^{\mu \nu} \left( \partial_\kappa \eta_{\mu, \nu} + \partial_\mu \eta_{\kappa, \nu} + \partial_\nu \eta_{\mu, \kappa} \right)$$
+ 	As proven by Euler-Lagrange. Thus, this implies an extrema of the action as $\dot{S} = 0$.
+ 	\subsection{Christoffel symbols}
+ 	Problem 4.2 leads directly into the formula needed, as
+ 	$$ \Gamma_{\mu, \nu}^\lambda = \frac12 \eta^{\lambda i} \left(  \dot{\eta}_{i\mu, \nu} + \dot{\eta}_{i\nu, \mu} - \dot{\eta}_{\mu \nu, i} \right)$$
+ 	Recalling the Lorentzian transformations in generalized form:
+ 	$$ x^{\mu '} = \Lambda_\nu^{\mu'} x^\nu$$
+ 	And the parametrization of world lines:
+ 	$$ \dot{x}^\mu = \frac{\partial x^\mu}{\partial \lambda}, \quad \dot{x}^{\mu '} = \frac{\partial x^{\mu '}}{\partial \lambda} = \frac{\partial x^{\mu '}}{\partial x^\mu} \dot{x}^\mu$$
+ 	
+
+ 	
+\end{document}
