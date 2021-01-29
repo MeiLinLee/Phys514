@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.1.20)  29 JAN 2021 02:18
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.1.20)  29 JAN 2021 03:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1559,26 +1559,4 @@ File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 \tf@toc=\write5
 \openout5 = `"Assignment 2.toc"'.
 
- [2] [1] [2] [3] [4]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 221.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 221.
-
-[5] [6] (./Assignment 2.aux)
-Package rerunfilecheck Info: File `"Assignment 2".out' has not changed.
-(rerunfilecheck)             Checksum: <no file>.
- ) 
-Here is how much of TeX's memory you used:
- 45868 strings out of 477220
- 1044654 string characters out of 5834001
- 1651082 words of memory out of 5000000
- 64873 multiletter control sequences out of 15000+600000
- 415885 words of font info for 115 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 143i,19n,144p,456b,757s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-Output written on Assignment 2.pdf (8 pages).
+ [2] [1
