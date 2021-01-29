@@ -1,7 +1,7 @@
 %UsePackages
 \newcommand\hmmax{0}
 \newcommand\bmmax{0}
-\usepackage{amsmath, amsfonts, amssymb, amsthm, array, bm, chemfig, cite, circuitikz, etoolbox, empheq, enumerate, epsfig, epstopdf, fancyhdr, fge, float, listings, lstautogobble, mathtools, makecell, mathrsfs, mathtools, multirow, multicol, nicefrac, placeins, setspace, siunitx, subcaption, stmaryrd, textcomp, tabto, tikz, titling, upgreek, url, xcolor, tikz}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, array, bm, chemfig, cite, circuitikz, etoolbox, empheq, enumerate, epsfig, epstopdf, fancyhdr, fge, float, fontspec, listings, lstautogobble, mathtools, makecell, mathrsfs, mathtools, multirow, multicol, nicefrac, placeins, setspace, siunitx, subcaption, stmaryrd, textcomp, tabto, tikz, titling, upgreek, url, xcolor, tikz}
 \usepackage[pagebackref]{hyperref}
 \usepackage[font=singlespacing, 
 font={small}]{caption}
@@ -13,6 +13,8 @@ font={small}]{caption}
 \usepackage[normalem]{ulem}
 \useunder{\uline}{\ul}{}
 \usetikzlibrary{calc, patterns, angles, quotes}
+%Fonts
+\newfontfamily\SegoeEmoji{Segoe UI Emoji}
 %Colors
 \definecolor{green}{rgb}{0.0, 0.42, 0.24}
 \definecolor{grey}{rgb}{0.36, 0.54, 0.66}
@@ -65,6 +67,22 @@ font={small}]{caption}
 
 %NewCommands
 % Math Shortcuts
+\DeclareMathOperator{\et}{\text{\SegoeEmoji 🕰️}}
+
+\DeclareMathOperator{\ex}{\text{\SegoeEmoji 🥺}}
+\DeclareMathOperator{\ey}{\text{\SegoeEmoji 😖}}
+\DeclareMathOperator{\ez}{\text{\SegoeEmoji 😜}}
+
+\DeclareMathOperator{\er}{\text{\SegoeEmoji 🦄}}
+\DeclareMathOperator{\etheta}{\text{\SegoeEmoji 🐋}}
+\DeclareMathOperator{\ephi}{\text{\SegoeEmoji 🔥}}
+
+\DeclareMathOperator{\elambda}{\text{\SegoeEmoji 🐵}}
+
+
+\newcommand{\longspace}{\quad\quad\quad\quad\quad\quad\quad\quad}
+
+
 \newcommand{\smaller}{\scriptsize}
 \newcommand{\for}{\quad \text{for} \quad}
 \newcommand{\vel}{\mathfrak{v}}
@@ -72,7 +90,7 @@ font={small}]{caption}
 \newcommand{\M}{\mathcal{M}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
-\newcommand{\C}{\mathbb{C}}
+\newcommand{\Complex}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Pol}{\mathbb{P}}
