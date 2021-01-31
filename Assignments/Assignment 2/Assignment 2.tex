@@ -22,7 +22,7 @@
 	\cfoot{\thepage}
 	
 	\section{A bit of calculus}
-		Consider $\R^3$ in the Cartesian coordinates $x^i = (x,y,z)$. Hmmmm... Wait a minute, something's not right. Ah, there we go. Consider $\R^3$ in the Cartesian coordinates $\ex^i = (\ex,\ey,\ez)$ with spherical coordinates $\ex^{i'} = (\er, \etheta, \ephi)$ as defined by
+		Consider $\R^3$ in the Cartesian coordinates $x^i = (x,y,z)$. Hmmmm... Wait a minute, something's not right. Ah, there we go. Consider $\R^3$ in the Cartesian coordinates $\ex^i = (\ex,\ey,\ez)$ with spherical coordinates $\ex^{i'} = (\er, \etheta, \ephi)$ as defined\footnote{This document is written in \LaTeX, $\, $so clearly using emojis is true and validated.} by
 		\begin{align*}
 			\ex &= \er \sin \etheta \cos \ephi \\
 			\ey &= \er \sin \etheta \sin \ephi \\
@@ -147,79 +147,54 @@
  				z
  			\end{pmatrix} =
  			\begin{pmatrix}
- 				0 & x^2 \partial_3  & - x^3 \partial_2 \\
- 				x^3 \partial_1 & 0 & - x^1 \partial_3 \\
- 				x^1 \partial_2  &- x^2 \partial_1 & 0 \\
+ 				x^2 \partial_3   - x^3 \partial_2 \\
+ 				x^3 \partial_1  - x^1 \partial_3 \\
+ 				x^1 \partial_2  - x^2 \partial_1 \\
  			\end{pmatrix}
 			$$
-			we have the following rotation matrices 
+			we have the following Jacobians for each vector respectively: 
 			\begin{align*}
-				R_{x^1}(\theta) &= 
+				J_{v} &= 
 					\begin{pmatrix}
-						1		&		0		&		0		\\
-						0		&	\cos \theta		&	-\sin \theta		\\
-						0		&	\sin \theta		&	\cos \theta
+						0		&		0		&		0		\\
+						0		&	0		&	-1		\\
+						0		&	1	&	0
+					\end{pmatrix},
+					 &
+				J_{w}  &= 
+					\begin{pmatrix}
+						0	&		0		&	1		\\
+						0		&		0		&	0			\\
+						-1	&		0		&	0
+					\end{pmatrix}, &
+				J_z &= 
+					\begin{pmatrix}
+						0	&	-1		&		0		\\
+						1		&	0		&	0		\\
+						0		&	0		&	0
 					\end{pmatrix}
-					\approx
-					\begin{pmatrix}
-						1		&		0		&		0		\\
-						0		&	1		&	 -\theta		\\
-						0		&	\theta		&	 1
-					\end{pmatrix} \\
-				R_{x^2} (\theta) &= 
-					\begin{pmatrix}
-						\cos \theta	&		0		&	\sin \theta		\\
-						0		&		1		&	0			\\
-						-\sin \theta	&		0		&	\cos \theta
-					\end{pmatrix}
-					\approx
-					\begin{pmatrix}
-						1		&		0		&		\theta		\\
-						0		&	1		&	 0		\\
-						-\theta		&	0		&	 1
-					\end{pmatrix} \\
-				R_{x^1}(\theta) &= 
-					\begin{pmatrix}
-						\cos \theta	&	-\sin \theta		&		0		\\
-						\sin \theta		&	\cos \theta		&	0		\\
-						0		&	0		&	1
-					\end{pmatrix}
-					\approx
-					\begin{pmatrix}
-						1		&		-\theta		&		0		\\
-						\theta		&	1		&	 0		\\
-						0		&	0		&	 1
-					\end{pmatrix} 
 			\end{align*}
-			for $\theta \to 0$ angle of rotation. The image of $\Omega = \begin{psmallmatrix} v\\w\\z \end{psmallmatrix}$ is thus given by
-			$$ \text{Image} (\Omega) = \begin{pmatrix}
-				0	&	-r^3	&	r^2	\\
-				r^3	&	0		&	-r^1 \\
-				 -r^2	&	r^1	&	0
-			\end{pmatrix}$$
- 			Therefore,
- 			\begin{align*}
- 				x^{\mu'} &= \text{Image}(\Omega) x^\mu \\
- 				&= \begin{pmatrix}
- 						0	&	-r^3	&	r^2	\\
- 						r^3	&	0		&	-r^1 \\
- 						-r^2	&	r^1	&	0
- 					\end{pmatrix}
- 					\begin{pmatrix}
- 						x^1 \\
- 						x^2 \\
- 						x^3
- 					\end{pmatrix}\\
- 				&= \begin{pmatrix}
- 					0	&	-r^3 x^2 & r^2 x^3 \\
- 					r^3 x^1 & 0 & -r^1 x^3 \\
- 					-r^2 x^1 & r^1 x^2 & 0
- 				\end{pmatrix}
- 			\end{align*}
- 			which can be rearranged to $\alpha^\mu$ by replacing in $-r^i = \partial_i$, as expected.
+			for $x^{\mu'} = (I + \lambda J)x^\mu$. Therefore, the rotations with respect to each vector will be given by
+			\begin{align*}
+				T_{1,\mu} &= x^\mu + \lambda v = \begin{pmatrix}
+					x^1 \\
+					x^2 - \lambda x^3 \\
+					x^3 + \lambda x^2
+				\end{pmatrix}, &
+				T_{2,\mu} &= x^\mu + \lambda w = \begin{pmatrix}
+					x^1 + \lambda x^3 \\
+					x^2  \\
+					x^3 - \lambda x^1
+				\end{pmatrix}, &
+				T_{3,\mu} &= x^\mu + \lambda v = \begin{pmatrix}
+					x^1 - \lambda x^2\\
+					x^2 + \lambda x^1 \\
+					x^3
+				\end{pmatrix} \\
+			\end{align*}
+ 			For the limit of $\lambda \to 0$ as $T_\mu^\nu$ forms an infinitesimal rotation about $x^\nu$, as desired.
  			
  		\subsection{Radial coordinate $r$}
- 		\subsubsection{Dot products}
  			It is clear that
  			$$ r^2 = (x^1)^2 + (x^2)^2 + (x^3)^2$$
  			So the dot products are given by:
@@ -242,4 +217,281 @@
  			\end{itemize}
  			As we saw in the rest of Problem 2, $x^\mu \times \partial_\mu$ represents a rotation about an axis in the coordinate system. As rotations change the direction of a vector but not its magnitude, we conclude that:
  			$$ (x^\mu \times \partial_\mu)r = \vec{0}$$
+ 			\subsection{Spherical $z$ vector components}
+ 			We have
+ 			$ z = x^1 \partial_2 - x^2 \partial_1 = (-x^2, x^1, 0)$
+ 			where $\partial_\mu = \frac{\partial}{\partial x^\mu}$. We want to find spherical coordinates $x^{\mu'}$. By Chain Rule, we know that
+ 			$$ \partial_\mu = \frac{\partial}{\partial x^\mu} = \frac{\partial x^{\mu '}}{\partial x^\mu} \frac{\partial}{\partial x^{\mu'}} = J \partial_{\mu '}$$
+ 			$$ \therefore \partial_{\mu'} = J^{-1} \partial_\mu = \frac{\partial x^\mu}{\partial x^{\mu '}} \partial_\mu$$
+ 			Thus, it follows that:
+ 			\begin{align*}
+ 				z(x^\mu) &= x^1 \partial_2 - x^2 \partial_1 \\
+ 				\therefore z(x^{\mu'}) &= x^1(x^{\mu'}) \frac{\partial x^{\mu'}}{\partial x^2} \frac{\partial}{\partial x^{\mu'}} - x^2 (x^{\mu '}) \frac{\partial x^{\mu'}}{\partial x^1}\frac{\partial }{\partial x^{\mu'}}
+ 			\end{align*}
+ 			So the inverse Jacobian $J^{-1} = \frac{\partial x^{\mu'}}{\partial x^\mu}$ is
+ 			$$\frac{\partial x^{\mu'}}{\partial x^\mu} = 
+ 				\begin{pmatrix}
+ 					\frac{\partial r}{\partial x}	&	\frac{\partial r}{\partial y} &	\frac{\partial r}{\partial z} \\
+ 					\frac{\partial \theta}{\partial x} & \frac{\partial \theta}{\partial y} & \frac{\partial \theta}{\partial z} \\
+ 					\frac{\partial \phi}{\partial x} & \frac{\partial \phi}{\partial y} & \frac{\partial \phi}{\partial z} 				
+ 				\end{pmatrix} = \begin{pmatrix}
+ 				2x & 2y & 2z \\
+ 				\frac{xz}{r\sin \theta} & \frac{yz}{r\sin \theta} & -r \sin \theta \\
+ 				- \frac{y}{\left(r \sin \theta \right)^2} & \frac{x}{\left(r \sin \theta \right)^2} & 0
+ 			\end{pmatrix}
+ 			$$
+ 			for $\frac{\partial}{\partial x^{\mu'}} = \left( \frac{\partial}{\partial r}, \frac{\partial}{\partial \theta}, \frac{\partial}{\partial \phi}\right)$, $x^1 (x^{\mu'}) = r\sin\theta\cos\phi$, and $x^2 (x^{\mu'}) = r\sin\theta\sin\phi$.
+ 			Hence,
+ 			\begin{align*}
+ 				\frac{\partial x^{\mu'}}{\partial x^1} \frac{\partial}{\partial x^{\mu'}} &= \begin{pmatrix}
+ 					2x \frac{\partial}{\partial r} \\
+ 					\frac{xz}{r\sin\theta}\frac{\partial}{\partial \theta} \\
+ 					\frac{-y}{(r\sin\theta)^2}\frac{\partial}{\partial \phi}
+ 				\end{pmatrix} & 
+ 				\frac{\partial x^{\mu'}}{\partial x^2} \frac{\partial}{\partial x^{\mu'}} &= \begin{pmatrix}
+ 					2y \frac{\partial}{\partial r} \\
+ 					\frac{yz}{r\sin\theta}\frac{\partial}{\partial \theta} \\
+ 					\frac{x}{(r\sin\theta)^2}\frac{\partial}{\partial \phi}
+ 				\end{pmatrix}
+ 			\end{align*}
+ 			$$ \therefore  z(x^{\mu'}) = x^1(x^{\mu'}) \frac{\partial x^{\mu'}}{\partial x^2} \frac{\partial}{\partial x^{\mu'}} - x^2 (x^{\mu '}) \frac{\partial x^{\mu'}}{\partial x^1}\frac{\partial }{\partial x^{\mu'}} = r\sin\theta\cos\phi \begin{pmatrix}
+ 				2y \frac{\partial}{\partial r} \\
+ 				\frac{yz}{r\sin\theta}\frac{\partial}{\partial \theta} \\
+ 				\frac{x}{(r\sin\theta)^2}\frac{\partial}{\partial \phi}
+ 			\end{pmatrix} - r\sin\theta\sin\phi \begin{pmatrix}
+	 			2y \frac{\partial}{\partial r} \\
+	 			\frac{yz}{r\sin\theta}\frac{\partial}{\partial \theta} \\
+	 			\frac{x}{(r\sin\theta)^2}\frac{\partial}{\partial \phi}
+ 			\end{pmatrix}$$
+ 			Now, notice that $(x^1)^2 + (x^2)^2 = r^2 \sin\theta$ and
+ 			$$ 
+ 			\begin{pmatrix}
+ 				x^1 \\
+ 				x^2 \\
+ 				x^3
+ 			\end{pmatrix} = \begin{pmatrix}
+ 			r\sin\theta\cos\phi \\
+ 			r\sin\theta\sin\phi \\
+ 			r\cos\theta
+ 		\end{pmatrix}$$
+ 		So we can now finally compute each component of the $z$ vector in spherical coordinates:
+ 		\begin{align*}
+ 			x^{1'} &= &2xy \partial r - 2yx \partial r& &= 0 \\
+ 			x^{2'} &= &\frac{xyz}{\sqrt{x^2 + y^2}} \partial \theta - \frac{yxz}{\sqrt{x^2 + y^2}} \partial \theta& &= 0\\
+ 			x^{3'} &= &\frac{x^2}{x^2 + y^2} \partial \phi + \frac{y^2}{x^2 + y^2} \partial \phi& &= \partial \phi
+ 		\end{align*}
+ 		$$ \therefore \boxed{z = \begin{psmallmatrix}
+ 			0\\
+ 			0\\
+ 			\partial \phi
+ 		\end{psmallmatrix}}$$
+ 		\subsection{Lorentz boost}
+ 		From the Carroll book, we have the following definition of a Lorentz boost over Minkowski spacetime:
+ 		
+ 		$$ \Lambda_\nu^{\mu'} = \begin{pmatrix}
+ 			\cosh \phi	&	- \sinh \phi	&	0	&	0	\\
+ 			-\sinh \phi & \cosh \phi &	0	&	0	\\
+ 			0	&	0	&	1	&	0 \\
+ 			0	&	0	&	0	&	1
+ 		\end{pmatrix}$$
+ 		such that $x' = \Lambda x$. Therefore, we define $\M^2$ spacetime $(t,x)$ such that
+ 		$$ \Lambda = \begin{pmatrix}
+ 			\cosh \lambda & - \sinh \lambda \\
+ 			- \sinh\lambda & \cosh \lambda
+ 		\end{pmatrix} $$
+ 		where $\lambda$ is the parametrization of the boost over a worldline in the $x$ direction. Hence:
+ 		
+ 		\begin{align*}
+ 			\begin{pmatrix}
+ 				t' \\
+ 				x' 
+ 			\end{pmatrix} & =
+ 			\begin{pmatrix}
+ 				\cosh \lambda & - \sinh \lambda \\
+ 				- \sinh\lambda & \cosh \lambda
+ 			\end{pmatrix}
+ 			\begin{pmatrix}
+ 				t \\
+ 				x 
+ 			\end{pmatrix} \\
+ 			&= \begin{pmatrix}
+ 				t \\
+ 				x 
+ 			\end{pmatrix}\cosh \lambda - \begin{pmatrix}
+ 				x \\
+ 				t 
+ 			\end{pmatrix}\sinh \lambda 
+ 		\end{align*}
+ 		Now assume that $\lambda$ is infinitesimally small such that $\cosh \lambda \to 1$ and $\sinh \lambda \to 2$. Then, it follows that
+ 		$$ 
+ 			\begin{pmatrix}
+ 				t' \\
+ 				x' 
+ 			\end{pmatrix} = 
+ 			\begin{pmatrix}
+ 				t \\
+ 				x 
+ 			\end{pmatrix} - \lambda \begin{pmatrix}
+ 			x \\
+ 			t 
+ 			\end{pmatrix}
+ 		$$
+ 		$$ \therefore x' = x-\lambda v$$
+ 		The velocity $v$ is given by
+ 		$$ v = \begin{pmatrix}
+ 			x \\ t
+ 		\end{pmatrix} = x \partial_t + t \partial_x$$ where for infinitesimally small $\lambda$ we have $\partial_t \to (1,0)$ and $\partial_x \to (0,1)$. Therefore:
+ 		\begin{align*}
+ 			x \partial_t &\to (x,0) \\
+ 			t \partial_x &\to (0,t)
+ 		\end{align*}
+ 		So $$\boxed{v = x \partial_t + t \partial_x = \begin{pmatrix} x \\ t \end{pmatrix}}$$
+ 		is the vector yielding a boost on the $x$ direction, with a Lorentzian matrix given by:
+ 		$$ \Lambda = \begin{pmatrix}
+ 			1 & -\lambda \\
+ 			-\lambda & 1
+ 		\end{pmatrix}$$
+ 		
+ \pagebreak	
+ 	\section{Lie algebra}
+ 		\subsection{Vector transform}
+	 		We have the commutator:
+	 		$$ \left[ \ex, \ey \right]^{\er} = \ex^{\ez} \partial_{\ez} \ey^{\er} - \ey^{\ez} \partial_{\ez} \ex^{\er}$$
+	 		SIKE, just kidding. Imagine doing GR with emojis tho. Einstein would be so proud of us.
+	 		$$ [v,w]^\nu = v^\mu \partial_\mu w^\nu - w^\mu \partial_\mu v^\nu$$
+	 		Now we let $\lambda$ be a smooth function on the manifold on which the vectors are defined such that
+	 		\begin{align*}
+	 			[v,w]^\nu (\lambda) &= \left[ v^\mu \partial_\mu, w^\nu \partial_\nu \right] (\lambda) \\
+	 			&= v^\mu \frac{\partial}{\partial x^\mu} \left( w^\nu \frac{\partial \lambda}{\partial x^\nu}\right) - w^\mu \frac{\partial}{\partial x^\mu} \left( v^\nu \frac{\partial \lambda}{\partial x^\nu}\right) \\
+	 			\intertext{By the product rule, we get:}
+	 			&= v^\mu \frac{\partial w^\nu}{\partial x^\mu} \frac{\partial \lambda}{\partial x^\nu} + v^\nu w^\nu \frac{\partial^2 \lambda}{\partial x^\mu \partial x^\nu} - w^\mu \frac{\partial v^\nu}{\partial x^\mu} \frac{\partial \lambda}{\partial x^\nu} - w^\mu v^\mu \frac{\partial^2 \lambda}{\partial x^\nu \partial x^\mu} \\
+	 			&= v^\mu \frac{\partial w^\nu}{\partial x^\mu} \frac{\partial \lambda}{\partial x^\nu} - w^\mu \frac{\partial v^\nu}{\partial x^\mu} \frac{\partial \lambda}{\partial x^\nu} \\
+	 			&= \left( v^\mu \frac{\partial w^\nu}{\partial x^\mu} \frac{\partial }{\partial x^\nu} - w^\mu \frac{\partial v^\nu}{\partial x^\mu} \frac{\partial}{\partial x^\nu} \right) (\lambda)\\
+	 			&= \left( v^\mu \partial_\mu w^\nu - w^\mu \partial_\mu v^\nu \right) (\lambda)
+	 		\end{align*}
+ 			So therefore,
+ 			$$ [v,w]^\nu = \left[ v^\mu \partial_\mu, w^\nu \partial_\nu \right] =  v^\mu \frac{\partial w^\nu}{\partial x^\mu} \frac{\partial }{\partial x^\nu} - w^\mu \frac{\partial v^\nu}{\partial x^\mu} \frac{\partial}{\partial x^\nu}$$
+ 			As needed.
+ 			\pagebreak
+ 		\subsection{Commutator computation}
+ 			We have the commutator:
+ 			$$ \left[ v,w\right]^\mu = v^\mu \partial_\mu w^\nu - \omega^\mu \partial_\mu v^\nu = \sum_i \sum_j \left( v^j \partial_j w^i - w^j \partial_j v^i \right) \partial_i$$
+ 			Therefore:
+ 			$$ v = \left[0, -x^3, x^2 \right]^T, \quad\quad w = \left[x^3, 0, -x^1 \right]^T, \quad \quad z = \left[-x^2, x^1, 0 \right]^T$$
+ 			which leads us to the following Jacobians:
+ 		\begin{align*}
+ 			J_{v} &= 
+ 			\begin{bsmallmatrix}
+ 				0		&		0		&		0		\\
+ 				0		&	0		&	-1		\\
+ 				0		&	1	&	0
+ 			\end{bsmallmatrix},
+ 			&
+ 			J_{w}  &= 
+ 			\begin{bsmallmatrix}
+ 				0	&		0		&	1		\\
+ 				0		&		0		&	0			\\
+ 				-1	&		0		&	0
+ 			\end{bsmallmatrix}, &
+ 			J_z &= 
+ 			\begin{bsmallmatrix}
+ 				0	&	-1		&		0		\\
+ 				1		&	0		&	0		\\
+ 				0		&	0		&	0
+ 			\end{bsmallmatrix}
+ 		\end{align*}
+ 			Now recall the definition of a commutator via Jacobian:
+ 			$$ [X,Y] := J_y X - J_x Y$$
+ 			Therefore:\vspace{-1cm}
+ 			\begin{align*}
+ 				[v,w] &= J_w v - J_v w \\
+ 				&= \begin{bsmallmatrix}
+ 					0	&	0	&	1 \\
+ 					0	&	0	&	0 \\
+ 					-1	&	0	&	0	
+ 				\end{bsmallmatrix}
+ 				\begin{bsmallmatrix}
+ 					0 \\-x^3 \\
+ 					x^2
+ 				\end{bsmallmatrix}
+ 				- \begin{bsmallmatrix}
+ 					0		&		0		&		0		\\
+ 					0		&	0		&	-1		\\
+ 					0		&	1	&	0
+ 				\end{bsmallmatrix} \begin{bsmallmatrix}
+ 					x^3 \\0 \\ -x^1
+ 				\end{bsmallmatrix} \\
+ 				&= \begin{bsmallmatrix}
+ 					x^2 \\ -x^1 \\ 0
+ 				\end{bsmallmatrix}\\
+ 				&= x^2 \partial_1 - x^1 \partial_2  \\
+ 				&= -z
+ 			\end{align*}
+ 			From the property $[X,Y] = -[Y,X]$, it follows that $[w,v] = z$. Similarly,
+ 			\begin{align*}
+ 				[v,z] &= J_z v - J_v z \\
+ 				&= \begin{bsmallmatrix}
+ 					0	&	-1	&	0 \\
+ 					1	&	0	&	0 \\
+ 					0	&	0	&	0	
+ 				\end{bsmallmatrix}
+ 				\begin{bsmallmatrix}
+ 					0 \\-x^3 \\
+ 					x^2
+ 				\end{bsmallmatrix}
+ 				- \begin{bsmallmatrix}
+ 					0		&		0		&		0		\\
+ 					0		&	0		&	-1		\\
+ 					0		&	1	&	0
+ 				\end{bsmallmatrix} \begin{bsmallmatrix}
+ 					-x^2 \\x^1 \\ 0
+ 				\end{bsmallmatrix} \\
+ 				&= \begin{bsmallmatrix}
+ 					x^3 \\ 0 \\ -x^1
+ 				\end{bsmallmatrix}\\
+ 				&= x^3 \partial_1 - x^1 \partial_3  \\
+ 				&= w
+ 			\end{align*}
+ 		
+ 			Again, $[z,v] = -w$. Finally,
+ 			\begin{align*}
+ 				[w,z] &= J_z w - J_w z \\
+ 				&= \begin{bsmallmatrix}
+ 					0	&	-1	&	0 \\
+ 					1	&	0	&	0 \\
+ 					0	&	0	&	0	
+ 				\end{bsmallmatrix}
+ 				\begin{bsmallmatrix}
+ 					x^3 \\0 \\
+ 					-x^1
+ 				\end{bsmallmatrix}
+ 				- \begin{bsmallmatrix}
+ 					0		&	0		&		1		\\
+ 					0		&	0		&		0		\\
+ 					-1		&	0		&		0
+ 				\end{bsmallmatrix} \begin{bsmallmatrix}
+ 					x^3 \\0 \\ -x^1
+ 				\end{bsmallmatrix} \\
+ 				&= \begin{bsmallmatrix}
+ 					-x^2 \\ x^1 \\ 0
+ 				\end{bsmallmatrix}\\
+ 				&= x^3 \partial_2 - x^2 \partial_3  \\
+ 				&= -v
+ 			\end{align*}
+ 			So in conclusion
+ 			\begin{subequations}
+ 				\begin{empheq}[box = \widefbox]{align}
+ 					[v,w] &= -z = -[w,v] \nonumber\\
+ 					[v,z] &= w = -[z,v] \nonumber\\
+ 					[w,z] &= -v = -[z,w] \nonumber
+ 				\end{empheq}
+ 			\end{subequations}
+ 		\pagebreak 
+ 		\appendix
+ 		\centering
+ 		$\quad $\\
+ 		\vspace{8cm}
+ 		\Huge $\ex$ \LARGE UwU A tensor transforms like a tensor UwU\footnote{To use this awesome Emoji package to make physics easier and clearer, as I have clearly done, simply define a command via \textbackslash newfontfamily\textbackslash SegoeEmoji$\{\.$Segoe UI Emoji$\.\}$. Proceed to use '\textbackslash DeclareMathOperator$\{\.$\textbackslash$<$keyword$>$$\.\}$$\{\.$SegoeEmoji $<$emoji$>$$\.\}$' to declare your variable of choice! Use in mathmode and encapsulate in brackets for sub/superscripts to avoid errors.}, \Huge $\ex$
+ 		\vfill
+	 	
 \end{document}
