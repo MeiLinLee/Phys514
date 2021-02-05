@@ -1,0 +1,146 @@
+\documentclass{article}
+
+
+\usepackage{NotesStyle}
+
+% Cover info
+
+\title{Phys 514 \\
+	\large Problem Set 3}
+
+\author{April Sada Solomon - 260708051}
+\date{Winter 2021}
+
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	\pagebreak
+	
+	\pagenumbering{roman}
+	\cfoot{\thepage}
+	
+	\tableofcontents
+	\newpage
+	
+	% Start page count after the TOC
+	
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	\cfoot{\thepage}
+	% Notes body
+	\section{Tensors on Manifolds}
+		Consider a $D$-dimensional manifold. In any coordinate system $x^\mu$, the Kronecker delta symbol $\delta_\nu^\mu$ is defined to be
+		$$ \delta_\nu^\mu = \begin{cases}
+			1 & \text{if} \quad \mu = \nu  \\
+			0 & \text{if} \quad \mu \neq \nu
+		\end{cases}$$
+		\subsection{Tensor weight}
+			We need to show that $\delta_\nu^\mu$ is a tensor of weight $(1,1)$. We apply the tensor transformation laws such that $\delta_{\nu'}^{\mu '}$ is a Kronecker delta over a new set of coordinates $x^{\mu'}$ given by
+			\begin{align*}
+				\delta_{\nu'}^{\mu '} &= \delta_{\nu}^\mu \frac{\partial x^{\mu'}}{\partial x^\mu} \frac{\partial x^\nu}{\partial x^{\nu '}} \\
+			\intertext{We notice that we only consider the terms where $\mu = \nu$, as they will be the only non-zero terms. We can thus define $\mu=\nu=\alpha$ such that:}
+				\delta_{\nu'}^{\mu '} &= \sum_\alpha \frac{\partial x^{\mu'}}{\partial x^\alpha} \frac{\partial x^\alpha}{\partial x^{\nu '}} \\
+				&= \sum_\alpha \frac{\partial x^\alpha}{\partial x^{\nu '}} \partial \frac{\partial x^{\mu '}}{\partial x^\alpha} \\
+				&= \frac{\partial x^{\mu '}}{\partial x^{\nu'}} \\
+				&= 
+					\begin{cases}
+						1 & \text{if } \mu' = \nu' \\
+						0 & \text{if } \mu' \neq \nu' 
+					\end{cases} \\
+				&= \delta_{\nu}^\mu
+			\end{align*}
+			Now, considering $\hat{e_\mu}$ as the basis vectors for coordinates $x^\mu$, and $\hat{e_{\nu'}}$ as the basis vectors for coordinates $x^{\nu'}$, it follows that for any transformation of coordinates $\Lambda^{\nu'}_{\mu}$ we have
+			$$ \hat{e}_\mu = \Lambda_\mu^{\nu'} \hat{e}_{\nu'}$$
+			And to isolate the basis $\hat{e}_{\nu'}$, we must apply the inverse of $\Lambda_{\mu}^{\nu'}$, namely $\Lambda_{\sigma'}^\rho$ such that
+			$$ \Lambda_{\nu'}^{\mu}\Lambda_{\rho}^{\nu'} = \delta_\rho^\mu, \quad \quad \Lambda_{\lambda}^{\sigma'} \Lambda_{\tau'}^{\lambda} = \delta_{\tau'}^{\sigma'}$$
+			Which clearly implies that
+			$$ \hat{e}_{\nu'} = \Lambda^\mu_{\nu'} \hat{e}_\mu$$
+			So $\delta_{\nu}^\mu$ is a tensor of weight $(1,1)$.
+		\subsection{Vectors and tensors}
+			We need to show that $\delta_\nu^\mu v^\nu = v^\mu$ and $\delta_{\nu}^{\mu} w_\mu = w_\nu$ where $v^\nu$ and $w_\mu$ are a vector and one form respectively. As seen in the second part of my answer to $1.1$, $\delta_{\nu}^\mu$ represents a transformation multiplied by its own inverse. As such, we can clearly see that
+			$$ \delta_\nu^\mu v^\nu = \Lambda_{\nu'}^\mu \Lambda_{\nu}^{\nu'} v^\nu = \Lambda_{\nu'}^{\mu} ( \Lambda_{\nu}^{\nu'}  v^\nu) = \Lambda_{\nu'}^{\mu} v^{\nu'} = v^\mu$$
+			$$ \delta_\nu^\mu w_\mu = \Lambda_{\nu'}^\mu \Lambda_{\nu}^{\nu'} w_\mu = \Lambda_{\nu}^{\nu'}(\Lambda_{\nu'}^{\mu}w_\mu)  = \Lambda_{\nu}^{\nu'} w_{\nu'} = w_\nu  $$
+			As required.
+		\subsection{Computation}
+			First we have $\delta_\mu^\mu$, which seems very sneaky. A quick guess would assume that 
+			$$ \delta_\mu^\mu = \begin{cases}
+				1 & \text{if} \quad \mu = \mu \\
+				0 & \text{if} \quad \mu \neq \mu
+			\end{cases}$$
+			So written in transformation matrices:
+			$$ \delta_\mu^\mu = \Lambda_{\nu'}^\mu \Lambda_\mu^{\nu'}=I$$
+			This can be denoted as an identity matrix, as it will return the same vector or one-form under the same coordinates when multiplying either.
+			
+			Next we have $\delta_\nu^\mu \delta_\rho^\mu$. We again write this down in transformations:
+			\begin{align*}
+				\delta_\nu^\mu \delta_\rho^\mu = \Lambda_{\nu'}^\mu \Lambda_\nu^{\nu'} \Lambda_{\sigma'}^\mu \Lambda_\rho^{\sigma'}
+			\end{align*}
+			Which means that
+			$$ \delta_\nu^\mu \delta_\rho^\mu = \begin{cases}
+				1 & \text{if} \quad \mu = \nu = \rho \\
+				0 & \quad \text{otherwise}
+			\end{cases}$$
+			
+		\pagebreak
+	\section{General Questions}
+		\subsection{Dummy (\textbf{t h i c c}) indices}
+			We must show by manipulating dummy indices that
+			$$ Z_{\mu\nu}v^\mu v^\nu = \frac12 \left(Z_{\mu\nu}+Z_{\nu\mu} \right)v^\mu v^\nu$$
+			where we assume $Z_{\mu\nu}$, $Z_{\nu\mu}$ are both rank (0,2) tensors that are also symmetric matrices. Hence, we know that $Z_{\mu\nu} = Z_{\nu\mu}^T$ (see equation 1.69 in the book for an example, where the tensor is antisymmetric instead of symmetric), so clearly:
+			\begin{align*}
+				\frac{1}{2} (Z_{\mu\nu} + Z_{\nu\mu})  &= \frac12 \left(
+				\begin{pmatrix}
+					z_{1, 1} & \cdots &  z_{1, \nu} \\
+					\vdots 	&	\ddots &	\vdots \\
+					z_{\mu, 1} & \cdots & z_{\mu, \nu}
+				\end{pmatrix}
+				+ \begin{pmatrix}
+					z_{1, 1} & \cdots &  z_{1, \mu} \\
+					\vdots 	&	\ddots &	\vdots \\
+					z_{\nu, 1} & \cdots & z_{\nu, \mu}
+				\end{pmatrix} \right) \\
+				&= \frac12 
+				\begin{pmatrix}
+					2\cdot z_{1, 1} & \cdots &  z_{1, \nu}+z_{1, \mu} \\
+					\vdots 	&	\ddots &	\vdots \\
+					z_{\mu, 1}+z_{\nu,1} & \cdots & \underbrace{2 z_{\mu, \nu}}_{=2z_{\nu, \mu}}
+				\end{pmatrix}\\
+				 &= \begin{pmatrix}
+				 	z_{1, 1} & \cdots &  \frac{z_{1, \nu}+z_{1, \mu}}{2} \\
+				 	\vdots 	&	\ddots &	\vdots \\
+				 	\frac{z_{\mu, 1}+z_{\nu,1}}{2} & \cdots &  z_{\mu, \nu}
+				 \end{pmatrix} = \begin{pmatrix}
+				 z_{1, 1} & \cdots &  \frac{z_{1, \mu}+z_{1, \nu}}{2} \\
+				 \vdots 	&	\ddots &	\vdots \\
+				 \frac{z_{\nu, 1}+z_{\mu,1}}{2} & \cdots &  z_{\mu, \nu}
+				 \end{pmatrix} \\
+		 		\intertext{Recall that both tensors are symmetric}
+			 	&= \begin{pmatrix}
+			 		z_{1, 1} & \cdots &  z_{1, \nu} \\
+			 		\vdots 	&	\ddots &	\vdots \\
+			 		z_{\mu, 1} & \cdots & z_{\mu, \nu}
+			 	\end{pmatrix}\\
+		 		&= Z_{\mu\nu}
+			\end{align*}
+			Therefore,
+			$$ Z_{\mu\nu}v^\mu v^\nu = \frac12 \left(Z_{\mu\nu}+Z_{\nu\mu} \right)v^\mu v^\nu$$
+			and the dummy index is thicc indeed.
+			
+		\pagebreak	
+		\subsection{Independent components}
+			For any (0,2) tensor, we have 2 covariant indices and no contravariant indices. Thus, we can get the number of independent components for any such tensor in $D$ dimensions simply by squaring the dimension. For a 3D (0,2) tensor, we have $3^2=$9 independent components, for a 4D we have $4^2=$16, etc.
+			
+			Now if we consider symmetric tensors, then we know that $T_{ij} = T_{ji}$, so we may only consider $\sum_{k=1}^{D} k$ independent elements. In 3D, this yields 1+2+3 = 6, in 4D we have 1+2+3+4 = 10, etc.
+			
+			For an antisymmetric tensor where $T_{ij} = -T_{ji}$ for $i\neq j$ and $T_{ij} = 0$ for $i=j$, we consider the same amount of independent components as the symmetric case but without the diagonal, so we have $\sum_{k=1}^{D-1} k$ independent components. In 3D we have 1+2 =3 independent component, in 4D we have 1+2+3 = 6, and so on.
+		\subsection{Sum of tensors}
+		\subsection{Independent components pt. 2}
+		\subsection{Independent components (bonus)}
+	\section{Higher-dimensional Space}
+		\subsection{Transformations}
+		\subsection{Transformations 2}
+		\subsection{Metric on Cartesian Coordinates}
+		\subsection{Equivalent metrics}
+	\section{Minkowski metric problem}
+		
+\end{document}
