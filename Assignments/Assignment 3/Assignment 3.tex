@@ -40,7 +40,7 @@
 				\delta_{\nu'}^{\mu '} &= \delta_{\nu}^\mu \frac{\partial x^{\mu'}}{\partial x^\mu} \frac{\partial x^\nu}{\partial x^{\nu '}} \\
 			\intertext{We notice that we only consider the terms where $\mu = \nu$, as they will be the only non-zero terms. We can thus define $\mu=\nu=\alpha$ such that:}
 				\delta_{\nu'}^{\mu '} &= \sum_\alpha \frac{\partial x^{\mu'}}{\partial x^\alpha} \frac{\partial x^\alpha}{\partial x^{\nu '}} \\
-				&= \sum_\alpha \frac{\partial x^\alpha}{\partial x^{\nu '}} \partial \frac{\partial x^{\mu '}}{\partial x^\alpha} \\
+				&= \sum_\alpha \frac{\partial x^\alpha}{\partial x^{\nu '}}  \frac{\partial x^{\mu '}}{\partial x^\alpha} \\
 				&= \frac{\partial x^{\mu '}}{\partial x^{\nu'}} \\
 				&= 
 					\begin{cases}
@@ -55,7 +55,7 @@
 			$$ \Lambda_{\nu'}^{\mu}\Lambda_{\rho}^{\nu'} = \delta_\rho^\mu, \quad \quad \Lambda_{\lambda}^{\sigma'} \Lambda_{\tau'}^{\lambda} = \delta_{\tau'}^{\sigma'}$$
 			Which clearly implies that
 			$$ \hat{e}_{\nu'} = \Lambda^\mu_{\nu'} \hat{e}_\mu$$
-			So $\delta_{\nu}^\mu$ is a tensor of weight $(1,1)$.
+			So $\delta_{\nu}^\mu$ is a tensor of weight $(1,1)$, as it has a covariant index and a contravariant index.
 		\subsection{Vectors and tensors}
 			We need to show that $\delta_\nu^\mu v^\nu = v^\mu$ and $\delta_{\nu}^{\mu} w_\mu = w_\nu$ where $v^\nu$ and $w_\mu$ are a vector and one form respectively. As seen in the second part of my answer to $1.1$, $\delta_{\nu}^\mu$ represents a transformation multiplied by its own inverse. As such, we can clearly see that
 			$$ \delta_\nu^\mu v^\nu = \Lambda_{\nu'}^\mu \Lambda_{\nu}^{\nu'} v^\nu = \Lambda_{\nu'}^{\mu} ( \Lambda_{\nu}^{\nu'}  v^\nu) = \Lambda_{\nu'}^{\mu} v^{\nu'} = v^\mu$$
@@ -67,9 +67,8 @@
 				1 & \text{if} \quad \mu = \mu \\
 				0 & \text{if} \quad \mu \neq \mu
 			\end{cases}$$
-			So written in transformation matrices:
-			$$ \delta_\mu^\mu = \Lambda_{\nu'}^\mu \Lambda_\mu^{\nu'}=I$$
-			This can be denoted as an identity matrix, as it will return the same vector or one-form under the same coordinates when multiplying either.
+			But aha, this is not what we should see. In this case, we should add the number of dimensions whenever the indices of the Kronecker delta are equal (which they always are), so written in transformations:
+			$$ \delta_\mu^\mu = \Lambda_{\nu'}^\mu \Lambda_\mu^{\nu'}= \sum_i^D \frac{\partial x^i}{\partial x^i} =D$$
 			
 			Next we have $\delta_\nu^\mu \delta_\rho^\mu$. We again write this down in transformations:
 			\begin{align*}
@@ -77,10 +76,10 @@
 			\end{align*}
 			Which means that
 			$$ \delta_\nu^\mu \delta_\rho^\mu = \begin{cases}
-				1 & \text{if} \quad \mu = \nu = \rho \\
+				D & \text{if} \quad \mu = \nu = \rho \\
 				0 & \quad \text{otherwise}
 			\end{cases}$$
-			
+			So we will only add the elements whenever the indices match, and they will add up to the number of dimensions of the space.
 		\pagebreak
 	\section{General Questions}
 		\subsection{Dummy (\textbf{t h i c c}) indices}
@@ -128,14 +127,17 @@
 			
 		\pagebreak	
 		\subsection{Independent components}
-			For any (0,2) tensor, we have 2 covariant indices and no contravariant indices. Thus, we can get the number of independent components for any such tensor in $D$ dimensions simply by squaring the dimension. For a 3D (0,2) tensor, we have $3^2=$9 independent components, for a 4D we have $4^2=$16, etc.
+			For any (0,2) tensor, we have 2 covariant indices and no contravariant indices. Hence, assuming the tensor is non-symmetric to distinguish this case from symmetric and antisymmetric, we can simply represent the number of independent components in any rank $(0,2)$ tensor of dimension $D$ as the total number of components in the tensor, so this is given by $D^2$
 			
 			Now if we consider symmetric tensors, then we know that $T_{ij} = T_{ji}$, so we may only consider $\sum_{k=1}^{D} k$ independent elements. In 3D, this yields 1+2+3 = 6, in 4D we have 1+2+3+4 = 10, etc.
 			
 			For an antisymmetric tensor where $T_{ij} = -T_{ji}$ for $i\neq j$ and $T_{ij} = 0$ for $i=j$, we consider the same amount of independent components as the symmetric case but without the diagonal, so we have $\sum_{k=1}^{D-1} k$ independent components. In 3D we have 1+2 =3 independent component, in 4D we have 1+2+3 = 6, and so on.
 		\subsection{Sum of tensors}
+			As we saw in part 2.2, an antisymmetric tensor will contain independent elements $T_{ij} = -T_{ji}$ except $T_{ij} = 0$ for $i=j$, while a symmetric tensor need only have the property that $T_{ij} = T_{ji}$ and $T_{ij} \neq 0$ for $i=j$. Thus, we can build a (0,2) tensor with $D^2$ independent components by adding a symmetric matrix and an antisymmetric matrix together. This will yield a new tensor where we will have the component property $T_{ij} \neq 0$ for $i=j$ and also $T_{ij} \neq T_{ji} \neq -T_{ji}$.
 		\subsection{Independent components pt. 2}
+			This case, we are talking about an outer product of two $(0,1)$ tensors, which yields a $(0,2)$ tensor as desired. Thus, we can evidently see that we would have $D^2$ independent components again, as in the general case. So for any $D \geq 2$ dimensions, we will have a (0,2) tensor resulting from 2 (0,1) one forms.
 		\subsection{Independent components (bonus)}
+			For $(0,p)$ tensors, we would have $D^p$ independent components in the general case, $\sum_{k=1}^D k^{p-1}$ for the symmetric case, and $\sum_{k=1}^{D-1} k^{p-1}$ for the antisymmetric case. We extend the logic from 2.2 such that in a symmetric tensor we have $T_{ijk} = T_{jik} = T_{jki} = T_{kji} = T_{ijk}$ and also equals all permutations of $ijk$ in $T_{ijk}$. In an antisymmetric tensor, we'd have $T_{ijk} = - T_{jik} = T_{jki} = -T_{kji} = T_{kij} = -T_{ikj}$, so clearly, when adding a symmetric and antisymmetric tensor we would yield a (0,3) nonsymmetric tensor. And this can be extended to any $(0,p)$ tensor as well, as every general nonsymmetric tensor can be decomposed into an antisymmetric and a symmetric part.
 	\section{Higher-dimensional Space}
 		\subsection{Transformations}
 		\subsection{Transformations 2}

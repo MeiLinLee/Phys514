@@ -9,9 +9,9 @@
 \contentsline {subsection}{\numberline {2.3}Sum of tensors}{4}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Independent components pt. 2}{4}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Independent components (bonus)}{4}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Higher-dimensional Space}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Transformations}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Transformations 2}{4}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Metric on Cartesian Coordinates}{4}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Equivalent metrics}{4}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Minkowski metric problem}{4}{section.4}%
+\contentsline {section}{\numberline {3}Higher-dimensional Space}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Transformations}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Transformations 2}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Metric on Cartesian Coordinates}{5}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Equivalent metrics}{5}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Minkowski metric problem}{5}{section.4}%
