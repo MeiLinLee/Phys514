@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  5 FEB 2021 06:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  5 FEB 2021 08:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1270,15 +1270,15 @@ has been already used, duplicate ignored
                    \relax 
 l.61 			$$
            \delta_\nu^\mu v^\nu = \Lambda_{\nu'}^\mu \Lambda_{\nu}^{\nu'} v^...
-[1] [2] [3] [4] [5] (./Assignment 3.aux)
+[1] [2] [3] [4] [5] [6] [7] [8] [9] [10] (./Assignment 3.aux)
 Package rerunfilecheck Info: File `"Assignment 3".out' has not changed.
 (rerunfilecheck)             Checksum: 834B6FD768C657A91D389118B4AC6DAE;1067.
  ) 
 Here is how much of TeX's memory you used:
- 40746 strings out of 479304
- 922533 string characters out of 5871213
- 1478900 words of memory out of 5000000
- 57275 multiletter control sequences out of 15000+600000
+ 40753 strings out of 479304
+ 922582 string characters out of 5871213
+ 1478945 words of memory out of 5000000
+ 57276 multiletter control sequences out of 15000+600000
  419625 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  143i,21n,144p,752b,752s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1294,11 +1294,12 @@ exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2020
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy7.pfb>
-Output written on "Assignment 3.pdf" (7 pages, 161077 bytes).
+/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/
+symbols/msam10.pfb>
+Output written on "Assignment 3.pdf" (12 pages, 184084 bytes).
 PDF statistics:
- 184 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
+ 211 PDF objects out of 1000 (max. 8388607)
+ 180 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 

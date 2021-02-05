@@ -135,14 +135,133 @@
 		\subsection{Sum of tensors}
 			As we saw in part 2.2, an antisymmetric tensor will contain independent elements $T_{ij} = -T_{ji}$ except $T_{ij} = 0$ for $i=j$, while a symmetric tensor need only have the property that $T_{ij} = T_{ji}$ and $T_{ij} \neq 0$ for $i=j$. Thus, we can build a (0,2) tensor with $D^2$ independent components by adding a symmetric matrix and an antisymmetric matrix together. This will yield a new tensor where we will have the component property $T_{ij} \neq 0$ for $i=j$ and also $T_{ij} \neq T_{ji} \neq -T_{ji}$.
 		\subsection{Independent components pt. 2}
-			This case, we are talking about an outer product of two $(0,1)$ tensors, which yields a $(0,2)$ tensor as desired. Thus, we can evidently see that we would have $D^2$ independent components again, as in the general case. So for any $D \geq 2$ dimensions, we will have a (0,2) tensor resulting from 2 (0,1) one forms.
+			This case, we are talking about an outer product of two $(0,1)$ tensors, which yields a $(0,2)$ tensor as desired. Thus, we can evidently see that we would have $D^2 - 1$ independent components again, as in the general case, but we remove one degree of freedom as the determinant would be zero. So for any $D \geq 2$ dimensions, we will have a (0,2) tensor resulting from 2 (0,1) one forms.
 		\subsection{Independent components (bonus)}
 			For $(0,p)$ tensors, we would have $D^p$ independent components in the general case, $\sum_{k=1}^D k^{p-1}$ for the symmetric case, and $\sum_{k=1}^{D-1} k^{p-1}$ for the antisymmetric case. We extend the logic from 2.2 such that in a symmetric tensor we have $T_{ijk} = T_{jik} = T_{jki} = T_{kji} = T_{ijk}$ and also equals all permutations of $ijk$ in $T_{ijk}$. In an antisymmetric tensor, we'd have $T_{ijk} = - T_{jik} = T_{jki} = -T_{kji} = T_{kij} = -T_{ikj}$, so clearly, when adding a symmetric and antisymmetric tensor we would yield a (0,3) nonsymmetric tensor. And this can be extended to any $(0,p)$ tensor as well, as every general nonsymmetric tensor can be decomposed into an antisymmetric and a symmetric part.
 	\section{Higher-dimensional Space}
 		\subsection{Transformations}
+			When we consider transformations on one forms $w$, it follows that
+			$$ w_\mu \to w_{\mu'} = \frac{\partial x^\mu}{\partial x^{\mu'}} w_\mu$$
+			Where we have that $\frac{\partial x^\mu}{\partial x^{\mu'}}$ is the inverse of the Jacobian, so therefore we have that $\exists \frac{\partial x^{\mu'}}{\partial x^\mu}$ such that
+			$$ \frac{\partial x^{\mu}}{\partial x^{\mu'}}\frac{\partial x^{\mu'}}{\partial x^{\mu}} = \frac{\partial x^{\mu}}{\partial x^{\mu'}}\frac{\partial x^{\mu'}}{\partial x^{\mu}} = I$$
+			As we had in part 1.1. If we would like $v_a$ to transform like a one form, then it is necessary that we have
+			\begin{equation}
+				\label{eq:1}
+				v_{a'} = \frac{\partial y^a}{\partial y^{a'}} v_a
+			\end{equation}
+			Now, let us assume that $v_i$ is a one form and hence transforms like a one form. We have that
+			$$ v_{i'} = \frac{\partial x^i}{\partial x^{i'}} v_i$$
+			$$ \therefore \frac{\partial x^{i'}}{\partial x^{i}}v_{i'} = \frac{\partial x^{i'}}{\partial x^{i}} \frac{\partial x^i}{\partial x^{i'}} v_i = v_i$$
+			We can now use the above conclusion in equation (\ref{eq:1}), hence:
+			\begin{align*}
+				v_{a'} &= \frac{\partial y^a}{\partial y^{a'}} v_a
+				= \frac{\partial y^a}{\partial y^{a'}} \left( \frac{\partial x^i}{\partial y^a} v_i \right) 
+				\intertext{By the chain rule on Jacobians, we have}
+				&= \frac{\partial x^i}{\partial y^{a'}} v_i 
+				= \frac{\partial x^i}{\partial y^{a'}} \left( \frac{\partial x^{i'}}{\partial x^i} v_{i'} \right)
+				\intertext{again, by chain rule}
+				&= \frac{\partial x^{i'}}{\partial y^{a'}} v_{i'}
+			\end{align*}
+			So we can conclude that for $v_i = \frac{\partial x^i}{\partial y^a} v^a$ under one form transformation, $v_a$ clearly transforms like a one form.
+		\pagebreak
 		\subsection{Transformations 2}
+			We follow through as in part 3.1 with the same transformation, but on vectors instead of one forms. We have
+			\begin{align*}
+				v^{i'} &= \frac{\partial x^{i'}}{\partial x^{i}} v^i \\
+				v^{a'} &= \frac{\partial y^{a'}}{\partial y^{a}} v^a
+			\end{align*}
+			So therefore,
+			\begin{align*}
+				v^{i'} &= \frac{\partial x^{i'}}{\partial x^{i}} v^i
+				= \frac{\partial x^{i'}}{\partial x^{i}} \left( \frac{\partial x^i}{\partial y^a} v^a \right) 
+				\intertext{By the chain rule on Jacobians, we have}
+				&= \frac{\partial x^{i'}}{\partial y^{a}} v^a 
+				= \frac{\partial x^{i'}}{\partial y^{a}} \left( \frac{\partial y^{a'}}{\partial y^{a'}} v^{a} \right)
+				\intertext{again, by chain rule}
+				&= \frac{\partial x^{i'}}{\partial y^{a'}} v^{a'}
+			\end{align*} 
+			So  $v^i$ is a vector that transforms like a vector on $\M$.
+		\pagebreak
 		\subsection{Metric on Cartesian Coordinates}
+			We have
+			\begin{align*}
+				dx^1 &= d(\sin \theta \cos \phi) = (\cos\theta \cos \phi) d\theta - (\sin \theta \sin \phi)d \phi \\
+				dx^2 &= d(\sin \theta \sin \phi) = (\cos \theta \sin \phi) d\theta + (\sin \theta \cos \phi) d \phi \\
+				dx^3 &= d(\cos\theta) = -\sin \theta d\theta
+			\end{align*}
+			Therefore
+			$$ ds^2 = (dx^1)^2+(dx^2)^2+(dx^3)^2$$
+			Where
+			\begin{align*}
+				(dx^1)^2 &= (\cos\theta \cos \phi d \theta - \sin \theta \sin \phi d \phi)^2 \\
+				&= \cos^2 \theta \cos^2 \phi d\theta^2 - 2 \cos \theta \sin \theta \cos \phi \sin \phi d \phi d \theta + \sin^2\theta \sin^2\phi d\phi^2 \\
+				(dx^2)^2 &= (\cos\theta \sin \phi d \theta - \sin \theta \cos \phi d \phi)^2 \\
+				&= \cos^2 \theta \sin^2 \phi d\theta^2 + 2 \cos \theta \sin \theta \cos \phi \sin \phi d \phi d \theta + \sin^2\theta \cos^2\phi d\phi^2 \\
+				(dx^3)^2 &= (-\sin\theta d \theta)^2 = \sin^2 \theta d \theta^2
+			\end{align*}
+			Thus
+			\begin{align*}
+				ds^2 &= (dx^1)^2+(dx^2)^2+(dx^3)^2 \\
+				&= d\theta^2 \left( \cos^2 \theta \cos^2 \phi + \cos^2 \theta \sin^2 \phi + \sin^2 \theta \right) + d\phi^2 \left( \sin^2 \theta \sin^2 \phi + \sin^2 \theta \cos^2 \phi \right) \\
+				&= d\theta^2 \left( \cos^2 \theta (\cos^2 \phi + \sin^2 \phi) + \sin^2 \theta \right) + d\phi^2 \left( \sin^2 \theta (\sin^2 \phi + \cos^2 \phi) \right) \\
+				&= d\theta^2 \left( \cos^2\theta + \sin^2 \theta \right) + \sin^2 \theta d\phi^2 \\
+				&= d\theta^2 + \sin^2\theta d\phi^2
+			\end{align*}
+			Where we have $f(\theta) = \sin^2 \theta$.
+			\pagebreak
 		\subsection{Equivalent metrics}
+			Consider the trigonometric rotations by $\nicefrac\pi2$: $\cos\theta = \sin (\theta + \nicefrac\pi2)$ and $-\sin\theta = \cos (\theta + \nicefrac\pi2)$. From the previous question, we have
+			\begin{align*}
+				dx^1 &= d(\cos \theta \cos \phi) = -(\sin\theta \cos \phi) d\theta - (\cos \theta \sin \phi)d \phi \\
+				dx^2 &= d(\cos \theta \sin \phi) = -(\sin \theta \sin \phi) d\theta + (\sin \theta \cos \phi) d \phi \\
+				dx^3 &= d(-\sin\theta) = -\cos \theta d\theta
+			\end{align*}
+			where $ ds^2 = (dx^1)^2+(dx^2)^2+(dx^3)^2$. So again,
+			\begin{align*}
+				(dx^1)^2 &= (-\sin\theta \cos \phi d \theta - \cos \theta \sin \phi d \phi)^2 \\
+				&= \sin^2 \theta \cos^2 \phi d\theta^2 + 2 \cos \theta \sin \theta \cos \phi \sin \phi d \phi d \theta + \cos^2\theta \sin^2\phi d\phi^2 \\
+				(dx^2)^2 &= (-\sin\theta \sin \phi d \theta - \cos \theta \cos \phi d \phi)^2 \\
+				&= \sin^2 \theta \sin^2 \phi d\theta^2 - 2 \cos \theta \sin \theta \cos \phi \sin \phi d \phi d \theta + \cos^2\theta \cos^2\phi d\phi^2 \\
+				(dx^3)^2 &= (-\cos\theta d \theta)^2 = \cos^2 \theta d \theta^2
+			\end{align*}
+			Hence,
+			\begin{align*}
+				ds^2 &= (dx^1)^2+(dx^2)^2+(dx^3)^2 \\
+				&= d\theta^2 \left( \sin^2 \theta \cos^2 \phi + \sin^2 \theta \sin^2 \phi + \cos^2 \theta \right) + d\phi^2 \left( \cos^2 \theta \sin^2 \phi + \cos^2 \theta \cos^2 \phi \right) \\
+				&= d\theta^2 \left( \sin^2 \theta (\cos^2 \phi + \sin^2 \phi) + \cos^2 \theta \right) + d\phi^2 \left( \cos^2 \theta (\sin^2 \phi + \cos^2 \phi) \right) \\
+				&= d\theta^2 \left( \sin^2\theta + \cos^2 \theta \right) + \cos^2 \theta d\phi^2 \\
+				&= d\theta^2 + \cos^2\theta d\phi^2
+			\end{align*}
+			Which is again only a rotation by $\nicefrac\pi2$
+	\pagebreak
 	\section{Minkowski metric problem}
+		We again do the same as for the previous questions in part 3 such that
+		\begin{align*}
+			dx^0 &= \cosh(t) dt \\
+			dx^1 &= (\sinh(t)\cos \phi) dt - (\cosh (t)\sin \phi)d \phi \\
+			dx^2 &= -(\sinh (t) \sin \phi) dt + (\cosh (t) \cos \phi) d \phi \\
+		\end{align*}
+		So $$ ds^2 = - (dx^0)^2 + (dx^1)^2+(dx^2)^2 = \eta_{\mu\nu} dx^\mu dx^\nu$$
+		such that
+		\begin{align*}
+			ds^2 &= (dx^0)^2+(dx^1)^2+(dx^2)^2 \\
+			&= -\cosh^2 (t) dt^2 + \sinh^2 (t) \cos^2 \phi dt^2 - \sinh (t) \cosh (t) \sin \phi \cos \phi dt d\phi + \cosh^2 (t) \sin^2 \phi d\phi^2  \\
+			&\quad\quad\quad\quad + \sinh^2 (t) \sin^2 \phi dt^2 + \sinh (t) \cosh (t) \sin \phi \cos \phi dt d\phi + \cosh^2 (t) \cos^2 \phi d\phi^2\\
+			&= dt^2 \left( \sinh^2 (t) (\cos^2 \phi + \sin^2 \phi) - \cosh^2 (t) \right) + d\phi^2 \left( \cosh^2 (t) (\sin^2 \phi + \cos^2 \phi) \right) \\
+			&= dt^2 \left( \sinh^2(t) - \cosh^2 (t) \right) + \cos^2 (t) \phi^2 \\
+			&= -dt^2 + \cosh^2(t) d\phi^2
+		\end{align*}
+		So we obtain the metric on $dS_2$ as $-dt^2 + \cosh^2(t) d\phi^2$ and
+		$$ g_{\mu\nu} = \text{diag}(-1,\cosh^2(t))$$
+		Furthermore, we know that $\eta_{\mu\nu} =$diag$(-1,1,1)$ implies that $\eta_{\mu\nu} x^\mu x^\nu = 1$, so
+		$$ \eta_{\mu\nu} x^\mu x^0 = -(x^0)^2 + (x^1)^2 + (x^2)^2$$
+		Hence
+		\begin{align*}
+			\eta_{\mu\nu} x^\mu x^0 &= - \sinh^2 (t) + \cosh^2(t) \cos^2 \phi + \cosh^2(t) \sin^2 \phi \\
+			&= \cosh^2(t) - \sinh^2(t) \\
+			&= 1
+		\end{align*}
+		Which implies a valid parametrization such that
+		$$ \eta_{\mu\nu} x^\mu x^0 = 1 $$
 		
 \end{document}
