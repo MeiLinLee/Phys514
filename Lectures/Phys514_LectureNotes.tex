@@ -231,7 +231,7 @@
  		\begin{exmp}
  			\textbf{Time dilation}
  			\begin{figure}[h]
- 				\begin{subfigure}{0.4\textwidth}
+ 				\begin{minipage}{0.4\textwidth}
  					\center
  					\begin{tikzpicture}[scale=1]
  						%\draw (2,2) node []{$\M$} ;
@@ -249,7 +249,7 @@
  						\draw [<->, green, >=stealth] (-0.95, 0) -- (0.45, 0) node [left=0.8cm, above=-0.2mm] {$\Delta x$};
  					\end{tikzpicture}
  					\caption{Spacetime diagram for the twin's paradox. Notice that the inclination of the trajectory of the second twin is greater than $\nicefrac\pi4$ with respect to the $x$-axis, implying that the speed $v<c$.}
- 				\end{subfigure}
+ 				\end{minipage}
  				\hfill
  				\begin{minipage}{0.56\textwidth}
  					\begin{spacing}{1.5}
@@ -276,7 +276,7 @@
  		\begin{exmp}
  			\textbf{Length contraction} 
  			\begin{figure}[h]
- 				\begin{subfigure}{0.4\textwidth}
+ 				\begin{minipage}{0.4\textwidth}
  					\center
  					\begin{tikzpicture}[scale=1]
  						%\draw (2,2) node []{$\M$} ;
@@ -300,7 +300,7 @@
  						\filldraw [black] (-1, 2) circle (1.5pt) node [above] {$(t_2, x_2)$};
  					\end{tikzpicture}
  					\caption{The spacetime diagram for length contraction. }
- 				\end{subfigure}
+ 				\end{minipage}
  				\hfill
  				\begin{minipage}{0.56\textwidth}
  					\begin{spacing}{1.5}
@@ -308,7 +308,7 @@
  					\end{spacing}
  				\end{minipage}
  			\end{figure} 
- 			\vspace{-0.5cm}
+ 			\vspace{-1cm}
  			\begin{align*}
  				t_2 &= \frac{2L}{(1+v)}\\
  				x_2 &= v \left( \frac{2L}{(1+v)} \right)
@@ -358,15 +358,15 @@
  		where the $x^0$ term is given a negative sign. Note that an opposite yet equally valid for the invariant interval is $\Delta s^2 = \Delta t^2 - \Delta x^2 $. This convention is better for events happening in the same spatial coordinate at different points in time, while the one we used is better for events that happen at the same time in different spatial coordinates.
  		\begin{exe}
  			Recalling that a Lorentzian transformation $\Lambda$ is a linear change of coordinates, determine the correct form of the $2 \times 2$ matrix $\Lambda$ that validates the following change of coordinates:
- 			$$ \begin{psmallmatrix}
+ 			$$ \begin{bsmallmatrix}
  				x \\
  				t
- 			\end{psmallmatrix} \to \begin{psmallmatrix}
+ 			\end{bsmallmatrix} \to \begin{bsmallmatrix}
  			x' \\
  			t'
- 			\end{psmallmatrix} = \Lambda \begin{psmallmatrix}
+ 			\end{bsmallmatrix} = \Lambda \begin{bsmallmatrix}
  			x\\t
- 		\end{psmallmatrix}$$
+ 		\end{bsmallmatrix}$$
  		\end{exe}
  		
  		To summarize, the proper time $\Delta \tau$ measured by an observer moving at some constant velocity $v$ between two points in spacetime is given by
@@ -374,4 +374,84 @@
  		Where we could write the invariant interval $\Delta s^2$ using Einstein summation notation as 
  		$$ \Delta s^2 = \eta_{\mu\nu} \Delta x^\mu \Delta x^\nu$$
  		For the coordinates $\Delta x^\mu = (\Delta t, \Delta \vec{x})$ where $\mu = 0,1,2,3$, and the metric $\eta_{\mu\nu}$. Recall that this notation neglects a summation symbol that will sum all elements in the $4\times4$ matrix $\eta_{\mu\nu} \Delta x^\mu \Delta x^\nu$ that follow the property $\mu = \nu$.
+ 		
+ 		Thus far, we have only considered an observer moving at constant velocity for the sake of conceptual simplicity. However, when consider gravitation we will encounter accelerating reference frames. That is, we will encounter motion in spacetime that is not given by a straight line, but rather by some curve, implying variable velocity. 
+ 		\begin{defn}
+ 			A general path through spacetime is denoted as a \textbf{worldline} and can be parametrized with 4 functions, one for each coordinate in the metric.
+ 		\end{defn}
+ 		\begin{figure}[h]
+ 			\begin{minipage}{0.4\textwidth}
+ 				\center
+ 				\begin{tikzpicture}[scale=1]
+ 					%\draw (2,2) node []{$\M$} ;
+ 					\draw [step=0.5cm, grey, opacity=0.25] (-2.5,-2.5) grid (2.5,2.5);
+ 					
+ 					\draw [->] (-2, -2.5) -- (-2, 2) node (taxis) [above] {$t$};
+ 					\draw [->] (-2.5, -2) -- (2, -2) node (xaxis) [right] {$x$};
+ 					\draw [thick, dashed, green] (-2,-2) -- (2.5, 2.5) node [below=20mm, left=5mm] {$\Delta s^2 = 0$};
+ 					 
+ 					\draw [thick, blue] plot [smooth] coordinates{(-2,-2) (-1, -0.5) (-1, 0) (0, 0.5) (-0.5, 1) (1, 1.5)};
+ 					\draw [line width=0.6mm, red] plot [smooth] coordinates{(-0.05, 0.45) (0, 0.5) (-0.05, 0.6)} 
+ 					node [right] {ds};
+ 					
+ 					
+ 					\filldraw (-2, -2) circle (2pt) (1,1.5) circle (2pt);
+ 				\end{tikzpicture}
+ 				\caption{A worldline in spacetime of a time-like observer accelerating, with a line element shown. Notice how at every point on the worldline, the observer's speed has the property $v<c$.}
+ 			\end{minipage}
+ 			\hfill
+ 			\begin{minipage}{0.56\textwidth}
+ 				\begin{spacing}{1.5}
+ 					The parametrization in Cartesian coordinates for a worldline using $\lambda$ as the variable which denotes points along the world line is as follows:
+ 					$$ x^\mu (\lambda) = \left(t(\lambda), x^1 (\lambda), x^2(\lambda), x^2 (\lambda)\right)$$
+ 					Along this worldline, we consider infinitesimally small displacements through space $d\vec{x}$ and through time $dt$ such that at each interval of displacement we approximate to constant velocity. The proper time $\Delta \tau$ measured by such an accelerating observer along a worldline is hence given by $\sqrt{-(\Delta s)^2}$, where
+ 				\end{spacing}
+ 			\end{minipage}
+ 		\end{figure}
+ 		\vspace{-1cm}
+ 		$$ \Delta s = \int \sqrt{ - \left(\frac{d x^0}{d \lambda}\right)^2 + \left(\frac{d x^1}{d \lambda}\right)^2 + \left(\frac{d x^2}{d \lambda}\right)^2 + \left(\frac{d x^3}{d \lambda}\right)^2} d \lambda$$ 
+ 		Which is simply the arc length of a curve, as expected. We could also write this using Einstein summation convention to make it cleaner:
+ 		$$ \Delta s = \int \sqrt{\eta_{\mu \nu} \frac{dx^\mu}{d\lambda} \frac{dx^\nu}{d\lambda}}d\lambda$$
+ 		For convenience, we will denote either of the above as
+ 		$$ \Delta s = \int ds$$Where we define $ds$ as the \textbf{line element} of a worldline, given by
+ 		\begin{equation}
+ 			\label{eq:LineElement}
+ 			\boxed{ds^2 = \eta_{\mu\nu} dx^\mu dx^\nu}
+ 		\end{equation}
+ 		We think of $ds$ as an infinitesimal variation on the interval $\Delta s$, and so $dx^\mu$ and $dx^\nu$ are infinitesimal displacements on the coordinates $x^\mu$.
+ 		
+ 		We again redefine Special Relativity to the statement that the line element is given by equation (\ref{eq:LineElement}), where we defined $\eta_{\mu\nu}$ as a metric given by a $4\times4$ diagonal matrix with scalar components. In General Relativity we have the statement that all of the effects of gravity are packaged in terms of a replacement 
+ 		$$ \eta_{\mu\nu} \to g_{\mu \nu} (x)$$
+ 		Which is a $4\times4$ matrix, formally called a tensor, whose components can change according to the value of the coordinates given, rather than remaining constant as in Special Relativity. we denote $g_{\mu \nu}(x)$ as the \textbf{metric of curved spacetime}. This metric is parametrized by 16 functions of the coordinates of spacetime; one parametrization per component in the matrix. So the line element in General Relativity changes to
+ 		$$ ds^2 = g_{\mu\nu} dx^\mu dx^\nu$$
+ 		\begin{exmp}
+ 			\textbf{Light-rays in General Relativity}\\
+ 			
+ 			When we consider General Relativity, light propagation still takes the form of a \textit{null-like} worldline. However, the definition of null-like worldline, considering $ds^2 = 0$.
+ 		\end{exmp}
+ 		\begin{exmp}
+ 			\textbf{Massive objects in General Relativity}
+ 			
+ 			Massive objects in general relativity travel along \textit{time-like} worldlines such that $ds^2 < 0$, implying that their speed along a world line has the property $v<c$ at every point. This implies that the proper time $\Delta \tau^2$ measured by an observer in GR travelling along some worldline $x^\mu (\lambda)$ is given by
+ 			$$ \Delta \tau^2 = - \Delta s^2$$
+ 			Where we have
+ 			$$ \Delta s = \int ds = \int \sqrt{g_{\mu\nu} \frac{dx^\mu}{d\lambda} \frac{dx^\nu}{d\lambda}}d\lambda$$
+ 		
+ 		\end{exmp}
+ 	\pagebreak
+ 		We can now see why we say that Special Relativity is just the case of General Relativity where we will have a constant metric. And so, every case in Special Relativity can be solved with this form of a line element. Recall that all of this merely serves as a review of the study of Special Relativity such that we may introduce General Relativity, so we still need to formalize what has been stated.
+ 		
+ 		\subsection{Equivalence Principle}\par
+ 		
+ 		We will now introduce the \textbf{equivalence principle}. Recall the motion of objects in the presence of a gravitational potential in Newtonian gravitation:
+ 		$$ \vec{F}(\vec{v}) = m_i \dot{\vec{v}} = - m_g \vec{\grad}\Phi$$
+ 		We usually assumed that the inertial mass $m_i$, the mass due to the forces interacting with an object, and the gravitational mass $m_g$, the mass due to the gravitational potential interacting with the object were equivalent, and approximately speaking in human scales, they are. However, it is not true that we can say this generally. For every object and type of matter we know, both $m_i$ and $m_g$ are equal, but we do not know if all unknown objects will follow this rule. Given current evidence, we can cancel both masses out to assume that, for all objects known,
+ 		$$ \dot{\vec{v}} = \vec{a} = - \vec\grad \Phi$$
+ 		So the acceleration of an object will be independent of its mass, and as stated before, this is considered as an observational fact. In a gravitational potential, there are trajectories defined by the solutions to the equations of motion due to the potential on some object, denoted as \textbf{free-falling} or \textbf{inertial} trajectories, where no forces are interacting with an object. In a free-falling object, the object only experiences gravitational potential.
+ 		
+ 		Now, consider an infinitesimally small region where $\vec{\grad}\Phi \approx -\vec{a}_0$, where $\vec{a}_0$ is some constant to within some approximation made by measurements. 
+ 		
+ 		\begin{defn}
+ 			The \textbf{weak equivalence principle} states that in this small region, the effects of gravity are indistinguishable from the effects of a constantly accelerating reference frame.
+ 		\end{defn}
 \end{document}
