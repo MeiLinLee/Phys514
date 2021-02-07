@@ -99,16 +99,17 @@
  			\begin{subfigure}{0.46\textwidth}
  				\center
  				\begin{tikzpicture}
- 					\draw [very thick] (0,0) -- (2,1.5);
- 					\draw [very thick] (2,0) -- (4,1.5);
- 					\draw [very thick] (0,0) -- (2,0);
- 					\draw [very thick] (2,1.5) -- (4,1.5);
+ 					\draw [very thick] (-1,-2) -- (1,0.5);
+ 					\draw [very thick] (2,-2) -- (4,0.5);
+ 					\draw [very thick] (-1,-2) -- (2,-2);
+ 					\draw [very thick] (1,0.5) -- (4,0.5);
  					
- 					\draw [thick, blue] (1, 0.5) -- (3, 1);
+ 					\draw [thick, blue] (1, -0.5) -- (3, 0);
  					
- 					\filldraw [blue] (1,0.5) circle (2pt)
- 					(3,1) circle (2pt);
+ 					\filldraw [blue] (1, -0.5) circle (2pt)
+ 					(3,0) circle (2pt);
  				\end{tikzpicture}
+ 			\vspace{0.5cm}
  			\caption{Geodesic over a flat surface}
  			\end{subfigure}
  			\begin{subfigure}{0.46\textwidth}
@@ -123,7 +124,104 @@
  					\filldraw [blue] (0.8,-0.35) circle (2pt)
  					(0,1.48) circle (2pt);
  				\end{tikzpicture}
- 				\caption{Geodesic over a flat surface}
+ 				\caption{Geodesic over a spherical surface}
  			\end{subfigure}
+ 			\caption{Examples of geodesic on different surfaces.}
  		\end{figure}
+ 		So in other words, it is the curve that minimizes the distance between two points over some surface. The force law is therefore just the statement that bodies will move in geodesics over some geometry, even when said geometry is curved. So when we think of gravity as the curvature of spacetime, then geodesics will describe motion over spacetime as it is curved.
+ 		
+ 		\subsection{Special Relativity}
+ 		The discussion of special relativity will serve to introduce spacetime properly. We will develop it further later on, but for now we will proceed with a heuristic manner. 
+ 		
+ 		\begin{defn}
+ 			\textbf{Spacetime} is a smoothly connected manifold where the points defined are called \textbf{events}.
+ 		\end{defn}
+ 		The events in spacetime can be smoothly parametrized using coordinates, such as the most common system of coordinates used, the Cartesian coordinates.
+ 		\begin{exmp}
+ 			Cartesian coordinates
+ 			$$ (t, \vec{x}) = (-c\hat{t}, \hat{x}, \hat{y}, \hat{z})$$
+ 			In relativistic mechanics, we usually consider all directions of motion in a single vector $\vec{x} = (\hat{x}, \hat{y}, \hat{z})$ while time is multiplied by the negative speed of light $t = (-c\hat{t})$. We will explain this later on.
+ 		\end{exmp}
+ 		Thus, spacetime is a smooth manifold with events as points parametrized by some coordinates, and in relativity, we know that physics should be independent of its coordinate system. This is known as the \textbf{principle of general covariance}.
+ 		
+ 		\pagebreak
+ 		To begin, let us assume we are working with Newtonian mechanics where we have two points in spacetime labelled $(t_1, \vec{x}_1) = (t_1, x_1, y_1, z_1)$ and $(t_2, \vec{x}_2) = (t_2, x_2, y_2, z_2)$ respectively, both of which describe a single event in spacetime given as $$(\Delta t, \Delta \vec{x})$$ 
+ 		In this event, $\Delta t$ denotes the \textbf{temporal separation} while $\Delta \vec{x}$ denotes the \textbf{spatial separation}. Explicitly:
+ 		\begin{align*}
+ 			\Delta t &=	t_2 - t_1\\
+ 			\Delta \vec{x} &= \sqrt{(\vec{x}_2 - \vec{x}_1)\cdot (\vec{x}_2 - \vec{x}_1)} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2} 
+ 		\end{align*}
+ 		This makes sense as Newtonian mechanics can always be written in terms of both $\Delta t$ and $\Delta \vec{x}$, so the numerical value of $t_1$ will depend on the origin in the frame of reference we are working on. In other words, if we choose our reference frame to be Montreal at 6:00pm and remain at rest until 6:01pm, then we can denote that $\Delta t = 60$ s. So if we now jog in Montreal at constant velocity of $1$ m/s in this reference frame, the velocity will depend on the time separation $\Delta t$ and not on the absolute values of $t_1$ and $t_2$. So, if we suddenly change the time frame to be 4:20pm to 4:21pm, the velocity should not vary due to the absolute value of the new points in time, as the time separation $\Delta t$ would be the equal to the case at 6:00pm. The same would go for the choice of spatial coordinates, so if we move from Montreal to Toronto and the speed remains constant, the space separation $\Delta \vec{x}$ should also not vary. To summarize, the laws of physics would remain invariant even if we change the choice of reference frame where the choice of time is independent of the choice of space, and so they are independent of the entire coordinate system chosen. Albeit elementary to classical mechanics, it is vital to understand this properly to proceed with the philosophy of relativity.
+ 		
+ 		In special relativity, there is no separate notion between space and time, so we denote both as spacetime. This means that the both the separation of time and the separation of space are dependent on each other, which leads to effects like time dilation. Time dilation implies that \textit{the temporal difference $\Delta t$ of two event in spacetime will depend on the relative position in spacetime where an observer is viewing the event from}. Similarly, the distance or length of an object will depend on where the observer is in spacetime. In other words, we cannot think of $\Delta t$ and $\Delta \vec{x}$ as independent separations in spacetime, as one is directly related to the other depending on the frame of reference. So, observing the same event in a different reference frame will change the values of $\Delta t$ and $\Delta \vec{x}$. 
+ 		
+ 		However, we can denote an invariant notion to both the spatial and temporal separations called the \textbf{interval} between two events as
+ 		$$ \Delta s^2 = -c^2 \Delta t^2 + \Delta \vec{x}^2 \quad \quad (\text{in Cartesian coordinates})$$
+ 		Usually, we simplify by allowing $c=1$ in units in terms of the speed of light [$3\times 10^8$ m/s] such that
+ 		\begin{equation}
+ 			\label{eq:Interval}
+ 			\Delta s^2 = - \Delta t^2 + \Delta \vec{x}^2
+ 		\end{equation}
+ 		So when we measure distance with respect to the speed of light, we do so in terms of light-time, such as light-seconds and light-years. It is usually helpful to draw pictures in a spacetime diagram.
+ 		\begin{figure}[h]
+ 			\center
+ 			\begin{tikzpicture}[scale=1.6]
+ 				% Grid
+ 				\filldraw [green, opacity=0.25] (-3, 1) -- (-3, 3) -- (3,3) -- (3,2) -- (-0.5, -1.5);
+ 				\filldraw [green, opacity=0.25] (-1, -2) -- (-0.5, -1.5) -- (0,-2);
+ 				\filldraw [red, opacity=0.1] (-3,1) -- (-0.5, -1.5) -- (-1, -2) -- (-3, -2);
+ 				\filldraw [red, opacity=0.1] (3,2) -- (-0.5, -1.5) -- (0, -2) -- (3, -2);
+ 				\draw [step=0.5cm, grey, opacity=0.25] (-3,-2) grid (3,3);
+ 				% Axes
+ 				\draw [->, thick, >=stealth] (-0.5, -2) -- (-0.5, 2.5)
+ 				node [above] {$t$};
+ 				\draw [->, thick, >=stealth] (-3, -1.5) -- (2.5, -1.5)
+ 				node [right] {$x$};
+ 				\draw [->, thick,blue, >=stealth] (-0.62, -2) -- (0.5, 2.5)
+ 				node [above] {$t'$};
+ 				\draw [->, thick, blue, >=stealth] (-1.95, -2) -- (2.5, -0.5)
+ 				node [right] {$x'$};
+ 				% Light cone
+ 				\draw [green] (1.5, 2.85) node [] {Time-like, $s^2 < 0$} (1.5, 2.65) node [] {Future} (-0.33, -1.88) node [] {\smaller Past} ;
+ 				\draw [red] (2.5, 0) node [] {Space-like} (2.5,-0.23) node [] {$s^2 > 0$};
+ 				\draw [black] (2 , 1.3) node [] {\small$x = t$}
+ 				(-1.5,0)node [] {\small$x = -t$}
+ 				;
+ 				\draw [blue] (2.5 , 1) node [] {\small$x' = t'$}
+ 				(-2,-0.5)node [] {\small$x' = -t$}
+ 				;
+ 				\draw [very thick, olive] (-1, -2) -- (3, 2)
+ 				;
+ 				\draw [very thick, olive] (-3, 1) -- (0, -2);
+ 				% Event is the same
+ 				\draw [dashed] (-0.5, 1.5) -- (1.5, 1.5);
+ 				\draw [dashed] (1.5, -1.5) -- (1.5, 1.5);
+ 				\draw [dotted, thick, blue] (0.21, 1.2) -- (1.5, 1.5);
+ 				\draw [dotted, thick, blue] (0.7, -1.08) -- (1.5, 1.5);
+ 				\filldraw [black] (1.5, 1.5) circle (1.5pt) node [above=2mm] {\small Event}; 
+ 				
+ 			\end{tikzpicture}
+ 		\caption{A spacetime diagram of an time-like event with the light cone in two different reference frames $K= (t,x)$ and $K' = (t', x')$. Notice how even if the spatial ($\Delta x \neq \Delta x'$) and temporal ($\Delta t \neq \Delta t'$) separations vary from one reference frame to the other, the interval in spacetime remains invariant $\Delta s^2 = \Delta(s')^2$. We usually denote $(t_1, x_1) = (t_1', x_1') = (0,0)$ for convenience in either reference frame.}
+ 		\end{figure}
+ 	
+ 		Notice in the spacetime diagram that when $\Delta s^2 = 0$, we have that $\Delta x = \pm \Delta t$, defining a \textbf{light cone}. Events defined on the light cone are denoted \textbf{light-separated events} or \textbf{null-separated events}. As otherwise noted, events where $\Delta s^2 < 0 $ are inside the light cone and denoted as \textbf{time-like} or \textbf{time-separated}, while events where $\Delta s^2 > 0$ lie outside the light cone and are denoted as \textbf{space-like} or \textbf{space-separated}. Notice that for time-like events, it is clear that when $t_2 > 0$, the event will propagate to the future, while if $t_2 < 0$ it propagates to the past. Also note that space-like events are deemed as impossible, as there is no geodesic inside a light cone that can connect the origin to the event. In other words, an object would have to travel faster than light to arrive at this location in spacetime, which is indeed impossible.
+ 		
+ 		We can thus assume that if we fix $\Delta s^2$ in a spacetime phase for the system
+ 		\vspace{0.5cm}
+ 		$$ \begin{pmatrix}
+ 			\nicefrac{\partial \left( \Delta \vec{x}^2 \right)}{\partial\left( \Delta s^2 \right)} \\
+ 			\nicefrac{\partial \left( \Delta t^2 \right)}{\partial\left( \Delta s^2 \right)}
+ 		\end{pmatrix}=\begin{pmatrix}
+ 			0 & \pm1 \\
+ 			\pm1 & 0
+ 		\end{pmatrix} \begin{pmatrix}
+ 		\Delta \vec{x}^2 \\
+ 		\Delta t^2
+ 		\end{pmatrix}$$
+ 	
+ 		\pagebreak
+ 		We would get hyperbolic equilibrium to a 2D spacetime system with respect to the interval $\Delta s^2$. This means a time-like event will always be either time-like or get close to null-like, while a space-like event will also either remain space-like or get close to null-like. 
+ 		
+ 		
+ 		
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  6 FEB 2021 21:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  7 FEB 2021 00:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1277,18 +1277,18 @@ e same identifier (name{page.2}) has been already used, duplicate ignored
                    \relax 
 l.96  		T
          he force law is also replaced by the geodesic equation, which tells...
-[2] [3] (./Phys514_LectureNotes.aux)
+[2] [3] [4] [5] [6] (./Phys514_LectureNotes.aux)
 Package rerunfilecheck Info: File `Phys514_LectureNotes.out' has not changed.
-(rerunfilecheck)             Checksum: 7513F07A0EF4D72126083C918C101B0A;132.
+(rerunfilecheck)             Checksum: A7FA1CA35567E6B3307D9EECF9CB32DB;199.
  ) 
 Here is how much of TeX's memory you used:
- 40821 strings out of 479304
- 924860 string characters out of 5871213
- 1471040 words of memory out of 5000000
- 57350 multiletter control sequences out of 15000+600000
- 420937 words of font info for 105 fonts, out of 8000000 for 9000
+ 40923 strings out of 479304
+ 926937 string characters out of 5871213
+ 1476085 words of memory out of 5000000
+ 57438 multiletter control sequences out of 15000+600000
+ 423557 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 143i,12n,144p,699b,840s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 143i,13n,144p,1366b,855s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2020
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2020/texmf-dis
@@ -1296,18 +1296,23 @@ t/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/texlive/2020/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmmi7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c
-:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/
-2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2020/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
-.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on Phys514_LectureNotes.pdf (5 pages, 186906 bytes).
+mi9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c
+:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/
+2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2020/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2020/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pf
+b><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/tex
+live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2020/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2020/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
+/rsfs/rsfs10.pfb>
+Output written on Phys514_LectureNotes.pdf (8 pages, 243972 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
- 103 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 173 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 37 words of extra memory for PDF output out of 10000 (max. 10000000)
 
