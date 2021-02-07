@@ -149,7 +149,8 @@
  		In this event, $\Delta t$ denotes the \textbf{temporal separation} while $\Delta \vec{x}$ denotes the \textbf{spatial separation}. Explicitly:
  		\begin{align*}
  			\Delta t &=	t_2 - t_1\\
- 			\Delta \vec{x} &= \sqrt{(\vec{x}_2 - \vec{x}_1)\cdot (\vec{x}_2 - \vec{x}_1)} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2} 
+ 			\Delta \vec{x} &= \sqrt{(\vec{x}_2 - \vec{x}_1)\cdot (\vec{x}_2 - \vec{x}_1)}\\ 
+ 			&= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2} & (\text{in Cartesian coordinates})
  		\end{align*}
  		This makes sense as Newtonian mechanics can always be written in terms of both $\Delta t$ and $\Delta \vec{x}$, so the numerical value of $t_1$ will depend on the origin in the frame of reference we are working on. In other words, if we choose our reference frame to be Montreal at 6:00pm and remain at rest until 6:01pm, then we can denote that $\Delta t = 60$ s. So if we now jog in Montreal at constant velocity of $1$ m/s in this reference frame, the velocity will depend on the time separation $\Delta t$ and not on the absolute values of $t_1$ and $t_2$. So, if we suddenly change the time frame to be 4:20pm to 4:21pm, the velocity should not vary due to the absolute value of the new points in time, as the time separation $\Delta t$ would be the equal to the case at 6:00pm. The same would go for the choice of spatial coordinates, so if we move from Montreal to Toronto and the speed remains constant, the space separation $\Delta \vec{x}$ should also not vary. To summarize, the laws of physics would remain invariant even if we change the choice of reference frame where the choice of time is independent of the choice of space, and so they are independent of the entire coordinate system chosen. Albeit elementary to classical mechanics, it is vital to understand this properly to proceed with the philosophy of relativity.
  		
@@ -201,10 +202,10 @@
  				\filldraw [black] (1.5, 1.5) circle (1.5pt) node [above=2mm] {\small Event}; 
  				
  			\end{tikzpicture}
- 		\caption{A spacetime diagram of an time-like event with the light cone in two different reference frames $K= (t,x)$ and $K' = (t', x')$. Notice how even if the spatial ($\Delta x \neq \Delta x'$) and temporal ($\Delta t \neq \Delta t'$) separations vary from one reference frame to the other, the interval in spacetime remains invariant $\Delta s^2 = \Delta(s')^2$. We usually denote $(t_1, x_1) = (t_1', x_1') = (0,0)$ for convenience in either reference frame.}
+ 		\caption{A spacetime diagram of an time-like event with the light cone in two different reference frames, a static frame $K= (t,x)$ and another moving away from the static frame at a fraction of the speed of light, $K' = (t', x')$. Notice how even if the spatial ($\Delta x \neq \Delta x'$) and temporal ($\Delta t \neq \Delta t'$) separations vary from one reference frame to the other, the interval in spacetime remains invariant $\Delta s^2 = \Delta(s')^2$. We usually denote $(t_1, x_1) = (t_1', x_1') = (0,0)$ for convenience in either reference frame.}
  		\end{figure}
  	
- 		Notice in the spacetime diagram that when $\Delta s^2 = 0$, we have that $\Delta x = \pm \Delta t$, defining a \textbf{light cone}. Events defined on the light cone are denoted \textbf{light-separated events} or \textbf{null-separated events}. As otherwise noted, events where $\Delta s^2 < 0 $ are inside the light cone and denoted as \textbf{time-like} or \textbf{time-separated}, while events where $\Delta s^2 > 0$ lie outside the light cone and are denoted as \textbf{space-like} or \textbf{space-separated}. Notice that for time-like events, it is clear that when $t_2 > 0$, the event will propagate to the future, while if $t_2 < 0$ it propagates to the past. Also note that space-like events are deemed as impossible, as there is no geodesic inside a light cone that can connect the origin to the event. In other words, an object would have to travel faster than light to arrive at this location in spacetime, which is indeed impossible.
+ 		Notice in the spacetime diagram that when $\Delta s^2 = 0$, we have that $\Delta x = \pm \Delta t$, defining a \textbf{light cone}. Events defined on the light cone are denoted \textbf{light-separated events} or \textbf{null-separated events}. As otherwise noted, events where $\Delta s^2 < 0 $ are inside the light cone and denoted as \textbf{time-like} or \textbf{time-separated}, while events where $\Delta s^2 > 0$ lie outside the light cone and are denoted as \textbf{space-like} or \textbf{space-separated}. Notice that for time-like events, it is clear that when $t_2 > 0$, the event will propagate to the future, while if $t_2 < 0$ it propagates to the past. Also note that space-like events are deemed as impossible, as there is no geodesic inside a light cone that can connect the origin to the event. In other words, an object would have to travel faster than light to arrive at this location in spacetime, which is indeed impossible in special relativity.
  		
  		We can thus assume that if we fix $\Delta s^2$ in a spacetime phase for the system
  		\vspace{0.5cm}
@@ -213,15 +214,164 @@
  			\nicefrac{\partial \left( \Delta t^2 \right)}{\partial\left( \Delta s^2 \right)}
  		\end{pmatrix}=\begin{pmatrix}
  			0 & \pm1 \\
- 			\pm1 & 0
+ 			\pm 1 & 0
  		\end{pmatrix} \begin{pmatrix}
  		\Delta \vec{x}^2 \\
  		\Delta t^2
  		\end{pmatrix}$$
  	
- 		\pagebreak
+ 		\pagebreak \noindent
  		We would get hyperbolic equilibrium to a 2D spacetime system with respect to the interval $\Delta s^2$. This means a time-like event will always be either time-like or get close to null-like, while a space-like event will also either remain space-like or get close to null-like. 
+ 	
+ 		\begin{claim}
+ 			We can reduce Special Relativity to the statement that for 2 time-like separated events, the proper time $\Delta \tau$ measured by an observer moving at constant velocity between the two events is given by:
+ 			$$ \left( \Delta \tau \right)^2  = - \left( \Delta s \right)^2$$
+ 		\end{claim}
  		
+ 		\begin{exmp}
+ 			\textbf{Time dilation}
+ 			\begin{figure}[h]
+ 				\begin{subfigure}{0.4\textwidth}
+ 					\center
+ 					\begin{tikzpicture}[scale=1]
+ 						%\draw (2,2) node []{$\M$} ;
+ 						\draw [step=0.5cm, grey, opacity=0.25] (-2.5,-2.5) grid (2.5,2.5);
+ 						\draw [->, very thick,  blue, >=stealth] (-1,-2) -- (-1,1.95);
+ 						\draw [->, very thick, green, >=stealth] (-1,-2) -- (0.5,-0.05);
+ 						\draw [->, very thick, green, >=stealth] (0.5,0) -- (-0.95,1.95);
+ 						\draw [->] (-2, -2.5) -- (-2, 2) node (taxis) [above] {$t$};
+ 						\draw [->] (-2.5, -2) -- (2, -2) node (xaxis) [right] {$x$};
+ 						\filldraw (-1, -2) circle (2pt) node [right =2mm, below] {$A$}
+ 						(-1, 2 ) circle (2pt) node [right =2mm, above] {$C$}
+ 						(-1, 0) circle (2pt) node [right =2mm, below] {$B$}
+ 						(0.5, 0) circle (2pt) node [right =2mm, below] {$B'$};
+ 						\draw [<->, blue] (-1.5, -2) -- (-1.5, 2) node [left=2mm, below=1.9cm] {$\Delta t$};
+ 						\draw [<->, green, >=stealth] (-0.95, 0) -- (0.45, 0) node [left=0.8cm, above=-0.2mm] {$\Delta x$};
+ 					\end{tikzpicture}
+ 					\caption{Spacetime diagram for the twin's paradox. Notice that the inclination of the trajectory of the second twin is greater than $\nicefrac\pi4$ with respect to the $x$-axis, implying that the speed $v<c$.}
+ 				\end{subfigure}
+ 				\hfill
+ 				\begin{minipage}{0.56\textwidth}
+ 					\begin{spacing}{1.5}
+ 						Here, we see the famous \textit{twin's paradox}. We have two observers relative to a frame of reference, usually considered twins, that will go from a point $A(t,x) = (0, 0)$ to a point $C(t,x)=(\Delta t, 0)$ in spacetime. The first twin will remain static in space while the second will go to point $B' (t,x) = \left(\frac{\Delta t}{2}, \Delta x\right)$ before reaching point $C$, where $\Delta x = \frac12 v \Delta t$ for constant propagation velocity $v$. The proper time for the trajectory of the first twin from $A$ to $B$ is clearly $\tau_{B,A} = \frac{\Delta t}{2}$, but for the second twin, the proper time from $A$ to $B'$ is given by
+ 					\end{spacing}
+ 				\end{minipage}
+ 			\end{figure} 
+ 			\vspace{-0.5cm}
+ 			$$ \tau_{B',A}^2 = \left(\frac{\Delta t}{2}\right)^2 - (\Delta x)^2 $$
+ 			\begin{equation}
+ 				\label{eq:RelativeProperTime}
+ 				\therefore \boxed{\tau_{B',A} = \frac{\Delta t}{2} \sqrt{1 - v^2} }
+ 			\end{equation}
+ 			
+ 			By symmetry, it follows that $\tau_{C,B} = \tau_{B,A}$ and $\tau_{B', A} = \tau_{C, B'}$. Considering the entire sequence of movement for both twins, we have
+ 			\begin{align*}
+ 				\tau_{C,B,A} &= \Delta t \\
+ 				\tau_{C,B',A} &= \sqrt{1 - v^2} \Delta t
+ 			\end{align*}
+ 			Clearly, $\tau_{C,B,A} > \tau_{C,B',A}$, and so the second twin is younger than the first twin by the time they both reach the point $C$. This implies that the proper time $\tau$ along some world line is related to the interval $\Delta s^2$ traversed through spacetime. Therefore, we can assess the ratio of relative time difference between the twins as 
+ 			$$ \frac{2 \tau_{C,B',A}}{\tau_{C,B,A}} = \sqrt{1-v^2} $$
+ 		\end{exmp}
+ 	\pagebreak
+ 		\begin{exmp}
+ 			\textbf{Length contraction} 
+ 			\begin{figure}[h]
+ 				\begin{subfigure}{0.4\textwidth}
+ 					\center
+ 					\begin{tikzpicture}[scale=1]
+ 						%\draw (2,2) node []{$\M$} ;
+ 						\draw [step=0.5cm, grey, opacity=0.25] (-2.5,-2.5) grid (2.5,2.5);
+ 						
+ 						\draw [->] (-2, -2.5) -- (-2, 2) node (taxis) [above] {$t$};
+ 						\draw [->] (-2.5, -2) -- (2, -2) node (xaxis) [right] {$x$};
+ 						
+ 						\draw [->, very thick, blue,>=stealth] (-2,-2) -- (-1, 2)
+ 						 node [left=9mm, below=10mm] {$x=vt$};
+ 						\draw [->, very thick, green, >=stealth] (-2,-2) -- (0.5, 0.5)
+ 						 node [left=13mm, below=5mm] {$x=t$};
+ 						\draw [->, very thick, green, >=stealth] (0.5, 0.5) -- (-1,2)
+ 						 node [right=12mm, below=0mm] {$x=2L-t$};
+ 						
+ 						\draw [very thick] (0.5, -2) -- (0.5, 2.5);
+ 						\draw [very thick, red] (-2, -2) -- (0.5, -2);
+ 						\filldraw [red] (-2,-2) circle (1pt) node [below=3mm, right] {$(0,0)$}
+ 						(0.5, -2) circle (1pt) node [below] {$(0,L)$};
+ 						\filldraw [green] (0.5, 0.5) circle (1.5pt) node [right] {$(L,L)$};
+ 						\filldraw [black] (-1, 2) circle (1.5pt) node [above] {$(t_2, x_2)$};
+ 					\end{tikzpicture}
+ 					\caption{The spacetime diagram for length contraction. }
+ 				\end{subfigure}
+ 				\hfill
+ 				\begin{minipage}{0.56\textwidth}
+ 					\begin{spacing}{1.5}
+ 						Consider an observer moving at constant velocity $v$ from the origin of a reference frame  with respect to a static ruler with a light bulb at the point $(0,0)$. We would like for the observer to measure the ruler using light-travel time, which is achieved by flashing the light bulb and measuring the time it takes to reach a point $(L,L)$, and return to the observer at the intersection point $(t_2, x_2)$. Noting how we have two solutions for $x$, namely $x = 2L-t$ and $x=vt$, we can equate them to find $(t_2, x_2)$ such that
+ 					\end{spacing}
+ 				\end{minipage}
+ 			\end{figure} 
+ 			\vspace{-0.5cm}
+ 			\begin{align*}
+ 				t_2 &= \frac{2L}{(1+v)}\\
+ 				x_2 &= v \left( \frac{2L}{(1+v)} \right)
+ 			\end{align*}
+ 			And so, the proper time $\Delta \tau^2$ measured by the observer at the point when the light bulb's ray is reflected back is given by $\Delta \tau^2 = \Delta t^2 - \Delta x^2$ such that
+ 			$$ \Delta \tau^2 = \left(\frac{2L}{(1+v)}\right)^2(1 - v^2)$$
+ 			Knowing that an observer at rest with the ruler $\Delta t^2$ for the light to reflect back on itself is $\Delta t = \frac{2L}{(1+v)}$, we get the ratio
+ 			$$ \frac{\Delta \tau^2}{\Delta t^2} = (1-v^2)$$
+ 			So the apparent length of the ruler would be shorter by a factor of $v^2$. Note that in the case where $x = -vt$ for the observer's trajectory, the same ratio would arise.
+ 		\end{exmp}
+	 	We are very habituated to writing the interval in the following way
+	 	$$ \Delta s^2 = - \Delta t^2 + \Delta x_1^2 + \Delta x_2^2 + \Delta x_3^2$$
+	 	We will consider the $x^\mu$ notation, where $\mu=0,1,2,3$, to denote these coordinates as a single coordinate. Moreover, we can denote $x^i$ where $i=1,2,3$ as the spatial coordinates. Therefore, we may define
+	 	\begin{multicols}{4}
+	 		\begin{itemize}
+	 			\item $x^0 = t$
+	 			\item $x^2 = x_2$
+	 			\item $x^1 = x_1$
+	 			\item $x^3 = x_3$
+	 		\end{itemize}
+	 	\end{multicols}
+	 	We can thus summarize the coordinates of some interval to a summation
+	 	$$ \Delta s^2 = \sum_{\mu=\nu} \eta_{\nu\mu}\Delta x^\mu \Delta x^\nu$$ 
+	 	Where we define $\eta_{\mu\nu}$ to be a $4\times4$ diagonal matrix such that
+	 	$$ \eta_{\mu\nu} = \begin{pmatrix}
+	 		-1	&	0	&	0	&	0\\
+	 		0	&	1	&	0	&	0\\
+	 		0	&	0	&	1	&	0\\
+	 		0	&	0	&	0	&	1
+	 	\end{pmatrix}$$ 
+	 	\begin{defn}
+	 		The \textbf{metric} of flat spacetime in Cartesian coordinates is given by the $4 \times 4$ matrix $\eta_{\mu\nu}$.
+	 	\end{defn}
+	 	We may further simplify the interval by using \textit{Einstein summation notation}. This notation takes the summation symbol for granted, which adds all terms in the resulting $4\times4$ matrix whose indices follow the property $\mu=\nu$, to get
+ 		\begin{equation}
+ 			\label{eq:IntervalEinstein}
+ 			\Delta s^2 = \eta_{\mu\nu} \Delta x^\mu \Delta x^\nu
+ 		\end{equation}
+ 		As such, in tensor calculus language this implies that for every subscript in a tensor we must have a corresponding superscript to yield an interval as desired. In this case, $\eta_{\mu\nu}$ has two subscripts, each denoting an index for the matrix, and the one-forms $\Delta x^\mu$ and $\Delta x^\nu$ each have one superscript to indicate their respective components. Hence, we can summarize special relativity to the statement that all intervals in spacetime can be given by an equation in the form of (\ref{eq:IntervalEinstein}), such that spacetime is denoted as \textbf{Minkowski spacetime} $\R^{1,3}$ or simply $\M$. To summarize for now, general relativity implies that spacetime can be something other than Minkowski spacetime $\M$.
  		
+ 		Other examples of spaces are Euclidean spaces, both in 2D ($\R^2$) and in 3D ($\R^3$), where an invariant interval is simply denoted as the distance between two points. Using the notation we have established, the coordinates in 2D and 3D respectively would be:
+ 		\begin{align*}
+ 			(x^1, x^2) &= (x,y) \\
+ 			(x^1, x^2, x^3) &= (x,y,z)
+ 		\end{align*}
+ 		For either of these, the distance is obtained by use of Pythagoras's theorem $D = \sqrt{(x^1)^2 + (x^2)^2 + (x^3)^3}$, where in 2D we simply neglect the $x^3$ term. Recall than an invariant interval is similarly given by $\Delta s^2 = -(x^0)^2 + (x^1)^2 + (x^2)^2 + (x^3)^3$.
+ 		where the $x^0$ term is given a negative sign. Note that an opposite yet equally valid for the invariant interval is $\Delta s^2 = \Delta t^2 - \Delta x^2 $. This convention is better for events happening in the same spatial coordinate at different points in time, while the one we used is better for events that happen at the same time in different spatial coordinates.
+ 		\begin{exe}
+ 			Recalling that a Lorentzian transformation $\Lambda$ is a linear change of coordinates, determine the correct form of the $2 \times 2$ matrix $\Lambda$ that validates the following change of coordinates:
+ 			$$ \begin{psmallmatrix}
+ 				x \\
+ 				t
+ 			\end{psmallmatrix} \to \begin{psmallmatrix}
+ 			x' \\
+ 			t'
+ 			\end{psmallmatrix} = \Lambda \begin{psmallmatrix}
+ 			x\\t
+ 		\end{psmallmatrix}$$
+ 		\end{exe}
  		
+ 		To summarize, the proper time $\Delta \tau$ measured by an observer moving at some constant velocity $v$ between two points in spacetime is given by
+ 		$$ (\Delta \tau)^2 = - (\Delta s)^2 = \Delta t^2 - \Delta \vec{x}^2$$
+ 		Where we could write the invariant interval $\Delta s^2$ using Einstein summation notation as 
+ 		$$ \Delta s^2 = \eta_{\mu\nu} \Delta x^\mu \Delta x^\nu$$
+ 		For the coordinates $\Delta x^\mu = (\Delta t, \Delta \vec{x})$ where $\mu = 0,1,2,3$, and the metric $\eta_{\mu\nu}$. Recall that this notation neglects a summation symbol that will sum all elements in the $4\times4$ matrix $\eta_{\mu\nu} \Delta x^\mu \Delta x^\nu$ that follow the property $\mu = \nu$.
 \end{document}
