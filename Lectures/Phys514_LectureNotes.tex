@@ -207,22 +207,8 @@
  	
  		Notice in the spacetime diagram that when $\Delta s^2 = 0$, we have that $\Delta x = \pm \Delta t$, defining a \textbf{light cone}. Events defined on the light cone are denoted \textbf{light-separated events} or \textbf{null-separated events}. As otherwise noted, events where $\Delta s^2 < 0 $ are inside the light cone and denoted as \textbf{time-like} or \textbf{time-separated}, while events where $\Delta s^2 > 0$ lie outside the light cone and are denoted as \textbf{space-like} or \textbf{space-separated}. Notice that for time-like events, it is clear that when $t_2 > 0$, the event will propagate to the future, while if $t_2 < 0$ it propagates to the past. Also note that space-like events are deemed as impossible, as there is no geodesic inside a light cone that can connect the origin to the event. In other words, an object would have to travel faster than light to arrive at this location in spacetime, which is indeed impossible in special relativity.
  		
- 		We can thus assume that if we fix $\Delta s^2$ in a spacetime phase for the system
- 		\vspace{0.5cm}
- 		$$ \begin{pmatrix}
- 			\nicefrac{\partial \left( \Delta \vec{x}^2 \right)}{\partial\left( \Delta s^2 \right)} \\
- 			\nicefrac{\partial \left( \Delta t^2 \right)}{\partial\left( \Delta s^2 \right)}
- 		\end{pmatrix}=\begin{pmatrix}
- 			0 & \pm1 \\
- 			\pm 1 & 0
- 		\end{pmatrix} \begin{pmatrix}
- 		\Delta \vec{x}^2 \\
- 		\Delta t^2
- 		\end{pmatrix}$$
- 	
- 		\pagebreak \noindent
  		We would get hyperbolic equilibrium to a 2D spacetime system with respect to the interval $\Delta s^2$. This means a time-like event will always be either time-like or get close to null-like, while a space-like event will also either remain space-like or get close to null-like. 
- 	
+ 	\pagebreak
  		\begin{claim}
  			We can reduce Special Relativity to the statement that for 2 time-like separated events, the proper time $\Delta \tau$ measured by an observer moving at constant velocity between the two events is given by:
  			$$ \left( \Delta \tau \right)^2  = - \left( \Delta s \right)^2$$
@@ -270,6 +256,7 @@
  				\tau_{C,B',A} &= \sqrt{1 - v^2} \Delta t
  			\end{align*}
  			Clearly, $\tau_{C,B,A} > \tau_{C,B',A}$, and so the second twin is younger than the first twin by the time they both reach the point $C$. This implies that the proper time $\tau$ along some world line is related to the interval $\Delta s^2$ traversed through spacetime. Therefore, we can assess the ratio of relative time difference between the twins as 
+ 			
  			$$ \frac{2 \tau_{C,B',A}}{\tau_{C,B,A}} = \sqrt{1-v^2} $$
  		\end{exmp}
  	\pagebreak
@@ -441,7 +428,7 @@
  	\pagebreak
  		We can now see why we say that Special Relativity is just the case of General Relativity where we will have a constant metric. And so, every case in Special Relativity can be solved with this form of a line element. Recall that all of this merely serves as a review of the study of Special Relativity such that we may introduce General Relativity, so we still need to formalize what has been stated.
  		
- 		\subsection{Equivalence Principle}\par
+ 		\subsection{Equivalence Principle}
  		
  		We will now introduce the \textbf{equivalence principle}. Recall the motion of objects in the presence of a gravitational potential in Newtonian gravitation:
  		$$ \vec{F}(\vec{v}) = m_i \dot{\vec{v}} = - m_g \vec{\grad}\Phi$$
@@ -454,4 +441,254 @@
  		\begin{defn}
  			The \textbf{weak equivalence principle} states that in this small region, the effects of gravity are indistinguishable from the effects of a constantly accelerating reference frame.
  		\end{defn}
+ 	
+ 		\begin{exmp}
+ 			\textbf{Acceleration Experiment} \\
+ 			Let us imagine that we are in a laboratory on Earth as our frame of reference, which is very small. We can thus approximate the gravity with a downwards pull in this laboratory to be constant to some significant figure. The downwards gravitational force we experience within the lab is given by
+ 			$$ \vec{F}_g = -m g = - G \frac{mM_E}{R_E^2}$$
+ 			Where $G \approx 6.7 \times 10^{-11}\,\,\, \nicefrac{\text{N$\cdot$m}^2}{\text{kg}^2}$ is the gravitational constant, $M_E \approx 6.0\times 10^{24}$ kg is the mass of the Earth and $R_E \approx 6.4 \times 10^7$ m is the radius of the Earth as measured in this lab, so we assume that $g = 9.8 \,\,\, \nicefrac{\text{m}}{\text{s}^2}$.
+ 			\pagebreak
+ 			
+ 			\noindent
+ 			We can write this in a more mathematical manner as
+ 			$$ \ddot{x} = -g = -9.8 \,\,\, \nicefrac{\text{m}}{\text{s}^2}$$
+ 			Now, assume that we take this laboratory into a spaceship such that the laboratory is experiencing no gravitational force from Earth. However, the spaceship that contains the lab is experiencing upwards acceleration of $a_0 = g = 9.8 \,\,\, \nicefrac{\text{m}}{\text{s}^2}$, and thus so is the laboratory. This would imply that the normal acceleration experienced by us inside the lab would be $a_n = -g = -9.8 \,\,\, \nicefrac{\text{m}}{\text{s}^2}$. Clearly, this would mean that the effects of gravity would be indistinguishable from those of the accelerating spaceship if we were to perform mechanical experiments. In fact, pilots use this technique to accelerate upwards and downwards to simulate zero gravity. You can watch Stephen Hawking in such a plane ride \href{https://www.youtube.com/watch?v=OhIpdSZQZlI}{here}\footnote{Please forgive the potato quality as it is a 14 year old video as of the time of this writing.}. In more mathematical sense, we notice that the spaceship frame of reference is not inertial. The coordinates we define are thus accelerating when defined. To find the new $x'$, we first consider constant acceleration:
+ 			$$ \dot{x} \frac{dx}{dt} = -g$$
+ 			$$ \therefore \dot{x} \int_0^1dx = -g\int_0^tdt$$
+ 			We are considering the initial position in spacetime $x$ and wish to find a new position $x'$ relative to the acceleration. We integrate to find their difference with respect to time such that
+ 			$$\int_x^{x'} dx = -g \int_0^t t dt $$
+ 			$$ \therefore x' = x - \frac12gt^2$$ 
+ 			Where we have that $(t,x)$ are the usual spacetime coordinates outside the the laboratory and $(t, x')$ are the coordinates inside the lab as it is accelerating upwards. Hence, it becomes clear that
+ 			$$ \ddot{x} = \ddot{x}' = -g$$
+ 			\begin{defn}
+ 				The forces generated due to acceleration are denoted as \textbf{fictitious forces}.
+ 			\end{defn}
+ 			The main idea behind the equivalence principle is that inside a small frame of reference, the forces of Earth's gravity are roughly equivalent to the fictitious forces of the same frame accelerating in spacetime at $9.8 \,\,\, \nicefrac{\text{m}}{\text{s}^2}$. We can extend this to other gravitational sources aside from the Earth. As a result, we have that the metric of Minkowski space $\eta_{\mu\nu}$ will no longer be constant in terms of the accelerating frame of reference, and moreover, it implies that gravity itself is a result of the variance of the metric.
+ 		\pagebreak
+ 			
+ 			Once we assume that gravitational potential will vary over a larger region than we defined on the previous reference frames, for example in an entire planet or a star, we cannot think of gravity as a fictitious force. So imagine that the mighty nation of Canada decided to build a colossal completely flat spaceship of around 200 km in length over the continental United States, such that the corners of the ship are above the surface by around 800 m, while the centre rests in contact with the surface.
+ 			Thus, if we measure the gravitational force of the Earth along various points along the spaceship, we will find that the gravitational force is not constant if we are being precise. If we then reach space and accelerate the entire ship upwards relative to the Earth's frame of reference at exactly $9.8 \,\,\, \nicefrac{\text{m}}{\text{s}^2}$, we cannot say that the accelerating frame of the ship has an equivalent fictitious force to that of the gravity of Earth, as there are several points where gravity will not be equal. 
+ 			
+ 			\begin{defn}
+ 				The \textbf{strong equivalence principle} or \textbf{Einstein equivalence principle} states that in a small enough frame of reference, the laws of physics reduce to those of special relativity. Moreover, spacetime locally looks like Minkowski space.
+ 			\end{defn}
+ 		
+ 			Once we review differential geometry and tensors, we will be able to redefine this principle yet again to a much more mathematical version:
+ 			
+ 				\textit{For any point given by some coordinates $x_0^\mu$ in space time, there exists a coordinate system such that the line element takes that of special relativity near that specific point $x_0^\mu$. }
+ 				$$ ds^2 = \eta_{\mu\nu} dx^\mu dx^\nu + \mathcal{O}(x-x_0^\mu) $$
+ 		\end{exmp} \noindent
+ 		Where $\mathcal{O} (x-x_0^\mu)$ denotes the error in regard to the extent at which gravity is not a fictitious force.
+ 		\begin{exe}
+ 			Determine the expression for a line element $ds^2$ in terms of the accelerating coordinates in Example 1.10, as given by
+ 			\begin{align*}
+ 				x' &= x - \frac12 gt^2 \\
+ 				t' &= t
+ 			\end{align*}
+ 		\end{exe}
+ 	\pagebreak
+ 	\section{Manifolds}
+ 		We recall the equivalence principle which states that spacetime locally looks like Minkowski space $\R^{3,1}$. In small frames of reference we can presume that gravity can be ignored and thus assume a pure Minkowski space with accelerating frames of reference. In larger frames of reference, gravity does not act as a fictitious force, but the knowledge that it indeed is equivalent to a fictitious force is important nonetheless. To understand this. take the coordinate system we usually employ on the Earth itself of latitude and longitude. When we consider a local area as seen by a human being, these coordinates can be presumed to be in a flat space. However, when considering the same coordinates over larger distances as when travelling in a Trans-Atlantic flight, the metric describing the coordinates curves with the Earth itself.
+ 		
+ 		\begin{thm}
+ 			Spacetime is a 4-dimensional pseudo-Riemann manifold.
+ 		\end{thm}
+ 	
+ 		Because we are physicists, we will not prove this statement and instead consider it to be true while justifying it along the way with various concepts. For a more thorough analysis a book on differential geometry is highly recommended, but is not necessary for the following content.
+ 		
+ 		\begin{defn}
+ 			A $D$-dimensional\textbf{ manifold} $M$ is a set of points that can be labelled by coordinate systems in a smooth way.
+ 		\end{defn}
+ 		
+ 		We will assume all manifolds in this context to be smooth henceforth. 
+ 		
+ 		\begin{defn}
+ 			A \textbf{coordinate system} is a set of $D$ functions $x^i$ which label different points along the manifold $M$ in some region $U \subset M$ in a unique way. More precisely,
+ 			$$ x^i : U \to \R^D \quad \text{for }i=1,\dots,D $$
+ 		\end{defn}
+ 		\begin{defn}
+ 			The region $U$ which the coordinates label uniquely is called \textbf{coordinate patch} of some manifold $M$. We say that the manifold $M$ is covered by the coordinates $x^i$.
+ 		\end{defn} 
+ 		\begin{defn}
+ 			\textbf{Global coordinate systems} are the coordinate systems which cover all of $M$ such that $U \equiv M$. 
+ 		\end{defn}
+ 		Generally, many coordinate systems cover some patch $U \subset M$ while not all of $M$ and remain useful in various cases.
+ 		\begin{exmp}
+ 			Assume that we have two coordinate systems $x^i$ and $x^j$ where $i,j = 1,\dots, D$ which correspond to different ways of labeling a patch $U \subset M$. We can then write the coordinate transformation between $x^i$ and $x^j$ in two ways:
+ 			$$ x^i (x^j) \quad \text{or} \quad x^j (x^i)$$
+ 			Where both of these are infinitely differentiable functions everywhere on the manifold $M$.
+ 		\end{exmp}
+ 		The first observation we make is the following: 
+ 		\begin{thm}
+ 			If some two coordinate systems $x^i$ and $x^j$ uniquely label some points in a patch $U \subset M$, then we know that the Jacobian matrix $J$ of this coordinate transformation is invertible, where
+ 			$$ J = \frac{\partial x^i}{\partial x^j}$$
+ 		\end{thm}
+ 		\begin{cor}
+ 			The determinant of an invertible matrix is nonzero. Therefore,
+ 			$$ \det (J) \neq 0$$
+ 		\end{cor}
+ 		\begin{cor}
+ 			If $\det(J)=0$ then one of the coordinate systems is implied to be \textbf{degenerate}, or \textbf{singular}, such that it no longer labels points in $U \subset M$ uniquely. 
+ 		\end{cor}
+ 		\begin{exmp}
+ 			\textbf{2D Manifold}\\
+ 			Consider the manifold $M=\R^2$. We define two different sets of coordinates given by
+ 			\begin{align*}
+ 				(x,y) &\quad \text{Cartesian coordinates} \\
+ 				(r, \theta) &\quad \text{Polar coordinates}
+ 			\end{align*}
+ 			We find that the Cartesian coordinates are global for the manifold $M$, as any point in the manifold can be described by a point in Cartesian coordinates. However, the Polar coordinates are not global as they label all points in the Manifold except the origin. Notice that at the Cartesian origin $x=y=0$ it follows in the change of coordinates that $\theta$ no longer parametrizes the manifold, and so the coordinate system degenerates into $r$ only. To see this, let us set up the coordinate systems such that
+ 			\begin{align*}
+ 				x^i &= (x^1, x^2) = (x,y) \\
+ 				x^j &= (x^{1'}, x^{2'}) = (r, \theta)
+ 			\end{align*}
+ 			We can therefore write $x^i(x^j)$ and $x^j (x^i)$as
+ 			\begin{align*}
+ 				x^1(x^j) &= x^{1'} \cos x^{2'} = r\cos\theta  & x^{1'}(x^i) &= \sqrt{(x^1)^2 + (x^2)^2} = \sqrt{x^2 + y^2}\\
+ 				x^2 (x^j) &= x^{1'} \sin x^{2'} = r\sin \theta & x^{2'} (x^i) &= \arctan \left( \frac{x^2}{x^1} \right) = \arctan \left( \frac{y}{x} \right)
+ 			\end{align*}
+ 			Now, we build the Jacobian $J = \frac{\partial x^i}{\partial x^j}$ and take its determinant:
+ 			\begin{align*}
+ 				\det(J) &= 	\begin{vmatrix}
+ 					\frac{\partial x^1}{\partial x^{1'}} & \frac{\partial x^1}{\partial x^{2'}} \\
+ 					\frac{\partial x^2}{\partial x^{1'}} & \frac{\partial x^2}{\partial x^{2'}}
+ 				\end{vmatrix} =
+ 				\begin{vmatrix}
+ 					\frac{\partial x}{\partial r} & \frac{\partial x}{\partial \theta} \\
+ 					\frac{\partial y}{\partial r} & \frac{\partial y}{\partial \theta}
+ 				\end{vmatrix} = \begin{vmatrix}
+ 					\cos \theta & -r \sin \theta \\
+ 					\sin \theta & r\cos\theta
+ 				\end{vmatrix}
+ 			\end{align*}
+ 		\pagebreak
+ 			$$ \therefore \det(J) = r^2 \left( \cos^2 \theta + \sin^2 \theta \right) = r^2$$
+ 			We see that the $\theta$ components get cancelled such that $r^2 = 0 \implies \det(J) = 0$, as if the determinant is zero we have that $\cos^2 \theta + \sin^2 \theta \neq 0$. This effectively shows that Polar coordinates are not global coordinates, as they degenerate at the origin. However, we still find a lot of use for this coordinate system.
+ 			\begin{exe}
+ 				Compute the Jacobian $J' = \frac{\partial x^j}{\partial x^i}$ and find its determinant. Discuss the difference between both Jacobians $J$ and $J'$.
+ 			\end{exe}
+ 		\end{exmp}
+ 		When describing spacetime, we use a special notation for the coordinates in general relativity. We write $x^\mu$ for $\mu = 0,1,2,3$ when considering a spacetime manifold rather than $x^i$ for $i=1,2,3$ when considering Euclidean manifolds.
+ 		\begin{exmp}
+ 			\textbf{cartesian coordinates of flat Minkowski spacetime}
+ 			$$ x^\mu = (t, \vec{x}) \in \R^{1,3}$$
+ 		\end{exmp}
+ 	
+ 	\subsection{Principle of General Covariance}
+ 		\begin{defn}
+ 			The \textbf{Principal of General Covariance} requires that we write the laws of physics in such a way that any physical prediction made by these laws is independent of the choice of coordinate system to write that law.
+ 		\end{defn}
+ 		
+ 		The statement above is incredibly important. In order to write any physical law, we need to describe a set of coordinates to denote points in spacetime. However, what we want is that the outcome of every experiment be independent of any choice of coordinates chosen. It might seem obviously intuitive, but it is rather important to understand the mathematics behind General Relativity, as Einstein's field equations arise from this very principle, and thus, so does the theory of Generalized Relativity.
+ 		
+ 		The effect of the principle of General Covariance is that we need to understand now how various objects can transform under these changes of coordinates, so the laws we write must faithfully obey this principle. 
+ 		
+ 		\begin{exmp}
+ 			\textbf{Line element of Minkowski space (revisited)}\\
+ 			Recall the line element of Minkowski space:
+ 			$$ ds^2 = \eta_{\mu\nu} dx^\mu dx^\nu$$
+ 			Now, consider the change of coordinates $x^\mu \to x^\alpha (x^\mu)$ such that we have
+ 			\begin{align*}
+ 				dx^\mu = \left(\frac{\partial x^\mu}{\partial x^\beta} \right) dx^{\beta}
+ 			\end{align*} 
+ 			Recall that as we are using Einstein notation, the differential of the first coordinate system is indeed a set of 4 equations where $\mu=0,1,2,3$ such that
+ 			\begin{equation}
+ 				\label{eq:JacobianChange}
+ 				\boxed{dx^\mu = \sum_{\beta = 0 }^3 \left(\frac{\partial x^\mu}{\partial x^\beta} \right) dx^\beta =  \left(\frac{\partial x^\mu}{\partial x^\beta} \right) dx^{\beta}}
+ 			\end{equation}
+ 			Which in total implies 16 terms, 4 per equation.
+ 			Recall the Cartesian and Polar coordinates in a 2D manifold given by
+ 			\begin{align*}
+ 				x &= r \cos \theta  \\
+ 				y &= r \sin \theta
+ 			\end{align*}
+ 			The differentials of the Cartesian coordinates as given by equation (\ref{eq:JacobianChange}) in this case are
+ 			\begin{align*}
+ 				dx &= \left(\frac{\partial r\cos \theta}{\partial r} \right)  + \left(\frac{\partial r\cos \theta}{\partial \theta} \right)= \cos \theta dr - r\sin\theta d\theta \\
+ 				dy &= \left(\frac{\partial r\sin \theta}{\partial r} \right) + \left(\frac{\partial r\sin \theta}{\partial \theta} \right) = \sin \theta dr + r\cos\theta d \theta
+ 			\end{align*}
+ 			Without loss of generality, the line element of flat Minkowski space in terms of some coordinates $x^\alpha$ to change from some given coordinates $x^\mu$ would be given as
+ 			\begin{align*}
+ 				ds^2 &= \eta_{\mu\nu} dx^\mu dx^\nu \\
+ 				& = \left( \frac{\partial x^\mu}{\partial x^\alpha} dx^\alpha \right) \left( \frac{\partial x^\nu}{\partial x^\beta} dx^\beta \right) \eta_{\mu\nu}
+ 			\end{align*}
+ 			We now rewrite the coordinate change with the metric $\eta_{\mu\nu}$ itself to get
+ 			\begin{equation}
+ 				\label{eq:MetricVariance}
+ 				\boxed{g_{\alpha \beta} = \eta_{\mu\nu}\frac{\partial x^\mu}{\partial x^\alpha}\frac{\partial x^\nu}{\partial x^\beta} }
+ 			\end{equation}
+ 			Which yields the cleaner version of the line element as denoted by
+ 			\begin{equation}
+ 				\label{eq:FlatMinkowskiLineElement}
+ 				\boxed{ds^2 = g_{\alpha \beta} dx^\alpha dx^\beta =\eta_{\mu\nu} dx^\mu dx^\nu }
+ 			\end{equation}
+ 			we are hence given the metric transformation $\eta_{\mu\nu} \to g_{\alpha \beta}$.
+ 			Again, recall the case of a 2D manifold. We will have the Cartesian differential
+ 			$$ ds^2 = dx^2 + dy^2 $$
+ 			To get the Polar differential, we apply again equation (\ref{eq:JacobianChange})
+ 			\begin{align*}
+ 				ds^2 &= \left(\cos \theta dr - r \sin \theta d\theta\right)^2 + \left(\sin \theta dr + r \cos \theta d \theta \right)^2 \\
+ 				&= dr^2+  r^2 d\theta^2
+ 			\end{align*}
+ 		\end{exmp}
+ 		\begin{exe}
+ 			Consider the analogue of Polar coordinates in Minkowski space called Rindler coordinates. Recalling the usual Cartesian coordinates in Minkowski space, we write them in terms of Rindler coordinates as follows:
+ 			\begin{align*}
+ 				t = r \sinh \tau \\
+ 				x = r \cosh \tau
+ 			\end{align*}
+ 			Determine the Jacobian and find the line element in these coordinates.
+ 		\end{exe}
+ 	\subsection{Tensors}
+ 		\begin{defn}
+ 			A \textbf{tensor} $T_{\mu_1, \mu_2 \dots}^{\nu_1, \nu_2, \dots}$ is an algebraic structure that generalizes quantities by use of a multidimensional array. The subscripts $\mu_i$ for $i \in \N$ represent \textbf{covariant indices} such that each subscript is an index for covariant elements. Recall that covariant elements undergo the same transformation as the basis in a change of basis, such as basis vectors. The superscripts $\nu_i$ for $i \in \N$ represent \textbf{contravariant indices} such that their transformation matrix in a change of coordinates is the inverse of the change of basis matrix.
+ 		\end{defn}
+ 		\begin{defn}
+ 			We denote types of tensors by giving them a \textbf{weight} representing the number of $n$ directional and $m$ covariant indices in a 2-tuple given by $(n,m)$. We determine the\textbf{ rank} $r$ of a tensor by adding the components of the weight such that $r=n+m$.
+ 		\end{defn}
+ 		It is important to understand how quantifiable values can transform under coordinate transformations. Consider an arbitrary $D$-dimensional manifold $M$ where a patch $U \subset M$ in the manifold can be described using a multitude of coordinate systems, namely $x^\mu$ and $x^\alpha$ where $\mu,\alpha = 0,1,\dots,(D-1)$.
+ 		
+ 		\begin{defn}
+ 			A \textbf{scalar function} $f$, or simply \textbf{scalar}, is a (0,0)-tensor $f$ that maps elements from a field to points in a manifold $M$ independently from the choice of coordinates.
+ 			$$ f = f(x^\mu) \quad \forall x^\mu \in M$$
+ 		\end{defn} \noindent
+ 		To change a scalar quantity from $x^\mu$ coordinates to $x^\alpha$ coordinates, we have
+ 		$$ f^* = f \left( x^\alpha \right) = f\left( x^\alpha (x^\mu) \right) \quad \forall x^\alpha (x^\mu) \in M$$
+ 		
+ 	\pagebreak
+ 		\begin{thm}
+ 			A scalar function $f$ is defined to be invariant under an invertible coordinate transformation given by $x^\mu \to x^\alpha = x^\alpha (x^\mu)$.
+ 		\end{thm} \noindent
+ 		Theorem 2.5 means that scalar values defined in a Manifold will not change given a change of coordinates, as they are independent of coordinates.
+ 		\begin{defn}
+ 			A \textbf{vector} $v^\mu$ is a (1,0)-tensor that has scalar components $a^\mu$ and basis components $e_\mu$ such that $v^\mu= a^\mu e_\mu$. It is defined as a set of $D$ functions for a $D$-dimensional manifold in each coordinate system which transforms under the change of coordinates $v^\mu \to v^\alpha (x^\alpha)$ as given by
+ 			$$v^\alpha (x^\alpha) = \frac{\partial x^\alpha}{\partial x^\mu} v^\mu \left( x^\alpha (x^\mu) \right) $$
+ 		\end{defn}
+ 		\begin{thm}
+ 			A vector $v^y$ is defined as covariant under an invertible coordinate transformation given by $$v^\mu(x^\mu) \to v^\alpha \big(x^\alpha (x^\mu)\big) $$
+ 		\end{thm} \noindent
+ 		Theorem 2.6 means that we will be able to represent the same vector in different coordinate systems. Thus, a change in coordinates might change its components, but the vector as an object will remain as is. It is also important to note that a vector as defined here is a generalization of the algebraic vectors presented in linear algebra. 
+ 		
+ 		\begin{exmp}
+ 			\textbf{Rotations in 3D}\\
+ 			Consider a vector $\vec{v} \in \R^3$ represented in Cartesian coordinates such that
+ 			$$ \vec{v} = a^1 e_1 + a^2 e_2 + a^3 e_3$$
+ 			We now wish to rotate the coordinate system using an orthogonal matrix\footnote{Orthogonal matrices $A$ are square matrices defined with the property $A^T = A^{-1}$.} $R$ such that we get a new coordinate system:
+ 			
+ 			$$ \vec{v} = \begin{pmatrix}
+ 				a^{1'} \\
+ 				a^{2'} \\
+ 				a^{3'}
+ 			\end{pmatrix} = R_{3\times3} \cdot \begin{pmatrix}
+ 				a^1 \\
+ 				a^2 \\
+ 				a^3
+ 			\end{pmatrix}$$
+ 			Using the Einstein summation notation, we let $v^i = a^i e_i$ be the vector under the original coordinates and let $v^{i'} = a^{i'}e_{i'} = R_j^{i'} a^j e_j$ be the vector considering the new rotated coordinates. Including the summation, this is evidently equivalent to doing matrix multiplication:
+ 			$$ \vec{v} = \sum_{i'=1}^3 a^{i'}e_{i'}=\sum_{i', j = 1}^3 R_j^{i'} a^j e_j $$
+ 			
+ 			\pagebreak
+ 			Notice how in this case, the rotation matrix indeed is the Jacobian matrix for the coordinate change as denoted in equation (\ref{eq:JacobianChange}).
+ 		\end{exmp}
+ 	
 \end{document}
