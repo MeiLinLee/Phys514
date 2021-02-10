@@ -8,7 +8,7 @@
 % Cover info
 
 \title{Phys 514 \\
-	\large Relativity}
+	\large General Relativity}
 
 \author{April Sada Solomon}
 \date{Winter 2021}
@@ -334,7 +334,7 @@
  			\label{eq:IntervalEinstein}
  			\Delta s^2 = \eta_{\mu\nu} \Delta x^\mu \Delta x^\nu
  		\end{equation}
- 		As such, in tensor calculus language this implies that for every subscript in a tensor we must have a corresponding superscript to yield an interval as desired. In this case, $\eta_{\mu\nu}$ has two subscripts, each denoting an index for the matrix, and the one-forms $\Delta x^\mu$ and $\Delta x^\nu$ each have one superscript to indicate their respective components. Hence, we can summarize special relativity to the statement that all intervals in spacetime can be given by an equation in the form of (\ref{eq:IntervalEinstein}), such that spacetime is denoted as \textbf{Minkowski spacetime} $\R^{1,3}$ or simply $\M$. To summarize for now, general relativity implies that spacetime can be something other than Minkowski spacetime $\M$.
+ 		As such, in tensor calculus language this implies that for every subscript in a tensor we must have a corresponding superscript to yield an interval as desired. In this case, $\eta_{\mu\nu}$ has two subscripts, each denoting an index for the matrix, and the one-forms $\Delta x^\mu$ and $\Delta x^\nu$ each have one superscript to indicate their contravariant components. Hence, we can summarize special relativity to the statement that all intervals in spacetime can be given by an equation in the form of (\ref{eq:IntervalEinstein}), such that spacetime is denoted as \textbf{Minkowski spacetime} $\R^{1,3}$ or simply $\M$. To summarize for now, general relativity implies that spacetime can be something other than Minkowski spacetime $\M$.
  		
  		Other examples of spaces are Euclidean spaces, both in 2D ($\R^2$) and in 3D ($\R^3$), where an invariant interval is simply denoted as the distance between two points. Using the notation we have established, the coordinates in 2D and 3D respectively would be:
  		\begin{align*}
@@ -407,7 +407,7 @@
  		\end{equation}
  		We think of $ds$ as an infinitesimal variation on the interval $\Delta s$, and so $dx^\mu$ and $dx^\nu$ are infinitesimal displacements on the coordinates $x^\mu$.
  		
- 		We again redefine Special Relativity to the statement that the line element is given by equation (\ref{eq:LineElement}), where we defined $\eta_{\mu\nu}$ as a metric given by a $4\times4$ diagonal matrix with scalar components. In General Relativity we have the statement that all of the effects of gravity are packaged in terms of a replacement 
+ 		We again redefine Special Relativity to the statement that the line element is given by equation (\ref{eq:LineElement}), where we defined $\eta_{\mu\nu}$ as a metric given by a $4\times4$ diagonal matrix with constant components. In General Relativity we have the statement that all of the effects of gravity are packaged in terms of a replacement 
  		$$ \eta_{\mu\nu} \to g_{\mu \nu} (x)$$
  		Which is a $4\times4$ matrix, formally called a tensor, whose components can change according to the value of the coordinates given, rather than remaining constant as in Special Relativity. we denote $g_{\mu \nu}(x)$ as the \textbf{metric of curved spacetime}. This metric is parametrized by 16 functions of the coordinates of spacetime; one parametrization per component in the matrix. So the line element in General Relativity changes to
  		$$ ds^2 = g_{\mu\nu} dx^\mu dx^\nu$$
@@ -649,19 +649,19 @@
  		It is important to understand how quantifiable values can transform under coordinate transformations. Consider an arbitrary $D$-dimensional manifold $M$ where a patch $U \subset M$ in the manifold can be described using a multitude of coordinate systems, namely $x^\mu$ and $x^\alpha$ where $\mu,\alpha = 0,1,\dots,(D-1)$.
  		
  		\begin{defn}
- 			A \textbf{scalar function} $f$, or simply \textbf{scalar}, is a (0,0)-tensor $f$ that maps elements from a field to points in a manifold $M$ independently from the choice of coordinates.
- 			$$ f = f(x^\mu) \quad \forall x^\mu \in M$$
+ 			A \textbf{scalar function} $a$, or simply \textbf{scalar}, is a (0,0)-tensor $a$ that maps elements from a field to points in a manifold $M$ independently from the choice of coordinates.
+ 			$$ a = a(x^\mu) \quad \forall x^\mu \in M$$
  		\end{defn} \noindent
  		To change a scalar quantity from $x^\mu$ coordinates to $x^\alpha$ coordinates, we have
- 		$$ f^* = f \left( x^\alpha \right) = f\left( x^\alpha (x^\mu) \right) \quad \forall x^\alpha (x^\mu) \in M$$
+ 		$$ a^* = a \left( x^\alpha \right) = a\left( x^\alpha (x^\mu) \right) \quad \forall x^\alpha (x^\mu) \in M$$
  		
  	\pagebreak
  		\begin{thm}
- 			A scalar function $f$ is defined to be invariant under an invertible coordinate transformation given by $x^\mu \to x^\alpha = x^\alpha (x^\mu)$.
+ 			A scalar function $a$ is defined to be invariant under an invertible coordinate transformation given by $x^\mu \to x^\alpha = x^\alpha (x^\mu)$.
  		\end{thm} \noindent
  		Theorem 2.5 means that scalar values defined in a Manifold will not change given a change of coordinates, as they are independent of coordinates.
  		\begin{defn}
- 			A \textbf{vector} $v^\mu$ is a (1,0)-tensor that has scalar components $a^\mu$ and basis components $e_\mu$ such that $v^\mu= a^\mu e_\mu$. It is defined as a set of $D$ functions for a $D$-dimensional manifold in each coordinate system which transforms under the change of coordinates $v^\mu \to v^\alpha (x^\alpha)$ as given by
+ 			A \textbf{vector} $v^\mu$ is a (1,0)-tensor that has scalar components $a^\mu$ and basis coordinates $x^\mu$ such that $v^\mu= a^\mu x^\mu$. It is defined as a set of $D$ functions for a $D$-dimensional manifold in each coordinate system which transforms under the change of coordinates $v^\mu \to v^\alpha (x^\alpha)$ as given by
  			$$v^\alpha (x^\alpha) = \frac{\partial x^\alpha}{\partial x^\mu} v^\mu \left( x^\alpha (x^\mu) \right) $$
  		\end{defn}
  		\begin{thm}
@@ -672,23 +672,232 @@
  		\begin{exmp}
  			\textbf{Rotations in 3D}\\
  			Consider a vector $\vec{v} \in \R^3$ represented in Cartesian coordinates such that
- 			$$ \vec{v} = a^1 e_1 + a^2 e_2 + a^3 e_3$$
+ 			$$ \vec{v} = a^1 x^1 + a^2 x^2 + a^3 x^3$$
  			We now wish to rotate the coordinate system using an orthogonal matrix\footnote{Orthogonal matrices $A$ are square matrices defined with the property $A^T = A^{-1}$.} $R$ such that we get a new coordinate system:
  			
  			$$ \vec{v} = \begin{pmatrix}
- 				a^{1'} \\
- 				a^{2'} \\
- 				a^{3'}
+ 				x^{1'} \\
+ 				x^{2'} \\
+ 				x^{3'}
  			\end{pmatrix} = R_{3\times3} \cdot \begin{pmatrix}
- 				a^1 \\
- 				a^2 \\
- 				a^3
+ 				x^1 \\
+ 				x^2 \\
+ 				x^3
  			\end{pmatrix}$$
- 			Using the Einstein summation notation, we let $v^i = a^i e_i$ be the vector under the original coordinates and let $v^{i'} = a^{i'}e_{i'} = R_j^{i'} a^j e_j$ be the vector considering the new rotated coordinates. Including the summation, this is evidently equivalent to doing matrix multiplication:
- 			$$ \vec{v} = \sum_{i'=1}^3 a^{i'}e_{i'}=\sum_{i', j = 1}^3 R_j^{i'} a^j e_j $$
+ 			Using the Einstein summation notation, we let $\vec{v} = a^i x^i$ be the vector under the original coordinates and let $\vec{v} = a^{i'}x^{i'} = R_j^{i'} a^j x^j$ be the vector considering the new rotated coordinates. Including the summation, this is evidently equivalent to doing matrix multiplication:
+ 			$$ \vec{v} = \sum_{i'=1}^3 a^{i'}x^{i'}=\sum_{i', j = 1}^3 a^j \left(R_j^{i'}\cdot x^j\right) $$
  			
- 			\pagebreak
- 			Notice how in this case, the rotation matrix indeed is the Jacobian matrix for the coordinate change as denoted in equation (\ref{eq:JacobianChange}).
+ 			\pagebreak \noindent
+ 			Notice how in this case, the rotation matrix indeed is the Jacobian matrix for the coordinate change as denoted in equation (\ref{eq:JacobianChange}) such that
+ 			$$ R_{j}^{i'} = \frac{\partial x^{i'}}{\partial x^j}$$
+ 			So the change of coordinates in a rotation is a linear transformation where the Jacobian is a matrix of constants. 
+ 			Furthermore, when we have a transformation of coordinates $x^{j} \to x^{i'}$, the indices of the transformation's domain are considered as covariant indices while the indices in the transformation's codomain remain contravariant. This is what yields $i'$ as a contravariant index and $j$ as a covariant index in the Rotation matrix $R_j^{i'}$. Finally, notice how $a^{i'} = a^{j}$ as a scalar function is invariant over coordinate transformation.
  		\end{exmp}
+ 		\begin{exe}
+ 			The rotation presented above is noted as a \textit{passive rotation}. This means that the vector will not rotate on the manifold, but its coordinates will. The converse would be an \textit{active rotation} where the vector itself is rotated yet its coordinates remain intact.
+ 			Show how an active rotation on the same manifold $M=\R^3$ would look like and prove that the coordinates would remain unchanged.
+ 		\end{exe}
+ 		\begin{thm}
+ 			Let $x^i$ and $x^{i'}$ be two sets of coordinates that represent a vector $\vec{v} \in \R^D$ over some patch $U\subset M$ for a $D$-dimensional manifold $M$ such that
+ 			$$ \vec{v} = a^i x^i = a^{i'} x^{i'}$$
+ 			For any linear transformation $\vec{v} = a^i x^i \to v = a^{i'} x^{i'}$ we will have a $(1,1)$-tensor $T_j^{i'}$ such that
+ 			$$ \vec{v} = a^{i'} x^{i'} = T_j^{i'}\cdot a^j x^j$$
+ 			Where the tensor is given by the Jacobian as $T_j^{i'} = \frac{\partial x^{i'}}{\partial x^j}$
+ 		\end{thm} \noindent
+ 		Theorem 2.7 is a generalization of the familiar notion of a linear transformation in linear algebra and vector calculus. However, the introduction of tensors will allow us to extend this theorem beyond linear transformations to include non-linear transformations as well. Recalling that the weak equivalence principle states that in small frames of reference gravity is equivalent to a fictitious force. In other words, gravity is indistinguishable from an accelerating frame of reference, if the frame of reference is small enough.
+ 		\begin{defn}
+ 			A \textbf{non-inertial frame of reference} is a reference frame whose velocity varies over time.
+ 		\end{defn}
+ 		\begin{thm}
+ 			For a non-inertial frame of reference $K'$, the accelerating coordinates $x^{\mu'}$ of the frame are non-linearly related to the coordinates $x^\mu$ of an observer's reference frame $K$. We note that $K$ can be inertial or non-inertial.
+ 		\end{thm}
+ 		Even though the components of a certain vector $\vec{v}$ in a certain coordinate system $x^\mu$ will look different in another coordinate system $x^{\mu'}$, the vector should be seen as an algebraic structure that is independent of the coordinates chosen. It is important to clarify that a vector has no covariant or contravariant indices, and is instead a geometric object that is present in a manifold $M$ regardless of the coordinates chosen.
+ 		\begin{exmp}
+ 			\textbf{Worldline on a Manifold}
+ 			\begin{figure}[h]
+ 				\begin{minipage}{0.4\textwidth}
+ 					\center
+ 					\begin{tikzpicture}[scale=1]
+ 						%\draw (2,2) node []{$\M$} ;
+ 						\draw [step=0.5cm, grey, opacity=0.25] (-2.5,-2.5) grid (2.5,2.5);
+ 						
+ 						\draw [->] (-2, -2.5) -- (-2, 2) node (taxis) [above] {$t$};
+ 						\draw [->] (-2.5, -2) -- (2, -2) node (xaxis) [right] {$x$};
+ 					%	\draw [thick, dashed, green] (-2,-2) -- (2.5, 2.5) node [below=20mm, left=5mm] {$\Delta s^2 = 0$};
+ 						
+ 						\draw [thick, blue] plot [smooth] coordinates{(-2,-2) (-1.5, -1.2) (-1, -0.2) (-0.5, 0.3) (-0.6, 1) (0, 1.3) (0, 2)};
+ 						\draw [->, thick, red , >=stealth] (-0.6, 1) -- (-0.28, 1.5) node [above =0mm, left=0mm] {$v^\mu$};
+ 						
+ 						
+ 						\filldraw (-2, -2) circle (2pt) (0,2) circle (2pt);
+ 					\end{tikzpicture}
+ 					\caption{A worldline on a spacetime manifold parametrized over some coordinate system as $x^{\mu} (\lambda)$, marked in blue. It's tangent vector at some point is marked in red, labelled $v^\mu$.}
+ 				\end{minipage}
+ 				\begin{minipage}{0.56\textwidth}
+ 					\begin{spacing}{1.5}
+ 						Consider a worldline through a spacetime manifold $M$ that is parametrized using a particular coordinate system such that we can label different points along the worldline using the coordinates as functions of the parametrized variable such that
+ 						$$ x^\mu \to x^\mu (\lambda)$$
+ 						We would like to find out the path such that we know how the coordinates $x^\mu$ depend on $\lambda$. For this, we use a \textbf{tangent vector to the worldline}
+ 						\begin{equation}
+ 							\label{eq:TangetVectorWorldline}
+ 							\boxed{v^\mu = \frac{\partial x^\mu}{\partial \lambda}}
+ 						\end{equation}
+ 					\end{spacing}
+ 				\end{minipage}
+ 			\end{figure}
+ 		
+	 		\vspace{-1cm}
+	 		\noindent
+	 		We know that given some new coordinates $x^{\nu}$, we will get the tangent vector in new coordinates as
+	 		$$ v^{\nu} =  \frac{\partial x^{\nu}}{\partial \lambda}$$
+	 		If we'd like to obtain the tangent vector $v^{\nu}$ in terms of the coordinates $x^\mu$, we recall the chain rule:
+	 		\begin{equation}
+	 			\label{eq:TangentVectorChainRule}
+	 			\boxed{v^{\nu} = \left(\frac{\partial x^{\nu}}{\partial x^\mu}\right)\frac{\partial x^\mu}{\partial \lambda}}
+	 		\end{equation}
+	 		it is important to remember that $\nu$ is a free index whereas $\mu$ is a dummy index for a sum from 0 to 3 such that we have 4 equations
+	 		$$ v^{\nu} = \sum_{\mu=0}^3 \left(\frac{\partial x^{\nu}}{\partial x^\mu}\right)\frac{\partial x^\mu}{\partial \lambda} \quad \text{for } \nu = 0,1,2,3 $$
+	 		This is the same as equations (\ref{eq:TangentVectorChainRule}) except those are in Einstein summation notation, while these ones include the summation. It is evident that we are applying the chain rule to the tangent vector $v^\mu$ with the coordinate's Jacobian $J=\frac{\partial x^{\nu}}{\partial x^\mu}$ to obtain a tangent vector in new coordinates $v^\mu$.
+ 		\end{exmp}
+ 		\begin{note}
+ 			Despite $x^\mu$ having a contravariant index, we have to remember that we are talking about coordinates and not vectors. Notice how the basis vectors $e_\mu$ for the vector $\vec{v}$ in the coordinates $x^\mu$ also have a covariant index despite vectors having no indices. This is because the tensor notation is saved for when we refer specifically to tensors, or otherwise noted. For example, the tangential vector $v^i$ is indeed a contravariant component as it will be transformed by the inverse transformation that yields a change of basis, in this case, the parametrization from some coordinates onto a worldline. Hence, we can use other notations as long as they are clearly understood in the context in which they are dealt with. 
+ 		\end{note}
  	
+ 	\pagebreak
+ 		\begin{figure}[th]
+ 			\begin{minipage}{0.4\textwidth}
+ 				\center
+ 				\begin{tikzpicture}[scale=1]
+ 					\draw [thick] (0,0) arc (45:135:3.5);
+ 					\draw [thick, blue, dashed] (-2.6, 1) arc (110:190:1);
+ 					\draw [thick, blue] (-1.6,-0.1) arc (-10:70:1);
+ 					
+ 					\draw [->, green, thick, >=stealth] (-2.44, 1.03) -- (-1.7, 1.03) node [above] {$v^{\mu_1}$};
+ 					\draw [->, red, thick, >=stealth] (-2.46, 1.03) -- (-2.9, 1.15) node [above] {$v^{\mu_2}$};
+ 					
+ 					\filldraw (-2.45,1.03) circle (1.5pt) node [below] {$p$};
+ 				\end{tikzpicture}
+ 				\caption{An arbitrary 3D curved manifold with a point. A single curve is shown crossing the point along the manifold in blue. Consider the black curvature over the manifold as another curve crossing the point over the manifold. The tangent vector $v^{\mu_1}$ corresponds to the black curve whereas $v^{\mu_2}$ corresponds to the blue curve.}
+ 			\end{minipage}
+ 			\hfill
+ 			\begin{minipage}{0.56\textwidth}
+ 				\begin{spacing}{1.5}
+ 					Consider some curved manifold $M$ such that we can parametrize curves that go through some point $p$ on $M$. To define a tangent vector at such a point, recall equation (\ref{eq:TangetVectorWorldline}):
+ 					$$ v^\mu = \frac{\partial x^\mu}{\partial \lambda}$$
+ 					We would not like to extend the notion of a tangent vector to all possible worldlines on an arbitrary manifold given a point such that we may obtain a set of all possible tangent vectors represented at this point.
+ 				\end{spacing}
+ 			\end{minipage}
+ 		\end{figure}
+ 		\vspace{-1cm}
+ 		\begin{defn}
+ 			The \textbf{tangent space} for some point $p$ in a $D$-dimensional manifold $M$ is a vector space denoted as the set of all tangent vectors spanned by all the possible curves that intersect $p \in M$, and is denoted $T_p (M)$.
+ 		\end{defn}
+ 			\begin{figure}[h]
+ 				\begin{minipage}{0.4\textwidth}
+ 					\center
+ 					\begin{tikzpicture}[scale=1]
+ 						\draw [thick] (0,0) arc (45:135:3.5);
+ 					%	\draw [thick, blue, dashed] (-2.6, 1) arc (110:190:1);
+ 					%	\draw [thick, blue] (-1.6,-0.1) arc (-10:70:1);
+ 						
+ 						\filldraw [thick, orange, opacity=0.3] (-3.0, 1.2) -- (-1.5, 1.2) -- (-2, 0.8) -- (-3.5, 0.8) -- (-3, 1.2); 
+ 						
+ 						\filldraw (-2.45,1.03) circle (1.5pt) node [below=] {$p$};
+ 					\end{tikzpicture}
+ 					\caption{A tangent space represented as a plane on a point over some 3D manifold.}
+ 				\end{minipage}
+ 				\hfill
+ 				\begin{minipage}{0.54\textwidth}
+ 					\begin{spacing}{1.5}
+ 						A tangent vector as we have defined is an example of a vector that is defined for every point on a curve in a manifold. More generally, a tangent vector is a vector that is attached to every point $p \in M$.
+ 					\end{spacing}
+ 				\end{minipage}
+ 			\end{figure}
+ 			\vspace{-0.5cm}
+ 			\begin{defn}
+ 				A \textbf{vector field} is the set of all vectors defined for every point in a manifold $M$. As such, a vector field at some point $p\in M$ is itself a vector.
+ 			\end{defn}
+ 			We can think of vectors in many ways, particularly in geometric ones. For instance, vectors can represent differential operators. 
+ 			\begin{defn}
+ 				Consider a scalar function over some coordinates given by $a(x^\mu)$ and a tangent vector over the same coordinates $v^{\mu} (x^\mu)$. The \textbf{differential operator}, otherwise known as the \textbf{directional derivative} $v$ is a scalar function such that
+ 				\begin{equation}
+ 					\label{eq:DifferentialOperator}
+ 					\boxed{va = v^{\mu} \frac{\partial}{\partial x^\mu} a = v^\mu a_\mu}
+ 				\end{equation}
+ 			\end{defn}
+ 			Clearly, we have that $a_\mu = \frac{\partial a}{\partial x^\mu} = \partial_\mu a$. It may also be clear that the we are yielding a scalar, or a (0,0)-tensor. To see this, let us write $v$ using the chain rule for a change of coordinates.
+ 			\begin{align*}
+ 				v a(x^\mu) &= v^{\mu'} \frac{\partial a (x^\mu)}{\partial x^{\mu'}} \\
+ 				&= v^{\mu} \left(\frac{\partial x^{\mu'}}{\partial x^\mu}\right) \left(\frac{\partial x^{\nu}}{\partial x^{\mu'}}\right) \frac{\partial a(x^{\mu})}{\partial x^\nu} \\
+ 				&= \left( \sum_{\mu=0}^{D-1} v^{\mu} \left(\frac{\partial x^{\mu'}}{\partial x^\mu}\right) \right) \left( \sum_{\nu=0}^{D-1} \left(\frac{\partial x^{\nu}}{\partial x^{\mu'}}\right)  \frac{\partial a(x^{\mu})}{\partial x^\nu} \right)
+ 			\end{align*}
+ 			We have two different Jacobians: The first $\frac{\partial x^{\mu'}}{\partial x^\mu}$ is for changing from $x^\mu$ to $x^{\mu'}$ coordinates, and the second $\frac{\partial x^{\mu}}{\partial x^{\mu'}}$ is for changing from $x^{\mu'}$ to $x^\mu$ coordinates. They each are respective inverses of the other, and multiplied they yield an identity matrix.
+ 			
+ 			\begin{defn}
+ 				The \textbf{Kronecker delta} is defined as a (1,1)-tensor yielded by the multiplication of a Jacobian by it's own inverse, namely
+ 				\begin{equation}
+ 					\label{eq:KroneckerDelta}
+ 					\boxed{\delta_{\mu}^\nu = \frac{\partial x^{\mu'}}{\partial x^\mu}\frac{\partial x^{\nu}}{\partial x^{\mu'}} = \begin{cases}
+ 							1, & \text{if } \mu = \nu \\
+ 							0, & \text{if } \mu \neq \nu \\
+ 					\end{cases}}
+ 				\end{equation}
+ 			\end{defn}
+ 		
+ 			The fact that a Jacobian times its inverse results in the Kronecker delta implies that the differential operator on a scalar function becomes
+ 			$$ va = v^\mu \delta_\mu^\nu \frac{\partial a}{\partial x^\mu} = v^\mu \frac{\partial a}{\partial x^\mu}$$
+ 			Clearly, this means that this differential operator $v$ transforms a scalar to a scalar. More explicitly, it transforms a (0,0)-Tensor into another (0,0)-Tensor. In calculus terms, it yields the directional derivative of a scalar in the direction of $v$.
+ 			
+ 			\begin{exmp}
+ 				\textbf{A scalar function on a tangent vector}
+ 				\begin{figure}[h]
+ 					\begin{minipage}{0.4\textwidth}
+ 						\center
+ 						\begin{tikzpicture}[scale=1]
+ 							%\draw (2,2) node []{$\M$} ;
+ 							\draw [step=0.5cm, grey, opacity=0.25] (-2.5,-2.5) grid (2.5,2.5);
+ 							
+ 							\draw [->] (-2, -2.5) -- (-2, 2) node (taxis) [above] {$t$};
+ 							\draw [->] (-2.5, -2) -- (2, -2) node (xaxis) [right] {$x$};
+ 							%\draw [thick, dashed, green] (-2,-2) -- (2.5, 2.5) node [below=20mm, left=5mm] {$\Delta s^2 = 0$};
+ 							
+ 							\draw [thick, blue] plot [smooth] coordinates{(-2,-2) (-1.8, -1.5) (-1.2, -1) (-1.8, -0.2) (-0.6, 0.3) (-1, 1) (0, 1.3) (1, 2)} (-0.6, 0.3) node [below] {$\lambda$};
+ 							\draw [->, thick, red , >=stealth] (-1, 1) -- (-0.6, 1.5) node [above =0mm, left=0mm] {$\frac{\partial x^\mu}{\partial \lambda}$};
+ 							
+ 							
+ 							\filldraw (-2, -2) circle (2pt) (1,2) circle (2pt);
+ 						\end{tikzpicture}
+ 						\caption{A worldline on a spacetime manifold parametrized over some coordinate system as $x^{\mu} (\lambda)$, marked in blue. It's tangent vector at some point is marked in red, labelled $\frac{\partial x^\mu}{\partial \lambda}$.}
+ 					\end{minipage}
+ 					\begin{minipage}{0.56\textwidth}
+ 						\begin{spacing}{1.5}
+ 							Considering a worldline over some manifold $M$, we define a scalar function over the coordinates such that
+ 							$$ a\big(x^\mu (\lambda)\big) = a(\lambda)$$
+ 							By the chain rule, the directional derivative on the scalar $a$ is hence given by
+ 							\vspace{0cm}
+ 							\begin{align*}
+ 								\frac{da}{d\lambda} &= \frac{\partial x^\mu}{\partial \lambda} \frac{\partial a}{\partial x^\mu} \\
+ 								&= v^\mu \frac{\partial}{\partial x^\mu} a \\
+ 								&=v a
+ 							\end{align*}
+ 						\end{spacing}
+ 					\end{minipage}
+ 				\end{figure}
+ 			
+ 				\vspace{-0.5cm}\noindent
+ 				This leads us to see that the differential operator $v$ takes derivatives along a curve to which the vector $v^\mu$ is a tangent vector. Sometimes, we might think of $\partial_\mu$ as a \textit{basis} for the tangent vectors $v^\mu$. Thus, a directional derivative is neatly given by a tangential component and a basis component:
+ 				$$ v = v^\mu \partial_\mu$$
+ 			\end{exmp}
+ 			\begin{exe}
+ 				Consider the manifold $M = \R^2$ in both Cartesian $(x,y)$ and Polar coordinates $(r, \theta)$ such that a tangential vector in Cartesian coordinates is given by
+ 				$$ v^\mu = \begin{pmatrix}
+ 					1 \\ 0
+ 				\end{pmatrix}$$
+ 			\begin{enumerate}[(a)]
+ 				\item Write the tangential vector $v^{\mu}$ in polar coordinates.
+ 				\item Write the differential operator $\frac{\partial}{\partial x^\mu}$ in Polar coordinates.
+ 				\item Explain how (a) and (b) relate to each other.
+ 			\end{enumerate}
+ 			
+ 			\end{exe}
 \end{document}
