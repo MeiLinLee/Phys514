@@ -661,18 +661,18 @@
  		\end{thm} \noindent
  		Theorem 2.5 means that scalar values defined in a Manifold will not change given a change of coordinates, as they are independent of coordinates.
  		\begin{defn}
- 			A \textbf{vector} $v^\mu$ is a (1,0)-tensor that has scalar components $a^\mu$ and basis coordinates $x^\mu$ such that $v^\mu= a^\mu x^\mu$. It is defined as a set of $D$ functions for a $D$-dimensional manifold in each coordinate system which transforms under the change of coordinates $v^\mu \to v^\alpha (x^\alpha)$ as given by
- 			$$v^\alpha (x^\alpha) = \frac{\partial x^\alpha}{\partial x^\mu} v^\mu \left( x^\alpha (x^\mu) \right) $$
+ 			A \textbf{vector} $\vec{v}$ is a (1,0)-tensor on a $D$-dimensional manifold that is defined as $D$ functions called \textbf{tangent vectors} or \textbf{contravariant vectors} $v^\mu$ on a \textbf{basis} $\frac{\partial}{\partial x^\mu} = \partial_\mu$ given coordinates $x^\mu$ such that $\vec{v}= v^\mu \partial_\mu$. It transforms under the change of coordinates $v^\mu \to v^{\mu'} (x^{\mu'})$ as given by
+ 			$$v^{\mu'} (x^{\mu'}) = \frac{\partial x^{\mu'}}{\partial x^\mu} v^\mu \left( x^{\mu'} (x^\mu) \right) $$
  		\end{defn}
  		\begin{thm}
- 			A vector $v^y$ is defined as covariant under an invertible coordinate transformation given by $$v^\mu(x^\mu) \to v^\alpha \big(x^\alpha (x^\mu)\big) $$
+ 			The transformation on a vector $v^\mu$ is defined to be covariant under an invertible coordinate transformation given by $$v^\mu(x^\mu) \to v^{\mu'} \big(x^{\mu'} (x^\mu)\big) $$
  		\end{thm} \noindent
  		Theorem 2.6 means that we will be able to represent the same vector in different coordinate systems. Thus, a change in coordinates might change its components, but the vector as an object will remain as is. It is also important to note that a vector as defined here is a generalization of the algebraic vectors presented in linear algebra. 
  		
  		\begin{exmp}
  			\textbf{Rotations in 3D}\\
  			Consider a vector $\vec{v} \in \R^3$ represented in Cartesian coordinates such that
- 			$$ \vec{v} = a^1 x^1 + a^2 x^2 + a^3 x^3$$
+ 			$$ \vec{v} = v^1 \partial_1 + v^2 \partial_2 + v^3 \partial_3$$
  			We now wish to rotate the coordinate system using an orthogonal matrix\footnote{Orthogonal matrices $A$ are square matrices defined with the property $A^T = A^{-1}$.} $R$ such that we get a new coordinate system:
  			
  			$$ \vec{v} = \begin{pmatrix}
@@ -684,27 +684,20 @@
  				x^2 \\
  				x^3
  			\end{pmatrix}$$
- 			Using the Einstein summation notation, we let $\vec{v} = a^i x^i$ be the vector under the original coordinates and let $\vec{v} = a^{i'}x^{i'} = R_j^{i'} a^j x^j$ be the vector considering the new rotated coordinates. Including the summation, this is evidently equivalent to doing matrix multiplication:
- 			$$ \vec{v} = \sum_{i'=1}^3 a^{i'}x^{i'}=\sum_{i', j = 1}^3 a^j \left(R_j^{i'}\cdot x^j\right) $$
+ 			Using the Einstein summation notation, we let $\vec{v} = v^i \partial_{x^i}$ be the vector under the original coordinates and let $\vec{v} = v^{i'}\partial_{i'} = R_j^{i'} v^j \partial_{j}$ be the vector considering the new rotated coordinates. Including the summation, this is evidently equivalent to doing matrix multiplication:
+ 			$$ \vec{v} = \sum_{i'=1}^3 v^{i'}\frac{\partial}{\partial x^{i'}}=\sum_{i', j = 1}^3 \left(R_j^{i'}\cdot v^j\frac{\partial}{\partial x^{j}}\right) $$
  			
  			\pagebreak \noindent
  			Notice how in this case, the rotation matrix indeed is the Jacobian matrix for the coordinate change as denoted in equation (\ref{eq:JacobianChange}) such that
  			$$ R_{j}^{i'} = \frac{\partial x^{i'}}{\partial x^j}$$
  			So the change of coordinates in a rotation is a linear transformation where the Jacobian is a matrix of constants. 
- 			Furthermore, when we have a transformation of coordinates $x^{j} \to x^{i'}$, the indices of the transformation's domain are considered as covariant indices while the indices in the transformation's codomain remain contravariant. This is what yields $i'$ as a contravariant index and $j$ as a covariant index in the Rotation matrix $R_j^{i'}$. Finally, notice how $a^{i'} = a^{j}$ as a scalar function is invariant over coordinate transformation.
+ 			Furthermore, when we have a transformation of coordinates $x^{j} \to x^{i'}$, the indices of the transformation's domain are considered as covariant indices while the indices in the transformation's codomain remain contravariant. This is what yields $i'$ as a contravariant index and $j$ as a covariant index in the Rotation matrix $R_j^{i'}$.
  		\end{exmp}
  		\begin{exe}
  			The rotation presented above is noted as a \textit{passive rotation}. This means that the vector will not rotate on the manifold, but its coordinates will. The converse would be an \textit{active rotation} where the vector itself is rotated yet its coordinates remain intact.
  			Show how an active rotation on the same manifold $M=\R^3$ would look like and prove that the coordinates would remain unchanged.
  		\end{exe}
- 		\begin{thm}
- 			Let $x^i$ and $x^{i'}$ be two sets of coordinates that represent a vector $\vec{v} \in \R^D$ over some patch $U\subset M$ for a $D$-dimensional manifold $M$ such that
- 			$$ \vec{v} = a^i x^i = a^{i'} x^{i'}$$
- 			For any linear transformation $\vec{v} = a^i x^i \to v = a^{i'} x^{i'}$ we will have a $(1,1)$-tensor $T_j^{i'}$ such that
- 			$$ \vec{v} = a^{i'} x^{i'} = T_j^{i'}\cdot a^j x^j$$
- 			Where the tensor is given by the Jacobian as $T_j^{i'} = \frac{\partial x^{i'}}{\partial x^j}$
- 		\end{thm} \noindent
- 		Theorem 2.7 is a generalization of the familiar notion of a linear transformation in linear algebra and vector calculus. However, the introduction of tensors will allow us to extend this theorem beyond linear transformations to include non-linear transformations as well. Recalling that the weak equivalence principle states that in small frames of reference gravity is equivalent to a fictitious force. In other words, gravity is indistinguishable from an accelerating frame of reference, if the frame of reference is small enough.
+ 		The introduction of linear transformations into tensors will allow us to extend transformations beyond linearity to include non-linear transformations as well. Recalling that the weak equivalence principle states that in small frames of reference gravity is equivalent to a fictitious force. In other words, gravity is indistinguishable from an accelerating frame of reference, if the frame of reference is small enough.
  		\begin{defn}
  			A \textbf{non-inertial frame of reference} is a reference frame whose velocity varies over time.
  		\end{defn}
@@ -712,6 +705,12 @@
  			For a non-inertial frame of reference $K'$, the accelerating coordinates $x^{\mu'}$ of the frame are non-linearly related to the coordinates $x^\mu$ of an observer's reference frame $K$. We note that $K$ can be inertial or non-inertial.
  		\end{thm}
  		Even though the components of a certain vector $\vec{v}$ in a certain coordinate system $x^\mu$ will look different in another coordinate system $x^{\mu'}$, the vector should be seen as an algebraic structure that is independent of the coordinates chosen. It is important to clarify that a vector has no covariant or contravariant indices, and is instead a geometric object that is present in a manifold $M$ regardless of the coordinates chosen.
+ 		\vfill
+ 		\begin{center}
+ 			\textit{"Once you stop learning, you start dying."} - Albert Einstein
+ 		\end{center}
+ 		\vfill
+ 		\pagebreak
  		\begin{exmp}
  			\textbf{Worldline on a Manifold}
  			\begin{figure}[h]
@@ -737,7 +736,7 @@
  					\begin{spacing}{1.5}
  						Consider a worldline through a spacetime manifold $M$ that is parametrized using a particular coordinate system such that we can label different points along the worldline using the coordinates as functions of the parametrized variable such that
  						$$ x^\mu \to x^\mu (\lambda)$$
- 						We would like to find out the path such that we know how the coordinates $x^\mu$ depend on $\lambda$. For this, we use a \textbf{tangent vector to the worldline}
+ 						We would like to find out the path such that we know how the coordinates $x^\mu$ depend on $\lambda$. For this, we use a \textbf{tangent vector} or \textbf{contravariant vector} to the worldline
  						\begin{equation}
  							\label{eq:TangetVectorWorldline}
  							\boxed{v^\mu = \frac{\partial x^\mu}{\partial \lambda}}
@@ -898,6 +897,148 @@
  				\item Write the differential operator $\frac{\partial}{\partial x^\mu}$ in Polar coordinates.
  				\item Explain how (a) and (b) relate to each other.
  			\end{enumerate}
+ 			\end{exe}
+ 			\begin{thm}
+ 				The tangential vectors $v^\mu$ of a vector $\vec{v}$ on some basis $\frac{\partial}{\partial x^\mu}$ transform from coordinates $x^\mu$ to coordinates $x^{\mu'}$ as
+ 				$$ v^\mu \to v^{\mu'} = \frac{\partial x^{\mu'} }{\partial x^\mu} v^\mu$$
+ 				Where $x^{\mu'} = x^{\mu'} (x^\mu)$ and $\frac{\partial x^{\mu'} }{\partial x^\mu}$ is the Jacobian from $x^\mu$ to $x^{\mu'}$.
+ 			\end{thm}
+ 			We can therefore represent tangential vectors $v^\mu$ in a coordinate independent way as a differential operator which takes scalars to scalars. Now, let's introduce our next tensor.
  			
+ 			\begin{defn}
+ 				Given a $D$-dimensional manifold $M$, a \textbf{one-form} is a (0,1)-tensor given as a set of $D$ functions on some coordinates $x^\mu$ denoted by $w_\mu$. It is otherwise known as \textbf{covariant vector}.
+ 			\end{defn}
+ 			\begin{thm}
+ 				A one form $w_\mu$ on some coordinates $x^\mu$ transforms as
+ 				$$ w_\mu \to w_{\mu'} = \frac{\partial x^\mu}{\partial x^{\mu'}} w_\mu$$
+ 			\end{thm}
+ 			\begin{cor}
+ 				Given two coordinates $x^\mu$ and $x^{\mu'}$ on a $D$-dimensional manifold $M$, the Jacobian $\frac{\partial x^\nu}{\partial x^{\mu'}}$ that transforms a one form as $w_\nu \to w_{\mu'} = \frac{\partial x^\nu}{\partial x^{\mu'}} w_\nu$ is the inverse of the Jacobian $\frac{\partial x^{\mu'}}{\partial x^\mu}$ that transforms the components of a vector as $v^\mu \to v^{\mu'} = \frac{\partial x^{\mu'}}{\partial x^\mu} v^\mu$ such that
+ 				$$ \frac{\partial x^{\mu'}}{\partial x^\mu}\frac{\partial x^\nu}{\partial x^{\mu'}} = \delta_{\mu}^\nu$$
+ 			\end{cor}\noindent
+ 			The difference between a vector and a one form is that a vector can be represented by contravariant components $v^\mu$ whereas a one-form is represented by covariant components $w_\mu$. Moreover, this extends to why the Jacobians are written in each way respectively for a one form $w_\mu$ and a vector $v^\mu$, as we may get a scalar by summing the multiplication of each function as $v^\mu w_\mu = a$. To show this, let us change from coordinates $x^\mu$ to coordinates $x^{\mu'}$ with the following transformation
+ 			$$ v^\mu w_\mu \to v^{\mu'} w_{\mu'} = \left( v^\mu \frac{\partial x^{\mu'}}{\partial x^\mu}  \right) \left(\frac{\partial x^\nu}{\partial x^{\mu'}} w_\nu \right)$$
+ 			By Corollary 2.10, we have
+ 			$$  v^{\mu'} w_{\mu'} = v^\mu \delta_\mu^\nu w_\nu = v^\mu w_\mu$$
+ 			\begin{defn}
+ 				The product of a one-form $w_\mu$ and a vector $v^\mu$ is known as a \textbf{dot-product}.
+ 			\end{defn}
+ 			
+ 			So formally, we can think that a one form $w_\mu$ is a linear mapping from vector components $v^\mu$ to scalars $a$. For this very reason, sometimes one-forms can be referred to as \textit{dual-vectors} that mirror vectors. In the same way a vector belongs to some tangent space, a one form also belongs to a \textit{dual-tangent space} or \textit{cotangent space} denoted $T_{p}^*(M)$. However, this language is saved for much more mathematical formulations of General Relativity. The mention of this vocabulary is done for the sake of reference for further insight into other texts. 
+ 			
+ 			In linear algebra, we usually represent vectors as column vectors and one-forms as row vectors. In particular, considering a $D$-dimensional manifold $M$ we have
+ 			$$ w_\mu = \begin{pmatrix} w_0 & w_1 & \dots & w_{D-1}\end{pmatrix} \quad v^\mu = \begin{pmatrix}
+ 				v^1 \\
+ 				v^2 \\
+ 				\vdots \\
+ 				v^{D-1}
+ 			\end{pmatrix} \implies  w_\mu v^\mu = \sum_{\nu=0}^{D-1} w_\nu v^\nu$$
+ 			Whether a tensor has a covariant (lower) or contravariant (upper) index will impact how that specific tensor transforms under a coordinate change. If we instead have $v^\mu w_\mu$ we would get a $3\times3$ matrix but would only sum the trace of this matrix, yielding the same result as $w_\mu v^\mu$.
+ 			
+ 			\begin{defn}
+ 				Whenever we set a covariant and a contravariant index as equal in a tensor and subsequently sum over them, we denote that as \textbf{contraction of indices}.
+ 			\end{defn}
+ 			\begin{thm}
+ 				For some scalar function $a=a(x^\mu)$ on a $D$-dimensional manifold $M$ given some coordinates $x^\mu$, we can define a one-form $w_\mu$ whose componets are given by
+ 				\begin{equation}
+ 					\label{eq:OneForm}
+ 					\boxed{\frac{\partial a}{\partial x^\mu} = \partial_\mu a}
+ 				\end{equation}
+ 			\end{thm} \noindent
+ 			Now let us change the components of a one-form $w_\mu$ from coordinates $x^\mu$ to coordinates $x^{\mu'}$, we use the chain rule to get
+ 			$$ \partial_\mu a \to \partial_{\mu'} a = \frac{\partial x^\mu}{\partial x^{\mu'}} \frac{\partial a(x^\mu)}{\partial x^\mu} $$
+ 			And just like we write vectors using a basis independent way $\vec{v} = v^\mu \partial_\mu$, we can write a one-form in a basis independent way such that
+ 			$$ w = w_\mu dx^\mu$$
+ 			\begin{defn}
+ 				We denote $dx^\mu$ as an \textbf{infinitesimally small displacement of coordinates} $x^\mu$.
+ 			\end{defn} \noindent
+ 			Given another set of coordinates $x^{\mu'}$ we can obtain a one form in $x^\mu$ coordinates as
+ 			$$ w = w_\mu dx^\mu = \left( w_{\mu'} \frac{\partial x^{\mu'}}{\partial x^\mu} \right) \left( \frac{\partial x^\mu}{\partial x^{\nu'}} dx^{\nu'} \right)$$
+ 			By Corollary 2.10, we again have $\delta_\mu^{\mu'}$, which gives
+ 			$$ w = w_\mu dx^\mu = w_{\mu'} dx^{\mu'}  $$
+ 			
+ 			Now, let us go back to Theorem 2.11 from which we see that for some coordinates $x^\mu$, there exists a special notation for the one-form $w_\mu = \partial_\mu a$, whose components are the derivatives of some scalar function $a=a(x^\mu)$. This notation is called \textbf{integration} of $a$ and is denoted
+ 			\begin{equation}
+ 				\label{eq:TheDifferential}
+ 				\boxed{da = \partial_\mu a \,dx^\mu}
+ 			\end{equation}
+ 			\begin{exmp}
+ 				\textbf{One-form of a Cartesian manifold} \\
+ 				Consider the $\R^2$ manifold. Let us define a Cartesian coordinate system such that we can define the scalar functions
+ 				\begin{align*}
+ 					a(x^1) &= x^1 = x \\
+ 					a(x^2) &= x^2 = y
+ 				\end{align*}
+ 				We can easily obtain the components of the one-form:
+ 				\begin{align*}
+ 					\partial_1 a(x^1) &= \begin{pmatrix} 1 & 0 \end{pmatrix} \\
+ 					\partial_2 a(x^2) &= \begin{pmatrix} 0 & 1 \end{pmatrix}
+ 				\end{align*} 
+ 				Therefore, the infinitesimal displacement for each respective component in the one-form will be given by
+ 				\begin{align*}
+ 					\partial_1 a(x^1) dx^1 &= \begin{pmatrix} dx & 0 \end{pmatrix} \\
+ 					\partial_2 a(x^2) dx^2 &= \begin{pmatrix} 0 & dy \end{pmatrix}
+ 				\end{align*}
+ 			\end{exmp} \noindent
+ 			The one-form can be more easily explained as the sum of the derivatives of each coordinate. It yields an independent basis in the same way that the basis for a vector $\frac{\partial}{\partial x^\mu} = \partial_\mu$ does. We can say as physicists that a one-form's one and only purpose is to be integrated such that
+ 			$$ \int da $$
+ 		
+ 		\pagebreak
+ 			\begin{thm}
+ 				The \textbf{Fundamental Theorem of Calculus} states that, given two points $p$ and $q$ defined on a function $f$, it follows that
+ 				\begin{equation}
+ 					\label{eq:TheoremCalculus}
+ 					\boxed{\int_p^q df = f(q) - f(p)}
+ 				\end{equation}
+ 			\end{thm}
+ 			We now have enough insight into some basic tensors to generalize and define it formally. Definition 2.6 does provide us with some useful information, but we had to define more things along the way in order to understand what we meant better. Hence, now let us define it using everything we've learned thus far.
+ 			\begin{defn}
+ 				A $(k,\ell)$-tensor is a set of $D^{k+\ell}$ functions denoted by
+ 				$$ T_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k} = \left( \frac{\partial x^{\mu_{1'}}}{\partial x^{\mu_1}} \right) \cdots \left( \frac{\partial x^{\mu_k'}}{\partial x^{\mu_k}} \right)\left( \frac{\partial x^{\nu_1}}{\partial x^{\nu_{1'}}} \right) \cdots \left( \frac{\partial x^{\nu_\ell}}{\partial x^{\nu_{\ell'}}} \right) $$
+ 			\end{defn}
+ 			This looks quite complicated. So we need only remember index contraction such that this eventually simplified. It therefore extremely important to note the ordering and placement of the indices, as changing either will inevitably change the entire tensor. On a last note, we can also write a tensor using a tensor product.
+ 			By use of the tensor product $T \otimes T'$, a tensor becomes much easier to write down in a coordinate invariant way via contraction of indices.
+ 			$$ T = T_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k} \,\,  \partial_{\mu_1} \otimes \cdots \otimes \partial_{\mu_k} \otimes dx^{\nu_1} \otimes \cdots \otimes dx^{\nu_\ell} $$
+ 			Let us clean this up further. We clearly see that this involves the outer product of several vector spaces, whose elements are vectors, and several dual vector spaces, whose elements are one-forms. Hence, let us define $V_{\mu_i}$ as the vector space for the basis $\partial_{\mu_i}$ where $i=1,\dots, k$ and let us define the dual vector space $W^{\nu_j}$ for the infinitesimal displacement $dx^{\nu_j}$ where $j=1,\dots, \ell$. We can then say that
+ 			$$T = T_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k} = V^{\mu_1} \otimes \cdots \otimes V^{\mu_k} \otimes W_{\nu_1} \otimes \cdots \otimes W_{\nu_\ell} $$
+ 			Moreover, let us give a special notation for the outer product of several vector spaces:
+ 			$$ V^1 \otimes \cdots \otimes V^n = V^{\otimes_{n}}$$
+ 			Finally, a tensor can be written in terms of vector spaces and dual vector spaces as
+ 			$$T = T_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k}= V^{\otimes_{\mu_k}} \otimes W_{\otimes_{\nu_\ell}} $$
+ 			
+ 			\pagebreak
+ 			
+ 			\begin{exmp}
+ 				\textbf{The metric tensor}\\
+ 				Consider the (0,2)-tensor that denotes the variations of a spacetime metric $g_{\mu\nu}$. We can write this tensor as
+ 				\begin{equation}
+ 					\label{eq:MetricTensor}
+ 					\boxed{g = g_{\mu\nu} dx^\mu \otimes dx^\nu = g_{\mu \nu} dx^\mu dx^\nu}
+ 				\end{equation}
+ 			\end{exmp}
+ 			
+ 			\subsection{Tensor Algebra}
+ 			We have the following operations on tensors:
+ 			\begin{itemize}
+ 				\item \textbf{Addition}
+ 					\subitem Two tensors of the same weight $A_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k}$ and $B_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k}$ can be added to obtain another tensor of the same weight $C_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k}$. To achieve this, we simply add the components of each vector correspondingly to the indices such that we get
+ 					$$ A_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k} + B_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k} = C_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k}$$
+ 				\item \textbf{Multiplication}
+ 					\subitem We can multiply a $(k, \ell)$-tensor $A_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k}$ with a $(k', \ell')$-tensor $B_{\nu_1, \dots, \nu_{\ell'}}^{\mu_1, \dots, \mu_{k'}}$  to get another\\$(k+k',\ell + \ell')$-tensor $C_{\nu_1, \dots, \nu_{\ell+\ell'}}^{\mu_1, \dots, \mu_{k+k'}}$. So a tensor transforms as a tensor under multiplication, namely
+ 					$$ A_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k}\otimes B_{\nu_1, \dots, \nu_{\ell'}}^{\mu_1, \dots, \mu_{k'}} = C_{\nu_1, \dots, \nu_{\ell+\ell'}}^{\mu_1, \dots, \mu_{k+k'}}$$
+ 				\item \textbf{Contraction}
+ 					\subitem Given a $(k, \ell)$-tensor $A_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k}$, we can contract covariant and contravariant indices to get a $(k-1, \ell-1)$-tensor  $B_{\nu_1, \dots, \nu_{\ell-1}}^{\mu_1, \dots, \mu_{k-1}}$
+ 					For instance, $v^\mu w_\nu$ is a (1,1)-tensor while $v^\mu w_\mu$ is a $(0,0)$-tensor.
+ 			\end{itemize}
+ 			\begin{exe}
+ 				Consider the manifold $\R^2$ in coordinates $x^\mu = (x,y)$ and $x^{\mu'} = (r, \theta)$. Given the following tangent vector and the one form in $x^\mu$ coordinates $$ v^\mu = \begin{pmatrix}
+ 					1 \\ 0
+ 				\end{pmatrix}, \quad\quad w_\mu = \begin{pmatrix}
+ 				1 & 0
+ 			\end{pmatrix}$$
+ 				\begin{enumerate}[(a)]
+ 					\item Find the tangent vector $v^{\mu'}$ and the one-form $w_{\mu'}$ in $x^{\mu'}$ coordinates.
+ 					\item Represent $v = v^\mu \partial_\mu$ and $w = w_\mu dx^\mu$ in coordinate-free notation.
+ 				\end{enumerate}
  			\end{exe}
 \end{document}
