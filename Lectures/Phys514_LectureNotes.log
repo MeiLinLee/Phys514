@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  10 FEB 2021 08:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  10 FEB 2021 19:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1295,7 +1295,7 @@ Package rerunfilecheck Info: File `Phys514_LectureNotes.out' has not changed.
 Here is how much of TeX's memory you used:
  41135 strings out of 479304
  929830 string characters out of 5871213
- 1478557 words of memory out of 5000000
+ 1478558 words of memory out of 5000000
  57537 multiletter control sequences out of 15000+600000
  423892 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1327,7 +1327,7 @@ live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2020
 mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-d
 ist/fonts/type1/public/rsfs/rsfs10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/
 public/cm-super/sfrm1000.pfb>
-Output written on Phys514_LectureNotes.pdf (30 pages, 410151 bytes).
+Output written on Phys514_LectureNotes.pdf (30 pages, 410158 bytes).
 PDF statistics:
  438 PDF objects out of 1000 (max. 8388607)
  373 compressed objects within 4 object streams

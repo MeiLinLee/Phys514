@@ -93,7 +93,7 @@
  		\end{defn} 
  		We will be learning pseudo-Riemann topological spaces by employing Einstein's field equation, which determines how spacetime curvature is determined in the presence of matter or energy. In Newtonian gravitation, the source term was a mass (or energy density in Special Relativity where $E = mc^2$). Recall however that mass has no independent meaning in terms of relativity as energy and momentum both depend on the reference frame where they are measured. The "source" of the curvature in general relativity is a term in the Einstein field equations that describes a generalized mass-energy distribution in spacetime of the sources present.
  		
- 		The force law is also replaced by the geodesic equation, which tells us how objects move through some curved spacetime. Particularly, the geometric interpretation of the geodesic is quite simple; it is the statement that \textit{object will move on \textbf{geodesics}, which are the shortest paths between two points on a surface.} In a flat surface, this is a straight line, but in curved surfaces, this trajectory will not be a straight line, like two points on the surface of a sphere.
+ 		The force law is also replaced by the geodesic equation, which tells us how objects move through some curved spacetime. Particularly, the geometric interpretation of the geodesic is quite simple; it is the statement that \textit{object will move on \textbf{geodesics}, which are the extremal paths on some manifold.} In a flat surface, this is a straight line, but in curved topologies, this trajectory will not be a straight line, like two points on the surface of a sphere.
  		
  		\begin{figure}[h]
  			\begin{subfigure}{0.46\textwidth}
@@ -128,7 +128,7 @@
  			\end{subfigure}
  			\caption{Examples of geodesic on different surfaces.}
  		\end{figure}
- 		So in other words, it is the curve that minimizes the distance between two points over some surface. The force law is therefore just the statement that bodies will move in geodesics over some geometry, even when said geometry is curved. So when we think of gravity as the curvature of spacetime, then geodesics will describe motion over spacetime as it is curved.
+ 		So in other words, it is the curve that finds the extrema of the distance between two points over some space. The force law is therefore just the statement that bodies will move in geodesics over some geometry, even when said geometry is curved. So when we think of gravity as the curvature of spacetime, then geodesics will describe motion over spacetime as it is curved.
  		
  		\subsection{Special Relativity}
  		The discussion of special relativity will serve to introduce spacetime properly. We will develop it further later on, but for now we will proceed with a heuristic manner. 
@@ -1027,7 +1027,7 @@
  					\subitem We can multiply a $(k, \ell)$-tensor $A_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k}$ with a $(k', \ell')$-tensor $B_{\nu_1, \dots, \nu_{\ell'}}^{\mu_1, \dots, \mu_{k'}}$  to get another\\$(k+k',\ell + \ell')$-tensor $C_{\nu_1, \dots, \nu_{\ell+\ell'}}^{\mu_1, \dots, \mu_{k+k'}}$. So a tensor transforms as a tensor under multiplication, namely
  					$$ A_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k}\otimes B_{\nu_1, \dots, \nu_{\ell'}}^{\mu_1, \dots, \mu_{k'}} = C_{\nu_1, \dots, \nu_{\ell+\ell'}}^{\mu_1, \dots, \mu_{k+k'}}$$
  				\item \textbf{Contraction}
- 					\subitem Given a $(k, \ell)$-tensor $A_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k}$, we can contract covariant and contravariant indices to get a $(k-1, \ell-1)$-tensor  $B_{\nu_1, \dots, \nu_{\ell-1}}^{\mu_1, \dots, \mu_{k-1}}$
+ 					\subitem Given a $(k, \ell)$-tensor $A_{\nu_1, \dots, \nu_\ell}^{\mu_1, \dots, \mu_k}$, we can contract covariant and contravariant indices to get a \\$(k-1, \ell-1)$-tensor  $B_{\nu_1, \dots, \nu_{\ell-1}}^{\mu_1, \dots, \mu_{k-1}}$
  					For instance, $v^\mu w_\nu$ is a (1,1)-tensor while $v^\mu w_\mu$ is a $(0,0)$-tensor.
  			\end{itemize}
  			\begin{exe}
