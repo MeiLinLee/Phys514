@@ -1,0 +1,247 @@
+\documentclass{article}
+
+
+\usepackage{NotesStyle}
+
+% Cover info
+
+\title{Phys 514 \\
+	\large Problem Set 3}
+
+\author{April Sada Solomon - 260708051}
+\date{Winter 2021}
+
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	\pagebreak
+	
+	\pagenumbering{roman}
+	\cfoot{\thepage}
+	
+	\tableofcontents
+	\newpage
+	
+	% Start page count after the TOC
+	
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	\cfoot{\thepage}
+	% Notes body
+
+	\section{Geodesic equations}
+	
+	Recall the principle of least action yields a geodesic when we have that the action $S$ is extremized such that we have negligent variation over the action $\delta S =0$. We wish to parametrize the action such that we have $\lambda$ as an affine parameter where scalars over the manifold take the value $f(\lambda) = 0$, leading to a simpler form of the geodesic equation:
+	\vspace{-0cm}
+	$$ S' [x^\mu (\lambda)] = \int g_{\mu \nu} \frac{\partial x^\mu}{\partial \lambda} \frac{\partial x^\nu}{\partial \lambda} d \lambda$$
+	$$ \therefore \delta  S' \left[ x^\mu (\lambda)\right] = \int \delta \left(  g_{\mu \nu} \frac{\partial x^\mu}{\partial \lambda} \frac{\partial x^\nu}{\partial \lambda} \right) d \lambda$$
+	So the coordinate variation is given as
+	\begin{align*}
+		x^\mu &\to x^\mu + \delta x^\mu \\
+		g_{\mu\nu} &\to g_{\mu\nu} + \left( \partial_\alpha g_{\mu \nu} \right) \partial x^\alpha
+	\end{align*}
+	By our good old friend, the Chain rule, we have
+	\begin{align*}
+		\delta S &= \int \delta \left(  g_{\mu \nu} \frac{\partial x^\mu}{\partial \lambda} \frac{\partial x^\nu}{\partial \lambda} \right) d \lambda    \\
+		&= \int 
+			\left( 
+				\frac{\partial x^\mu}{\partial \lambda} \frac{\partial x^\nu}{\partial \lambda} 
+				\left( 
+					\partial_\alpha g_{\mu\nu} 
+				\right)
+				\delta x^\alpha 
+				+
+				g_{\mu\nu} 	\frac{\partial (\delta x^\mu)}{\partial \lambda} \frac{\partial x^\nu}{\partial \lambda}
+				+
+				g_{\mu\nu} 	\frac{\partial x^\mu}{\partial \lambda} \frac{\partial (\delta x^\nu)}{\partial \lambda}  
+			\right) d \lambda \\
+		&= \int \left( 
+			\frac{\partial x^\mu}{\partial \lambda} \frac{\partial x^\nu}{\partial \lambda} 
+			\partial_\alpha g_{\mu\nu} 
+			\right)
+			\delta x^\alpha  d \lambda	
+			+
+			\int
+			\left(
+			g_{\mu\nu} 	\frac{\partial (\delta x^\mu)}{\partial \lambda} \frac{\partial x^\nu}{\partial \lambda}
+			+
+			g_{\mu\nu} 	\frac{\partial x^\mu}{\partial \lambda} \frac{\partial (\delta x^\nu)}{\partial \lambda}  
+			\right) d \lambda	
+	\end{align*}
+	Hence,
+	\begin{align*}
+		\int g_{\mu \nu} \frac{\partial (\delta x^\mu)}{\partial \lambda} \frac{\partial x^\nu}{\partial \lambda}d \lambda &= - \int \left ( g_{\mu \nu} \frac{\partial^2 x^\mu}{\partial \lambda^2} + \frac{\partial g_{\mu\nu}}{\partial\lambda} \frac{\partial x^\nu}{\partial t} \right) \delta x^\mu d\lambda \\
+		&= 
+		- \int \left ( g_{\mu \nu} \frac{\partial^2 x^\mu}{\partial \lambda^2} + \frac{\partial g_{\mu\nu}}{\partial x^\mu} \frac{\partial x^\mu}{\partial \lambda} \frac{\partial x^\nu}{\partial t} \right) \delta x^\mu d\lambda \\
+		&=- \int \left ( g_{\mu \nu} \frac{\partial^2 x^\mu}{\partial \lambda^2} + \partial_\mu g_{\mu\nu} \frac{\partial x^\mu}{\partial \lambda} \frac{\partial x^\nu}{\partial t} \right) \delta x^\mu d\lambda \\
+	\end{align*}
+	Similarly, 
+	\begin{align*}
+		\int g_{\mu \nu} \frac{\partial x^\mu}{\partial \lambda} \frac{\partial \delta (x^\nu)}{\partial \lambda}d \lambda &= - \int \left ( g_{\mu \nu} \frac{\partial^2 x^\nu}{\partial \lambda^2} + \frac{\partial g_{\mu\nu}}{\partial\lambda} \frac{\partial x^\mu}{\partial t} \right) \delta x^\nu d\lambda \\
+		&= 
+		- \int \left ( g_{\mu \nu} \frac{\partial^2 x^\nu}{\partial \lambda^2} + \frac{\partial g_{\mu\nu}}{\partial x^\nu} \frac{\partial x^\nu}{\partial \lambda} \frac{\partial x^\mu}{\partial t} \right) \delta x^\nu d\lambda \\
+		&=- \int \left ( g_{\mu \nu} \frac{\partial^2 x^\nu}{\partial \lambda^2} + \partial_\nu g_{\mu\nu} \frac{\partial x^\nu}{\partial \lambda} \frac{\partial x^\mu}{\partial t} \right) \delta x^\nu d\lambda \\
+	\end{align*}
+	We can thus change indices on the second order partial derivatives to yield
+	\begin{align*}
+		\delta S &= \int \left( \frac{\partial x^\mu}{\partial \lambda} \left( \partial_\alpha  g_{\mu \nu} \right) - 2g_{\mu \nu} \frac{\partial^2 x^\mu}{\partial \lambda^2} - \partial_\mu g_{\mu\nu} \frac{\partial x^\mu}{\partial \lambda} \frac{\partial x^\nu}{\partial \lambda} \right) \delta x^\alpha d\lambda = 0 \\
+		&= - \int \left( 2g_{\mu\nu} \frac{\partial^2 x^\mu}{\partial \lambda^2} + \left( \partial_\mu g _{\nu \alpha}+ \partial_\nu g_{\mu \alpha } - \partial_\alpha g_{\mu \nu} \right) \frac{\partial x^\mu}{\partial \lambda}\frac{\partial x^\nu}{\partial \lambda} \right)x^\alpha d\lambda  \\
+		\intertext{We multiply the integrand by $\nicefrac{g_{\mu \nu}}{2}$ and integrate}
+		&= \frac{\partial^2 x^\mu}{\partial \lambda^2} \left( \frac{1}{2}g^{\mu\nu} \left( \partial_\mu g_{\nu\alpha} + \partial_{\nu} g_{\mu \nu} - \partial_{\alpha} g_{\mu \nu} \right) \right) \frac{\partial x^\mu}{\partial \lambda} = 0 \\
+		&= \frac{\partial^2 x^\mu}{\partial \lambda^2} + \Gamma_{\mu\nu}^\alpha \frac{\partial x^\mu}{\partial \lambda}\frac{\partial x^\nu}{\partial \lambda} = 0
+	\end{align*}
+	And Bob's your uncle.
+	\pagebreak
+	\section{Christoffel symbols of two-sphere}
+		The Christoffel symbol for this problem is
+		$$ \Gamma_{\alpha \beta}^\nu = \frac12 g^{\mu\nu} \left( \frac{\partial g_{\lambda \alpha}}{\partial x^\beta} + \frac{\partial g_{\lambda \beta}}{\partial x^\alpha} - \frac{\partial g_{\alpha \beta}}{\partial x^\nu}\right)$$
+		Moreover, the line element in this metric is given by
+		$$ ds^2 = d\theta^2 + \sin^2 \theta d\phi^2 \iff \Lgr = \dot{\theta}^2 + \sin^2 \theta \dot{\phi}^2 $$
+		For a geodesic, $\Lgr$ will hold such that we have
+		$$ \frac{\partial \Lgr}{\partial \theta} = \frac{\partial \Lgr}{\partial \lambda} \left( \frac{\partial \Lgr}{\partial \dot{\theta}}\right),\quad\quad \frac{\partial \Lgr}{\partial \phi} = \frac{\partial}{\partial \lambda} \left( \frac{\partial \Lgr}{\partial \dot{\phi}} \right)  $$
+		Thus,
+		\begin{align*}
+			\frac{\partial \Lgr}{\partial \theta} &= 2 \sin \theta \cos \theta \dot{\phi}^2, & \frac{\partial}{\partial \lambda} \left( \frac{\partial \Lgr}{\partial \dot{\theta}} \right) &= 2 \ddot{\theta} \\
+			\frac{\partial \Lgr}{\partial \phi} &= 0, & \frac{\partial}{\partial \lambda} \left( \frac{\partial \Lgr}{\partial \dot{\theta}} \right) &= \frac{\partial}{\partial \lambda} \left( 2 \sin^2 \theta \dot{\phi} \right) \\
+			& & &= 2\sin^2 \theta \ddot{\phi} + 4\sin \theta \cos \theta \dot{\theta} \dot{\phi}
+		\end{align*}
+		So we get
+		\begin{align*}
+			2 \sin \theta \cos \theta \dot{\phi}^2 &= 2 \ddot{\theta}  \\
+			0&= 2\sin^2 \theta \ddot{\phi} + 4\sin \theta \cos \theta \dot{\theta}\dot{\phi}
+		\end{align*}
+		\begin{align*}
+			\ddot{\theta} - \sin \theta \cos \theta \dot {\phi}^2 &= 0 \\
+			\ddot{\phi} + 2 \cot \theta \dot{\theta} \dot{\phi} &= 0
+		\end{align*}
+		So the geodesic equation is clearly
+		$$ \frac{d^2 x^\mu}{d\lambda^2} + \Gamma_{\alpha \beta}^\mu \frac{dx^\alpha}{d\lambda} \frac{dx^\beta}{d\lambda} $$
+		Considering our Euler-Lagrangian second forms, we have
+		$$\ddot{\phi} + \Gamma_{\phi\theta}^\phi \dot{\phi}\dot{\theta} + \Gamma_{\theta \phi}^{\phi}\dot{\theta}\dot{\phi} = 2 \Gamma_{\theta \phi}^\phi \dot{\theta}\dot{\phi} = 0$$
+		Therefore,
+		\begin{align*}
+			\Gamma_{\phi\phi}^\theta &= -\sin\theta\cos\theta \\
+			\Gamma_{\theta\phi}^{\phi} &= \cot\theta = \Gamma_{\phi\theta}^{\phi} \\
+		\end{align*}
+		And otherwise, the Christoffel symbols are zero. Now, assume that $\dot{\theta}=0$ such that the system becomes
+		\begin{align*}
+			\sin\theta \cos \theta \dot{\phi}^2 &= 0 \\
+			\ddot{\phi} &= 0
+		\end{align*} 
+		Using the first equation of the system, it is easy to see that $\phi = 0$ implies this equation, so we instead focus on $\sin \theta \cos \theta$, which for the equation to hold, has a domain $\{ 0, \frac{\pi}{2}, \pi\}$. However, the Sonic the Hedgehog (gotta go phast) Theorem states that the coordinate system will degenerate at the poles as we have that $A\to B \lor \theta = 0 \lor \theta = \pi$.
+		
+		For the second equation, we need $\phi$ to be linear with respect to $\lambda$ as we have that the only possible value for $\theta $ is $\theta = \frac{\pi}{2}$, considering invariable latitude. 
+		
+		Assuming invariant longitude, the Sonic the Hedgehog theorem says that
+		$$ \ddot{\phi} + 2 \cot\theta \dot{\phi} \dot{\theta} = 0$$
+		$$ \therefore 0 = 0 $$
+		$$\therefore \ddot{\theta} - 3 \cos \theta \sin \theta \dot{\phi}^2 = 0 \implies \ddot{theta} = 0$$
+		So this holds linearly for $\theta (\lambda)$.
+	\pagebreak
+	\section{Christoffel symbols of new metric}
+		Take the line element for coordinates $x^\mu = (t(\lambda),r(\lambda), \theta (\lambda), \phi(\lambda))$ to be
+		$$ ds^2 = g_{\mu\nu} dx^\mu dx^\nu$$
+		We consider the Lagrangian is given by $\Lgr = g_{\mu \nu} \dot{x}^\mu \dot{x}^\nu = g_{\mu\nu} \frac{\partial x^\mu}{\partial \lambda} \frac{\partial x^\nu}{\partial \lambda}$, hence
+		$$ \Lgr = -e^{2\alpha} \dot{t}^2 + e^{2\beta} \dot{r}^2 \dot{\theta}^2 + r^2 \sin^2 \theta \dot{\phi}^2$$
+		Let us consider the second Euler-Lagrangian equation 
+		$$  \frac{\partial \Lgr}{\partial x^\mu} = \frac{\partial \Lgr}{\partial \lambda} \left( \frac{\partial \Lgr}{\partial \dot{x}^\mu}\right)$$
+		On the LHS, for each coordinate we get
+		\begin{align*}
+			\frac{\partial \Lgr}{\partial t} &= 0 & \frac{\partial \Lgr}{\partial r} &= -2\dot{\alpha}e^{2\alpha} \dot{t}^2 + 2 \dot{\beta} e^{2\beta} \dot{r}^2 + 2r \dot{\theta}^2 + 2r \sin^2\theta \dot{\phi}^2 \\
+			\frac{\partial \Lgr}{\partial \theta} &= 2r^2 \sin\theta \cos \theta \dot{\phi}^2 & \frac{\partial \Lgr}{\partial \phi} &= 0 
+ 		\end{align*}
+		On the RHS, 
+		\begin{align*}
+			\frac{\partial}{\partial \lambda} \left( \frac{\partial \Lgr}{\partial \dot{t}}  \right)  &= -4 \dot{\alpha} e^{2\alpha} \dot{r}\dot{t} - 2 e^{2\alpha} \ddot{t} &
+			\frac{\partial}{\partial \lambda} \left( \frac{\partial \Lgr}{\partial \dot{r}}  \right) &= 4\dot{\beta} e^{2\beta} \dot{r}^2+ 2e^{2\beta} \ddot{r}\\
+			\frac{\partial}{\partial \lambda} \left( \frac{\partial \Lgr}{\partial \dot{\theta}} \right) &=4r\dot{r}\dot{\theta} + 2 r^{2} \ddot{\theta} &
+			\frac{\partial}{\partial \lambda} \left( \frac{\partial \Lgr}{\partial \dot{\phi}}  \right) &= 4r\sin^2 \theta \dot{r} \dot{\phi} + 4r^2 \sin \theta \cos \theta \dot{\theta}\dot{\phi}  + 2r^2 \sin^2 \theta \ddot{\theta}  \\
+		\end{align*}
+			We can then equate each RHS to their corresponding LHS such that we get a 4 equation system:
+			\begin{align*}
+				-4 \dot{\alpha} e^{2\alpha} \dot{r}\dot{t} - 2 e^{2\alpha} \ddot{t} & = 0 \\
+				4\dot{\beta} e^{2\beta} \dot{r}^2+ 2e^{2\beta} \ddot{r} +2\dot{\alpha}e^{2\alpha} \dot{t}^2 - 2 \dot{\beta} e^{2\beta} \dot{r}^2 - 2r \dot{\theta}^2 - 2r \sin^2\theta \dot{\phi}^2 &= 0 \\
+				4r\dot{r}\dot{\theta} + 2 r^{2} \ddot{\theta} - 2r^2 \sin\theta \cos \theta \dot{\phi}^2 &= 0 \\
+				 4r\sin^2 \theta \dot{r} \dot{\phi} + 4r^2 \sin \theta \cos \theta \dot{\theta}\dot{\phi}  + 2r^2 \sin^2 \theta \ddot{\theta} &= 0
+			\end{align*}
+			Hence,
+			\begin{align*}
+				\ddot{t} + 2 \dot{\alpha} \dot{r} \dot{t} &= 0 \\
+				\ddot{r} + \dot{\beta} \dot{r}^2 + \dot{\alpha} e^{2\alpha - 2 \beta} \dot{t}^2 - r e^{-2 \beta} \dot{\theta}^2 -  r \sin^2 \theta e^{-2 \beta} \dot{\phi}^2 &= 0  \\
+				\ddot{\theta} + 2 \frac{\dot{r}}{r} \dot{\theta} -  \sin \theta \cos \theta \dot{\phi}^2 &= 0 \\
+				\ddot{\phi} + \frac{2}{r} \dot{r} \dot{\phi} +  2 \cot{\theta} \dot{\theta} \dot{\phi} &= 0
+			\end{align*}
+			From Problem 1, recall the geodesic equation for an affine parameter $\lambda$ is
+			$$ \ddot{x}^\mu + \Gamma_{\nu \lambda}^\mu \dot{x}^\nu \dot{x}^\lambda = 0$$
+			Therefore, the Christoffel symbol for each coordinate is
+			$$ x^0: \quad \quad \Gamma_{rt}^t = \Gamma_{tr}^t = \dot{\alpha} \implies \Gamma_{\mu\nu}^t = \begin{pmatrix}
+				0 & \alpha & 0 & 0 \\
+				\alpha & 0 & 0 & 0 \\
+				0 & 0 & 0 & 0 \\
+				0 & 0 & 0 & 0
+			\end{pmatrix}$$
+			$$ x^1: \quad \quad \Gamma_{tt}^r = \dot{\alpha}e^{2(\alpha - \beta}, \quad \Gamma_{rr}^r = \dot{\beta}, \quad \Gamma_{\theta\theta}^r = -re^{-2\beta}\dot{\theta}^2, \quad \Gamma_{\phi\phi}^r = - r\sin^2 \theta e^{-2 \beta} $$
+			$$ \therefore \Gamma_{\mu\nu}^{\theta} = 
+				\begin{pmatrix}
+					\dot{\alpha}e^{2(\alpha - \beta)} & 0 & 0 & 0 \\
+					0 & \dot{\beta} & 0 & 0 \\
+					0 &  & -re^{-2\beta}\dot{\theta}^2 & 0 \\
+					0 & 0 & 0 & - r\sin^2 \theta e^{-2 \beta}
+				\end{pmatrix}
+				$$
+			$$ x^2: \quad \quad \Gamma_{r\theta}^\theta = \Gamma_{\theta r}^\theta = \frac1r, \quad \Gamma_{\phi\phi}^\theta = \sin \theta \cos\theta$$
+			$$ \therefore \Gamma_{\mu\nu}^{\theta} = 
+			\begin{pmatrix}
+				0 & 0 & 0 & 0 \\
+				0 & 0 & \nicefrac1r & 0 \\
+				0 & \nicefrac1r & 0 & 0 \\
+				0 & 0 & 0 & -\sin\theta\cos\theta
+			\end{pmatrix}
+			$$	
+			$$ x^3: \quad \quad \Gamma_{r\phi}^\phi = \Gamma_{\phi r}^\phi = \frac1r, \quad \Gamma_{\theta\phi}^\theta = \Gamma_{\phi\theta}^\theta = \cot \theta$$
+			$$ \therefore \Gamma_{\mu\nu}^{\theta} = 
+			\begin{pmatrix}
+				0 & 0 & 0 & 0 \\
+				0 & 0 & 0 & \frac1r \\
+				0 & 0 & 0 & \cot\theta \\
+				0 & \frac1r & \cot\theta & -\sin\theta\cos\theta
+			\end{pmatrix}
+			$$	
+	\pagebreak
+	\section{Contractions and covariant derivatives}
+		We have the scalar gradient $\nabla_\mu f = \partial_\mu f$ and the Kronecker delta is given by $\delta^\rho_\sigma = \frac{\partial x^\rho}{x^\sigma}$. Hence, we have that
+		$$ \nabla_\mu = \frac{\partial}{\partial x^\mu}$$
+		Such that
+		\begin{align*}
+			\nabla_\mu \delta_\sigma^\rho &= \frac{\delta}{\delta x^\mu}\frac{\delta x^\rho}{\delta x^\sigma} \\
+			&= \sum_n \frac{\partial}{\partial x^n}\frac{ \partial x^n}{\partial x^n} \\
+			&= \sum_n \frac{\partial }{\partial x^n} \\
+			&= 0 
+		\end{align*}
+	As expected from the given Kronecker delta $\delta_{\sigma^\rho}$. With this, we evidently see that the Kronecker delta will never vary over time, meaning it is a constant. Hence, it follows that $\nabla_\mu \delta_\sigma^\rho = 0$. Let us employ Christoffel symbols such that we have 
+	$$ \nabla_\mu \delta_\sigma^\rho = \partial_\mu \delta_\sigma^\rho - \Gamma_{\mu\lambda}^\rho \delta_{\sigma}^\lambda = - \Gamma_{\mu \sigma}^\lambda \delta^\rho_\lambda $$
+	Thus:
+	\begin{itemize}
+		\item $\delta_\sigma^\lambda \implies \lambda=\sigma$
+		\subitem We have $\Gamma_{\mu\lambda}^\rho \delta_\sigma^\lambda = - \Gamma_{\mu\sigma}^\rho$ 
+		\item $\delta_\lambda^\rho \implies \lambda=\rho$
+		\subitem We have $\Gamma_{\mu\sigma}^\lambda \delta_\lambda^\rho = \Gamma_{\mu\sigma}^\rho$ 
+		\item $\delta_\mu\delta_\sigma^\rho = 0$
+	\end{itemize}
+	From the above statements, it is clear that
+	$$ \nabla_\mu \delta_\sigma^\rho = 0 + \Gamma_{\mu\sigma}^\rho - \Gamma_{\mu\sigma}^\rho = 0$$
+	
+	Now, recall that $\delta_{\sigma}^\rho = \delta_\lambda^\rho\delta_\sigma^\lambda$. Let us define a contraction $c^\beta_\alpha$ where we have
+	$$ \delta_\sigma^\rho = \delta_\lambda^\rho \delta_\sigma^\lambda = c_\alpha^\beta \delta_\alpha^\rho \delta_\sigma^\beta $$
+	Clearly,
+	\begin{align*}
+		\nabla_\mu \delta_\sigma^\rho &= \nabla_\mu \left( c_\alpha^\beta (delta_\alpha^\rho \delta_\sigma^\beta)\right)
+		\intertext{}
+		&= c_\alpha^\beta \left(\nabla_\mu \delta_\alpha^\rho \delta_\sigma^\beta \right) \\
+		&= c_\alpha^\beta \left( \delta_\alpha^\rho \nabla_\mu \delta_\sigma^\beta + \delta_\sigma^\beta \nabla_\mu \delta_\alpha^\rho \right) \\
+		&= \nabla_\mu \delta_\sigma^\rho + \nabla_\mu \delta_\sigma^\rho \\
+		= 2 \nabla_\mu \delta_\sigma^\rho
+	\end{align*}
+	Hence, $\nabla_\mu \delta_\sigma^\rho= 2 \nabla_\mu \delta_\sigma^\rho \implies \nabla_\mu \delta_\sigma^\rho=0$
+	So we have shown that it commutes with contraction as well, as desired.
+\end{document}
