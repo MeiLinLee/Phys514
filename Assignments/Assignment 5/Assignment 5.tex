@@ -1,0 +1,215 @@
+\documentclass{article}
+
+
+\usepackage{NotesStyle}
+
+% Cover info
+
+\title{Phys 514 \\
+	\large Problem Set 5}
+
+\author{April Sada Solomon - 260708051}
+\date{Winter 2021}
+
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	\pagebreak
+	
+	\pagenumbering{roman}
+	\cfoot{\thepage}
+	
+	\tableofcontents
+	\newpage
+	
+	% Start page count after the TOC
+	
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	\cfoot{\thepage}
+	% Notes body
+
+	\section{Laplacian}
+		\subsection{Laplacian on a scalar}
+		Recall how we can generalize the vector Laplacian into the tensor Laplacian using a metric and covariant derivatives. We simply use a (0,0) tensor $f$, which is a scalar as input and get
+		\begin{align*}
+			\nabla ^2 f &= \nabla^\lambda \nabla_\lambda f \\
+			&= g^{\lambda \nu} \nabla_\nu \nabla_\lambda f \\
+			&= \nabla_\nu \left( g^{\lambda \nu}\nabla_\lambda f \right) 
+			\intertext{Recalling the Christoffel symbol is given as $\Gamma_{\mu\nu}^\sigma = \frac12 g^{\sigma \rho} \left( \partial_\mu g_{\nu \rho} + \partial_\nu g_{\rho \mu} - \partial_{\rho} g_{\mu\nu} \right)$, we have}
+			&= g^{\lambda \nu} \partial_\lambda \partial_\nu f - g^{\mu\sigma} \Gamma_{\mu\sigma}^\lambda \partial_\lambda f \\
+			&= g^{\lambda \nu} \partial_\lambda \partial_\nu f - g^{\mu \sigma} \left(\frac{1}{2} g^{\nu\lambda} \left(\frac{\partial g_{\mu \nu}}{\partial x^\sigma} + \frac{\partial g_{\sigma \nu}}{\partial x^\mu} - \frac{\partial g_{\mu \sigma}}{\partial x^\nu} \right) \partial_\lambda f \right)
+			&\intertext{Given the hint, we have that}
+			\partial_t \det(A) &= \partial_t \left[ e^{Tr(\log(A))} \right] \\
+			&= e^{Tr(\log(A))} \partial_t (Tr(\log(A))) \\
+			&= \det(A) \partial_t Tr(\log(A)) \\
+			&= \det(A) Tr \left( M^{-1} \partial_\mu M \right) \\
+			\implies \partial_\nu g &= g g^{\mu \lambda} \partial_{\nu} g_{\mu \lambda}
+			\intertext{Recall that $g_{ij}g^{jk} = g_{kj}g^{ji} = \delta_{k}^i = \delta_i^k$, so }
+			&= \frac{1}{\sqrt{|g|}} \partial_\sigma \left( \sqrt{|g|} g^{\mu\sigma} \partial_\mu f \right) \\
+			&= \frac{1}{\sqrt{|g|}} \partial_\mu \left( \sqrt{|g|} g^{\mu\nu} \partial_\nu f \right) 
+		\end{align*}
+		As desired.
+		
+		\subsection{Laplacian on a 2-sphere}
+		We consider the 2-sphere given by $ds^2 = d\theta^2 + \sin^2 \theta d \phi^2$, and also remember that for any symmetric metric, we have that $g^{\mu\nu}=g_{\mu\nu}$ such that the Laplacian for the scalar $f=f(\theta, \phi)$ becomes
+		\begin{align*}
+			\nabla^2 f&= \frac{1}{\sqrt{|g|}} \partial_i \left( \sqrt{|g|} g^{ij} \partial_j f \right) \\ 
+			&= \frac{1}{\sin \theta} \frac{\partial}{\partial x^i} \left( \sin\theta 
+			\begin{pmatrix}
+				1 & 0 \\
+				0 & \frac{1}{\sin^2\theta}
+			\end{pmatrix}  \frac{\partial}{\partial x^j} f\right) \\
+			&= \frac{1}{\sin \theta} \frac{\partial}{\partial \theta} \left( \sin \theta \frac{\partial f}{\partial\theta} \right) + \frac{\cos\theta}{\sin \theta} \frac{\partial^2 f}{\partial \phi^2} \\
+			&= \frac{\partial^2 f}{\partial \theta^2} + \frac{1}{\sin\theta} \frac{\partial f}{\partial \theta} + \frac{\cos\theta}{\sin \theta} \frac{\partial^2 f}{\partial \phi^2} 
+		\end{align*}
+		Note that $\nabla^2 = \Delta$ is called the \textbf{Laplace-Beltrami operator}.
+	\pagebreak
+	\section{Symmetric spaces}
+		\subsection{Properties}
+		We have the definition for a Riemann tensor given as
+		$$ R_{\rho \sigma \mu \nu } = g_{\rho \mu} g_{\sigma \nu} - g_{\rho \nu} g_{\sigma \mu}$$
+		So we can now check the properties of the tensor
+		\begin{itemize}
+			\item Antisymmetry in first two indices 
+			\begin{align*}
+				R_{\sigma\rho\mu\nu} &= g_{\sigma \mu} g_{\rho \nu} - g_{\sigma \nu} g_{\rho \mu} \\
+				&= g_{\rho \nu} g_{\sigma \mu} - g_{\rho \mu} g_{\sigma \nu} \\
+				&= - R_{\rho \sigma \mu \nu}
+			\end{align*}
+			\item Antisymmetry in last two indices
+			\begin{align*}
+				R_{\rho \sigma \nu \mu } &= g_{\rho \nu} g_{\sigma \mu} - g_{\rho \mu} g_{\sigma \nu} \\
+				&= g_{\rho \nu} g_{\sigma \mu} - g_{\rho \mu} g_{\sigma \nu} \\
+				&= - R_{\rho \sigma \mu \nu }
+			\end{align*}
+			\item Invariant under index swap between first and last indices
+			\begin{align*}
+				R_{\mu \nu \rho \sigma } &= g_{\mu\rho} g_{\nu \sigma} - g_{\sigma \mu} g_{\nu \rho} \\
+				&= g_{\rho \mu} g_{\sigma \nu} - g_{\rho \nu} g_{\sigma \mu} \\
+				&= R_{\rho \sigma \mu \nu } \\
+			\end{align*}
+			\item Sum of cyclic permutations
+			\begin{align*}
+				R_{\rho \sigma \nu \mu } + R_{\rho \mu \nu \sigma } + R_{\rho \nu \sigma \mu } &= g_{\rho \mu} g_{\sigma \nu} - g_{\rho \nu} g_{\sigma \mu} + g_{\rho \sigma} g_{\mu \nu} - g_{\rho \nu} g_{\mu \sigma} + g_{\rho \nu} g_{\sigma \mu} - g_{\rho \mu} g_{\sigma \nu} \\
+				&= 0
+			\end{align*}
+		\end{itemize}
+	\pagebreak
+		
+		\subsection{Riemann curvature tensor}
+		We have 
+		$$ R_{\mu \nu \rho \sigma } = C\left(g_{\rho \mu} g_{\sigma \nu} - g_{\rho \nu} g_{\sigma \mu} \right)$$
+		Where the Ricci curvature is given by
+		$$ R = [g^{\mu\nu}R_{\mu \nu} ] = g^{\mu\nu}R^\rho_{\mu\rho\nu}$$
+		Hence, $R = R_{\mu\nu\rho\sigma}g^{\mu\nu}g^{\rho\sigma}$ Replacing this in what we had originally gives us
+		$$R_{\mu\nu\rho\sigma} \left[ g^{\mu\nu} g^{\rho\sigma} \right] $$
+		Therefore
+		\begin{align*}
+			R_{\mu\nu\rho\sigma} &= g_{\mu\alpha} R^\alpha_{\nu\rho\sigma}\\
+			&= C \left[ g^{\alpha\mu} g_{\mu\rho} g_{\sigma \nu} - g^{\alpha \mu} g_{\mu 
+			\sigma} g_{\rho \nu} \right] \\
+			\therefore R^\rho_{\mu\rho\nu} &= C \left[ \delta_\rho^\alpha g_{\sigma\nu} - \delta_{\nu}^\rho g_{\rho\mu}\right] \\
+			&= C \left[ n g_{\mu\nu} - g_{\mu\nu} \right] \\
+			&= Cg_{\mu\nu} \left[ n-1 \right] \\
+		\end{align*}
+		And so
+		\begin{align*}
+			R &= g^{\mu\nu} C g_{\mu\nu} \left[ n-1 \right] \\
+			&= C \left[ \delta_\mu^\mu \right] [n-1] \\
+			&= Cn (n-1)
+		\end{align*}
+		$$ \therefore C = \frac{R}{n(n-1)} $$
+	\pagebreak
+	\subsection{Einstein tensor}
+		Recall that $G_{\mu\nu} = R_{\mu\nu} - \frac12 g_{\mu\nu}R$ and from last part $R = g^{\mu\nu}R_{\mu\nu}$. Thus,
+		\begin{align*}
+			G_{\mu\nu} &= R_{\mu\nu} -\frac12 g_{\mu\nu}R_{\mu\nu} g^{\mu\nu} \\
+			&= R^{\lambda}_{\mu\lambda\nu} - \frac12 g_{\mu\nu} R_{\mu\lambda\nu}^\lambda g^{\mu\nu} \\
+			&= C \left[ n g_{\mu\nu} - \delta_\nu^\lambda g_{\lambda\mu} \right] \left(\frac12\right) \\
+			&= \frac{Cg_{\mu\nu}}{2} \left( n-1 \right) \\
+			& g_{\mu\nu} \frac{C(n-1)}{2}
+		\end{align*}
+	
+	\pagebreak
+	\section{Two-sphere metric}
+		\subsection{More tensors}
+		Recall that for a two sphere we have
+		$$ g_{\mu\nu}\begin{pmatrix}
+			1 & 0 \\ 0 & \sin^2 \theta
+		\end{pmatrix}, \quad\quad g^{\mu\nu} \begin{pmatrix}
+		1 & 0 \\ 0 & \nicefrac1{\sin^2 \theta}
+	\end{pmatrix} $$
+		So the Riemann tensors are
+		\begin{align*}
+			R_{\phi\theta\phi}^{\theta} &= \partial_\theta \Gamma_{\phi\phi}^{\theta} - \Gamma_{\phi\phi}^\theta \Gamma_{\phi\theta}^\phi\\ 
+			&= \frac{d}{d\theta} \left[-\sin \theta \cos \theta \right] - \left[ -sin \theta \cos \theta\right] \left[\frac{\cos\theta}{\sin \theta}\right] \\
+			&=\sin^2 \theta 
+		\end{align*}
+		\begin{align*}
+			R_{\theta\phi\theta}^{\phi} &= -\partial_\theta \Gamma_{\theta\phi}^{\phi} - \Gamma_{\theta\phi}^\phi \Gamma_{\theta\phi}^\phi\\ 
+			&= \frac{d}{d\theta} \left[\frac{\cos\theta}{\sin\theta} \right] - \left[\frac{\cos^2\theta}{\sin^2 \theta}\right] \\
+			&=1
+		\end{align*}
+		The Ricci tensors are
+		$$ R_{\theta\theta} = R_{\theta\theta\theta}^\theta + R_{\theta\phi\theta}^\phi = 0 +1$$
+		$$ R_{\theta\phi} = R_{\theta\theta\phi}^\theta + R_{\theta\phi\phi}^\phi = 0 + 0 = R_{\phi\theta}$$
+		$$ R_{\phi\phi} = R_{\phi\theta\phi}^\theta + R_{\phi\phi\phi}^\phi = \sin^2\theta + 0$$
+		The Ricci scalar is
+		\begin{align*}
+			R &= g^{\mu\nu} R_{\mu\nu} \\
+			&= g^{\theta \theta} R_{\theta \theta} + g^{\phi\phi} R_{\phi\phi} \\
+			&= 2
+		\end{align*}
+	\pagebreak
+	\subsection{Tensor components}
+		We have $v^\mu = (1,0)$ in coordinates $(\theta, \phi)$. We saw that if $v^\mu$ is parallel-transposed to some parametrized worldline $x^\mu(lambda)$ then we have that
+		$$ w^\mu = \dot{x}^\mu = \frac{dx^\mu}{d\lambda}$$
+		Which are the directional vector components, or the contravariant components. Thus
+		$$ w^\mu \nabla_\mu v^\mu = 0$$
+		Therefore
+		$$ \frac{dx^\mu}{d\lambda} \nabla_\mu v^\nu = \frac{dx^\mu}{d\lambda} \left( \partial_\mu v^\nu + \Gamma_{\mu \lambda}^\nu v^\lambda \right)$$
+		As the two-sphere $S^2$ has the Christoffel symbols $\Gamma_{\phi\phi}^\theta = -\sin\theta\cos\theta$ and $\Gamma_{\theta\phi}^\phi = \frac{\cos\theta}{\sin\theta}$
+		Hence
+		$$ \frac{dx^\mu}{d\lambda} = \dot{\theta} + \dot{\phi} $$
+	\pagebreak
+	\section{Sitter space}
+		\subsection{Complex transformation}
+		We have the deSitter space $ds^2 = -dt^2 + 
+		\cosh^2 t d\phi^2$ and want to transform coordinates to $ds^2 = d\theta^2 + \sin^2 \theta d\phi^2$. So we will only parametrize a complex function $\theta = \theta (t)$ for this change of coordinates. First, we can start by noticing that $\cosh(x) = \cos(ix)$ and $\cos (x) = \sin\left(\frac\pi2 - x\right)$ so we have
+		
+		$$ \cosh(t) = \cos(ti) = \sin\left( -ti + \frac\pi2  \right)$$
+		Thus, we let $\theta(t) = -ti + \frac\pi2$ and we again get the metric for a 2-sphere by using the complex coordinate transformation $t \to \theta(t) = -ti + \frac{\pi}{2}$ such that
+		$$ ds^2 = d\theta^2 + \sin^2 \theta d\phi^2$$
+		\subsection{Tensors}
+		
+		Recalling the two sphere symbols $\Gamma_{\phi\phi}^\theta = -\sin\theta\cos\theta$ and $\Gamma_{\theta\phi}^\phi = \frac{\cos\theta}{\sin\theta}$, the hyperbolic counterparts are
+		$$\Gamma_{t\phi}^\phi = \frac{\sinh(t)}{\cosh(t)} \text{and} \quad \Gamma_{\phi\phi}^t = \sinh(t)\cosh(t)$$
+		Hence, we have very similar tensors
+		$$ R_{t\phi t\phi} = R_{\phi t \phi t} = -  R_{t \phi \phi t } = - R_{\phi t t \phi} = -\cosh^2(t) $$
+		$$ R_{\mu\nu} = R^{\rho}_{\mu\rho\nu}$$
+		Which leads to the similar metric
+		$$ R_{\mu\nu} = \begin{pmatrix}
+			-1 & 0 \\
+			0 & \cosh^2 (t) 
+		\end{pmatrix}$$
+		By Ansatz, $R=2$ and $G_{\mu\nu} = \begin{psmallmatrix} 0 & 0 \\ 0 & 0
+		\end{psmallmatrix}$
+		
+		\subsection{Cosmological constant}
+			We are clearly considering a flat deSitter spacetime where the stress energy tensor is zero everywhere. Otherwise, our metric would be defined as
+			$$ dS^2 = -dt^2 + \cosh^2 t d\phi^2 + R^2d\Omega^2$$
+			which is a deSitter-Schwarzschild metric.
+			Hence, recalling the Einstein field equations
+			$$ G_{\mu\nu} + \frac{1}{2} R g_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}$$
+			We can see that the RHS mirrors Gauss's law in the sense that in a vacuum they are both zero. (Or at least, that's what they thought as we know know the cosmological constant isn't zero. This what can be considered as a \textit{lambdavacuum solution}. We can therefore say that
+			
+			$$ R_{\mu\nu} -\frac{1}{2}R g_{\mu\nu} + \Lambda g_{\mu\nu} = 0$$
+			or
+			$$ G_{\mu\nu} +\Lambda g_{\mu\nu} = 0 $$
+		\subsection{deSitter space with a radius}
+			We know that since $\ell^2$ is included in every Lagrangian component, then it follows that
+			it must be included as an inverse component on the Ricci tensor, such that it is also an inverse component of the scalar curvature. In this case, we know from our previous analysis that likely $G_{\mu\nu}=0$ and that $g_{\mu\nu} R \not\propto \ell^2$ yet probably $g_{\mu\nu} \propto \ell^2$. Notice that we can set a new metric in terms of the old one such that
+			
+			$$ G_{\mu\nu}' = G_{\mu\nu} \quad \text{and} \quad g_{\mu\nu}' = \ell^2 g_{\mu\nu}$$
+\end{document}

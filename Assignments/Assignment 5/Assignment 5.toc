@@ -1,0 +1,16 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Laplacian}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Laplacian on a scalar}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Laplacian on a 2-sphere}{2}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Symmetric spaces}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Properties}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Riemann curvature tensor}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Einstein tensor}{5}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Two-sphere metric}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}More tensors}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Tensor components}{7}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Sitter space}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Complex transformation}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Tensors}{8}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Cosmological constant}{8}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}deSitter space with a radius}{9}{subsection.4.4}%
