@@ -53,10 +53,10 @@
  		If we are studying electromagnetism, we would study the electromagnetic fields $\vec{E}$ and $\vec{B}$. Let us list the Maxwell Equations, that we will review again later on:
  			\begin{align}
  				\label{eq:Maxwell}
- 				\grad \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
- 				\grad \cdot \vec{B} &= 0 \\
- 				\grad \times \vec{E} &= -\frac{\partial \vec{B}}{\partial t} \\
- 				\grad \times \vec{B} &= \mu_0 \left( \vec{J} + \varepsilon_0 \frac{\partial \vec{E}}{\partial t} \right)
+ 				\Del \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
+ 				\Del \cdot \vec{B} &= 0 \\
+ 				\Del \times \vec{E} &= -\frac{\partial \vec{B}}{\partial t} \\
+ 				\Del \times \vec{B} &= \mu_0 \left( \vec{J} + \varepsilon_0 \frac{\partial \vec{E}}{\partial t} \right)
  			\end{align}
  		A classical field theory like the theory of Newtonian gravity or the theory of Electromagnetism has two parts that describe it:
  		\begin{enumerate}
@@ -65,7 +65,7 @@
  			\begin{exmp}
  				Newtonian gravity field equation
  				$$ \nabla^2 \Phi = 4\pi G \rho$$
- 				where $\rho$ is the mass density. We solve this Laplace's equation to determine the field. If $\rho$ is a $\grad(\vec{r})$ function such that it describes a point mass, which implies that
+ 				where $\rho$ is the mass density. We solve this Laplace's equation to determine the field. If $\rho$ is a $\Del(\vec{r})$ function such that it describes a point mass, which implies that
  				$\Phi \propto \nicefrac{1}{\vec{r}}$.
  			\end{exmp}
 	 		\begin{exmp}
@@ -76,7 +76,7 @@
  			\subitem The force law is an equation that determines how an object moves in the presence of a field. So we start by describing a collection of sources and how they describe some force field, and then we use the force law to determine how bodies in motion are affected by the force field using the force law.
  			\begin{exmp}
  				Newtonian force law
- 				$$ \vec{F}(t, \vec{x}, \dot{\vec{x}}) = \frac{m}{2}\frac{d}{dt} \frac{\partial}{\partial \vec{v}}\vec{v}^2 = m \dot{\vec{v}} =- m \vec{\grad} \Phi(t,\vec{x}) $$
+ 				$$ \vec{F}(t, \vec{x}, \dot{\vec{x}}) = \frac{m}{2}\frac{d}{dt} \frac{\partial}{\partial \vec{v}}\vec{v}^2 = m \dot{\vec{v}} =- m \vec{\Del} \Phi(t,\vec{x}) $$
  				where $\dot{\vec{v}} = \nicefrac{d^2 \vec{x}}{dt^2} = \ddot{\vec{x}}$. This force law describes how some gravitational potential affects the motion of bodies in the presence of the field described by the potential.
  			\end{exmp}
  			\begin{exmp}
@@ -377,12 +377,12 @@
  					\draw [->] (-2.5, -2) -- (2, -2) node (xaxis) [right] {$x$};
  					\draw [thick, dashed, green] (-2,-2) -- (2.5, 2.5) node [below=20mm, left=5mm] {$\Delta s^2 = 0$};
  					 
- 					\draw [thick, blue] plot [smooth] coordinates{(-2,-2) (-1, -0.5) (-1, 0) (0, 0.5) (-0.5, 1) (1, 1.5)};
- 					\draw [line width=0.6mm, red] plot [smooth] coordinates{(-0.05, 0.45) (0, 0.5) (-0.05, 0.6)} 
+ 					\draw [thick, blue] plot [smooth] coordinates{(-2,-2) (-1, -0.75) (0, 0.5) (-0.5, 1) (-1, 1.5)};
+ 					\draw [line width=0.6mm, red] plot [smooth] coordinates{(-0.05, 0.4) (0, 0.5) (-0.05, 0.7) (-0.1, 0.7)} 
  					node [right] {ds};
  					
  					
- 					\filldraw (-2, -2) circle (2pt) (1,1.5) circle (2pt);
+ 					\filldraw (-2, -2) circle (2pt) (-1,1.5) circle (2pt);
  				\end{tikzpicture}
  				\caption{A worldline in spacetime of a time-like observer accelerating, with a line element shown. Notice how at every point on the worldline, the observer's speed has the property $v<c$.}
  			\end{minipage}
@@ -431,14 +431,15 @@
  		\subsection{Equivalence Principle}
  		
  		We will now introduce the \textbf{equivalence principle}. Recall the motion of objects in the presence of a gravitational potential in Newtonian gravitation:
- 		$$ \vec{F}(\vec{v}) = m_i \dot{\vec{v}} = - m_g \vec{\grad}\Phi$$
+ 		$$ \vec{F}(\vec{v}) = m_i \dot{\vec{v}} = - m_g \vec{\Del}\Phi$$
  		We usually assumed that the inertial mass $m_i$, the mass due to the forces interacting with an object, and the gravitational mass $m_g$, the mass due to the gravitational potential interacting with the object were equivalent, and approximately speaking in human scales, they are. However, it is not true that we can say this generally. For every object and type of matter we know, both $m_i$ and $m_g$ are equal, but we do not know if all unknown objects will follow this rule. Given current evidence, we can cancel both masses out to assume that, for all objects known,
- 		$$ \dot{\vec{v}} = \vec{a} = - \vec\grad \Phi$$
+ 		$$ \dot{\vec{v}} = \vec{a} = - \vec\Del \Phi$$
  		So the acceleration of an object will be independent of its mass, and as stated before, this is considered as an observational fact. In a gravitational potential, there are trajectories defined by the solutions to the equations of motion due to the potential on some object, denoted as \textbf{free-falling} or \textbf{inertial} trajectories, where no forces are interacting with an object. In a free-falling object, the object only experiences gravitational potential.
  		
- 		Now, consider an infinitesimally small region where $\vec{\grad}\Phi \approx -\vec{a}_0$, where $\vec{a}_0$ is some constant to within some approximation made by measurements. 
+ 		Now, consider an infinitesimally small region where $\vec{\Del}\Phi \approx -\vec{a}_0$, where $\vec{a}_0$ is some constant to within some approximation made by measurements. 
  		
  		\begin{defn}
+ 			\label{defn:WeakEquivalence}
  			The \textbf{weak equivalence principle} states that in this small region, the effects of gravity are indistinguishable from the effects of a constantly accelerating reference frame.
  		\end{defn}
  	
@@ -470,6 +471,7 @@
  			Thus, if we measure the gravitational force of the Earth along various points along the spaceship, we will find that the gravitational force is not constant if we are being precise. If we then reach space and accelerate the entire ship upwards relative to the Earth's frame of reference at exactly $9.8 \,\,\, \nicefrac{\text{m}}{\text{s}^2}$, we cannot say that the accelerating frame of the ship has an equivalent fictitious force to that of the gravity of Earth, as there are several points where gravity will not be equal. 
  			
  			\begin{defn}
+ 				\label{defn:StrongEquivalence}
  				The \textbf{strong equivalence principle} or \textbf{Einstein equivalence principle} states that in a small enough frame of reference, the laws of physics reduce to those of special relativity. Moreover, spacetime locally looks like Minkowski space.
  			\end{defn}
  		
@@ -576,6 +578,7 @@
  	
  	\subsection{Principle of General Covariance}
  		\begin{defn}
+ 			\label{defn:GeneralCovariance}
  			The \textbf{Principal of General Covariance} requires that we write the laws of physics in such a way that any physical prediction made by these laws is independent of the choice of coordinate system to write that law.
  		\end{defn}
  		
@@ -644,7 +647,7 @@
  			A \textbf{tensor} $T_{\mu_1, \mu_2 \dots}^{\nu_1, \nu_2, \dots}$ is an algebraic structure that generalizes quantities by use of a multidimensional array. The subscripts $\mu_i$ for $i \in \N$ represent \textbf{covariant indices} such that each subscript is an index for covariant elements. Recall that covariant elements undergo the same transformation as the basis in a change of basis, such as basis vectors. The superscripts $\nu_i$ for $i \in \N$ represent \textbf{contravariant indices} such that their transformation matrix in a change of coordinates is the inverse of the change of basis matrix.
  		\end{defn}
  		\begin{defn}
- 			We denote types of tensors by giving them a \textbf{weight} representing the number of $n$ directional and $m$ covariant indices in a 2-tuple given by $(n,m)$. We determine the\textbf{ rank} $r$ of a tensor by adding the components of the weight such that $r=n+m$.
+ 			We denote types of tensors by giving them a \textbf{rank} representing the number of $n$ directional and $m$ covariant indices in a 2-tuple given by $(n,m)$. We determine the\textbf{weight} $r$ of a tensor by adding the components of the rank such that $r=n+m$.
  		\end{defn}
  		It is important to understand how quantifiable values can transform under coordinate transformations. Consider an arbitrary $D$-dimensional manifold $M$ where a patch $U \subset M$ in the manifold can be described using a multitude of coordinate systems, namely $x^\mu$ and $x^\alpha$ where $\mu,\alpha = 0,1,\dots,(D-1)$.
  		
@@ -724,8 +727,8 @@
  						\draw [->] (-2.5, -2) -- (2, -2) node (xaxis) [right] {$x$};
  					%	\draw [thick, dashed, green] (-2,-2) -- (2.5, 2.5) node [below=20mm, left=5mm] {$\Delta s^2 = 0$};
  						
- 						\draw [thick, blue] plot [smooth] coordinates{(-2,-2) (-1.5, -1.2) (-1, -0.2) (-0.5, 0.3) (-0.6, 1) (0, 1.3) (0, 2)};
- 						\draw [->, thick, red , >=stealth] (-0.6, 1) -- (-0.28, 1.5) node [above =0mm, left=0mm] {$v^\mu$};
+ 						\draw [thick, blue] plot [smooth] coordinates{(-2,-2) (-1.5, -1.2) (-0.5, 0.3) (-0.6, 1)  (0, 2)};
+ 						\draw [->, very thick, red , >=stealth] (-0.5, 0.3) -- (-0.25, 0.7) node [above =0mm, right=0mm] {$v^\mu$};
  						
  						
  						\filldraw (-2, -2) circle (2pt) (0,2) circle (2pt);
@@ -860,11 +863,11 @@
  							\draw [->] (-2.5, -2) -- (2, -2) node (xaxis) [right] {$x$};
  							%\draw [thick, dashed, green] (-2,-2) -- (2.5, 2.5) node [below=20mm, left=5mm] {$\Delta s^2 = 0$};
  							
- 							\draw [thick, blue] plot [smooth] coordinates{(-2,-2) (-1.8, -1.5) (-1.2, -1) (-1.8, -0.2) (-0.6, 0.3) (-1, 1) (0, 1.3) (1, 2)} (-0.6, 0.3) node [below] {$\lambda$};
- 							\draw [->, thick, red , >=stealth] (-1, 1) -- (-0.6, 1.5) node [above =0mm, left=0mm] {$\frac{\partial x^\mu}{\partial \lambda}$};
+ 							\draw [thick, blue] plot [smooth] coordinates{(-2,-2) (0, 1)  (-1, 2)} (-0.6, 0.3) node [below=5mm] {$\lambda$};
+ 							\draw [->, thick, red , >=stealth] (0, 1) -- (0.6, 2) node [above =0mm, left=0mm] {$\frac{\partial x^\mu}{\partial \lambda}$};
  							
  							
- 							\filldraw (-2, -2) circle (2pt) (1,2) circle (2pt);
+ 							\filldraw (-2, -2) circle (2pt) (-1,2) circle (2pt);
  						\end{tikzpicture}
  						\caption{A worldline on a spacetime manifold parametrized over some coordinate system as $x^{\mu} (\lambda)$, marked in blue. It's tangent vector at some point is marked in red, labelled $\frac{\partial x^\mu}{\partial \lambda}$.}
  					\end{minipage}
@@ -1016,8 +1019,6 @@
  					\boxed{g = g_{\mu\nu} dx^\mu \otimes dx^\nu = g_{\mu \nu} dx^\mu dx^\nu}
  				\end{equation}
  			\end{exmp}
- 			
- 			\subsection{Tensor Algebra}
  			We have the following operations on tensors:
  			\begin{itemize}
  				\item \textbf{Addition}
@@ -1042,13 +1043,315 @@
  				\end{enumerate}
  			\end{exe}
  		\pagebreak
- 			Let us recap what we have learned so far.
+ 		
+ 		\subsection{Geometry of Spacetime}
+ 			We have learned thus far that a tensor is a generalization of scalars, vectors, and matrices such that we denote them by a Cartesian product $(k, \ell)$ of the number of $k$ contravariant and $\ell$ covariant indices in the tensor to yield its rank $r=k+\ell$. Thus, a $(k, \ell)$-tensor on a $D$-dimensional manifold $M$ is a set of $D^{r}$ functions which transform as
+ 			$$ T^{\mu_1' \dots \mu_k'}_{\nu_1' \dots \nu_\ell'} = \left( \frac{\partial x^{\mu_1'}}{\partial x^{\mu_1}} \right) \cdots \left( \frac{\partial x^{\mu_k'}}{\partial x^{\mu_k}} \right) \left( \frac{\partial x^{\nu_1}}{\partial x^{\nu_1'}} \right) \cdots \left( \frac{\partial x^{\nu_\ell}}{\partial x^{\nu_\ell'}} \right) = V^{\otimes_{\mu_k'}} \otimes W_{\otimes_{\nu_\ell}}$$
+ 			Furthermore, a (1,0)-tensor will transform using the contravariant Jacobian $\partial_\mu x^{\mu'}$ while a (0,1)-tensor will transform using the covariant Jacobian $\partial_{\nu'} x^\nu$, which is just the inverse of the contravariant Jacobian. Thus, a $(k, \ell)$-tensor is said to transform using $k$-Jacobians and $\ell$-inverse Jacobians. A contravariant Jacobian will have free indices $\mu'$ in the numerator while it is summed over the dummy indices $\mu$ in the denominator, whereas a covariant Jacobian has free indices $\nu'$ in the denominator and gets summed over the dummy indices $\nu$ in the numerator. So we denote the name for a Jacobian depending on whether the covariant or contravariant indices are free indices. Lastly, the contravariant Jacobians belong to the vector space $\partial_{\mu_k} x^{\mu_k '} \in V^{\otimes_{\mu_k'}}$ while the covariant derivatives belong to the dual-vector space $\partial_{\nu_\ell '} x^{\nu_\ell} \in W_{\otimes_{\nu_\ell}}$
+ 			
+ 			We also learned that we have various algebraic operations that can be done on tensors, including tensor addition, tensor multiplication, and index contraction. Respectively, recall an example for each operation:
  			\begin{itemize}
- 				\item A \textbf{scalar function} or \textbf{scalar} $f$ is an assignment of a number to each point in a manifold $M$, which is independent of the choice of coordinates.
- 				For some scalar $f(x^\mu)$ in $x^\mu$ coordinates, this (0,0)-tensor transforms as
- 				$$ f(x^\mu) \to f\left(x^{\mu '} \right) = f\left( x^{\mu'} \left(x^\mu\right)\right)$$
- 				This means that \textit{$f$ is invariant under a coordinate transformation $x^\mu \to x^{\mu'} \left(x^\mu \right)$.}
+ 				\item \textbf{Tensor addition}
+ 				$$ A^{\alpha\beta\gamma}_{\mu\nu} + B^{\alpha\beta\gamma}_{\mu\nu} = C^{\alpha\beta\gamma}_{\mu\nu}$$
+ 				So the addition of two $(k,\ell)$-tensors results in another $(k,\ell)$-tensor
  				
- 				\item A \textbf{vector} is a set of $D$ functions $v^\mu$ defined for each coordinate system denoting the direction with respect to the coordinates. Hence, 
+ 				\item \textbf{Tensor Multiplication}
+ 				$$ A^{ij}_{\mu\nu} \otimes B^{k\ell}_{\alpha\beta} = C^{ijk\ell}_{\mu\nu\alpha\beta}$$
+ 				So the tensor product of a $(k, \ell)$ tensor and a $(k', \ell')$ tensor is a $(k+k', \ell+\ell')$-tensor. Note that tensor products do not allow us to define all tensors as the multiplication of arbitrary tensors of lower order. This is only true for special tensors, like Jacobians. 
+ 				
+ 				\item \textbf{Index contraction}
+ 				$$ A^{ij}_{\alpha\beta}w_jv^\beta = fA^{i}_{\alpha\beta}v^\beta = fgA^i_\alpha$$
+ 				So contraction of indices of a $(k, \ell)$-tensor results in a $(k-n,\ell-m)$-tensor, where $n$ and $m$ are the number of contravariant and covariant indices being contracted from the tensor. Each contraction will result in a scalar, which is what $f$ and $g$ represent.
+ 				
  			\end{itemize}
+ 			So notice how our definition of a tensor includes both contraction of indices and tensor multiplication of Jacobians. As noted, multiplication does not generally define higher order tensors, as only Jacobians are able to do so. 
+ 			
+ 			\begin{defn}
+ 				A \textbf{permutation} $\sigma$ of an ordered set of objects is a reordering of the elements of the set without removing any of them. It is a bijective function that maps all elements from a set to a new set with different ordering. We say that $\sigma$ is a product of pairwise interchanges
+ 			\end{defn}
+ 			Having defined permutations, we may not consider two additional operations on tensors
+ 			\begin{itemize}
+ 				\item \textbf{Symmetrization}
+ 				\subitem A \textbf{symmetrization} is the sum of all the permutations of the indices of a tensor. Letting $\varsigma$ be the set of all permutations $\sigma = \sigma(\mu_i)$ for $i=1,\dots, \ell$, we have symmetrization given as a parenthesis surrounding the indices such that
+ 				$$ T_{\left(\mu_1 \dots \mu_\ell\right)} = \frac1{\ell!} \sum_{\sigma \in \varsigma} T_{\sigma(\mu_1) \dots \sigma(\mu_\ell)} $$
+ 				
+ 				\item \textbf{Anti-symmetrization}
+ 				\subitem An \textbf{anti-symmetrization} is the sum of all the permutations of the indices of a tensor including their corresponding sign. Letting $\varsigma$ be the set of all permutations $\sigma = \sigma(\mu_i)$ for $i=1,\dots, \ell$, we have anti-symmetrization given as square brackets surrounding the indices such that
+ 				$$ T_{\left[\mu_1 \dots \mu_\ell\right]} = \frac1{\ell!} \sum_{\sigma \in \varsigma} \sgn(\sigma) T_{\sigma(\mu_1) \dots \sigma(\mu_\ell)} $$
+ 				Where
+ 				$$ \sgn(\sigma) = (-1)^n \for \sigma \in \varsigma$$
+ 			\end{itemize}
+ 			\begin{exmp}
+ 				\textbf{Symmetrization and anti-symmetrization on a tensor}
+ 				\begin{align*}
+ 					T^{\left[\mu_1\mu_2\right]}_{\nu_1 \left(\nu_2\nu_3\right)} &= \frac{1}{2} \left( T^{\mu_1 \mu_2}_{\nu_1 \left(\nu_2\nu_3\right)} - T^{\mu_2 \mu_1}_{\nu_1 \left(\nu_2\nu_3\right)} \right) \\
+ 					&=\frac{1}{2} \left( \frac{1}{2} \left( T^{\mu_1 \mu_2}_{\nu_1\nu_2\nu_3} + T^{\mu_1 \mu_2}_{\nu_1\nu_3\nu_2} \right) -  \frac{1}{2} \left( T^{\mu_2 \mu_1}_{\nu_1\nu_2\nu_3} + T^{\mu_2 \mu_1}_{\nu_1\nu_3\nu_2} \right) \right) \\
+ 					&= \frac{1}{4} \left(T^{\mu_1 \mu_2}_{\nu_1\nu_2\nu_3} + T^{\mu_1 \mu_2}_{\nu_1\nu_3\nu_2} - T^{\mu_2 \mu_1}_{\nu_1\nu_2\nu_3} - T^{\mu_2 \mu_1}_{\nu_1\nu_3\nu_2} \right)
+ 				\end{align*}
+ 			\end{exmp}
+ 			\begin{lem}
+ 				An anti-symmetric tensor is one which equals its anti-symmetrization and picks up a change in sign given by $\sgn(\sigma)$. Moreover, if the indices undergoing anti-symmetrization are equal, then anti-symmetrization yields a zero tensor\footnote{Not a (0,0)-tensor, but instead all elements of the tensor are zero}. A symmetric tensor is one which remains invariant over symmetrization.
+ 			\end{lem}
+ 			\begin{defn}
+ 				A \textbf{differential form} of rank $n$ or an \textbf{$n$-form}, is an anti-symmetric $(0,n)$-tensor.
+ 			\end{defn}
+ 		\pagebreak
+ 			We have hence generalized one forms and scalars onto differential forms or $n$-forms. We see that a one-form is indeed an anti-symmetric $(0,1)$-tensor and a scalar is a $(0,0)$-tensor, which by definition is symmetric and anti-symmetric.
+ 			
+ 			Let us recall some examples of tensors:
+ 			\begin{multicols}{2}
+ 				\begin{itemize}
+ 					\item Scalars: $f \equiv (0,0)$-tensor
+ 					\item One-Forms:\\ $w_\mu = \frac{\partial f}{\partial x^\mu}  \equiv (0,1)$-tensor
+ 					\item Force-field: \\$F_{\mu\nu} = - F_{\nu\mu} \equiv $ antisymmetric $(0,2)$-tensor\footnote{This is known as the electromagnetic field strength tensor where $F_{0i} = E_i$ and $F_{ij} = \varepsilon_{ijk} B_k$.}
+ 					\item Vectors: $v^\mu = \frac{d x^\mu}{d \lambda} \equiv (1,0)$-tensor
+ 					\item Kronecker delta: \\
+ 					$\frac{\partial x^{\mu'}}{\partial x^\nu} \frac{\partial x^\mu}{\partial x^{\mu'}} = \delta^\mu_\nu \equiv (1,1)$-tensor
+ 					\item Metric tensor:\\
+ 					$ g_{\mu\nu} \equiv $ symmetric $(0,2)$-tensor
+ 				\end{itemize}
+ 			\end{multicols}            
+ 			Now recall the \hyperref[defn:GeneralCovariance]{Principle of General Covariance} which states that the laws of physics make predictions independently of the chosen coordinate systems for observing these laws. For instance, if we define a certain coordinate system to observe planetary motion, then the laws that govern the motion of the planets should be invariant of coordinate changes. That is, if we define another coordinate system, it will not affect the observed motion of the planets. It will only affect the representation in regards to a new coordinate system.
+ 			
+ 			\begin{lem}
+ 				By the Principle of General Covariance, all laws of physics can be represented through tensors. Moreover, the tensors in the equations must have the same .
+ 			\end{lem}
+ 			
+ 			This means that when we write any physical law in a particular coordinate system, it most follow from a tensor equation of the form
+ 			$$ T^{\mu_1 \dots \mu_k}_{\nu_1 \dots \nu_\ell} = S^{\mu_1 \dots \mu_k}_{\nu_1 \dots \nu_\ell} $$
+ 			Where $T$ and $S$ are the tensor representations in the same coordinate system given by their indices. In a new coordinate system, it would take \textit{exactly the same form} because the tensor transformation rule implies we multiply a tensor by its invertible Jacobian.
+ 			$$ T_{\nu_1' \dots \nu_\ell'}^{\mu_1' \dots \mu_k'} = S_{\nu_1' \dots \nu_\ell'}^{\mu_1' \dots \mu_k'}$$
+ 			This mirrors the fact that vectors under passive coordinate transformations do not change themselves, but rather their components do. With this, we can further solidify and conclude our understanding of the Principle of General Covariance. 
+ 
+ 			Often in physics we tend to write equations of motion as differential equations. However, we do not yet know how to differentiate and take derivatives for a tensor in a \textit{covariant manner}. That is, imagine a vector $v^\mu$ in a $D$-dimensional Manifold given a particular coordinate system $x^\mu$. Recall,
+ 			$$ v^{\mu} \to \partial_\nu v^\mu $$
+ 			Take note that this \textbf{is not a (1,1)-tensor}. It can be considered a contravariant derivative, as it acts only on a vector which has one contravariant index. We know how to take derivatives for scalars and vectors from vector calculus, but this knowledge cannot be extrapolated to vectors. It turns out that to differentiate on tensors, we require \textit{Riemannean Geometry}. So we need to develop \textit{covariant derivatives} to better understand how differentiation on a tensor would work, as contravariant derivatives (derivatives on vectors) are assumed to be well-studied by this point.
+ 			
+ 			Recall the implications of the \hyperref[defn:StrongEquivalence]{Einstein Equivalence Principle} which particularly state that the effect of gravity is, in small reference frames, locally like Minkowski space and equivalent to an accelerating reference frame. Knowing tensors, we can give a more mathematical definition for this principle.
+ 			\begin{thm}
+ 				By the Equivalence Principle, we say that spacetime is a manifold with a defined metric $g_{\mu\nu}$ that is defined by the line element
+ 				
+ 				\begin{equation}
+ 					\label{eq:MetricInterval}
+ 					\boxed{ ds^2 = g_{\mu\nu}dx^\mu dx^\nu}
+ 				\end{equation}
+ 				Such that for any point $p\left(x^\mu\right)$, there is a corresponding coordinate system $x^\mu$ such that as $x^\mu \to p$, we have
+ 				$$ g_{\mu\nu} = \eta_{\mu\nu}$$
+ 			\end{thm} 
+ 			We can then assume that a Taylor approximation of the coordinates to this point results in the first term being the metric for flat spacetime. It is not the case that every coordinate can be expanded upon some point to yield flat spacetime however, we are assuming that there exists a coordinate system which can be approximated to flat spacetime at this point. So clearly, $g_{\mu\nu} \neq \eta_{\mu\nu} \quad \forall p \in M$. This means that $g_{\mu\nu}$ is a $(0,2)$-tensor with the following properties:
+ 			
+ 			\begin{itemize}
+ 				\item Symmetric: $g_{\mu\nu} = g_{\nu\mu}$ 
+ 				\item Invertible: $\det(g_{\mu\nu}) = g \neq 0$
+ 				\item Diagonalizable: $\det(g_{\mu\nu}-\lambda I) =0\implies\lambda =(-1,+1,+1,+1)$
+ 			\end{itemize}
+ 			To show that these properties indeed hold for the metric $g_{\mu\nu}$, we note that there exists a basis where $g_{\mu\nu} = \eta_{\mu\nu}$. Clearly, in any other coordinate system, $g_{\mu\nu}$ will take the form of a set of Jacobians such that
+ 			$$ g_{\mu\nu} = \left( \frac{\partial x^{\mu'}}{\partial x^\mu} \right)\left( \frac{\partial x^{\nu}}{\partial x^{\nu'}} \right)\eta_{\mu' \nu'} + \dots$$
+ 			In matrix notation, we would have
+ 			\begin{equation}
+ 				\label{eq:MetricMatrix}
+ 				\boxed{g_{\mu\nu} = \left( \frac{\partial x^{\nu}}{\partial x^{\nu'}} \right)\begin{psmallmatrix}
+ 						-1 & 0 & 0 & 0 \\
+ 						0 & +1& 0 & 0 \\
+ 						0 & 0 & +1 & 0 \\
+ 						0 & 0 & 0 & +1
+ 					\end{psmallmatrix}\left( \frac{\partial x^{\mu'}}{\partial x^\mu} \right) = J^T \eta_{\mu'\nu'} J}
+ 			\end{equation}
+ 			As expected, we have that $ \frac{\partial x^{\nu}}{\partial x^{\nu'}}  = J$ is the Jacobian in a change of basis and it is also invertible. Note that as long as the matrix between the Jacobians has a nonzero determinant, the resulting metric will be invertible as well. These statements are coordinate invariant as well, so if they are true in one coordinate system, they are true in all coordinate systems. In other words, both $g_{\mu\nu}$ and $\eta_{\mu\nu}$ are symmetric.
+ 			
+ 			\begin{defn}
+ 				A \textbf{metric} is an invertible symmetric (0,2)-tensor.
+ 			\end{defn}
+ 			If the eigenvalues of the metric are all positive, then it is considered a \textbf{Riemannian} or \textbf{Euclidean} metric, otherwise it is denoted as a \textbf{pseudo-Riemannian} or \textbf{Lorentzian} metric. Furthermore, the number of positive and negative eigenvalues of the metric are denoted as the \textbf{metric signature}.
+ 			
+ 			\begin{exmp}
+ 				\textbf{Spacetime in General Relativity}\\
+ 				In General Relativity, spacetime is a pseudo-Riemannian metric of signature (-,+,+,+), or (1,3).
+ 			\end{exmp}
+ 		
+ 			We now wish to further develop Riemannian and pseudo-Riemannian geometry for the sake of better understanding General Relativity. Recall that spacetime is a manifold that comes along with a metric, which is an invertible (0,2)-tensor.
+ 			\begin{defn}
+ 				The \textbf{inverse of the metric} $g_{\mu\nu}$ is denoted $g^{\mu\nu}$, which is a symmetric (2,0)-tensor.
+ 			\end{defn} \noindent
+ 			In order to understand why this is indeed a (2,0)-tensor, we see that
+ 			\begin{equation}
+ 				\label{eq:MetricIdentity}
+ 				\boxed{g^{\mu\nu}g_{\nu\rho} = \delta_\rho^\mu} \quad\quad \text{OR} \quad\quad \boxed{g_{\mu\nu}g^{\nu\rho} = \delta_\mu^\rho}
+ 			\end{equation}
+ 			Where $\delta_\rho^\mu$ is the identity matrix of the size of the metric. We now use $g_{\mu\nu}$ and $g^{\mu\nu}$ to raise and lower indices by Einstein summation notation. Given a vector $v^\mu$, we define a one-form $v_\mu = g_{\mu\nu}v^\mu$. Hence, we sum over the free indices of the vector. Similarly, given a one-form $w_\mu$, we define a vector $w^\mu = g^{\mu\nu} w_\nu$. So for a tensor, for instance a (2,1)-tensor, we have
+ 			$$T^{\mu\nu}_{\rho} = g_{\rho \sigma} T^{\mu\nu\sigma} \quad\quad \text{OR} \quad\quad T^{\mu\nu}_{\,\,\,\,\rho} = g_{\rho\sigma} T^{\mu\sigma\nu}$$
+ 			\begin{defn}
+ 				The \textbf{norm} of a vector $v^\mu$ and a one-form $w_\mu$ are respectively given by
+ 				$$ v^2 = v_\mu v^\mu \quad \quad \text{AND} \quad \quad w^2 = w_\mu w^\mu$$
+ 			\end{defn} \noindent
+ 			We can the define whether a vector is space-like, time-like, or null-like from the value of $v^2$. In our signature, 
+ 			\begin{align*}
+ 				v^2 > 0 &\implies v \text{ is space-like}\\
+ 				v^2 < 0 &\implies v \text{ is time-like}\\
+ 				v^2 = 0 &\implies v \text{ is null-like}
+ 			\end{align*}
+ 		\pagebreak
+ 			\begin{exe}
+ 				Consider the manifold $\R^2$ with two different coordinate systems $x^\mu = (x,y)$ and $x^{\mu'} = (r, \theta)$. We have some curve given by $(x,y) = R (cos\lambda, sin \lambda)$, where $\lambda$ is the parametrization on the curve and $R$ is a rotation matrix. Compute in both $x^\mu$ and $x^{\mu'}$
+ 				\begin{enumerate}[$\quad\quad$(a)]
+ 					\item $v^{\mu} = \dot{x}^\mu = \frac{dx^\mu}{d\lambda}$
+ 					\item $v_\mu$
+ 					\item $v_\mu v^\mu$
+ 				\end{enumerate}
+ 			\end{exe}
+ 			
+ 			So far, we have seen that spacetime is a manifold with a $(0,2)$ symmetric tensor $g_{\mu\nu}$ which determines the line element
+ 			$$ ds^2 = g_{\mu\nu} dx^\mu dx^\nu$$
+ 			Where the line element $ds^2$ is what we use to determine invariant intervals. Locally, spacetime looks like Minkowski space by the Principle of general covariance. The idea is that the metric $g_{\mu\nu}$ determines the geometry of spacetime in the sense that it allows us to determine the invariant interval between points in spacetime, and also the length of paths through spacetime. 
+ 			
+ 			Given a $D$-dimensional manifold $M$, we define a worldline $x^\mu(\lambda)$ as a set of $D$ functions of the parameter $\lambda$ measuring where we are on the worldline. Thus, $\lambda$ will label different points along the worldline through spacetime. The way in which we determine the length of some worldline in spacetime is by writing the similar integration of invariant intervals as would be done in Special Relativity.
+ 			\begin{equation}
+ 				\label{eq:DefiniteInterval}
+ 				\boxed{S = \int_{\lambda_0}^{\lambda_1} ds 
+ 				= \int_{\lambda_0}^{\lambda_1} \sqrt{g_{\mu\nu} \dot{x}^\mu \dot{x}^\nu} d\lambda}
+ 			\end{equation}
+ 			Where $\dot{x}^\mu = \frac{dx^\mu}{d\lambda}$ is the tangent vector to the worldline.
+ 			\begin{defn}
+ 				We say that $S$ is the \textbf{interval} or \textbf{proper distance} connecting two events $x^\mu (\lambda_0)$ and $x^\mu (\lambda_1)$ in spacetime along a worldline $x^\mu (\lambda)$. In terms of the proper time measured by an observer moving along the worldline in spacetime, we have
+ 				$$ \tau = iS$$
+ 			\end{defn}
+ 			In this sense, the metric determines the geometry of spacetime as we saw above. However, this interval will only apply to a specific worldline. If we instead would like connect any two points in spacetime, we need to define a worldline which extremizes the invariant interval between two points.
+ 			\begin{defn}
+ 				A worldline which extremizes the interval $ S\left[ x^\mu (\lambda) \right]$ is called a \textbf{geodesic}. The \textbf{geodesic distance} is the length of a geodesic between two events $x^\mu (\lambda_0)$ and $x^\mu (\lambda_1)$.
+ 			\end{defn} 
+ 			As in Special Relativity, we have 3 cases for classifying geodesics.
+ 			\begin{align*}
+ 				S \in \R &\implies x^\mu(\lambda) \text{ is space-like}\\
+ 				S \in \C &\implies x^\mu(\lambda) \text{ is time-like}\\
+ 				S = 0 &\implies x^\mu(\lambda) \text{ is null-like}
+ 			\end{align*}
+ 			So the metric will yield the geodesic distance, that is, the geometric distance of two events in spacetime. By geometry, we simply mean the study of distance between points on a manifold. So the question arises on how a geodesic might look like. 
+ 			
+ 			We begin by considering the invariant interval between two events as measured along some worldline as
+ 			\begin{equation}
+ 				\label{eq:IntervalWorldlineGR}
+ 				\boxed{S \left[ x^\mu (\lambda) \right] = \int \sqrt{g_{\mu\nu} \dot{x}^\mu \dot{x}^\nu} d\lambda}
+ 			\end{equation}
+ 			Where the integrand is 
+ 			$$\sqrt{g_{\mu\nu} \dot{x}^\mu \dot{x}^\nu} = \frac{ds}{d\lambda}$$
+ 			What we mean by extremizing is that if we were to change the worldline by a small amount such that
+ 			$$ x^\mu \to x^\mu + \delta x^\mu$$
+ 			We essentially demand that the variation on the interval vanishes as $\delta S=0$. This is the same as the action seen in Classical Mechanics. Recall that the principle of least action states that the action can be minimized such that the integrand is given by the equations of motion which we denote as the \textbf{Euler-Lagrange equations}. Hence,
+ 			\begin{equation}
+ 				\label{eq:2.17}
+ 				\boxed{0 = \frac{\delta S}{\delta x^\mu} = \frac{d}{d\lambda} \left( \frac{g_{\mu\alpha} \dot{x}^\alpha}{\sqrt{g_{\mu\nu} \dot{x}^\mu \dot{x}^\nu}} \right) - \frac12 \left( \frac{\partial g_{\alpha\beta}}{\partial x^\mu}\frac{ \dot{x}^\alpha\dot{x}^\beta}{\sqrt{g_{\mu\nu} \dot{x}^\mu \dot{x}^\nu}}\right)}
+ 			\end{equation}
+ 			In Classical Mechanics, we consider a particle moving through space as a function of time such that
+ 			$$ S \left[ x^i (t)\right] = \int dt \Lgr \left( x^i, \dot{x}^i \right)\implies \frac{d}{dt} \left( \frac{\partial \Lgr}{\partial \dot{x}^i}\right) - \frac{\partial \Lgr}{\partial x^i} = 0$$
+ 			So in General Relativity, considering $\dot{x}^\mu = \frac{d x^\mu}{d\lambda}$, we have
+ 			\begin{align*}
+ 				0 &= -g_{\mu\alpha} \dot{x}^\alpha \frac{\left(\nicefrac{d^2s}{d\lambda^2}\right)}{\left(\nicefrac{ds}{d\lambda}\right)^2} + \frac{1}{\nicefrac{ds}{d\lambda}} \left( g_{\mu \alpha} \ddot{x}^\alpha + \left(\frac{\partial g_{\mu\alpha}}{\partial x^\beta} - \frac12 \frac{\partial g_{\alpha \beta}}{\partial x^\mu} \right)\dot{x}^\alpha \dot{x}^\beta \right)  \\
+ 				&= -g_{\mu\alpha} \dot{x}^\alpha \frac{\left(\nicefrac{d^2s}{d\lambda^2}\right)}{\left(\nicefrac{ds}{d\lambda}\right)^2} + \frac{1}{\nicefrac{ds}{d\lambda}} \left( g_{\mu \alpha} \ddot{x}^\alpha + \frac12\left(\frac{\partial g_{\mu\alpha}}{\partial x^\beta} +\frac{\partial g_{\mu\beta}}{\partial x^\alpha} -  \frac{\partial g_{\alpha \beta}}{\partial x^\mu} \right)\dot{x}^\alpha \dot{x}^\beta\right) \\
+ 				&= -g_{\mu\alpha} \dot{x}^\alpha \frac{\left(\nicefrac{d^2s}{d\lambda^2}\right)}{\left(\nicefrac{ds}{d\lambda}\right)^2} + \frac{1}{\nicefrac{ds}{d\lambda}} \left( g_{\mu \alpha} \ddot{x}^\alpha + g_{\mu\alpha} \dot{x}^\alpha \left(\frac{\nicefrac{d^2s}{d\lambda^2}}{\nicefrac{ds}{d\lambda}}\right)\right)
+ 			\end{align*}
+ 			Considering the parenthesis only, we now multiply everything inside it by the inverse metric $g^{\nu\mu}$ to get
+ 			\begin{equation}
+ 				\label{eq:GeodesicEquation}
+ 				\boxed{\ddot{x}^\nu + \Gamma^\nu_{\alpha\beta} \,\, \dot{x}^\alpha \dot{x}^\beta = \dot{x}^\nu \left(\frac{\nicefrac{d^2s}{d\lambda^2}}{\nicefrac{ds}{d\lambda}}\right)}
+ 			\end{equation}
+ 			This is called the \textbf{Geodesic equation} which is a differential equation obeyed by a worldline that extremizes the distance between two events in spacetime.
+ 			\begin{defn}
+ 				A \textbf{Christoffel symbol} or \textit{connection in a metric} is defined as 
+ 				\begin{equation}
+ 					\label{eq:ChristoffelSymbol}
+ 					\boxed{
+ 						\Gamma_{\alpha\beta}^\nu \equiv \frac12 g^{\mu\nu} \left( \frac{\partial g_{\alpha\mu}}{\partial x^\beta} + \frac{\partial g_{\beta\mu}}{\partial x^\alpha} - \frac{\partial g_{\alpha\beta}}{\partial x^\mu} \right)
+ 					}
+ 				\end{equation}
+ 			\end{defn}
+ 			\noindent
+ 			An alternative way to write the Geodesic equation in a cleaner way is
+ 			\begin{equation}
+ 				\label{eq:CleanGeodesic}
+ 				\boxed{\ddot{x}^\mu + \Gamma_{\nu\rho}^\mu \,\, \dot{x}^\nu \dot{x}^\rho = f(\lambda) \dot{x}^\mu}
+ 			\end{equation}
+ 			We emphasize that it is the order of the indices and not the choice of variable to represent them that matters. Particularly, $\lambda$ is a parameter used to label points along a geodesic. We could always choose a new parameter $\lambda'$ which would be a function of the old parameter $\lambda'(\lambda)$, which then would change the RHS of the geodesic equation. It is always possible to choose a parameter such that the RHS is zero. More explicitly, we have
+ 			$$ f(\lambda) = \frac{\nicefrac{d^2s}{d\lambda^2}}{\nicefrac{ds}{d\lambda}} $$
+ 			So we can set $f=0$ using $S$ itself. In other words, we choose $\lambda$ such that as an observer travels along the geodesic through spacetime, the length between the starting point and the ending point is given as
+ 			$$ S\left(\lambda_0, \lambda \right) = \lambda$$
+ 			This means that given a starting point $\lambda_0$ and some point along the worldline $\lambda_1$, we can then say that $S\left(\lambda_0, \lambda_1 \right) = \lambda_1$, so $\partial_\lambda S = 1$ and $\partial_{\lambda}^2 S = 0$.
+ 			\begin{defn}
+ 				A parametrization variable $\lambda$ that yields $$f(\lambda) = \frac{\nicefrac{d^2s}{d\lambda^2}}{\nicefrac{ds}{d\lambda}}  = 0$$
+ 				Where $\partial_\lambda S = 1$ and $\partial_{\lambda}^2 S = 0$ is called an \textbf{affine parameter}.
+ 			\end{defn}
+ 			For an affine parameter, the geodesic equation takes a particularly simple form given by
+ 			\begin{equation}
+ 				\label{eq:AffineGeodesic}
+ 				\boxed{\ddot{x}^\mu + \Gamma^\mu_{\nu\rho} \dot{x}^\nu \dot{x}^\rho = 0}
+ 			\end{equation}
+ 		
+ 		\pagebreak
+ 			We note that this definition applies to most cases but not all. Sometimes, using non-affine parameters is far more ideal. An example would be computing the geodesic for a null-like interval, as $S=0$ for any two points on the geodesic, so it would be impossible to chose an affine parameter.
+ 			
+ 			Now, recall the Christoffel symbol, but redefined with different ordering of the same indices and with a simpler first derivative $\partial_\mu g_{\alpha\beta} = g_{\alpha\beta; \mu}$ such that
+ 			$$ \Gamma^\mu_{\nu\rho} = \frac12 g^{\mu\sigma} \left( g_{\nu\sigma;\rho} + g_{\rho\sigma;\nu} - g_{\nu\rho;\sigma} \right)$$
+ 			The Christoffel symbol has various important properties:
+ 			\begin{itemize}
+ 				\item Covariant symmetry: $\Gamma_{\nu\rho}^\mu = \Gamma_{\rho\nu}^\mu$
+ 				\item Not a tensor:
+ 				\subitem A Christoffel symbol transforms as
+ 				\begin{equation}
+ 					\label{eq:ChristoffelTransformation}
+ 					\boxed{
+ 						\Gamma_{\nu' \rho'}^{\mu'} = \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\frac{\partial x^{\rho}}{\partial x^{\rho'}} \Gamma_{\nu \rho}^{\mu} - \frac{\partial x^{\rho}}{\partial x^{\rho'}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\frac{\partial^2 x^{\mu'}}{\partial x^{\rho}\partial x^{\nu}}
+ 					}
+ 				\end{equation}
+ 			\end{itemize}
+ 		
+ 			The change of coordinates for a Christoffel symbol involves the second derivative with respect to coordinates, as if it only involved the first derivative then $\ddot{x}^\mu = \ddot{x}^{\mu'} = 0$. In order to get new terms for a change of coordinates on a straight line, we would require second order derivatives to allow for these terms to arise. This reflects the fact that changing from a static coordinate system to an accelerating coordinate system will yield fictitious forces. So equation (\ref{eq:AffineGeodesic}) tells us that, in the case of Minkowski flat spacetime, there will be some fictitious forces in an accelerating coordinate system. So if we have $\ddot{x}^\mu = 0$ then $\ddot{x}^{\mu'} = F_{f}$ where $F_{f}$ are the fictitious forces. This directly mirrors what is achieved in Classical Mechanics when deriving centrifugal forces and gravitational potentials, which are the fictitious forces that arise as from changing from an inertial frame of reference to an accelerating frame of reference. From above, we also note that these forces can be written in terms of the second order derivatives of the spacetime metric $g_{\mu\nu}$.
+ 			
+ 			\vspace{0.5cm}
+ 			The Christoffel symbol $\Gamma_{\nu\rho}^\mu$captures in some sense how geodesics deviate from being "straight lines" with $\ddot{x}^\mu = 0$. We know that a straight line can look very complicated in an accelerating coordinate system, such as Coriolis forces. In the case of General Relativity, we instead consider that these deviations arise from the geometry of spacetime. Particularly, the Christoffel symbol captures the deviation of $\ddot{x}^\mu$ from being equal to zero (ie. a straight line) due to being in an accelerating reference frame and the curvature of spacetime, which is gravitation due to the equivalence principle. Hence, we consider geodesics as curves that are extremized with respect to their distance over curved spacetime.
+ 			
+ 			\pagebreak
+ 			
+ 			\begin{exmp}
+ 				\textbf{Geodesics over different surfaces}
+ 				\begin{figure}[h]
+ 					\begin{subfigure}{0.46\textwidth}
+ 						\center
+ 						\begin{tikzpicture}
+ 							\draw [very thick] (-1,-2) -- (1,0.5);
+ 							\draw [very thick] (2,-2) -- (4,0.5);
+ 							\draw [very thick] (-1,-2) -- (2,-2);
+ 							\draw [very thick] (1,0.5) -- (4,0.5);
+ 							
+ 							\draw [thick, blue] (1, -0.5) -- (3, 0);
+ 							
+ 							\filldraw [blue] (1, -0.5) circle (2pt)
+ 							(3,0) circle (2pt);
+ 						\end{tikzpicture}
+ 						\vspace{0.5cm}
+ 						\caption{Geodesic over a flat surface}
+ 					\end{subfigure}
+ 					\begin{subfigure}{0.46\textwidth}
+ 						\center
+ 						\begin{tikzpicture}
+ 							\draw [very thick] (0,0) circle (1.5cm);
+ 							\draw [dashed] (1.5,0) arc (0:180:1.5 and 0.4);
+ 							\draw (1.5,0) arc (0:180:1.5 and -0.4);
+ 							
+ 							\draw [thick, blue] (0.8, -0.35) arc (1.5:80:1 and 1.93);
+ 							
+ 							\filldraw [blue] (0.8,-0.35) circle (2pt)
+ 							(0,1.48) circle (2pt);
+ 						\end{tikzpicture}
+ 						\caption{Geodesic over a spherical surface}
+ 					\end{subfigure}
+ 					\caption{In the same way that the distance over two points on the surface of a sphere is extremized, yet curved, we can consider the same thing for geodesics over curved spacetime.}
+ 					
+ 				\end{figure}
+ 			
+ 				As we know that $S \in \C \implies$ time-like geodesic, $S\in \R \implies$ space-like geodesic, and $S = 0 \implies$ null-like geodesic, then it follows that the tangent vector to such a geodesic will be the same, ie. A time-like geodesic will have a time-like tangent vector, and so on.
+ 			\end{exmp}
+ 			\begin{exe}
+ 				Consider the manifold $\R^2$ such that $ds^2 = dx^2 + dy^2 = dr^2 + r^2 d\theta^2$. Compute $\Gamma_{\nu\rho}^\mu$ in both coordinates.
+ 			\end{exe}
+ 		\subsection{Calculus}
+ 			We know that spacetime is a manifold with a (0,2) metric tensor $g_{\mu\nu}$, from which we can yield intervals over coordinates using geodesics to extremize the distance between two points in spacetime.
 \end{document}

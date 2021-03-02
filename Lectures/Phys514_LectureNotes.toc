@@ -6,4 +6,5 @@
 \contentsline {section}{\numberline {2}Manifolds}{14}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Principle of General Covariance}{16}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Tensors}{18}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Tensor Algebra}{28}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Geometry of Spacetime}{29}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Calculus}{38}{subsection.2.4}%
