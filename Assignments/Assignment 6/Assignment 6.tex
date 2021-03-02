@@ -1,0 +1,425 @@
+\documentclass{article}
+
+
+\usepackage{NotesStyle}
+
+% Cover info
+
+\title{Phys 514 \\
+	\large Problem Set 6}
+
+\author{April Sada Solomon - 260708051}
+\date{Winter 2021}
+
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	\pagebreak
+	
+	\pagenumbering{roman}
+	\cfoot{\thepage}
+	
+	\tableofcontents
+	\newpage
+	
+	% Start page count after the TOC
+	
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	\cfoot{\thepage}
+	% Notes body
+	
+	\section*{Forward}
+		An extension to this assignment was granted until Tuesday, March 2$^{nd}$ by Prof. Maloney. A copy of this assignment will be forwarded with a copy of the email confirming this. With this in mind, I assumed the due time to be the same as on before (3PM).
+	\section{Binachi identity}
+		For some given point $\rho$ over a $D$-dimensional manifold $M$, let $R^\mu = 0$ such that at the point $\rho$ we have
+		$$ \Gamma_{\hat{\rho}\hat\sigma}^{\hat\mu} = 0 \quad\quad \text{AND} \quad\quad \Gamma_{\hat\rho \hat\sigma; \hat\nu}^{\hat\mu} +\Gamma_{\hat\sigma \hat\nu; \hat\rho}^{\hat\mu} + \Gamma_{\hat\nu \hat\rho; \hat\sigma}^{\hat\mu} = 0$$
+		Where for some tensor $T_{\mu\nu}^{\rho\sigma}$, it follows that $\frac{\partial}{\partial x^\beta} T_{\mu\nu}^{\rho\sigma}= \partial_\beta T_{\mu\nu}^{\rho\sigma} = T_{\mu\nu;\beta}^{\rho\sigma} $. 
+		Now assuming that $g_{\hat\mu \hat\nu} = \eta_{\hat\mu \hat\nu}$, then $g_{\hat\mu \hat\nu ; \hat \rho} = 0$. Furthermore, the Riemann tensor is given as
+		$ R_{\rho \sigma \mu \nu} = g_{\rho \alpha} R^{\alpha}_{\sigma \mu\nu}$, where
+		$$ R^{\alpha}_{\sigma\mu\nu} = \Gamma_{\nu\sigma;\mu}^{\alpha} - \Gamma_{\mu\sigma;\nu}^\alpha + \Gamma_{\mu \lambda}^\alpha \Gamma_{\nu\sigma}^\lambda - \Gamma_{\nu\lambda}^{\alpha}\Gamma_{\mu\sigma}^{\lambda}$$
+		So for the case where $\Gamma_{\hat\mu \hat\lambda}^{\hat\rho} = 0$, we have
+		$$ R_{\hat \sigma \hat \mu \hat \nu}^{\hat\rho} = \Gamma_{\hat\nu \hat\sigma ; \hat \mu}^{\hat \rho} - \Gamma_{\hat \mu \hat \sigma; \hat \nu}^{\hat \rho}$$
+		$$ \therefore R_{\hat \rho \hat \sigma \hat \mu \hat\nu} = g_{\hat \rho \hat \alpha} \left[\Gamma_{\hat\nu \hat\sigma ; \hat \mu}^{\hat \rho} - \Gamma_{\hat \mu \hat \sigma; \hat \nu}^{\hat \rho}\right]$$
+		Where $R_{\hat\mu\hat\nu}^{\hat\alpha} = \frac12 g^{\hat\alpha \hat \lambda} \left[ g_{\hat \lambda \hat \mu; \hat\nu} + g_{\hat \lambda \hat \nu; \hat \mu} - g_{\hat\mu \hat \nu; \hat \lambda}\right]$.
+		Hence, letting $\partial_\alpha \partial_\beta T_{\mu\nu}^{\rho \sigma} = T_{\mu\nu; \beta \alpha}^{\rho \sigma } $, we have
+		\begin{align*}
+			R_{\hat \rho \hat \sigma \hat \mu \hat\nu} &= \frac12 g_{\hat\rho \hat\alpha} \left[  g^{\hat\alpha \hat \lambda}_{;\hat\mu} \left(g_{\hat \lambda \hat \mu; \hat\nu} + g_{\hat \lambda \hat \nu; \hat \mu} - g_{\hat\mu \hat \nu; \hat \lambda} \right) - g_{;\hat\nu}^{\hat\alpha \hat\lambda} \left(g_{\hat \lambda \hat \mu; \hat\nu} + g_{\hat \lambda \hat \nu; \hat \mu} - g_{\hat\mu \hat \nu; \hat \lambda} \right)\right] \\
+			&= \frac12 g_{\hat\rho \hat\alpha} g^{\hat\alpha \hat\lambda} \left[ g_{\hat\lambda\hat\nu;\hat\sigma \hat\mu} + g_{\hat\lambda\hat\sigma;\hat\nu \hat\mu} - g_{\hat\nu\hat\sigma;\hat\lambda \hat\mu} - g_{\hat\lambda\hat\mu;\hat\sigma \hat\nu} - g_{\hat\lambda\hat\sigma;\hat\mu \hat\nu} + g_{\hat\mu\hat\sigma;\hat\lambda \hat\nu} \right] \\
+			&= \frac12 \delta_{\hat\rho}^{\hat\lambda} \left[g_{\hat\lambda\hat\nu;\hat\sigma \hat\mu}  - g_{\hat\nu\hat\sigma;\hat\lambda \hat\mu} - g_{\hat\lambda\hat\mu;\hat\sigma \hat\nu} + g_{\hat\mu\hat\sigma;\hat\lambda \hat\nu} \right] \\
+			&= \frac12 \left[ 
+				g_{\hat\rho\hat\nu;\hat\sigma \hat\mu}  - g_{\hat\nu\hat\sigma;\hat\rho \hat\mu} - g_{\hat\rho\hat\mu;\hat\sigma \hat\nu} + g_{\hat\mu\hat\sigma;\hat\rho \hat\nu}
+			\right]
+		\end{align*}
+		Now, knowing that $\Del_\mu R_{\rho\sigma\mu\nu} = R_{\rho\sigma\mu\nu;\mu}$, a Riemann tensor is Binachi whenever we have
+		$$ \Del_{\left[\lambda\right.} R_{\left. \rho \sigma \right] \mu\nu} = 0 = \frac{1}{3!} \left[ \Del_\mu R_{\rho\sigma\mu\nu} - \Del_\mu R_{\sigma\rho\mu\nu} + \Del_\rho R_{\lambda \sigma \mu \nu} - \Del_\rho R_{\sigma \lambda \mu \nu} + \Del_\sigma R_{\lambda \rho \mu \nu} - \Del_\sigma R_{\rho\lambda \mu \nu}\right]$$
+		And as we have the anti-symmetry $R_{\rho\sigma\mu\nu} = - R_{\sigma\rho\mu\nu}$ it follows that
+		$$\Del_{\left[\lambda\right.} R_{\left. \rho \sigma \right] \mu\nu} = \frac{2}{3!} \left[ \Del_\mu R_{\rho \sigma\mu\nu} + \Del_\rho R_{\lambda \sigma\mu\nu} - \Del_\sigma R_{\rho\lambda \mu\nu} \right] $$
+		Which means that $\Del_\mu R_{\rho \sigma\mu\nu} + \Del_\rho R_{\lambda \sigma\mu\nu} - \Del_\sigma R_{\rho\lambda \mu\nu} = 0$. Now, rewriting in Riemann Normal Coordinates this yields
+		\begin{align*}
+			0 &= \frac12 \left[ \Del_{\hat\lambda} \left( 	g_{\hat\rho\hat\nu;\hat\sigma \hat\mu}  - g_{\hat\nu\hat\sigma;\hat\rho \hat\mu} - g_{\hat\rho\hat\mu;\hat\sigma \hat\nu} + g_{\hat\mu\hat\sigma;\hat\rho \hat\nu} \right) + \Del_{\hat\rho} \left(
+				g_{\hat\lambda\hat\nu;\hat\sigma \hat\mu}  - g_{\hat\nu\hat\sigma;\hat\lambda \hat\mu} - g_{\hat\lambda\hat\mu;\hat\sigma \hat\nu} + g_{\hat\mu\hat\sigma;\hat\lambda \hat\nu}
+			\right) \right. \\
+			&\quad\quad\quad\quad\quad\quad\quad\quad 
+			\left. - \Del_{\hat\sigma} \left(	g_{\hat\rho\hat\nu;\hat\lambda \hat\mu}  - g_{\hat\nu\hat\lambda;\hat\rho \hat\mu} - g_{\hat\rho\hat\mu;\hat\lambda \hat\nu} + g_{\hat\mu\hat\lambda;\hat\rho \hat\nu} \right) \right] \\
+			&= \frac12 \left[ g_{\hat\rho\hat\nu;\hat\sigma \hat\mu \hat\lambda}  - g_{\hat\nu\hat\sigma;\hat\rho \hat\mu \hat\lambda} - g_{\hat\rho\hat\mu;\hat\sigma \hat\nu \hat\lambda} + g_{\hat\mu\hat\sigma;\hat\rho \hat\nu \hat\lambda} + 
+			g_{\hat\lambda\hat\nu;\hat\sigma \hat\mu \hat\rho}  - g_{\hat\nu\hat\sigma;\hat\lambda \hat\mu \hat\rho} - g_{\hat\lambda\hat\mu;\hat\sigma \hat\nu \hat\rho} + g_{\hat\mu\hat\sigma;\hat\lambda \hat\nu \hat\rho} \right. \\
+			&\quad\quad\quad\quad\quad\quad\quad\quad \left. - g_{\hat\rho\hat\nu;\hat\lambda \hat\mu\hat\sigma}  + g_{\hat\nu\hat\lambda;\hat\rho \hat\mu\hat\sigma} + g_{\hat\rho\hat\mu;\hat\lambda \hat\nu\hat\sigma} - g_{\hat\mu\hat\lambda;\hat\rho \hat\nu\hat\sigma} \right] \\
+			&= g_{\hat\mu\hat\sigma;\hat\rho \hat\nu \hat\lambda} + g_{\hat\lambda\hat\nu;\hat\sigma \hat\rho \hat\mu} - g_{\hat\nu\hat\sigma;\hat\rho \hat\mu \hat\lambda} - g_{\hat\lambda\hat\mu;\hat\sigma \hat\rho \hat\nu}
+		\end{align*}
+		As we want Riemann Normal Coordinates, we need $g_{\mu\nu} = \eta_{\mu\nu}$ as assumed previously, so
+		$$ g_{\hat\mu\hat\sigma;\hat\rho} = g_{\hat\lambda \hat\nu; \hat\sigma} = 0 \quad\quad \text{AND} \quad\quad \delta_{\hat\nu\hat\sigma; \hat\rho} = \delta_{\hat\lambda\hat\mu; \hat\sigma} = 0$$
+		Which means that $\Del_{\left[\right. \hat\lambda} R_{\left. \hat\rho\hat\sigma\right]\hat\mu\hat\nu} = 0$ holds for all coordinate system from the nature of the Riemann tensor. So indeed, $\Del_{\left[\lambda\right.} R_{\left. \rho \sigma \right] \mu\nu} = 0$, which implies
+		$$ R_{\rho\sigma\mu\nu;\lambda} + R_{\sigma\lambda\mu\nu;\rho} - R_{\rho\lambda\mu\nu;\sigma} = 0$$
+		By contraction, we get
+		$$ g^{\rho\mu}g^{\sigma\nu} \left[R_{\rho\sigma\mu\nu;\lambda} + R_{\sigma\lambda\mu\nu;\rho} - R_{\rho\lambda\mu\nu;\sigma} \right] = 0$$
+		$$ \therefore  g^{\sigma\nu}\left[g^{\rho\mu} R_{\rho\sigma\mu\nu;\lambda} + g^{\rho\mu}R_{\sigma\lambda\mu\nu;\rho} - g^{\rho\mu}R_{\rho\lambda\mu\nu;\sigma} \right] = 0 $$
+		Where 
+		\begin{align*}
+			g^{\rho\mu}  R_{\rho\sigma\mu\nu;\lambda} = R^{\mu}_{\sigma\mu\nu;\lambda} &= R_{\sigma\nu;\lambda} \\
+			g^{\rho\mu}  R_{\sigma\lambda\mu\nu;\rho} = g^{\rho\mu}  R_{\mu\nu\sigma\lambda;\rho} &= R_{\nu\sigma\lambda;\rho}^\rho \\
+			g^{\rho\mu}  R_{\rho\lambda\mu\nu;\sigma} = R^{\mu}_{\lambda\mu\nu;\sigma} &= R_{\lambda\nu;\sigma} 
+		\end{align*}
+		Thus
+		\begin{align*}
+			0 &= g^{\sigma\nu} R_{\sigma\nu;\lambda} +  g^{\sigma\nu} R_{\nu\sigma\lambda;\rho}^\rho -  g^{\sigma\nu} R_{\lambda\nu;\sigma} \\
+			&= g^{\sigma\nu} R_{\sigma\nu;\lambda} +  g^{\sigma\nu} R_{\nu\sigma\lambda;\rho}^\rho -  g^{\sigma\nu} R_{\nu\lambda;\sigma}
+		\end{align*}
+		So now we compute each term again
+		\begin{align*}
+			g^{\sigma\nu} R_{\sigma\nu;\lambda} = R^{\nu}_{\nu;\lambda} &= R_{;\lambda} \\
+			g^{\sigma\nu} R_{\nu\sigma\lambda;\rho}^\rho = - g^{\sigma\nu} R_{\nu\,\,\sigma\lambda;\rho}^{\,\,\,\rho} = - R^{\sigma\rho}_{\,\,\,\,\,\,\sigma\lambda;\rho} &= -R^\rho_{\,\,\,\lambda; \rho} \\
+			g^{\sigma\nu} R_{\nu\lambda;\sigma} &= R_{\lambda;\sigma}^\sigma
+		\end{align*}
+		Hence
+		$$ R_{;\lambda} - R^{\rho}_{\lambda;\rho} - R^{\sigma}_{\lambda;\sigma} $$
+		Replacing in dummy indices $\sigma $ and $\rho$ yields
+		$$ R_{;\lambda} - 2 R^{\rho_\lambda;\rho} = 0$$
+		In terms of the covariant derivatives,
+		\begin{align*}
+			0&= \Del_\rho R^\rho_\lambda - \frac12 \Del_\lambda R  \\ 
+			&= \Del_\rho R^\rho_\lambda - \frac12 \delta_\lambda^\rho \Del_\rho R \\
+			&= \Del_\rho R^\rho_\lambda - \frac12 g_\lambda^\rho \Del_\rho R \\
+			&= \Del_\rho R^\rho_\lambda - \Del_\rho \left[\frac12 \delta_\lambda^\rho  R\right] \\
+			&= \Del_\rho \left[ R_{\lambda}^\rho - \frac12 g^\rho_\lambda R \right]
+			\intertext{Recalling that $\Del^\mu = g^{\mu\nu} \Del_\nu$ and $\Del_\rho = g_{\mu\rho}\Del^\mu$ from the previous assignment,}
+			&= g_{\mu\rho} \Del^\mu \left[ g^{\mu\rho} R_{\mu\lambda} -\frac12 g^{\rho\mu} g_{\mu\lambda} R \right] \\
+			&= g_{\mu\rho}\Del^\mu g^{\mu\rho} \left[  R_{\mu\lambda} -\frac12 g_{\mu\lambda}  R \right] \\
+			&= g_{\mu\rho}g^{\mu\rho}\Del^\mu  \left[  R_{\mu\lambda} -\frac12 g_{\mu\lambda}  R \right] \\
+			&= \Del^\mu  \left[  R_{\mu\lambda} -\frac12 g_{\mu\lambda}  R \right]
+		\end{align*}
+		Since we know that the Einstein tensor is given by $G_{\mu\nu} = R_{\mu\nu} - \frac12 g_{\mu\nu}R$, we finally have that
+		$$ \boxed{\Del^\mu G_{\mu\lambda} = \Del^\mu G_{\mu\nu} = 0}$$
+		As desired.
+		
+	\pagebreak
+	\section{Vacuum energy}
+		\subsection{Einstein manifolds}
+		Consider the common form of the Einstein field equations over a $D$-dimensional manifold $M$:
+		$$ G_{\mu\nu} + \Lambda g_{\mu\nu} = \kappa T_{\mu\nu}$$
+		Which can more explicitly be written as
+		$$ R_{\mu\nu} - \frac12 R g_{\mu\nu} + \Lambda g_{\mu\nu} = \kappa T_{\mu\nu}$$
+		If we take the scalar curvature $S = g^{\mu\nu}R_{\mu\nu} = R_\nu^\mu$ of the field equations, which is the trace with respect to the metric $g_{\mu\nu}$, we find that
+		$$ R - \frac{DR}{2} + D\Lambda = \kappa T$$
+		We solve for $R$
+		\begin{align*}
+			R \left(1-\frac{D}{2}\right) &= \kappa T - D \Lambda \\
+			\therefore R &= \frac{\kappa T - D \Lambda}{1 - \frac{D}{2}} \\
+			&= \frac{2D\Lambda}{D-2} - \frac{2\kappa T}{D-2}
+		\end{align*}
+		Now, we plug this back into the field equations
+		\begin{align*}
+			 R_{\mu\nu} - \frac12 \left( \frac{2D\Lambda}{D-2} - \frac{2\kappa T}{D-2}\right) g_{\mu\nu} + \Lambda g_{\mu\nu} &= \kappa T_{\mu\nu} \\
+			 \therefore R_{\mu\nu} - \frac{2}{D-2} \Lambda g_{\mu\nu} &= \kappa \left( T_{\mu\nu} - \frac{1}{D-2} Tg_{\mu\nu}\right) 
+		\end{align*}
+		In consideration of vacuum energy, we have that $T_{\mu\nu} = 0$ and so $T=0$, hence, our result becomes
+		\begin{align*}
+			R_{\mu\nu} - \frac{2}{D-2} \Lambda g_{\mu\nu} &= 0 \\
+			\therefore R_{\mu\nu} = \frac{2}{D-2} \Lambda g_{\mu\nu} 
+		\end{align*} 
+		Letting $C = \frac{2}{D-2} \Lambda$, we have
+		$$ \boxed{R_{\mu\nu} = Cg_{\mu\nu}}$$
+		As desired.
+		
+		\pagebreak
+		\subsection{de Sitter metric}
+		Given the metric $ds^2 = -dt^2 + e^{2Ht} \left( dx^{{1}^2} + dx^{{2}^2} + dx^{{3}^2} \right)$, we first note that $D=4$ and rewrite this in matrix form as
+		$$ g_{\mu\nu} = \begin{pmatrix}
+			-1 & 0 & 0 & 0 \\
+			0 & e^{2Ht} & 0 & 0 \\
+			0 & 0 & e^{2Ht} & 0 \\
+			0 & 0 & 0 & e^{2Ht}
+		\end{pmatrix}$$
+		So our Christoffel symbols are
+		$$ \Gamma_{\mu\nu}^\lambda = \begin{pmatrix}
+		\begin{psmallmatrix}
+			0 & 0 & 0 & 0 \\
+			0 & He^{2Ht} & 0 & 0 \\
+			0 & 0 & He^{2Ht} & 0 \\
+			0 & 0 & 0 & He^{2Ht}
+		\end{psmallmatrix} & 
+		\begin{psmallmatrix}
+			0 & H & 0 & 0 \\
+			H & 0 & 0 & 0 \\
+			0 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 0
+		\end{psmallmatrix} &
+		\begin{psmallmatrix}
+			0 & 0 & H & 0 \\
+			0 & 0 & 0 & 0 \\
+			H & 0 & 0 & 0 \\
+			0 & 0 & 0 & 0
+		\end{psmallmatrix} &
+		\begin{psmallmatrix}
+			0 & 0 & 0 & H \\
+			0 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 0 \\
+			H & 0 & 0 & 0
+		\end{psmallmatrix} 
+		\end{pmatrix}
+		$$
+		And our Riemann tensors are thus:
+		$$ 
+			R^{\rho}_{\sigma\mu\nu} = \begin{pmatrix}
+				\begin{psmallmatrix}
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0
+				\end{psmallmatrix} & 
+				\begin{psmallmatrix}
+					0 & H^2 e^{2Ht} & 0 & 0 \\
+					-H^2 e^{2Ht} & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0
+				\end{psmallmatrix} &
+				\begin{psmallmatrix}
+					0 & 0 & H^2 e^{2Ht} & 0 \\
+					0 & 0 & 0 & 0 \\
+					-H^2 e^{2Ht} & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0
+				\end{psmallmatrix} &
+				\begin{psmallmatrix}
+					0 & 0 & 0 & H^2 e^{2Ht} \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					-H^2 e^{2Ht} & 0 & 0 & 0
+				\end{psmallmatrix} \\
+				\begin{psmallmatrix}
+					0 & H^2 & 0 & 0 \\
+					-H^2 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0
+				\end{psmallmatrix} & 
+				\begin{psmallmatrix}
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0
+				\end{psmallmatrix} &
+				\begin{psmallmatrix}
+					0 & 0 & 0 & 0 \\
+					0 & 0 & H^2 e^{2Ht} & 0 \\
+					0 & -H^2 e^{2Ht} & 0 & 0 \\
+					0 & 0 & 0 & 0
+				\end{psmallmatrix} &
+				\begin{psmallmatrix}
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & H^2 e^{2Ht} \\
+					0 & 0 & 0 & 0 \\
+					0 & -H^2 e^{2Ht} & 0 & 0
+				\end{psmallmatrix} \\
+				\begin{psmallmatrix}
+					0 & 0 & H^2 & 0 \\
+					0 & 0 & 0 & 0 \\
+					-H^2 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0
+				\end{psmallmatrix} & 
+				\begin{psmallmatrix}
+					0 & 0 & 0 & 0 \\
+					0 & 0 & -H^2e^{2Ht} & 0 \\
+					0 & H^2e^{2Ht} & 0 & 0 \\
+					0 & 0 & 0 & 0
+				\end{psmallmatrix} &
+				\begin{psmallmatrix}
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0
+				\end{psmallmatrix} &
+				\begin{psmallmatrix}
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & H^2 e^{2Ht} \\
+					0 & 0 & -H^2 e^{2Ht} & 0
+				\end{psmallmatrix}  \\
+				\begin{psmallmatrix}
+					0 & 0 & 0 & H^2 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					-H^2 & 0 & 0 & 0
+				\end{psmallmatrix} & 
+				\begin{psmallmatrix}
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & -H^2e^{2Ht} \\
+					0 & 0 & 0 & 0 \\
+					0 & H^2e^{2Ht} & 0 & 0
+				\end{psmallmatrix} &
+				\begin{psmallmatrix}
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & -H^2 e^{2Ht} \\
+					0 & 0 & H^2e^{2Ht} & 0
+				\end{psmallmatrix} &
+				\begin{psmallmatrix}
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0
+				\end{psmallmatrix}
+			\end{pmatrix}
+		$$
+		And so, the Ricci tensor is 
+		$$ R_{\mu\nu} = \begin{pmatrix}
+			-3H^2 & 0 & 0 & 0 \\
+			0 & 3H^2e^{2Ht} & 0 & 0 \\
+			0 & 0 & 3H^2e^{2Ht} & 0 \\
+			0 & 0 & 0 & 3H^2e^{2Ht}
+		\end{pmatrix}$$
+		Thus, given our answer in 2.1 we get
+		$$ R_{\mu\nu} = \Lambda g_{\mu\nu}$$
+		$$\therefore \Lambda = 3H^2 \implies H = \sqrt{\frac{\Lambda}{3}}$$
+		Furthermore, the Ricci curvature is $R = 12H^2$ and the Einstein tensor is
+		$$ G_{\mu\nu} = \begin{psmallmatrix}
+			3H^2 & 0 & 0 & 0 \\
+			0 & -3H^2e^{2Ht} & 0 & 0 \\
+			0 & 0 & -3H^2e^{2Ht} & 0 \\
+			0 & 0 & 0 & -3H^2e^{2Ht}
+		\end{psmallmatrix}$$
+		So indeed, for $\Lambda > 0$ we find that $dS$ is a solution to the equations of motion $G_{\mu\nu} = -\Lambda g_{\mu\nu}$
+		
+		\pagebreak
+		\subsection{Hubble constant}
+		The Hubble constant describes the change in speed of the expansion of the universe over some given length. This implies units of
+		$$ H := \frac{[\text{length}]}{[\text{time}][\text{length}]} = [\text{time}]^{-1} $$\\
+		So the dimensions of the Hubble constant are given by inverse time. Now, we are asked to find the time at which the universe will double its size. We assume that the time of the current size is given by the volume element 
+		$$ dV = \sqrt{|g|}dx^1 dx^2 dx^3 = e^{3Ht} dx^1 dx^2 dx^3$$
+		Thus, we want to find the time when we transform the volume as $dV \to 2dV$ such that
+		
+		$$e^{3Ht} dx^1 dx^2 dx^3 = 2 dx^1 dx^2 dx^3 $$
+		Hence,
+		$$ 2 = e^{3Ht} \implies \boxed{t =  \frac{\ln2}{3H}} $$
+		
+		
+	\pagebreak
+		\subsection{Energy density}
+		First, we recall from Assignment 1 the units for $G$:
+		$$ G:= \frac{[\text{length}]^3}{[\text{mass}] \cdot [\text{time}]^2}$$
+		Now recall that we assumed that $c=1$ so our cosmological constant in terms of the Hubble constant has the units
+		
+		$$ \Lambda = 3 \left( \frac{H}{c} \right)^2 \Omega \implies \Lambda:= \left( \frac{1}{c\cdot[\text{time}]} \right)^2 = (c[\text{time}])^{-2}$$
+	
+		Hence
+		\begin{align*}
+			\frac{\Lambda}{G} &:= \frac{[\text{mass}] \cdot[\text{time}]^2}{c^2[\text{time}]^2 \cdot[\text{length}]^3} \\
+			&:= \frac{[\text{mass}] }{c^2[\text{length}]^3}
+		\end{align*}
+		Recall that the natural units for mass and length are given by
+		\begin{align*}
+			[\text{mass}] &= \text{eV}\cdot \text{c}^{-2} \\
+			[\text{length}] &= (\text{eV})^{-1} \cdot{\hbar\text{c}}
+		\end{align*}
+		
+		Therefore
+		\begin{align*}
+			\frac{\Lambda}{G} &:= \frac{\text{eV} \cdot (\text{eV})^3}{c^2 \cdot c^2 (\hbar c)^3} \\
+			&= \frac{(\text{eV})^4}{\hbar^3 c^7}
+		\end{align*}
+		And recalling $c=1$, we get
+		$$ \boxed{\frac\Lambda{G} = \frac{(\text{eV})^4}{\hbar^3} = \frac{\text{eV}}{[\text{length}]^3}}$$
+		As desired. Now,
+		$$ \Lambda = \frac{G(\text{eV})^4}{\hbar^3}$$
+		$$ \therefore \boxed{H = \sqrt\frac{G(\text{eV})^4}{3\hbar^3}}
+		$$
+		$$ \therefore \boxed{t = \frac{\hbar^{\frac{3}{2}} \ln(2)}{(3G)^{\frac{1}{2}} (\text{eV})^2}}$$
+		
+		\subsection{de Sitter metric revisited}
+		Let us consider the manifold $\R^{1,2}$ with $x^{\mu'}$ as its coordinate system such that
+		$$ ds'^2 = -dx^{0'^{2}} + dx^{1'^2} + dx^{2'^2}$$ 
+		We have the de Sitter space as a solution to $-x^{0'^2} + x^{1'^2} + x^{2'^2} = \ell^2$. Defining the coordinate system as $x^\mu = (\tau ,\phi)$ and $y^\mu = (t,x)$ we can denote
+		\begin{align*}
+			x^{0'} \left( x^\mu \right) &= \ell \sinh \tau \\
+			x^{1'} \left( x^\mu \right) &= \ell \cosh \tau \cos\phi \\
+			x^{2'} \left( x^\mu \right) &= \ell \cosh (\tau) \sin\phi 
+		\end{align*}
+		Which indeed implies that $-x^{0'^2} + x^{1'^2} + x^{2'^2} = \ell^2$. Now,
+		\begin{align*}
+			dx^{0'} \left( x^\mu \right) &= \ell \cosh \tau d\tau\\
+			dx^{1'} \left( x^\mu \right) &= \ell \sinh \tau \cos\phi d\tau - \ell \cos \tau \sin \phi d \phi \\
+			dx^{2'} \left( x^\mu \right) &= \ell \sinh (\tau) \sin\phi d\tau + \ell \cosh \tau \cos \phi d\phi
+		\end{align*}
+		Implies
+		$$ \boxed{ds'^2 &= -\ell^2 d\tau^2 + \ell^2 \cosh^2 \tau d \phi^2}$$
+		As expected for a global coordinate system of a two-sphere, just like we saw on the previous problem set.
+		\pagebreak
+	\section{Conformal transformations}
+		\subsection{Angles}
+			Recall the metric of Euclidean space is $g_{\mu\nu} = \begin{psmallmatrix}
+			1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
+			\end{psmallmatrix}$ such that
+			$$ ds^2 = g_{\mu\nu}dx^\mu dx^\nu = dx^2 + dy^2 +dz^2$$
+			So we define vectors on this space as $v^\mu = (x^1, x^2, x^3) = (x,y,z)$ such that
+			$$ v^2 = g_{\mu\nu} v^\mu v^\nu = v_\nu v^\mu = x^2 +y^2 + z^2$$
+			Which is the same as the inner product of an algebraic vector $\vec{v} = \begin{psmallmatrix}
+				x\\y\\z
+			\end{psmallmatrix}$ where $||\vec{v} || = \sqrt{\vec{v} \cdot \vec{v}} = \sqrt{v^2}$. Now, recall the definition of cosine from vector Calculus
+			$$ \cos\theta = \frac{\vec{v}\cdot{\vec{w}}}{\sqrt{||\vec{v} ||\cdot||\vec{w} ||}}$$
+			So for two different vectors, we have
+			$$ \vec{v}\cdot\vec{w} = g_{\mu\nu} v^\mu w^\nu = \sum_i v^i w^i$$
+			Which, considering conformal transformations conserving the Euclidean angle $\theta$, redefines cosine
+			$$ \cos\theta = \frac{g_{\mu\nu} v^\mu w^\nu}{\sqrt{v^2 w^2}} =\frac{\hat g_{\mu\nu} \hat v^\mu \hat w^\nu}{\sqrt{\hat v^2 \hat w^2}} $$
+			Now let $\hat{v}^\mu = \partial_\mu \hat{x}^\mu v^\mu = \hat{x}^\mu_{;\mu} v^\mu$ and $\hat{w}^\mu = \partial_\mu \hat{x}^\mu w^\mu = \hat{x}^\mu_{;\mu} w^\mu$. By dummy indices, we can define $\hat v^2$ in terms of $w\left(x^\mu\right)$ such that
+			$$ \hat v^2 = w\left(x^\mu\right) g_{\mu\nu} \left[ \hat{x}^\mu_{;\mu} \cdot \hat{x}^\nu_{;\nu} \right] v^\mu v^\nu$$
+			Hence,
+			\begin{align*}
+				\cos \theta &= \frac{w\left(x^\mu\right) g_{\mu\nu} \left[ \hat{x}^\mu_{;\mu} \cdot \hat{x}^\nu_{;\nu} \right] v^\mu w^\nu}{\sqrt{\left( w\left(x^\mu\right) g_{\mu\nu} \left[ \hat{x}^\mu_{;\mu} \cdot \hat{x}^\nu_{;\nu} \right] v^\mu v^\nu\right)\left( w\left(x^\mu\right) g_{\mu\nu} \left[ \hat{x}^\mu_{;\mu} \cdot \hat{x}^\nu_{;\nu} \right] w^\mu w^\nu\right)}} \\
+				&= \left( \frac{w\left(x^\mu\right) g_{\mu\nu} \left[ \hat{x}^\mu_{;\mu} \cdot \hat{x}^\nu_{;\nu} \right]}{\sqrt{\left( w\left(x^\mu\right) g_{\mu\nu} \left[ \hat{x}^\mu_{;\mu} \cdot \hat{x}^\nu_{;\nu} \right]\right)^2}} \right)\left( \frac{g_{\mu\nu} v^\mu w^\nu}{\sqrt{\left( g_{\mu\nu} v^\mu v^\nu\right) \left( g_{\mu\nu} w^\mu w^\nu \right)}}\right) \\
+				&= \frac{g_{\mu\nu} v^\mu w^\mu}{\sqrt{v^2 w^2}}
+			\end{align*}
+			As desired. Now, recall that a worldline is a parametrization onto a geodesic using $\lambda$ as the parameter that marks points along the worldline. This directly implies that we can define the worldline for some coordinates $x^\mu$ as $x^\mu (\lambda)$. Hence
+			$$ \hat g_{\mu\nu} = w \left( x^\mu \left( \lambda\right)\right) g_{\mu\nu}$$
+			So the interval is
+			\begin{align*}
+				d\hat s^2 &= \hat g_{\mu\nu} dx^\mu dx^\nu \\
+				&= w \left( x^\mu \left( \lambda\right)\right) g_{\mu\nu} x^\mu x^\nu \\
+				w \left( x^\mu \left( \lambda\right)\right) ds^2
+			\end{align*}
+			So if we have $	w \left( x^\mu \left( \lambda\right)\right) > 0$ and $ds^2 > 0$ then this implies that $d\hat s^2 >0$. The same would follow for $ds^2 = 0$ and $ds^2 < 0$.
+			
+		\pagebreak
+		\subsection{Conformally flat spacetime}
+			The most useful spacetime is the de Sitter spacetime for this problem. In $D$ dimensions, we have
+			$$ ds^2 = -dt^2 + e^{2Ht} dx^{\mu^2}$$
+			For proper time, we have the transform
+			$$ \tau = 1 - \frac{1}{H} e^{-Ht}$$
+			$$ \therefore d\tau = e^{Ht}dt$$
+			Thus
+			$$ d\hat s^2 = e^{2Ht} \left( -d\tau^2 + \sum_{i=1}^{D-1} dx^{i^2} \right) = e^{2Ht} \eta_{\mu\nu} \hat{x}^\mu \hat{\nu}$$
+			So therefore
+			\begin{align*}
+				e^{-Ht} &= H(1-\tau) \\
+				\therefore e^{2Ht} &= H^{-2} (1-\tau)^{-2}
+			\end{align*}
+			Hence,
+			$$ d \hat s ^2 = H^{-2}(1-\tau)^{-2} \left[ -d\tau^2 + \sum_{i=1}^{D-1} dx^{i^2} \right]$$
+			Moreover for $t\neq0$, $H^2 > 0$ and $ (1-\tau^2)> 0$ as $\tau$ decreases asymptotically with time. Therefore
+			$$ f(x^\mu) = H^{-2} (1-\tau)^{-2} >0$$
+			Finally,
+			\begin{align*}
+				d\hat s^2 &= H^{-2} (1-\tau)^{-2} \eta_{\mu\nu} \hat{x}^\mu \hat x^\nu \\
+				&= H^{-2} (1-\tau)^{-2} g_{\mu\nu} \hat x^\mu \hat x^\nu \\
+				&= f\left(\hat x ^\mu \right) g_{\mu\nu} \hat x^\mu \hat x^\nu \\
+				\hat g_{\mu\nu} \hat x^\mu \hat x^\nu
+			\end{align*}
+			So indeed, $dS$ is conformally related to Minkowski space with $\tau = 1 - \frac{1}{H}e^{-Ht}$ as a coordinate transformation. Therefore, we showed that $dS$ is conformally flat, as desired.
+\end{document}

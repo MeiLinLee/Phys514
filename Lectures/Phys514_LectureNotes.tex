@@ -1268,7 +1268,7 @@
  			An alternative way to write the Geodesic equation in a cleaner way is
  			\begin{equation}
  				\label{eq:CleanGeodesic}
- 				\boxed{\ddot{x}^\mu + \Gamma_{\nu\rho}^\mu \,\, \dot{x}^\nu \dot{x}^\rho = f(\lambda) \dot{x}^\mu}
+ 				\boxed{\ddot{x}^\mu + \Gamma_{\nu\rho}^\mu \,\, \dot{x}^\rho \dot{x}^\nu = f(\lambda) \dot{x}^\mu}
  			\end{equation}
  			We emphasize that it is the order of the indices and not the choice of variable to represent them that matters. Particularly, $\lambda$ is a parameter used to label points along a geodesic. We could always choose a new parameter $\lambda'$ which would be a function of the old parameter $\lambda'(\lambda)$, which then would change the RHS of the geodesic equation. It is always possible to choose a parameter such that the RHS is zero. More explicitly, we have
  			$$ f(\lambda) = \frac{\nicefrac{d^2s}{d\lambda^2}}{\nicefrac{ds}{d\lambda}} $$
@@ -1288,7 +1288,7 @@
  		\pagebreak
  			We note that this definition applies to most cases but not all. Sometimes, using non-affine parameters is far more ideal. An example would be computing the geodesic for a null-like interval, as $S=0$ for any two points on the geodesic, so it would be impossible to chose an affine parameter.
  			
- 			Now, recall the Christoffel symbol, but redefined with different ordering of the same indices and with a simpler first derivative $\partial_\mu g_{\alpha\beta} = g_{\alpha\beta; \mu}$ such that
+ 			Now, recall the Christoffel symbol, but redefined with different ordering of the same indices and with a simpler first partial derivative $\partial_\mu g_{\alpha\beta} = g_{\alpha\beta; \mu}$ such that
  			$$ \Gamma^\mu_{\nu\rho} = \frac12 g^{\mu\sigma} \left( g_{\nu\sigma;\rho} + g_{\rho\sigma;\nu} - g_{\nu\rho;\sigma} \right)$$
  			The Christoffel symbol has various important properties:
  			\begin{itemize}
@@ -1353,5 +1353,32 @@
  				Consider the manifold $\R^2$ such that $ds^2 = dx^2 + dy^2 = dr^2 + r^2 d\theta^2$. Compute $\Gamma_{\nu\rho}^\mu$ in both coordinates.
  			\end{exe}
  		\subsection{Calculus}
- 			We know that spacetime is a manifold with a (0,2) metric tensor $g_{\mu\nu}$, from which we can yield intervals over coordinates using geodesics to extremize the distance between two points in spacetime.
-\end{document}
+ 			We know that spacetime is a manifold with a (0,2) metric tensor $g_{\mu\nu}$, from which we can yield intervals over coordinates using geodesics to extremize the distance between two points in spacetime. The geodesic equation of some worldline defined by the functions $x^\mu (\lambda)$ is given by equation (\ref{eq:CleanGeodesic}), where $\lambda$ is the parametrization variable of the worldline. So the geodesic is a differential equation where $\Gamma_{\nu\rho}^\mu$, as defined in equation (\ref{eq:ChristoffelSymbol}), captures the deviation from $\ddot{x}^\mu = 0$ (ie. a straight line) in terms of both fictitious forces and the curvature of spacetime. Also recall that $\Gamma_{\nu\rho}^\mu$ is not a tensor as it transforms as seen in equation (\ref{eq:ChristoffelTransformation}).
+ 			
+ 			The principle of general covariance implies that the laws of physics must be represented through tensors. We also saw that these laws involve derivatives, so we need to learn how to take derivatives of tensors in a way that the derivation yields another tensor. 
+ 		
+ 		\pagebreak
+ 			\begin{exmp}
+ 				\textbf{Known derivatives}\\
+ 				\begin{itemize}
+ 					\item$\frac{\partial f}{\partial x^\mu} = \partial_\mu f = f_{;\mu} $ is a (0,1)-tensor if $f$ is a $(0,0)$ tensor.
+ 					\item $\frac{\partial v^\rho}{\partial x^\mu} = \partial_\mu v^\rho = v^\rho_{;\mu}$ is \textbf{not} a (1,1)-tensor even if $v^\rho$ is a (1,0)-tensor.
+ 				\end{itemize}
+ 			\end{exmp}
+ 			The example above shows that we need a new kind of derivative different from our usual partial, or \textbf{contravariant derivatives} $\partial_\mu v^\rho$.
+ 			\begin{defn}
+ 				A \textbf{covariant derivative} is denoted $\Del_\mu$ such that
+ 				$\Del_\mu v^\rho$ is a $(1,1)$-tensor. 
+ 			\end{defn}
+ 			\begin{exmp}
+ 				\textbf{Covariant derivatives of scalars}
+ 				\begin{itemize}
+ 					\item Scalars: $\Del_\mu f = \partial_\mu f$
+ 				\end{itemize}
+ 			\end{exmp}
+ 			So how would we take covariant derivatives for vectors? The first thing we want is for this covariant derivative to be linear. That is,
+ 			\begin{equation}
+ 				\label{eq:LinearLaplace}
+ 				\boxed{\Del_\mu \left(v^\rho + w^\rho \right) = \Del_\mu v^\rho + \Del_\mu w^\rho}
+ 			\end{equation}
+\end{document} 

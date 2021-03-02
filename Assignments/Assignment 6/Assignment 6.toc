@@ -1,0 +1,11 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Binachi identity}{1}{section.1}%
+\contentsline {section}{\numberline {2}Vacuum energy}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Einstein manifolds}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}de Sitter metric}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Hubble constant}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Energy density}{7}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}de Sitter metric revisited}{8}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Conformal transformations}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Angles}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Conformally flat spacetime}{11}{subsection.3.2}%

@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  2 MAR 2021 09:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  2 MAR 2021 14:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Phys514_LectureNotes.tex
-(./Phys514_LectureNotes.tex
+**"Assignment 6.tex"
+(./Assignment 6.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-01-09> xparse <2020-03-03>
 (c:/texlive/2020/texmf-dist/tex/latex/base/article.cls
@@ -1122,25 +1122,25 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 44.
 \c@defn=\count370
 \c@obs=\count371
 \c@exe=\count372
-) (./Phys514_LectureNotes.aux)
-\openout1 = `Phys514_LectureNotes.aux'.
+) (./Assignment 6.aux)
+\openout1 = `"Assignment 6.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
 (c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1167,7 +1167,7 @@ Dictionary: translator-basic-dictionary, Language: English
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 18.
+Package hyperref Info: Link coloring ON on input line 14.
  (c:/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -1179,13 +1179,13 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count380
 )
-LaTeX Info: Redefining \ref on input line 18.
-LaTeX Info: Redefining \pageref on input line 18.
-LaTeX Info: Redefining \nameref on input line 18.
+LaTeX Info: Redefining \ref on input line 14.
+LaTeX Info: Redefining \pageref on input line 14.
+LaTeX Info: Redefining \nameref on input line 14.
 
-(./Phys514_LectureNotes.out) (./Phys514_LectureNotes.out)
+(./Assignment 6.out) (./Assignment 6.out)
 \@outlinefile=\write4
-\openout4 = `Phys514_LectureNotes.out'.
+\openout4 = `"Assignment 6.out"'.
 
 
 *geometry* driver: auto-detecting
@@ -1223,120 +1223,96 @@ LaTeX Info: Redefining \nameref on input line 18.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Package chemgreek Info: Activating mapping `upgreek' on line 18.
+Package chemgreek Info: Activating mapping `upgreek' on line 14.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 14.
 
 (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
 
 
 (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+fgerm on input line 1
-8.
+4.
 
 (c:/texlive/2020/texmf-dist/tex/latex/fge/Ufgerm.fd
 File: fgerm.fd 2015/05/19 1.25 fge roman symbol font definitions
 )
 LaTeX Font Info:    Trying to load font information for U+fgeit on input line 1
-8.
+4.
 
 (c:/texlive/2020/texmf-dist/tex/latex/fge/Ufgeit.fd
 File: fgeit.fd 2015/05/19 1.25 fge italic symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 18
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 14
 .
 
 (c:/texlive/2020/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 1
-8.
+4.
 
 (c:/texlive/2020/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
 
-
-{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./Phys514_Lect
-ureNotes.toc)
+{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./Assignment 6
+.toc)
 \tf@toc=\write5
-\openout5 = `Phys514_LectureNotes.toc'.
+\openout5 = `"Assignment 6.toc"'.
 
-
-[2]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) h
-as been already used, duplicate ignored
+ [1]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) 
+has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.75  			\item
-               \textbf{Force law} [1]pdfTeX warning (ext4): destination with th
-e same identifier (name{page.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.96  		T
-         he force law is also replaced by the geodesic equation, which tells...
-[2] [3] [4] [5] [6] [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 415--416
+l.69 		\end{align*}
+                    [1] [2] [3] [4] [5] [6] [7]
+! Misplaced alignment tab character &.
+<argument> \m@th $\displaystyle ds'^2 &
+                                       = -\ell ^2 d\tau ^2 + \ell ^2 \cosh ^...
+l.362 ...2 d\tau^2 + \ell^2 \cosh^2 \tau d \phi^2}
+                                                  $$
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
- []
-
-[10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
-Underfull \hbox (badness 1931) in paragraph at lines 787--788
-[]\OT1/cmr/m/n/10 Consider some curved man-i-fold $\OML/cmm/m/it/10 M$ \OT1/cmr
-/m/n/10 such that we can
- []
-
-[22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36]
-[37] [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1362--1363
-
- []
-
-[39] (./Phys514_LectureNotes.aux)
-Package rerunfilecheck Info: File `Phys514_LectureNotes.out' has not changed.
-(rerunfilecheck)             Checksum: 3D077954179CF3ABE7D23E56D6429291;576.
+[8] [9] [10] [11] (./Assignment 6.aux)
+Package rerunfilecheck Info: File `"Assignment 6".out' has not changed.
+(rerunfilecheck)             Checksum: D8E8DF0F3E0483566166F7BA855074CC;624.
  ) 
 Here is how much of TeX's memory you used:
- 41205 strings out of 479304
- 930666 string characters out of 5871213
- 1481210 words of memory out of 5000000
- 57556 multiletter control sequences out of 15000+600000
- 424590 words of font info for 120 fonts, out of 8000000 for 9000
+ 40742 strings out of 479304
+ 922418 string characters out of 5871213
+ 1502902 words of memory out of 5000000
+ 57270 multiletter control sequences out of 15000+600000
+ 419625 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 143i,16n,144p,1366b,1036s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/tex
-live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2020
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2020/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2020/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmbxti10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><
-c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive
-/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2020/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2020/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr17.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/
-texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/202
-0/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2020/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2020/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
-fb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/tex
-live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2020
-/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2020/tex
-mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-d
-ist/fonts/type1/public/rsfs/rsfs10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/
-public/cm-super/sfrm1000.pfb>
-Output written on Phys514_LectureNotes.pdf (41 pages, 455207 bytes).
+ 143i,14n,144p,447b,754s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
+live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2020
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
+.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/t
+exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2020
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/
+symbols/msam10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symb
+ols/msbm10.pfb>
+Output written on "Assignment 6.pdf" (13 pages, 192300 bytes).
 PDF statistics:
- 548 PDF objects out of 1000 (max. 8388607)
- 471 compressed objects within 5 object streams
- 190 named destinations out of 1000 (max. 500000)
- 85 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 189 PDF objects out of 1000 (max. 8388607)
+ 156 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 500000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
