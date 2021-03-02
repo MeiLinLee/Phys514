@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  2 MAR 2021 14:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  2 MAR 2021 14:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1269,20 +1269,8 @@ has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.69 		\end{align*}
-                    [1] [2] [3] [4] [5] [6] [7]
-! Misplaced alignment tab character &.
-<argument> \m@th $\displaystyle ds'^2 &
-                                       = -\ell ^2 d\tau ^2 + \ell ^2 \cosh ^...
-l.362 ...2 d\tau^2 + \ell^2 \cosh^2 \tau d \phi^2}
-                                                  $$
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-[8] [9] [10] [11] (./Assignment 6.aux)
+                    [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11]
+(./Assignment 6.aux)
 Package rerunfilecheck Info: File `"Assignment 6".out' has not changed.
 (rerunfilecheck)             Checksum: D8E8DF0F3E0483566166F7BA855074CC;624.
  ) 
@@ -1309,7 +1297,7 @@ pe1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/
 symbols/msam10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symb
 ols/msbm10.pfb>
-Output written on "Assignment 6.pdf" (13 pages, 192300 bytes).
+Output written on "Assignment 6.pdf" (13 pages, 192317 bytes).
 PDF statistics:
  189 PDF objects out of 1000 (max. 8388607)
  156 compressed objects within 2 object streams
