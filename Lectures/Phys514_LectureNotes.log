@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  2 MAR 2021 09:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.20)  3 MAR 2021 13:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1289,20 +1289,15 @@ Underfull \hbox (badness 1931) in paragraph at lines 787--788
  []
 
 [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36]
-[37] [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1362--1363
-
- []
-
-[39] (./Phys514_LectureNotes.aux)
+[37] [38] [39] [40] (./Phys514_LectureNotes.aux)
 Package rerunfilecheck Info: File `Phys514_LectureNotes.out' has not changed.
 (rerunfilecheck)             Checksum: 3D077954179CF3ABE7D23E56D6429291;576.
  ) 
 Here is how much of TeX's memory you used:
- 41205 strings out of 479304
- 930666 string characters out of 5871213
- 1481210 words of memory out of 5000000
- 57556 multiletter control sequences out of 15000+600000
+ 41214 strings out of 479304
+ 930799 string characters out of 5871213
+ 1481319 words of memory out of 5000000
+ 57559 multiletter control sequences out of 15000+600000
  424590 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  143i,16n,144p,1366b,1036s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1333,10 +1328,10 @@ live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2020
 mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-d
 ist/fonts/type1/public/rsfs/rsfs10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/
 public/cm-super/sfrm1000.pfb>
-Output written on Phys514_LectureNotes.pdf (41 pages, 455207 bytes).
+Output written on Phys514_LectureNotes.pdf (42 pages, 459360 bytes).
 PDF statistics:
- 548 PDF objects out of 1000 (max. 8388607)
- 471 compressed objects within 5 object streams
- 190 named destinations out of 1000 (max. 500000)
+ 560 PDF objects out of 1000 (max. 8388607)
+ 482 compressed objects within 5 object streams
+ 196 named destinations out of 1000 (max. 500000)
  85 words of extra memory for PDF output out of 10000 (max. 10000000)
 

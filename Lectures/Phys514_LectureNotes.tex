@@ -1356,10 +1356,8 @@
  			We know that spacetime is a manifold with a (0,2) metric tensor $g_{\mu\nu}$, from which we can yield intervals over coordinates using geodesics to extremize the distance between two points in spacetime. The geodesic equation of some worldline defined by the functions $x^\mu (\lambda)$ is given by equation (\ref{eq:CleanGeodesic}), where $\lambda$ is the parametrization variable of the worldline. So the geodesic is a differential equation where $\Gamma_{\nu\rho}^\mu$, as defined in equation (\ref{eq:ChristoffelSymbol}), captures the deviation from $\ddot{x}^\mu = 0$ (ie. a straight line) in terms of both fictitious forces and the curvature of spacetime. Also recall that $\Gamma_{\nu\rho}^\mu$ is not a tensor as it transforms as seen in equation (\ref{eq:ChristoffelTransformation}).
  			
  			The principle of general covariance implies that the laws of physics must be represented through tensors. We also saw that these laws involve derivatives, so we need to learn how to take derivatives of tensors in a way that the derivation yields another tensor. 
- 		
- 		\pagebreak
  			\begin{exmp}
- 				\textbf{Known derivatives}\\
+ 				\textbf{Known derivatives}
  				\begin{itemize}
  					\item$\frac{\partial f}{\partial x^\mu} = \partial_\mu f = f_{;\mu} $ is a (0,1)-tensor if $f$ is a $(0,0)$ tensor.
  					\item $\frac{\partial v^\rho}{\partial x^\mu} = \partial_\mu v^\rho = v^\rho_{;\mu}$ is \textbf{not} a (1,1)-tensor even if $v^\rho$ is a (1,0)-tensor.
@@ -1370,6 +1368,7 @@
  				A \textbf{covariant derivative} is denoted $\Del_\mu$ such that
  				$\Del_\mu v^\rho$ is a $(1,1)$-tensor. 
  			\end{defn}
+ 		\pagebreak
  			\begin{exmp}
  				\textbf{Covariant derivatives of scalars}
  				\begin{itemize}
@@ -1381,4 +1380,40 @@
  				\label{eq:LinearLaplace}
  				\boxed{\Del_\mu \left(v^\rho + w^\rho \right) = \Del_\mu v^\rho + \Del_\mu w^\rho}
  			\end{equation}
+ 			If it is not linear, it likely is not a derivative at all. Next, we would require te product or Leibniz rule
+ 			\begin{equation}
+ 				\label{eq:LeibnizRule}
+ 				\boxed{\Del_\mu \left(f\cdot v^\rho \right) = \Del_\mu f \cdot v^{\rho} + f \cdot\Del_{\mu}  v^{\rho}}
+ 			\end{equation}
+ 			With both of these properties, we can constrain the form of a covariant derivative.
+ 			\begin{defn}
+ 				A covariant derivative $\Del_\mu$ for some vector $v^\rho$ is a (1,1)-tensor given by
+ 				\begin{equation}
+ 					\label{eq:CovariantDerivative}
+ 					\boxed{\Del_{\mu}v^{\rho} \equiv \partial_\mu v^\rho + G_{\mu\nu}^\rho v^\nu}
+ 				\end{equation}
+ 				Where $G_{\mu\nu}^\rho$ is a set of $D$-matrices that represent a linear transformation over the vector $v^\nu$ with free indices $\rho$ and $\mu$, and dummy indices $\nu$. We use $\mu$ to index the set of matrices, and $\rho$ and $\nu$ for the elements of each matrix.
+ 			\end{defn}
+ 			Now recalling the \hyperref[eq:CleanGeodesic]{Geodesic equation}, we can now see that it is indeed a tensor equation. The RHS results in a tensor so the LHS must be a tensor as well. However, in the LHS we have $\ddot{x}^\mu$ and $\Gamma_{\nu\rho}^\mu$ which are both not tensors individually, but together they form a tensor.
+ 			So in order for $\Del_\mu v^\rho$ to be a tensor, we must investigate how it behaves under coordinate transformations. By the usual tensor transformation, we have
+ 			\begin{align*}
+ 				\Del_{\mu'} v^{\rho'} &= \partial_{\mu'} x^\mu \partial_{\rho} x^{\rho'} \Del_\mu v^\rho\\ 
+ 				&= \frac{\partial x^\mu}{\partial x^{\mu'}} \frac{\partial x^{\rho'}}{\partial x^\rho} \left( \frac{\partial}{\partial x^\mu} v^\rho + G_{\mu\nu}^\rho v^\nu \right) \\
+ 				&= \frac{\partial}{\partial x^{\mu'}} \left( \frac{\partial x^{\rho'}}{\partial x^\rho} v^\rho\right) + G_{\mu'\nu'}^{\rho'} v^{\nu'}  \\
+ 				&= \frac{\partial x^\mu}{\partial x^{\mu'}} \frac{\partial x^{\rho'}}{\partial x^\rho} v^\rho_{;\mu} + G_{\mu'\nu'}^{\rho'} v^{\nu'} + \frac{\partial^2}{\partial x^\rho \partial x^\mu} \frac{\partial x^\mu}{\partial x^{\mu'}} v^\rho
+ 			\end{align*}
+ 			So therefore
+ 			$$
+ 				G_{\mu'\nu'}^{\rho'} v^{\nu'} =  \frac{\partial x^\mu}{\partial x^{\mu'}} \frac{\partial x^{\rho'}}{\partial x^\rho} G_{\mu\nu}^\rho v^\nu - \frac{\partial^2}{\partial x^\rho \partial x^\mu} \frac{\partial x^\mu}{\partial x^{\mu'}} v^\nu
+ 			$$
+ 			Now, recalling that $v^\nu = \frac{\partial x^\nu}{\partial x^{\nu'}} v^{\nu'}$, we can rewrite this in terms of Tensor contraction such that
+ 			\begin{equation}
+ 				\boxed{G_{\mu'\nu'}^{\rho'} v^{\nu'} = \left( \frac{\partial x^{\rho'}}{\partial x^\rho} \frac{\partial x^{\nu}}{\partial x^{\nu'}}\frac{\partial x^\mu}{\partial x^{\mu'}} G_{\mu\nu}^\rho - \frac{\partial^2 x^{\rho'}}{\partial x^\mu \partial x^\nu} \frac{\partial x^\mu}{\partial x^{\mu'}} \frac{\partial x^{\nu}}{\partial x^{\nu'}} \right) v^{\nu'}}
+ 			\end{equation}
+ 			This tells us how $G^\rho_{\mu\nu}$ will transform under a change of coordinates. We notice that this transformation is exactly how the Christoffel symbol \hyperref[eq:ChristoffelTransformation]{transforms}. In fact, $\Gamma_{\nu\rho}^\mu$ is the unique object that we can form from the metric and its first derivatives, which itself follows this transformation rule. So the geodesic equation is a tensorial equation involving a tensor derivative. Therefore, we wish to define the covariant derivative of a vector in terms of the Christoffel symbol.
+ 			\begin{equation}
+ 				\label{eq:CovariantChristoffel}
+ 				\boxed{\Del_\mu v^\rho = \partial_\mu v^\rho + \Gamma_{\mu\nu}^\rho v^\nu}
+ 			\end{equation}
+ 			In this equation, neither $\partial_\mu v^\rho$ nor $\Gamma_{\mu\nu}^\rho v^\nu$ are tensors. However, their sum is a tensor.
 \end{document} 
