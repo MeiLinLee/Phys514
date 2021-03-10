@@ -1125,7 +1125,7 @@
  
  			Often in physics we tend to write equations of motion as differential equations. However, we do not yet know how to differentiate and take derivatives for a tensor in a \textit{covariant manner}. That is, imagine a vector $v^\mu$ in a $D$-dimensional Manifold given a particular coordinate system $x^\mu$. Recall,
  			$$ v^{\mu} \to \partial_\nu v^\mu $$
- 			Take note that this \textbf{is not a (1,1)-tensor}. It can be considered a contravariant derivative, as it acts only on a vector which has one contravariant index. We know how to take derivatives for scalars and vectors from vector calculus, but this knowledge cannot be extrapolated to vectors. It turns out that to differentiate on tensors, we require \textit{Riemannean Geometry}. So we need to develop \textit{covariant derivatives} to better understand how differentiation on a tensor would work, as contravariant derivatives (derivatives on vectors) are assumed to be well-studied by this point.
+ 			Take note that this \textbf{is not a (1,1)-tensor}. It acts on a vector which has one contravariant index. We know how to take derivatives for scalars and vectors from vector calculus, but this knowledge cannot be extrapolated to vectors. It turns out that to differentiate on tensors, we require \textit{Riemannean Geometry}. So we need to develop \textit{covariant derivatives} to better understand how differentiation on a tensor would work.
  			
  			Recall the implications of the \hyperref[defn:StrongEquivalence]{Einstein Equivalence Principle} which particularly state that the effect of gravity is, in small reference frames, locally like Minkowski space and equivalent to an accelerating reference frame. Knowing tensors, we can give a more mathematical definition for this principle.
  			\begin{thm}
@@ -1363,7 +1363,7 @@
  					\item $\frac{\partial v^\rho}{\partial x^\mu} = \partial_\mu v^\rho = v^\rho_{;\mu}$ is \textbf{not} a (1,1)-tensor even if $v^\rho$ is a (1,0)-tensor.
  				\end{itemize}
  			\end{exmp}
- 			The example above shows that we need a new kind of derivative different from our usual partial, or \textbf{contravariant derivatives} $\partial_\mu v^\rho$.
+ 			The example above shows that we need a new kind of derivative different from our usual partial derivatives $\partial_\mu v^\rho$.
  			\begin{defn}
  				A \textbf{covariant derivative} is denoted $\Del_\mu$ such that
  				$\Del_\mu v^\rho$ is a $(1,1)$-tensor. 
@@ -1387,7 +1387,7 @@
  			\end{equation}
  			With both of these properties, we can constrain the form of a covariant derivative.
  			\begin{defn}
- 				A covariant derivative $\Del_\mu$ for some vector $v^\rho$ is a (1,1)-tensor given by
+ 				A \textbf{vector covariant derivative} $\Del_\mu$ for some vector $v^\rho$ is a (1,1)-tensor given by
  				\begin{equation}
  					\label{eq:CovariantDerivative}
  					\boxed{\Del_{\mu}v^{\rho} \equiv \partial_\mu v^\rho + G_{\mu\nu}^\rho v^\nu}
@@ -1410,10 +1410,126 @@
  			\begin{equation}
  				\boxed{G_{\mu'\nu'}^{\rho'} v^{\nu'} = \left( \frac{\partial x^{\rho'}}{\partial x^\rho} \frac{\partial x^{\nu}}{\partial x^{\nu'}}\frac{\partial x^\mu}{\partial x^{\mu'}} G_{\mu\nu}^\rho - \frac{\partial^2 x^{\rho'}}{\partial x^\mu \partial x^\nu} \frac{\partial x^\mu}{\partial x^{\mu'}} \frac{\partial x^{\nu}}{\partial x^{\nu'}} \right) v^{\nu'}}
  			\end{equation}
- 			This tells us how $G^\rho_{\mu\nu}$ will transform under a change of coordinates. We notice that this transformation is exactly how the Christoffel symbol \hyperref[eq:ChristoffelTransformation]{transforms}. In fact, $\Gamma_{\nu\rho}^\mu$ is the unique object that we can form from the metric and its first derivatives, which itself follows this transformation rule. So the geodesic equation is a tensorial equation involving a tensor derivative. Therefore, we wish to define the covariant derivative of a vector in terms of the Christoffel symbol.
+ 			This tells us how $G^\rho_{\mu\nu}$ will transform under a change of coordinates. We notice that this transformation is exactly how the Christoffel symbol \hyperref[eq:ChristoffelTransformation]{transforms}. In fact, $\Gamma_{\nu\rho}^\mu$ is the unique object that we can form from the metric and its first derivatives, which itself follows this transformation rule. So the geodesic equation is a tensorial equation involving a tensor derivative. 
+ 			Therefore, we wish to define the covariant derivative of a vector in terms of the Christoffel symbol.
  			\begin{equation}
  				\label{eq:CovariantChristoffel}
- 				\boxed{\Del_\mu v^\rho = \partial_\mu v^\rho + \Gamma_{\mu\nu}^\rho v^\nu}
+ 				\boxed{\Del_\mu v^\rho = \partial_\mu v^\rho + \Gamma_{\mu\nu}^\rho v^\nu v^\mu}
  			\end{equation}
- 			In this equation, neither $\partial_\mu v^\rho$ nor $\Gamma_{\mu\nu}^\rho v^\nu$ are tensors. However, their sum is a tensor.
+ 			In this equation, neither $\partial_\mu v^\rho$ nor $\Gamma_{\mu\nu}^\rho v^\nu$ are tensors. However, their sum is a tensor. So having defined the covariant derivative as above, we can revisit the geodesic equation.
+ 			\begin{defn}
+ 				The \textbf{geodesic equation} for a worldline $x^\mu (\lambda)$ in terms of its vector $v^\mu = \dot{x}^\mu = \frac{dx^\mu}{d\lambda}$ components is
+ 				\begin{equation}
+ 					\label{eq:VectorGeodesic}
+ 					\boxed{v^\mu \Del_\mu v^\nu = v^\mu \frac{\partial}{\partial x^\mu} v^\nu + \Gamma_{\mu\rho}^\nu v^\mu v^\rho = f(\lambda)v^\nu}
+ 				\end{equation}
+ 				$$ \boxed{v^\mu \Del_\mu v^\nu = \ddot{x}^\nu + \Gamma_{\mu\rho}^\nu \dot{x}^\mu \dot{x}^\rho = f(\lambda)\dot{x}^\nu}$$
+ 			\end{defn}
+ 			\begin{defn}
+ 				A \textbf{directional covariant derivative} $v^\mu \Del_\mu$ denotes the direction of the tangent vector $v^\nu$ at some point $\lambda$ along a geodesic. It is not a tensor, and is defined as 
+ 				\begin{equation}
+ 					\boxed{v^\mu \Del_\mu v^\nu = f(\lambda)v^\nu}
+ 				\end{equation}
+ 			\end{defn}
+ 			So the geodesic equation is just a particular example of the covariant derivative where $v^\mu \Del_\mu$ is a directional derivative along the geodesic. Thus, the geodesic equation states that the derivative $v^\mu \Del_\mu$ of a tangent vector $v^\nu$ is proportional to the very same tangent vector $v^\nu$ by a factor of $f(\lambda)$ along the geodesic. This is a very nice geometric interpretation for the geodesic equation, as the equation of a straight line is then defined as a geodesic where the tangent vector points in the same direction as the geodesic for all points along it. The caveat is that a directional derivative does not define a tensor. So notice that we are merely trying to generalize the equations of motion from flat spacetime to curved spacetime. This means that when we compute the equations of motion, the metric that defines the distance function can be changed.
+ 			
+ 			We now seek to find derivatives for tensors in a general sense such that we preserve \hyperref[eq:LinearLaplace]{linearity} as well as the \hyperref[eq:LeibnizRule]{Leibniz Rule}. Consider taking the derivative of a one form $w_\mu$ by contracting it with a vector $v^\mu$ to get a scalar $f$ such that 
+ 			$ w_\mu v^\mu = f$, which implies
+ 			$$
+ 				\alpha \left( w_\mu v^\mu\right) = \left( \Del_\alpha w_\mu \right) v^\mu + w_\mu \left( \Del_\alpha v^\mu \right)
+ 			$$
+ 			\begin{defn}
+ 				The \textbf{1-form covariant derivative}  is given by
+ 				\begin{equation}
+ 					\label{eq:OneFormDerivative}
+ 					\boxed{\Del_\mu w_\nu = \partial_\mu w_\mu - \Gamma_{\mu\nu}^\rho w_\rho}
+ 				\end{equation}
+ 			\end{defn} \noindent
+ 			We can now proceed to generalize for tensors. So for a tensor, we define a covariant derivative 
+ 			
+ 			\begin{defn}
+ 				The \textbf{tensor covariant derivative} $\Del_\alpha T_{\nu_1 \cdots \nu_\ell}^{\mu_1 \cdots\mu_k}$ is given by
+ 				\begin{empheq}[box=\widefbox]{align}
+ 					\label{eq:TensorCovDerivative}
+ 					\Del_\alpha T_{\nu_1 \dots \nu_\ell}^{\mu_1 \dots\mu_k} &= \partial_\alpha T_{\nu_1 \dots \nu_\ell}^{\mu_1 \dots\mu_k} + \Gamma_{\alpha \rho}^{\mu_1} \,\, T_{\nu_1 \dots \nu_\ell}^{\rho \mu_2 \dots\mu_k} + \cdots + \Gamma_{\alpha \rho}^{\mu_k} \,\, T_{\nu_1 \dots \nu_\ell}^{\mu_1 \dots\mu_{k-1}\rho } \nonumber \\
+ 					&\quad\quad\quad\quad - \Gamma_{\alpha \nu_1}^{\rho} \,\, T_{\rho\nu_2 \dots \nu_\ell}^{\mu_1 \dots\mu_k} - \cdots - \Gamma_{\alpha \nu_\ell}^{\rho} \,\, T_{\nu_1 \dots \nu_{\ell-1} \rho}^{\mu_1 \dots\mu_k}
+ 				\end{empheq}
+ 			\end{defn}
+ 			\begin{exmp}
+ 				\textbf{Covariant derivative of a tensor and a 1-form}
+ 				$$ \Del_\alpha \left( T^{\mu\nu} v_\rho \right) = \left(\Del_\alpha T^{\mu\nu}\right) v_\rho + T^{\mu\nu} \left( \Del_\alpha v_\rho \right)$$
+ 			\end{exmp} \noindent
+ 			\begin{thm}
+ 				For a $D$-dimensional manifold $M$ with a flat spacetime metric $g_{\mu\nu} = \eta_{\mu\nu}$, it follows that covariant derivatives on any coordinate system $x^\mu$ on $M$ are commutative such that
+ 				$$ \Del_\alpha \left( \Del_\beta v^\rho \right) = \Del_\beta \left( \Del_\alpha v^\rho\right)$$
+ 			\end{thm}
+ 			\begin{cor}
+ 				For a $D$-dimensional manifold $M$ with a curved spacetime metric $g_{\mu\nu} \neq \eta_{\mu\nu}$, it follows that covariant derivatives on any coordinate system $x^\mu$ on $M$ are not generally commutative such that
+ 				$$ \Del_\alpha \left( \Del_\beta v^\rho \right) \neq \Del_\beta \left( \Del_\alpha v^\rho\right)$$
+ 			\end{cor}
+ 			
+ 			This is due to the Christoffel symbols not being commutative. Hence, only in the case of flat spacetime would covariant derivatives be commutative, like the usual partial derivatives seen in Vector calculus. Even if the Christoffel symbols do not vanish in one coordinate system on flat spacetime, the fact that Cartesian coordinates make the Christoffel symbol vanish means that any coordinate system in flat spacetime has commutative covariant derivatives. So in generalized curved spacetime this does not hold as covariant derivatives do not generally commute. With this we will be able to begin defining the curvature of spacetime.
+ 			
+ 			Now, we would like to find the properties of the covariant derivatives.
+ 			\begin{itemize}
+ 				\item \textbf{Metric compatible}: $\Del_\mu g_{\rho\sigma} = 0$
+ 				\subitem \vspace{-1cm} \begin{proof}
+ 					\vspace{-1.8cm}
+ 					\begin{align*}
+ 						\Del_\mu g_{\rho \sigma} &= \partial_\mu g_{\rho\sigma} - \Gamma^\lambda_{\mu\rho} g_{\lambda \sigma} - \Gamma_{\mu\sigma}^\lambda g_{\lambda \rho} \\
+ 						&= g_{p\sigma;\mu} \frac12 - \left( g_{\mu\sigma;\rho} + g_{\rho\sigma;\mu} - g_{\mu\rho;\sigma} \right) - \frac 12 \left(
+ 						g_{\mu\rho;\sigma} + g_{\sigma\rho;\mu} - g_{\mu\sigma;\rho} \right) \\
+ 						&= 0
+ 					\end{align*}
+ 				\end{proof}
+ 			\pagebreak
+ 				\item \textbf{Inverse metric compatible}: $\Del_\mu g^{\rho\sigma} = 0$
+ 				\subitem \vspace{-1cm}
+ 				\begin{proof}
+ 					%\vspace{-1.8cm}
+ 					Similarly to above.
+ 				\end{proof}
+ 				\item \textbf{Kronecker delta compatible}: $\Del_\mu \delta^{\rho}_{\sigma} = 0$
+ 				\subitem \vspace{-1cm} \begin{proof}
+ 					%\vspace{-1.8cm}
+ 					Similarly to above.
+ 				\end{proof}
+ 			\end{itemize}
+ 			This implies that when we write down expressions involving the covariant derivative, we may freely pass the metric, inverse metric, and Kronecker delta symbol through the derivative. Furthermore, it means that raising and lowering indices will commute with the covariant derivative. 
+ 			\begin{exmp}
+ 			 	\textbf{Commuting vector and one-forms}
+ 			 	$$ v^\mu \Del_\rho v_\mu = v_\mu \Del_\rho v^\mu$$
+ 			 	This is true as we can just pass the metric or inverse metric in this expression. Note that in the case of partial derivatives, this is not true as the metric is not generally a constant function with respect to the coordinates (at least, in General Relativity).
+ 			\end{exmp}
+ 			\begin{defn}
+ 				A \textbf{contravariant derivative} is defined in terms of a metric $g^{\rho\mu}$ and a covariant derivative $\Del_\mu$ such that
+ 				\begin{equation}
+ 					\label{eq:ContravariantDerivative}
+ 					\boxed{\Del^\rho \equiv g^{\rho\mu} \Del_\mu}
+ 				\end{equation}
+ 			\end{defn}
+ 			\begin{defn}
+ 				The \textbf{divergence of a vector} $v^\mu$ is a (0,0)-tensor given by the contravariant derivative of the corresponding one-form $v_\mu$ such that
+ 				\begin{equation}
+ 					\label{eq:VectorDivergence}
+ 					\boxed{\Del_\mu v^\mu = \Del^\mu v_\mu = f}
+ 				\end{equation}
+ 			\end{defn}
+ 			\begin{defn}
+ 				The \textbf{Laplace operator} or \textbf{Laplacian} is given by
+ 				\begin{equation}
+ 					\label{eq:Laplacian}
+ 					\boxed{\Del^2 = \Del_\mu \Del^\mu = \Delta }
+ 				\end{equation} 
+ 			\end{defn}
+ 			If we have a scalar quantity, then we know that this quantity will be constant if it is the same for every point in the manifold. However, if we had a more complicated tensor, we cannot define it as constant over some coordinate system as that is not a coordinate independent notion. Thus, in order for a tensor to be constant we have to consider it being. \textbf{covariantly constant}.
+ 			\begin{exe}
+ 				Consider the manifold $\R^2$ where the spacetime interval is given by two coordinate systems as
+ 				$$ ds^2 = dx^2 + dy^2 = dr^2 r^2 d\theta^2$$
+ 				Recall than in Cartesian coordinates, the Christoffel symbol vanishes. However, in Polar coordinates we have
+ 				$$ \Gamma_{\theta\theta}^r = -r \quad\quad \text{AND} \quad\quad \Gamma_{r\theta}^\theta = r^{-1}$$
+ 				Now consider a radial vector of unit length such that $v^r = 1$ and $v^\theta = 0$. Compute $\Del_\mu v^\mu$ in both coordinate systems and verify that the answers are equal, as the divergence of the vectors will be a (0,0)-tensor.
+ 			\end{exe}
+ 	\pagebreak
+ 	\section{Curvature}
 \end{document} 
