@@ -1,0 +1,471 @@
+\documentclass{article}
+
+
+\usepackage{NotesStyle}
+
+% Cover info
+
+\title{Phys 514 \\
+	\large Problem Set 7}
+
+\author{April Sada Solomon - 260708051}
+\date{Winter 2021}
+
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	\pagebreak
+	
+	\pagenumbering{roman}
+	\cfoot{\thepage}
+	
+	\tableofcontents
+	\newpage
+	
+	% Start page count after the TOC
+	
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	\cfoot{\thepage}
+	% Notes body
+	
+	\section{EM in flat Minkowski spacetime}
+	\subsection{Maxwell's equations}
+	We have $A\mu = (-V, \vec{A})$ where $\vec{B} = \vec{\Del} \times \vec{A}$ and $\vec{E} = -\vec{\Del} - \partial_0 \vec{A}$. This implies that
+	\begin{equation}
+		\label{eq:NewForce}
+		F_{\mu\nu} = A_{\nu;\mu} - A{\mu;\nu} = 
+		\begin{pmatrix}
+			0 & -E_1 & -E_2 & -E_3 \\
+			E_1 & 0 & B_3 & - B_2 \\
+			E_2 & -B_3 & 0 & B_1 \\
+			E_3 & B_2 & -B_1 & 0
+		\end{pmatrix} = -F_{\nu\mu}
+	\end{equation}
+	With $g_{\mu\nu} = g^{\mu\nu} = \begin{psmallmatrix}
+		-1 & 0 & 0 & 0 \\ 0 & 1& 0 & 0 \\ 0 & 0 & 1& 0 \\ 0 & 0 & 0 & 1
+	\end{psmallmatrix}$. Thus,
+	\begin{equation}
+		\label{eq:MetricForce}
+		F_{\mu\nu} = g^{\mu\alpha}g^{\nu\beta} F_{\alpha\beta} = 
+		\begin{pmatrix}
+			0 & E_1 & E_2 & E_3 \\
+			-E_1 & 0 & B_3 & - B_2 \\
+			-E_2 & -B_3 & 0 & B_1 \\
+			-E_3 & B_2 & -B_1 & 0
+		\end{pmatrix} = -F_{\nu\mu}
+	\end{equation}
+	Now we can show that $\partial \left[_\mu F_{\nu\rho} \right] = 0$.
+	\begin{align*}
+		\partial \left[_\mu F_{\nu\rho} \right]
+		&= \frac{1}{3!} \left[F_{\nu\rho;\mu} - F_{\rho\nu;\mu} + F_{\rho\mu;\nu} - F_{\mu\rho;\nu} + F_{\mu\nu;\rho} - F_{\nu\mu;\rho}\right] \\
+		&= \frac{2}{3!} \left[ F_{\nu\rho;\mu} + F_{\rho\mu;\nu} + F_{\mu\nu;\rho}\right]
+	\end{align*}
+	We can see from equation (\ref{eq:NewForce}) that clearly $F_{\mu\nu} = A_{\nu;\mu} - A_{\mu;\nu}$ so
+	\begin{align*}
+		\partial \left[_\mu F_{\nu\rho} \right] &=
+		\partial_{\mu} \left( A_{\rho;\nu} - A_{\nu;\rho}\right) + \partial_{\nu} \left( A_{\rho;\mu} - A_{\mu;\rho}\right) + \partial_{\rho} \left( A_{\mu;\nu} - A_{\nu;\mu}\right) \\
+		&= A_{\rho;\nu\mu} - A_{\nu;\rho\mu} + A_{\mu;\rho\nu} - A_{\rho;\mu\nu} + A_{\nu;\mu\rho} - A_{\mu;\nu\rho} \\
+		&= 0 
+	\end{align*}
+	As needed.
+	
+	Now for $\partial_\mu F^{\mu\nu} = j^\nu$ with $j^\nu = \left( \rho, \vec{j}\right)$ we get
+	\begin{align}
+		\label{eq:Components}
+		\nonumber
+		F^{0i} &= E_i & F_{0i} & -E_i \\
+		F^{ij} &= \epsilon^{\sim ijk} B_k &
+		F_{ij} &=  \epsilon^{\sim ijk} B_k
+	\end{align}
+	So by equations (\ref{eq:Components}) we have that Maxwell's equations become
+	\begin{align}
+		\nonumber\label{eq:MaxwellEquations}
+		\vec{\Del} \times \vec{B} - \vec{E}_{;t} &= \vec{j} &
+		\vec{\Del} \times \vec{E} + \vec{B}_{;t} &= 0 \\
+		\vec{\Del} \vec{E} &= \rho & \vec{\Del} \vec{B} &= 0
+ 	\end{align}
+ 	For $\mu,\nu\rho \neq 0$, we have
+ 	\begin{align*}
+ 		\epsilon^{\sim ijk} B_{k;j} - E_{i;0} &= j^i & \epsilon^{\sim ijk} E_{k;j} + B_{i;0} &= 0\\ E_{i;i} &=j^0 & B_{i;i} &= 0
+ 	\end{align*}
+ 	Hence,
+ 	\begin{equation}
+ 		\label{eq:NewComponents1}
+ 		F_{0i} = A_{i;0} - A_{0;i} = \left( \vec{A}_{;i} + \Del V\right)_i = -E_{i}
+ 	\end{equation}
+ 	\begin{equation}
+ 		\label{eq:NewComponents2}
+ 		F_{ij} = A_{j;i} - A_{i;j} = B_k
+ 	\end{equation}
+ 	As we have that $\vec{B} = \vec{\Del} \times \vec{A} \implies B_k = \epsilon_{ijk} A_{j;i}$, which in Einstein summation is summed over such that, for $i \neq j \neq k$ we get equation (\ref{eq:NewComponents2}). Therefore, it follows that
+ 	\begin{equation}
+ 		\label{eq:NewComponents3}
+ 		\epsilon^{\sim ijk} B_k = F_{ij} = \epsilon^{\sim ijk} \epsilon_{ijk}A_{i;j}= A_{j;i}
+ 	\end{equation}
+ 
+ 	For $\epsilon^{\sim ijk} B_{k;j} - E_{i;0} = j^i$ considering $F^{0i} = E_i$ gives
+ 	\begin{align}
+ 		\label{eq:3} \nonumber
+ 		E_{i;i} &= j^0, & F^{ij} &= \epsilon^{\sim ijk} B_{k} \\
+ 		\therefore  \epsilon^{\sim ijk} B_{k;j} = \partial_i \epsilon^{\sim ijk} B_{k} \\
+ 	\end{align}
+ 	Thus
+ 	\begin{align}
+ 		\label{eq:4}
+ 		F_{;j}^{ij} - F_{;0}^{0i} &= j^i & F_{;i}^{0i} &= j^0
+ 	\end{align}
+ 	Since $F^{0i} = -F^{i0} \implies F_{\mu}^{i\mu} = j^i$. So from equation (\ref{eq:4}) we can see that
+ 	\begin{equation}
+ 		\label{eq:5}
+ 		\begin{cases}
+ 			F^{i\mu}_{;\mu} = j^i \\
+ 			F^{0\mu}_{;\mu} = j^0
+ 		\end{cases} \implies
+ 		F^{\nu\mu}_{;\mu} = j^\nu
+ 	\end{equation}
+ 	
+ 	With this, we can now show that indeed $\partial_\mu j^\mu = 0$. If we know that $F_{;\mu}^{\nu\mu} = j^\nu$, then it follows that
+ 	$$ F_{;\mu\nu}^{\nu\mu} = j^\nu_{;\nu} \iff F^{\mu\nu}_{;\nu\mu} = j^\mu_{;\mu}$$
+ 	However $F_{;\mu\nu}^{\nu\mu} =  F^{\nu\mu}_{;\nu\mu} = -F_{;\nu\mu}^{\mu\nu} = -j^\mu_{;\mu} = j_{;\nu}^\nu$
+ 	Now changing $\mu$ for $\nu$ and viceversa yields
+ 	$$F_{;\nu\mu}^{\mu\nu} =  F^{\mu\nu}_{;\mu\nu} = -F_{;\mu\nu}^{\nu\mu} = -j^\nu_{;\nu}$$
+ 	But $- j^{\nu}_{;\nu}=-j^{\mu}_{;\mu = j^{\mu}_{;\mu}} = j^{\nu}_{;\nu}$, so
+ 	$$ j^{\nu}_{;\nu} = - j^{\nu}_{;\nu} = 0$$
+ 	Thus, $j^{\nu}_{;\nu} = j^{0}_{;0} + j^{i}_{;i} = \frac{\partial \rho}{\partial t} + \vec{\Del} \vec{j} = 0$  
+ 	Which is the same as the continuity equation for conserved charge $\sigma=0$, so finally
+ 	\begin{equation}
+ 		\label{ans:1a}
+ 		\boxed{\frac{\partial \rho}{\partial t} + \vec{\Del} \vec{j} = j_{;\nu}^\nu}
+ 	\end{equation}
+ 
+ 	\pagebreak
+ 	\subsection{Action}
+ 	We have the equation of motion given in terms of the action as
+ 	\begin{equation}
+ 		\label{eq:eom1b}
+ 		\frac{\partial S}{\partial \phi^i} = \frac{\partial \Lgr}{\partial \phi^i} - \frac{\partial}{\partial x^\mu} \frac{\partial \Lgr}{\partial \left(\partial_\mu \phi^i\right)} = 0
+ 	\end{equation}
+ 	Where the action is clearly given by
+ 	\begin{equation}
+ 		\label{eq:Action}
+ 		S = \int d^4 x \left( -\frac14 F_{\mu\nu} F^{\mu\nu} + A_{\mu} j^\mu \right)
+ 	\end{equation}
+ 	So the Lagrangian is
+ 	\begin{align}
+ 		\label{eq:Lagrangian}\nonumber
+ 		\Lgr &= - \frac14 F_{\mu\nu} g^{\mu\rho} g^{\nu\sigma} F_{\rho\sigma} + A_{\mu} j^\mu \\
+ 		&= -\frac14 \left( A_{\nu;\mu} - A_{\mu;\nu}\right)g^{\mu\rho} g^{\nu\sigma} \left( A_{\sigma;\rho} - A_{\rho;\sigma}\right) + A_\mu j^\mu
+ 	\end{align}
+ 	Therefore
+ 	$$ \frac{\partial \Lgr}{\partial A_\alpha} = \frac{\partial A_\mu}{\partial A_\alpha} = \delta_{\alpha}^\mu j^\mu = j^\alpha$$
+ 	\begin{align*}
+ 		\frac{\partial \Lgr}{\partial \left( \partial_\beta A_\alpha \right)} &= -\frac14 g^{\mu\beta} g^{\nu\sigma} \frac{\partial \left[ A_{\nu;\mu} - A_{\mu;\nu}\right]}{\partial \left[ A_{\alpha;\beta}\right]} F_{\rho\sigma} -\frac14 g^{\mu\rho} g^{\nu\sigma}F_{\mu\nu} \frac{\partial \left[ A_{\sigma;\rho} - A_{\rho;\sigma}\right]}{\partial \left[ A_{\alpha;\rho}\right]} \\
+ 		&= -\frac14 g^{\mu\beta} g^{\nu\sigma} \left[ \delta_\beta^\mu \delta_\alpha^\nu - \delta_\alpha^\mu \delta_\beta^\nu \right] F_{\rho\sigma} - \frac14 g^{\mu\beta} g^{\nu\sigma} F_{\mu\nu}  \left[ \delta_\beta^\rho \delta_\alpha^\sigma - \delta_\beta^\sigma \delta_\alpha^\rho \right] \\
+ 		&= -\frac14 \left[ g^{\beta\rho} g^{\alpha \sigma} - g^{\alpha\rho} g^{\beta\sigma}\right] F_{\rho\sigma} - \frac14 \left[ g^{\mu\beta} g^{\nu\alpha} - g^{\mu\alpha} g^{\nu\beta} \right] F_{\mu\nu} \\
+ 		&= -\frac14 \left[ F^{\beta\alpha} - F^{\alpha \beta} + F^{\beta\alpha}  - F^{\alpha \beta}\right]\\
+ 		&= F_{\alpha \beta}
+ 	\end{align*}
+ 	Therefore, 
+ 	$$ \frac{d S}{d \phi^i} = j^\alpha - F_{;\beta}^{\alpha\beta} = 0$$
+ 	Which yields
+ 	\begin{equation}
+ 		\label{ans:1.b}
+ 		\boxed{F_{;\beta}^{\alpha\beta} = j^\alpha \implies F_{;\nu}^{\mu\nu} = j^\mu} 
+ 	\end{equation}
+ 	The rest of the equations follow similarly.
+ 	
+ 	\pagebreak
+ 	\subsection{Field strength}
+ 	We have 
+ 	\begin{align*}
+ 		\Del_\mu A_\nu &= A_{\nu;\mu} - \Gamma_{\mu\nu}^\rho A_\rho \\
+ 		&= A_{\nu;\mu} -  \frac12 \left( g^{\rho\lambda} g_{\mu\lambda;\nu} A_\rho + g^{\rho\lambda}g_{\nu\lambda;\mu} A_p \right) + \frac12 g^{\rho\lambda} g_{\mu\nu;\lambda} A_\rho\\
+ 		&= A_{\nu;\mu} - \frac12 \left( A^\mu_{;\nu} + A_{\nu;\mu} \right) + \frac12 g_{\mu\nu;\lambda} A^\lambda\\
+ 		&= \frac12 A_{\nu;\mu} -\frac12 A_{\mu;\nu} + \frac12 g_{\mu\nu;\lambda}g^{\alpha\lambda} A_\alpha
+ 	\end{align*}
+ 	So
+ 	\begin{align*}
+ 		\Del \left[_\mu A_\nu\right] &= \frac12 \left[ \Del_\mu A_\nu - \Del_\nu A_\mu \right] \\
+ 		&= \frac12 \left[ \frac12 A_{\nu;\mu} - \frac12 A_{\mu;\nu} + \frac12 g_{\mu\nu;\lambda} g^{\alpha\lambda} A_\alpha\right] - \frac12 \left[ \frac12 A_{\mu;\nu} - \frac12 A_{\nu;\mu} + \frac12 g_{\mu\nu;\lambda} g^{\alpha\lambda} A_\alpha\right] \\
+ 		&= \frac12 \left[ \frac12 A_{\nu;\mu} + \frac12 A_{\nu;\mu} - \frac12 A_{\mu;\nu} - \frac12 A_{\mu;\nu} \right]
+ 	\end{align*}
+ 	Therefore
+ 	\begin{equation}
+ 		\label{ans:1c}
+ 		\boxed{\Del \left[_\mu A_\nu \right] = \frac12 \left[ A_{\nu;\mu} - A_{\nu;\nu} \right] = \partial \left[_\mu A_\nu\right]}
+ 	\end{equation}
+ 
+ 	\pagebreak
+ 	\subsection{Principle of minimal coupling}
+ 	For curved spacetime, we know that
+ 	$$ \int d^4 x \to \int d^4 x \sqrt{|g|}$$
+ 	So the action becomes
+ 	\begin{equation}
+ 		\label{eq:NewAction}
+ 		\int d^4 x \sqrt{|g|} \left( -\frac14 F_{\mu\nu} F^{\mu\nu} + A_\mu j^\nu \right)
+ 	\end{equation}
+ 	By the principle of minimal coupling tells us that
+ 	$$ v_{\nu;\mu} \to \Del_{\mu} v_\nu - \Gamma_{\mu\nu}^\lambda v_\lambda \implies F_{\mu\nu} \to \Del_\mu A_\nu - \Del_\nu A_\mu$$
+ 	Hence
+ 	\begin{align*}
+ 		F_{\mu\nu} &= A_{\nu;\mu} -\Gamma_{\mu\nu}^\lambda A_{\lambda} - A_\mu + \Gamma_{\nu\mu}^\lambda A_\lambda \\
+ 		&= A_{\nu;\mu} - A_{\mu;\nu}
+ 	\end{align*}
+ 	As desired. Furthermore $F_{;\nu}^{\mu\nu} = j^\mu \implies \Del_\nu F^{\mu\nu} = j^\mu$ yields our equation of motion. So
+ 	\begin{align*}
+ 		\Del_\mu j^\mu &= \Del_\mu \Del_\nu F^{\mu\nu} \\
+ 		&= \Del_\mu \Del_\nu g^{\mu\alpha} g^{\nu\beta} F_{\alpha \beta} \\
+ 		&= g^{\mu\alpha} \Del_\mu g^{\nu\beta} \Del_\nu F_{\alpha \beta} \\
+ 		&= \Del^\alpha \Del^\beta F_{\alpha\beta} \\
+ 		&= \Del^\alpha \Del_\alpha \Del^\beta A_\beta - \Del^\beta \Del_\beta \Del^\alpha A_\alpha 
+ 		\intertext{Letting $\Del^2 = \Delta$ gives}
+ 		&= \Delta \left( \Del^\beta A_\beta \right) - \Delta \left( \Del^\alpha A_\alpha\right) \\
+ 		&= \Delta \left[ g^{\alpha \beta} \Del_\alpha A_\beta - g^{\alpha \beta} \Del_\beta A_\alpha \right] \\
+ 		&= \Delta g^{\alpha\beta} \left[ F_{\alpha\beta}\right] \\
+ 		&= 0
+ 	\end{align*}
+ 	Which indeed confirms that $\Del_\mu j^\mu = 0$
+ 	
+ 	\pagebreak
+ 	\subsection{Stress-Tensor}
+ 	Recalling the Lagrangian as given in equation (\ref{eq:Lagrangian}), we have a variation on the action given by
+ 	\begin{align*}
+ 		\delta S &= -\frac14 \int d^4 x \left[
+ 			\delta \sqrt{|g|} F_{\mu\nu} g^{\mu\beta} g^{\nu\sigma} F_{\rho\sigma} + 	 \sqrt{|g|} F_{\mu\nu} \delta g^{\mu\beta} g^{\nu\sigma} F_{\rho\sigma} +  \sqrt{|g|} F_{\mu\nu} g^{\mu\beta} \delta g^{\nu\sigma} F_{\rho\sigma}
+ 		\right] 
+ 	\end{align*}
+ 	Recall that for an $n\times n$ matrix $A$ with nonzero determinants we have
+ 	\begin{equation}
+ 		\label{propertyLA}
+ 			\det A = e^{\text{tr} \left( \ln A\right)} \implies \ln\left(\det A \right) = \text{tr} \left( \ln A\right)
+ 	\end{equation}
+ 	Therefore we can apply this to a variation on the determinant such that
+ 	\begin{equation}
+ 		\label{eq:Consequence}
+ 		\frac{1}{\det A} \delta \left( \det A \right) = \text{tr} \left( A^{-1} \delta A \right)
+ 	\end{equation}
+ 	Hence
+ 	\begin{equation}
+ 		\label{MetricEquation}
+ 		\frac{1}{|g|} \delta |g| = \text{tr} \left( g^{\mu\nu} \delta g_{\mu\nu}\right) \implies \delta |g| = -|g|g_{\mu\nu} \delta g^{\mu\nu}
+ 	\end{equation}
+ 	Therefore
+ 	\begin{align*}
+ 		\delta \sqrt{|g|} &= \frac{1}{2\sqrt{|g|}} \delta g \\
+ 		&= \frac{g g^{\mu\nu} \delta g_{\mu\nu}}{2 \sqrt{|g|}} \\
+ 		&= -\frac{g g_{\mu\nu} \delta g^{\mu\nu}}{2 \sqrt{|g|}}\\
+ 		\therefore \frac{|g|}{\sqrt{|g|}} &= \sqrt{|g|}
+ 	\end{align*}
+ 	So
+ 	\begin{equation}
+ 		\label{VariationMetric}
+ 		\delta \sqrt{|g|} = \frac12 \sqrt{|g|} g^{\mu\nu} \delta g_{\mu\nu}
+ 	\end{equation}
+ 	The variation on the action becomes
+ 	\begin{align*}
+ 		\delta S &= \frac18 \int d^4 x \sqrt{|g|} g_{\alpha \beta} \delta g^{\alpha \beta} F_{\mu\nu} g^{\mu\nu} g^{\nu\sigma} F_{\rho\sigma} - \frac14 \int d^4 x \sqrt{|g|}F_{\mu\nu} g^{\nu\sigma} F_{\rho\sigma} \delta g^{\mu \rho} \\
+ 		&\quad\quad\quad\quad- \frac14 \int d^4 x \sqrt{|g|}F_{\mu\nu} g^{\mu\rho} F_{\rho\sigma} \delta g^{\nu \sigma} \\
+ 		&= \frac18 \int d^4 x \sqrt{|g|} F_{\mu\nu} g^{\mu\rho} g^{\nu\sigma} F_{\rho\sigma} g_{\alpha \beta} \delta g^{\alpha \beta} - \frac12 \int d^4 x \sqrt{|g|} F_{\mu\nu} g^{\mu\rho} F_{\rho\sigma} \delta g^{\nu\sigma} \\
+ 		&= \int d^4 x \sqrt{|g|} \left[ \frac18 g^{\mu\rho} g^{\alpha\beta} g_{\nu\sigma} F_{\mu\alpha} F_{\rho\beta} - \frac12 F_{\mu\nu} g^{\mu\rho} F_{\rho\sigma} \right] \delta g^{\nu\sigma} 
+ 	\end{align*}
+ 	Recall now that $T_{\nu\sigma} \equiv - \frac{2}{\sqrt{|g|}} \frac{\delta S}{\delta g^{\mu\nu}}$, so
+ 	\begin{equation}
+ 		\frac{1}{\sqrt{|g|}} \frac{\delta S}{\delta g^{\mu\nu}} = \frac18 g^{\mu\rho} g^{\alpha\beta} g_{\nu\sigma} F_{\mu\alpha} F_{\rho\beta} - \frac12 F_{\mu\nu} g^{\mu\rho} F_{\rho\sigma}
+ 	\end{equation}
+ 	So the stress-tensor becomes 
+ 	\begin{align*}
+ 		T_{\nu\sigma} &= F_{\mu\nu} g^{\mu\rho} F_{\rho\sigma} - \frac14 g^{\mu\rho} g^{\alpha\beta} g_{\nu \sigma} F_{\mu\alpha} F_{\rho\beta} \\
+ 		&= g^{\mu\rho} F_{\mu\nu} F_{\rho\sigma} - \frac14 g_{\nu\sigma} \left( g^{\alpha \beta} F_{\mu\alpha} \right) \left( g^{\mu\rho} F_{\rho\beta} \right) \\
+ 		&= g^{\mu\rho} F_{\mu\nu} F_{\rho\sigma} - \frac14 g_{\nu\sigma} g^{\alpha \beta} g_{\alpha \beta} F_{\mu\alpha} F^{\mu\alpha} \\
+ 		&= g^{\mu\rho} F_{\mu\nu} F_{\rho\sigma} - \frac14 g^{\nu\sigma} F_{\mu\alpha} F_{\mu\alpha}
+ 	\end{align*} 
+ 	We now wish to check $\Del^\nu T_{\nu\sigma}$ considering $\Del^\nu g^{\cdots}_{\cdots} = 0$ and the previous results. Thus,
+ 	\begin{align*}
+ 		\Del^\nu T_{\nu\sigma} &= \Del^\nu \left( g^{\mu\rho} F_{\mu\nu} F_{\rho\sigma}\right) - \Del^\nu \left( \frac14 g_{\nu\sigma} F_{\mu\sigma} F^{\mu\alpha} \right) \\
+ 		&= g^{\mu\rho} F_{\mu\nu} \Del^{\nu} F_{\rho \sigma} - \frac14 g_{\nu\sigma} \Del^\nu \left( F_{\mu\alpha} F^{\mu\alpha} \right) \\
+ 		&= F^\rho_\nu \Del^\nu F_{\rho\sigma} -\frac14 g_{\nu\sigma} \left[ F_{\mu\alpha} \Del^\nu F^{\mu\alpha} + F^{\mu\alpha} \Del^\nu F_{\mu\alpha} \right] \\
+ 		&=F_\nu^\rho \Del^\nu F_{\rho\sigma} - \frac14 g_{\nu\sigma} F^{\lambda\beta} \Del^\nu F_{\lambda\beta}-\frac14 g_{\mu\sigma} F^{\mu\alpha} \Del^\nu F_{\mu\alpha} \\
+ 		&= F_\nu^\rho \Del^\nu F_{\rho\sigma} -\frac12 g_{\nu\sigma} F^{\mu\alpha} \Del^\nu F_{\mu\alpha}\\
+ 		&= g_{\nu\mu} F^{\rho\mu} \Del^\nu F_{\rho\sigma} - \frac12 g_{\nu\sigma} F^{\mu\alpha} \Del^\nu F_{\mu\alpha} \\
+ 		&= F^{\rho\mu} \Del_{\mu} F_{\rho\sigma} - \frac12 F^{\mu\alpha} \Del_\sigma F_{\mu\alpha} \\
+ 		&=\frac12 F^{\rho \mu} \Del_\mu F_{\rho\sigma} -\frac12 F^{\rho\mu} \Del_\mu F_{\sigma \rho} - \frac12 F^{\mu\alpha} \Del_\sigma F_{\mu\alpha} \\
+ 		&= \frac12 F^{\rho\mu} \left[ \Del_\mu F_{\rho \sigma} + \Del_\rho F_{\sigma \mu} + \Del_\sigma F_{\mu \rho}\right] \\
+ 		&= \frac12 F^{\rho \mu} \Del \left[_\mu F_{\rho\sigma} \right] \\
+ 		&= 0
+ 	\end{align*}
+	\pagebreak
+	\section{Before general relativity}
+	\subsection{Newtonian gravitational limit}
+	From the weak equivalence principle (WEP), we can recall that an inertial mass $m_i$ will be equivalent to a gravitational mass $m_g$. Thus, we have the following equation for the force of such a mass given as 
+	\begin{equation}
+		\label{eq:Force}
+		\vec{F} = m_i\vec{a} = -m_g \Del \Phi
+	\end{equation}
+	Note that we are not using Einstein notation (yet). From the WEP and equation (\ref{eq:Force}) we can also see that
+	\begin{equation}
+		\label{eq:Acceleration}
+		\vec{a} = -\Del\Phi
+	\end{equation}
+	We now recall the Einstein equivalence principle (EEP) which states that in small enough regions of spacetime, the laws of physics reduce to those of special relativity; it is impossible to detect the existence of a gravitational field. Hence, we assume that the laws of physics, when defined in terms of Riemann normal coordinates (RNC) $x^\mu$ about a point $p$ can be described by equations which take the same form as they would in flat Minkowski spacetime. 
+	
+	Consider an inertial particle in flat Minkowski spacetime such that for some parametrized worldline $x^\mu \left(\lambda\right)$ that gives the particle a trajectory in this flat spacetime, we have
+	\begin{equation}
+		\label{eq:FlatCurve}
+		\frac{d^2 x^\mu}{d\lambda^2} = 0
+	\end{equation}
+	Which holds for curved spacetime as well because we have RNC coordinates $x^\mu$, by EEP. Also note that equation (\ref{eq:FlatCurve}) is not a tensor equation, but is used in the Geodesic equation along the Christoffel symbol (which vanishes) by
+	\begin{equation}
+		\label{eq:Geodesic}
+		\frac{d^2 x^\mu}{d\lambda^2} + \Gamma_{\rho\sigma}^{\mu} \frac{dx^\rho }{d\lambda}\frac{d x^\sigma}{d\lambda} = 0
+	\end{equation}
+	Now, we define a \textit{Newtonian limit} for any system of $n$ particles with the following three conditions
+	\begin{enumerate}[$\quad\quad$1)]
+		\item The particles are moving slowly: $v_i \ll c$ for $i = 1, \dots, n$
+		\item The gravitational field is weak such that it is considered a perturbation of flat Minkowski space.
+		\item The field is conserved for all time; it is static and unchanging with time.
+	\end{enumerate}
+	By condition 1, we take the proper time $\tau$ to define slow motions through spacetime as
+	\begin{equation}
+		\label{eq:NetwonMotion}
+		\frac{dx^i}{d\tau} \ll\frac{dt}{d\tau}
+	\end{equation}
+	By condition 3, we can simplify the Christoffel symbols for this static gravitational field:
+	\begin{align}
+		\nonumber
+		\Gamma_{00}^\mu 	&=	
+		-\frac12 g^{\mu\lambda} \left( g_{\lambda0;0} + g_{0\lambda;0} - g_{00;\lambda} \right) \\
+		&= -\frac{1}{2} g^{\mu\lambda} g_{00;\lambda}
+		\label{eq:ChristoffelSimp}
+	\end{align}
+	Now, plugging equation (\ref{eq:ChristoffelSimp}) into equation (\ref{eq:Geodesic}) yields
+	\begin{equation}
+		\label{eq:NewGeodesic}
+		\frac{d^2 x^\mu}{d\tau^2} -\frac{1}{2} g^{\mu\lambda} g_{00;\lambda} \left( \frac{dt }{d\tau}\right)^2 = 0
+	\end{equation}
+	Lastly by condition 2, we can define the following decomposition of the metric by assuming $1$ is an identity tensor and $\omega^2 = 1 + h_{\mu\nu}\eta^{\mu\nu}$:
+	$$ g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}, \quad |h_{\mu\nu}| \ll 1$$
+	Where $|h_{\mu\nu}|$ is the determinant of the metric perturbation $h_{\mu\nu}$ in Cartesian coordinates, implying that $\eta_{\mu\nu}$ is indeed the canonical form of the metric. The inverse metric to the first order approximation in $h$ for $h^{\mu\nu} = \nu^{\mu\rho}\nu^{\nu\sigma}h_{\rho\sigma}$ is given by 
+	$$ g^{\mu\nu} = \eta^{\mu\nu} - h^{\mu\nu}$$
+	With this, equation (\ref{eq:NewGeodesic}) becomes
+	\begin{equation}
+		\label{eq:NewGeodesic2}
+		\frac{d^2 x^\mu}{d\tau^2} =\frac{1}{2} \eta^{\mu\lambda}h_{00;\lambda}  \left( \frac{dt }{d\tau}\right)^2 
+	\end{equation}
+	Letting $h_{00;0}=0$, the $\mu$ component vanishes such that $\nicefrac{d^2t }{d\tau^2} = 0$, so $\nicefrac{dt }{d\tau}$ is constant. 
+	We can now assume that the space-like components in $\eta^{\mu\nu}$ are those of an identity $3\times 3$ matrix. Thus,
+	\begin{equation}
+		\label{eq:NewGeodesic3}
+		\frac{d^2 x^i}{d\tau^2} =\frac{1}{2}   \left( \frac{dt }{d\tau}\right)^2 h_{00;i}
+	\end{equation}
+	Dividing equation (\ref{eq:NewGeodesic3}) by $\left(\nicefrac{dt }{d\tau}\right)^2$ gives 
+	\begin{equation}
+		\label{eq:NewGeodesic4}
+		\frac{d^2 x^i}{dt^2} =\frac{1}{2} h_{00;i}
+	\end{equation}
+	By equation (\ref{eq:Acceleration}) we finally have
+	\begin{equation}
+		\label{ans:1}
+		\boxed{h_{00} = -2\Phi, \quad\quad g_{\mu\nu}=(1+2\Phi)\eta_{\mu\nu}, \quad\quad \omega^2 = 1+2\Phi}
+	\end{equation}
+	So the curvature of spacetime is enough to define gravity within this Newtonian limit, as long as the metric takes the form of equations (\ref{ans:1}). To conclude, we notice that for a single gravitating object we get
+	\begin{equation}
+		\label{ans:2}
+		\boxed{\Phi = - \frac{GM}{r}}
+	\end{equation}
+	
+	\pagebreak
+	\subsection{Perfect Fluid}
+	We have a perfect zero-pressure fluid such for some gravitational potential $\Del^2 \Phi = \Delta \Phi = 4\pi G\rho$ where $\rho = \rho(\vec{x}) = \rho(x^i)$ is the energy density of the fluid. It follows that for the stress-energy tensor $T_{\mu\nu}$ we have $T_00 = \rho$. Now recalling the given equation for the theory
+	\begin{equation}
+		\label{eq:theory}
+		\omega \eta^{\mu\nu} \partial_\mu \partial_\nu \omega = \kappa \eta^{\mu\nu} T_{\mu\nu}
+	\end{equation}
+	So combining this with the results \ref{ans:1} yields
+	\begin{align*}
+		\sqrt{2 \phi + 1} \eta^{\mu\nu} \partial_\mu \partial_\nu \omega &= \kappa \eta_{\mu\nu} T_{\mu\nu} \\
+		\therefore \sqrt{2 \phi + 1} \left( - \partial_0^2 \omega + \partial_1^2 \omega + \partial_2^2 \omega + \partial_3^2 \omega \right) &= \kappa \left( - T_{00} + T_{11} + T_{22} + T_{33} \right) \\
+		\therefore \omega \left[ -\partial_0^2 \omega + \partial_1^2 \omega + \partial_2^2 \omega + \partial_3^2 \omega \right] &= - \kappa T_{00} \\
+		\therefore \omega \eta_{\mu\mu} \partial_\mu^2 &= -\kappa \rho \\
+		 &= \eta_{\mu\mu} \omega \partial_\mu^2 \omega
+	\end{align*}
+	So we have 
+	\begin{align*}
+		\omega \partial_\mu^2 \omega &= \sqrt{1+2\phi} \partial_\mu^2 \sqrt{1+2\phi} \\
+		&= \sqrt{1+2\phi} \partial_\mu \left( \partial_\mu \sqrt{1+2\phi}\right) \\
+		&= \sqrt{1+2\phi} \partial_\mu \left[ \frac12 \frac{\partial_\mu \left(2\phi\right)}{\sqrt{1+2\phi}}\right] \\
+		&= \sqrt{1+2\phi} \partial_\mu \left[  \frac{\partial_\mu \phi}{\sqrt{1+2\phi}}\right] \\
+		&= \frac{(1+2\phi)\partial_\mu^2 \phi - \partial_\mu^2 \phi^2}{\sqrt{1 + 2\phi}} \\
+		&= \frac{1+2\phi}{1+2\phi} \partial_\mu^2 \phi - \frac{\partial_\mu^2 \phi^2}{1+2\phi} \\
+		&= \partial_\mu^2 \phi - \left( \frac{\partial_\mu \phi}{\omega}\right)^2 
+	\end{align*}
+	So as $\omega^2 = 1+2\phi \implies \phi = \frac12 \left[ \omega^2 - 1\right] \ll 1$, then we can approximate as
+	$$  \left( \frac{\partial_\mu \phi}{\omega}\right)^2 = \frac{1}{\omega^2} \left[ \partial_\mu \frac12 \left[ \omega^2 -1\right]\right]^2 \sim \frac{1}{\omega^2} \left[ \partial_\mu 0\right]^2 \sim 0$$
+	Or in other words 
+	$$ \partial_\mu^2 \phi \gg \frac{\partial_\mu^2 \phi^2}{\omega^2}$$
+	Hence $$ \omega \partial_\mu^2 \omega \approx \partial_\mu^2 \phi $$
+	And so
+	\begin{align*}
+		\eta_{\mu\mu} \partial_\mu^2 \phi &= \partial_0^2 \phi + \partial_1^2 \phi + \partial_2^2 \phi + \partial_3^2 \phi \\
+		&= -\partial_0^2 \phi + \Del^2 \phi \\
+		&= - \kappa \rho
+	\end{align*}
+	Since we are given that $\Del^2 \phi = - \kappa \rho$, then this implies
+	\begin{equation}
+		\boxed{\Del^2 \phi = 4 \phi G \rho}
+	\end{equation}
+	\begin{equation}
+		\boxed{\kappa = -4\pi G}
+	\end{equation}
+	And so, the equation of motion becomes
+	\begin{equation}
+		\label{ans:2.1}
+		\boxed{\omega \eta^{\mu\nu} \partial_\mu \partial_\nu \omega = - 4 \pi G \eta^{\mu\nu} T_{\mu\nu}}
+	\end{equation}
+	\pagebreak
+	\subsection{Electromagnetic waves and gravity}
+	From problem 1.5 we see that
+	\begin{equation}
+		\label{2.3.1}
+		T_{\lambda\sigma} = F^\rho_\lambda F_{\rho\sigma} - \frac14 \eta_{\lambda\sigma} F^{\rho\beta} F_{\rho\beta} \implies \eta^{\mu\lambda} \eta^{\nu\sigma} T_{\lambda \sigma} = F^\rho_\lambda F_{\rho\sigma} - \frac14 \eta_{\lambda\sigma} \eta^{\mu\lambda}\eta^{\nu\sigma} F^{\rho\beta} F_{\rho\beta}
+	\end{equation}
+	Thus
+	\begin{align*}
+		\eta^{\mu\lambda} \eta^{\nu\sigma} T_{\lambda\sigma} &=  T^{\mu\nu} \\ &= F^{\rho\mu} F_{\mu}^{\sigma} - \frac14 \eta_{\lambda\sigma} \eta^{\mu\lambda}\eta^{\nu\sigma} F^{\rho\beta} F_{\rho\beta} \\ 
+		&= F^{\rho\mu} F_{\mu}^{\nu} - \frac14 \eta_{\sigma}^\mu \eta^{\nu\sigma} F^{\rho\beta} F_{\rho\beta} \\
+		&= F^{\mu\rho} F^{\nu}_{\rho} - \frac14 \eta^{\mu\nu} F^2 
+	\end{align*}
+	Where $F^2 = F^{\rho \beta} F_{\rho\beta}$. As we are studying if this theory can hold for making EM waves a source of gravity, we have 
+	\begin{align*}
+		T^{\mu}_{\mu} &= \eta_{\mu\nu} T^{\mu\nu} \\
+		&= F^{\mu\rho} \left( \eta_{\mu\nu} F^\nu_\rho \right) - \frac14 \eta^{\mu\nu} \eta_{\mu\nu} F^{\rho\beta} F_{\rho\beta} \\
+		&= \eta^{\mu\nu} \eta_{\mu\nu} \\
+		&= \delta_\nu^\mu \\
+		&= 4
+	\end{align*}
+	So letting $\beta\to \mu$
+	\begin{equation}
+		F^{\mu\beta} F_{\mu\beta} - F^{\mu\beta} F_{\mu\beta} = 0
+	\end{equation}
+	Considering the given theory as in equation (\ref{ans:2.1}), we clearly see that
+	$$ \eta^{\mu\nu} T_{\mu\nu} = T_\mu^\mu = 0$$
+	So then equation (\ref{ans:2.1}) would become
+	\begin{equation}
+		\label{ans:2.3}
+		\boxed{\omega \eta^{\mu\nu} \partial_\mu \partial_\nu \omega = - 4\pi G \cdot 0 = 0}
+	\end{equation}
+	Which can be extrapolated to the field equations. Since the EM stress-energy vanishes, this directly implies that we cannot use EM waves as sources for gravity in this theory.
+	\pagebreak
+	\subsection{Light near the Sun}
+	A geodesic should not experience curvature from this metric regardless of its distance from the Sun. Contrary to how Einstein showed light rays bend as they travel near the Sun, or other massive gravitational sources like Jupiter, in this theory the metric is considered to be flat Minkowski, which implies the geodesic will remain light-like near a gravitational source of massive scale, and so it will not experience curvature.
+	\pagebreak
+	
+	\subsection{Assessing theory of gravity}
+	As with classical theories of gravity, this theory would fail to make sense for various proofs that have been shown for General relativity, like the fact that indeed EM waves contribute to the stress energy tensor in GR and also light rays near the Sun bend due to the curvature of spacetime, as noted previously. Hence, the very principle of general relativity does not hold in this theory as spacetime cannot be bent by massive objects. More explicitly, the LHS of equation (\ref{ans:2.1}) equals zero, eliminating time-dependence and solidifying a dependence on space only. ($\partial_t \phi = 0$) 
+ 	
+ 	\pagebreak
+ 	\section{Spacetime}
+ 	\begin{figure}[h]
+ 		\includegraphics[width=0.8\textwidth]{e}
+ 	\end{figure}
+\end{document}

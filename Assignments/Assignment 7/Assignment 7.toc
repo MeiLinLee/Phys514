@@ -1,0 +1,14 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}EM in flat Minkowski spacetime}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Maxwell's equations}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Action}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Field strength}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Principle of minimal coupling}{6}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Stress-Tensor}{7}{subsection.1.5}%
+\contentsline {section}{\numberline {2}Before general relativity}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Newtonian gravitational limit}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Perfect Fluid}{11}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Electromagnetic waves and gravity}{13}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Light near the Sun}{14}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Assessing theory of gravity}{15}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Spacetime}{16}{section.3}%
