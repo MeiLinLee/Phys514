@@ -1532,5 +1532,162 @@
  			\end{exe}
  	\pagebreak
  	\section{Curvature}
+ 		Spacetime is a manifold with a metric $g_{\mu\nu}$ from which we define a covariant derivative (\ref{eq:TensorCovDerivative}) and the Christoffel symbol (\ref{eq:ChristoffelSymbol}).
  		
+ 		What do we mean when we say that a manifold is curved? That is, when a certain geometry happens to be curved rather than flat. There are many ways to characterize the notion of curvature. We will present a very common way to define curvature.
+ 			\begin{figure}[h]
+ 			\begin{minipage}{0.46\textwidth}
+ 				\center
+ 				\begin{tikzpicture}
+ 					\draw [very thick] (-1,-2) -- (1,0.5);
+ 					\draw [very thick] (2,-2) -- (4,0.5);
+ 					\draw [very thick] (-1,-2) -- (2,-2);
+ 					\draw [very thick] (1,0.5) -- (4,0.5);
+ 					
+ 					\filldraw [blue] (0.5, -1) circle (2pt) node [left=2mm, below] {$A$}
+ 						 (2, -1) circle (2pt) node [right=1mm, below] {$C$}
+ 						 (1.75, 0) circle (2pt) node [above] {$B$};
+ 					\draw [blue] (0.5, -1) -- (2,-1) -- (1.75, 0) -- (0.5, -1);
+ 					
+ 					\draw [->, very thick, orange, >=stealth] (0.5, -1) -- (1, -0.8) ; 
+ 					\draw [->, cyan, >=stealth] (0.5, -1) -- (1, -0.8) ;
+ 					\draw [->, purple, >=stealth] (1.75, 0) -- (2.25, 0.2) ; 
+ 					\draw [->, green, >=stealth] (2, -1) -- (2.5, -0.8) ; 
+ 					
+ 					\draw [->, blue] (0.5, -1) -- (1.2, -0.44);
+ 					\draw [->, blue] (1.75, 0) -- (1.91, -0.63);
+ 					\draw [->, blue] (2, -1) -- (1.2, -1);
+ 					
+ 						
+ 				\end{tikzpicture}
+ 				\vspace{0.5cm}
+ 				\caption{Triangle over a flat manifold. We consider a vector $v^\mu$ on vertex $A$ and transport it to vertex $B$, then to vertex $C$, and then finally to vertex $A$ again. In this cycle, the vector will not rotate while translating over the manifold.}
+ 			\end{minipage}
+ 			\hfill
+ 			\begin{minipage}{0.46\textwidth}
+ 				\center
+ 				\begin{tikzpicture}
+ 					\draw [very thick] (0,0) circle (1.5cm);
+ 					\draw [dashed] (1.5,0) arc (0:180:1.5 and 0.4);
+ 					\draw (1.5,0) arc (0:180:1.5 and -0.4);
+ 					
+ 					\draw [thick, blue] (0.8, -0.35) arc (1.5:90:0.8 and 1.9);
+ 					\draw [thick, blue] (-0.8, -0.35) arc (178:90:0.8 and 1.9);
+ 					\draw [thick, blue] (-0.8, -0.35) arc (120:58:1.5 and -0.4);
+ 					
+ 					\draw [->, thick, orange, >=stealth] (-0.8, -0.35) -- (-0.8, 0.2) ; 
+ 					\draw [->, purple, >=stealth] (0, 1.48) -- (0.5, 1.73) ; 
+ 					\draw [->, green, >=stealth] (0.8, -0.35) -- (1.3, -0.1) ; 
+ 					\draw [->, cyan, >=stealth] (-0.8, -0.35) -- (-0.3, -0.1) ; 
+ 					
+ 					\filldraw [blue] (0.8,-0.35) circle (2pt) node [right=2mm, below] {$C$}
+ 					(0,1.48) circle (2pt)  node [above] {$B$}
+ 					(-0.8, -0.35) circle (2pt)  node [left=2mm, below] {$A$};
+ 					
+ 					\draw [->, blue] (-0.68, 0.6) -- (-0.67, 0.63);
+ 					\draw [->, blue] (0.67, 0.63) -- (0.68, 0.6);
+ 					\draw [->, blue] (0.1, -0.4) -- (-0.1, -0.4);
+ 					
+ 					
+ 				\end{tikzpicture}
+ 				\caption{We consider a vector $v^\mu$ on vertex $A$ and transport it to vertex $B$, then to vertex $C$, and then finally to vertex $A$ again. In this cycle, the vector will rotate accordingly as it translates over the manifold, so when it returns to point $A$ it will not point in the same direction as in the initial position.}
+ 			\end{minipage}
+ 		\end{figure}
+ 	
+ 	\noindent
+ 		The notion above captures the fact that vectors fail to conserve their direction when they are translated over a curved manifold. In order to make this precise, we need to understand how vectors can change when they are transported around cycles as the ones in Fig. 11 and Fig. 12.
+ 		
+ 		\begin{thm}
+ 			A vector $w^\mu$ is transported in parallel along a worldline $x^\mu (\lambda)$ if $$v^\mu \Del_\mu w^\nu = 0$$
+ 			Where $v^\mu = \dot{x}^\mu = \frac{dx^\mu}{d\lambda}$ 
+ 		\end{thm}
+ 		\begin{exmp}
+ 			A geodesic has the property that the tangent vector of the curve is parallelly trasported to itself as you move along the curve.
+ 			$$ v^\mu \Del_\mu v^\rho = f(\lambda)v^\rho$$
+ 			
+ 			\begin{figure}[h]
+ 				\begin{minipage}{0.46\textwidth}
+ 					\centering
+ 					\begin{tikzpicture}
+ 							\draw [thick, blue] plot [smooth] coordinates{(-1,-1) (-0.5, 0) (1, 0.5) (1.5, 1)};
+ 							\filldraw [blue] (-1,-1) circle (2pt)
+ 							(1.5,1) circle (2pt);
+ 							
+ 							\filldraw [red] (-0.59,-0.1) circle (1pt)
+ 							(1,0.5) circle (1pt);
+ 							\draw [->, >=stealth, red] (-0.58, -0.1) -- (-0.35, 0.3);
+ 							\draw [->, >=stealth, red] (1, 0.5) -- (1.5, 0.7);
+ 					\end{tikzpicture}
+ 					\vspace{0.45cm}
+ 					\caption{Not a geodesic as the tangent vector is not parallel to the curve for all points on the curve.}
+ 				\end{minipage}
+ 				\hfill
+ 				\begin{minipage}{0.46\textwidth}
+ 					\centering
+ 					\begin{tikzpicture}
+ 						\draw [thick, blue] plot [smooth] coordinates{(-1,-1) (1.5, 1.5)};
+ 						\filldraw [blue] (-1,-1) circle (2pt)
+ 						(1.5,1.5) circle (2pt);
+ 						
+ 						\filldraw [red] (-0.3,-0.3) circle (1pt)
+ 						(0.5,0.5) circle (1pt);
+ 						\draw [->, >=stealth, red] (-0.3, -0.3) -- (0, 0);
+ 						\draw [->, >=stealth, red] (0.5, 0.5) -- (0.8, 0.8);
+ 					\end{tikzpicture}
+ 					\caption{A geodesic as the tangent vector is parallel to the curve for all points on the curve.}
+ 				\end{minipage}
+ 			\end{figure}
+ 		\end{exmp}
+ 		So how does a vector change as we parallel transport it around some small cycle in spacetime? Let us start by defining a parallelogram. We define each edge of the parallelogram as a directional vector from one vertex to another.
+ 		\begin{figure}[h]
+ 			\begin{tikzpicture}
+ 				\filldraw [blue]
+ 					(0,0) circle (2pt) 
+ 					(2,0) circle (2pt)
+ 					(1,2) circle (2pt)
+ 					(3,2) circle (2pt);
+ 				\draw [->, very thick, blue, >=stealth] (0,0) -- (1,2); 
+ 				\draw [blue] (0.5, 1) node [left] {$B^\mu$};
+ 				\draw [->, very thick, blue, >=stealth] (1,2) -- (3,2); 
+ 				\draw [blue] (2, 2) node [above] {$A^\mu$};
+ 				\draw [->, very thick, blue, >=stealth] (3,2) -- (2,0); 
+ 				\draw [blue] (2.5, 1) node [right] {$B^\mu$};
+ 				\draw [->, very thick, blue, >=stealth] (2,0) -- (0,0); 
+ 				\draw [blue] (1, 0) node [below] {$A^\mu$};
+ 			\end{tikzpicture}
+ 		\end{figure}
+ 	
+ 		Given a displacement given by $x^\mu \to x^\mu + B^\mu$, we yield a change in vectors given by
+ 		\begin{equation}
+ 			\label{eq:VectorChange}
+ 			v^\mu \to v^\mu + B^\alpha \Del_\alpha v^\mu + \dots
+ 		\end{equation}
+ 		So if we transport the vector around the cycle given by the parallelogram, we have a variation
+ 		\begin{equation}
+ 			\label{eq:VectorVariation}
+ 			\delta v^\rho = A^\mu B^\nu \left[ \Del_\mu, \Del_\nu \right] v^\rho
+ 		\end{equation}
+ 		This is a characterization of the local curvature at some point in spacetime. We are considering initial points and subsequent infinitesimal displacements from said points.
+ 		\begin{defn}
+ 			The \textbf{Riemann curvature tensor} $R^{\rho}_{\sigma\mu\nu}$ of some vector $v^\rho$ in terms of the commutator of covariant derivatives $\left[\Del_\mu, \Del_\nu \right]$ and arbitrary infinitesimal displacement vectors $A^\mu$ and $B^\nu$ is a (1,3)-tensor that defines the change in $v^\rho$ over displacements $A^\mu$ and $B^\mu$ given the curvature of a manifold as given by $\left[\Del_\mu, \Del_\nu \right]$, such that
+ 			\begin{equation}
+ 				\label{eq:RiemannTensor}
+ 				\boxed{\delta v^\rho = R^\rho_{\sigma \mu \nu} A^\mu B^\nu v^\rho}
+ 			\end{equation}
+ 			The Riemann tensor is antisymmetric in the last two indices $\mu \leftrightarrow \nu$. 
+ 		\end{defn}
+ 		This tensor tells us about curvature in different directions over some manifold. However, we can give a much more explicit definition of the tensor itself by computing it. First, we have the commutator of two covariant derivatives acting on a vector such that:
+ 		\begin{align*}
+ 			\left[\Del_\mu, \Del_\nu \right] v^\rho &= \Del_\mu \left( \Del_\nu v^\rho\right) - \Del_\nu \left( \Del_\mu v^\rho \right) \\
+ 			&= \partial_\mu \left( \Del_\nu v^\rho \right) - \Gamma^\lambda_{\mu\nu} \Del_\lambda v^\rho + \Gamma_{\mu\sigma}^\rho \Del_\nu v^\sigma - \partial_\nu \left( \Del_\mu v^\rho \right) + \Gamma^\lambda_{\nu\mu} \Del_\lambda v^\rho - \Gamma_{\nu\sigma}^\rho \Del_\mu v^\sigma \\
+ 			&= \partial_\mu \left( \partial_\nu v^\rho\right) + \partial_\mu \left(\Gamma_{\nu\sigma}^\rho v^\sigma \right) + \Gamma_{\mu\sigma}^\rho \partial_\nu v^\sigma + \Gamma_{\mu\sigma}^\rho \Gamma_{\nu\lambda}^\sigma v^\lambda  \\
+ 			&\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad- \partial_\nu \left( \partial_\mu v^\rho\right) - \partial_\nu \left(\Gamma_{\mu\sigma}^\rho v^\sigma \right) - \Gamma_{\nu\sigma}^\rho \partial_\mu v^\sigma - \Gamma_{\nu\sigma}^\rho \Gamma_{\mu\lambda}^\sigma v^\lambda \\
+ 			&= v^\sigma \left( \partial_\mu \Gamma_{\nu\sigma}^\rho + \Gamma_{\mu\lambda}^\rho \Gamma_{\nu\sigma}^\lambda - \partial_\nu \Gamma_{\mu\sigma}^\rho - \Gamma_{\nu\lambda}^\rho \Gamma_{\mu\sigma}^\lambda \right)\\
+ 			&= R^{\rho}_{\sigma\mu\nu}v^\sigma 
+ 		\end{align*}
+ 		And so
+ 		\begin{equation}
+ 			\label{eq:CurvatureTensor}
+ 			\boxed{R^\rho_{\sigma\mu\nu} =  \partial_\mu \Gamma_{\nu\sigma}^\rho - \partial_\nu \Gamma_{\mu\sigma}^\rho + \Gamma_{\mu\lambda}^\rho \Gamma_{\nu\sigma}^\lambda - \Gamma_{\nu\lambda}^\rho \Gamma_{\mu\sigma}^\lambda}
+ 		\end{equation}
 \end{document} 
