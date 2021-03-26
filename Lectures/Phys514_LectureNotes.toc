@@ -9,3 +9,4 @@
 \contentsline {subsection}{\numberline {2.3}Geometry of Spacetime}{29}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Calculus}{38}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Curvature}{44}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Riemann Tensor}{45}{subsection.3.1}%

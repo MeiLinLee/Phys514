@@ -1,0 +1,216 @@
+\documentclass{article}
+
+
+\usepackage{NotesStyle}
+
+% Cover info
+
+\title{Phys 514 \\
+	\large Problem Set 8}
+
+\author{April Sada Solomon - 260708051}
+\date{Winter 2021}
+
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	\pagebreak
+	
+	\pagenumbering{roman}
+	\cfoot{\thepage}
+	
+	\tableofcontents
+	\newpage
+	
+	% Start page count after the TOC
+	
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	\cfoot{\thepage}
+	% Notes body
+	
+	\section{Lie derivatives}
+	The equation for the Lie derivative as given in the book for this tensor is clearly
+	$$ \Lie_v T_{\mu\nu} = v^\sigma \partial_\sigma T_{\mu\nu} + \left( \partial_\mu v^\lambda \right) T_{\lambda\nu} +\left( \partial_\nu v^\lambda \right)$$
+	So now assuming this holds for covariant derivatives such that
+	$$ \Lie_v T_{\mu\nu} = v^\sigma \Del_\sigma T_{\mu\nu} + \left( \Del_\mu v^\lambda \right) T_{\lambda\nu} +\left( \Del_\nu v^\lambda \right)$$ 
+	Where the covariant derivative is 
+	$$ \Del_\alpha T_{\mu\nu} = \partial_\alpha T_{\mu\nu} - \Gamma_{\alpha\mu}^\lambda T_{\mu\nu} - \Gamma_{\alpha\nu}^\lambda T_{\mu\nu}$$
+	And the Christoffel symbol is
+	$$\Gamma_{\mu\nu}^\rho = \frac12 g^{\rho\lambda} \left( g_{\lambda\mu;\nu} + g_{\lambda\nu;\mu} - g_{\mu\nu;\lambda} \right)$$
+	So now we let $\sigma \to \alpha$ to get
+	\begin{align*}
+		v^\alpha \Del_\alpha T_{\mu\nu} &= v^\alpha \partial_\alpha T_{\mu\nu} - v^\alpha \left( \Gamma_{\alpha \mu}^\lambda T_{\lambda\nu} + \Gamma_{\alpha\nu}^\lambda T_{\mu\lambda} \right) \\
+		\Gamma_{\alpha \mu}^\lambda T_{\lambda \nu} &= \frac12 g^{\lambda\beta} \left( g_{\beta\alpha;\mu} + g_{\beta\mu; \alpha} - g_{\alpha\mu;\lambda}\right) \\
+		\Gamma_{\alpha \nu}^\lambda T_{\lambda \mu} &= \frac12 g^{\lambda\beta} \left( g_{\beta\alpha;\nu} + g_{\beta\nu; \alpha} - g_{\alpha\nu;\lambda}\right)
+	\end{align*}
+	By the above we get
+	\begin{align*}
+		\Gamma_{\alpha\mu}^\lambda T_{\lambda\nu} + \Gamma_{\alpha\nu}^\lambda T_{\mu\lambda} &= \frac12 g^{\lambda\beta} \left[ g_{\beta\alpha;\mu} T_{\lambda\nu} + g_{\beta\mu;\alpha} T_{\lambda\nu} - g_{\alpha\mu;\lambda} T_{\lambda\nu} + g_{\beta\alpha;\nu} T_{\mu\lambda} + g_{\beta\nu;\alpha} T_{\mu\lambda} - g_{\beta\nu;\lambda} T_{\mu\lambda}\right] \\
+		&= \frac12\left[ g_{\beta\alpha;\mu} T_{\,\,\,\nu}^\beta + g_{\beta\mu;\alpha} T_{\,\,\,\nu}^\beta - g_{\alpha\mu;\lambda} T_{\,\,\,\nu}^\beta + g_{\beta\alpha;\nu} T_{\mu}^{\,\,\,\beta} + g_{\beta\nu;\alpha} T_{\mu}^{\,\,\,\beta} - g_{\beta\nu;\lambda} T_{\mu}^{\,\,\,\beta}\right] \\
+		&= \frac12 \left[ \partial_\mu T_{\alpha\nu} + \partial_\mu T_{\mu\nu} - g_{\alpha\mu;\lambda}T_{\,\,\,\nu}^\beta + \partial_\nu T_{\mu\alpha} + \partial_\alpha T_{\mu\nu} - g_{\alpha\nu;\lambda} T_{\mu}^{\,\,\,\beta} \right] \\
+		\intertext{Now set $\alpha \to \beta$ such that}
+		&= \partial_\mu T_{\alpha\nu} + \partial_\nu T_{\mu\alpha} -\frac12 \left[ g_{\alpha\mu;\lambda}T^\alpha_{\,\,\,\nu} +g_{\alpha\nu;\lambda}T^{\,\,\,\alpha}_{\mu}  \right] \\
+		&=  \partial_\mu T_{\alpha\nu} + \partial_\nu T_{\mu\alpha} - g_{\alpha\mu;\lambda}g^{\alpha\mu} T_{\mu\nu}
+	\end{align*}
+	Finally we set $\lambda \to \alpha$ to get
+	$$ v^\alpha \Del_\alpha T_{\mu\nu} = 2v^\alpha \partial_\alpha T_{\mu\nu} - v^\alpha \partial_\mu T_{\alpha\nu} - v^\alpha d_\nu T_{\mu\alpha}$$
+	Now
+	\begin{align*}
+		\Del_\mu v^\alpha  T_{\alpha\nu} &= \left( \partial_{\mu} v^\alpha + \Gamma_{\mu\lambda}^\alpha v^\lambda \right) T_{\alpha\nu} \\
+		&= \partial_\mu v^\alpha T_{\alpha\nu} + \frac12 \left( g_{\beta\mu;\lambda} T^\beta_{\,\,\,\nu} + g_{\beta\lambda;\mu}T^\beta_{\,\,\,\nu} - g_{\mu\lambda;\beta} T^{\beta}_{\,\,\,\nu}\right)v^\lambda \\
+		&= \partial_\mu v^\alpha T_{\alpha\nu} + \frac12 \left(  v^\lambda \partial_\lambda T_{\mu\nu} + v^\lambda \partial_\mu T_{\lambda\nu} - \partial_\beta v_\mu  \left( g^{\beta\mu}T_{\mu\nu}\right)\right) \\
+		&= \partial_\mu v^\alpha T_{\alpha\nu} + \frac12 \left[ v^\lambda \partial_\lambda T_{\mu\nu} - \left( \partial_\beta v^\beta \right) T_{\mu\nu} + v^\lambda \partial_\mu T_{\lambda\nu} \right]
+	\end{align*}
+	Similarly,
+	\begin{align*}
+		\Del_\nu v^\alpha T_{\mu\alpha} &= \partial_\nu v^\alpha T_{\mu\alpha} +\frac12 \left[ v^\lambda \partial_\nu T_{\mu\lambda} + v^\lambda d_\lambda \Gamma_{\mu\nu} - \partial_\alpha v^\alpha T_{\mu\nu}\right]
+	\end{align*}
+	Now putting everything together yields
+	\begin{align*}
+		v^\alpha \Del_\alpha T_{\mu\nu} + \Del_\nu v^\alpha T_{\alpha\nu} + \Del_\mu v^\alpha T_{\mu\alpha} &= 2 v^\alpha \partial_\alpha T_{\alpha \nu} - v^\alpha \partial_\nu T_{\mu\alpha} + \partial_\mu v^\alpha T_{\alpha \nu}\\
+		&\quad\quad\quad\quad + \frac12 \left[ v^\lambda \partial_\lambda T_{\mu\nu} + v^\lambda \partial_\mu T_{\lambda\nu} - T_{\mu\nu} \left( \partial_\beta v^\beta \right)\right] \\
+		&\quad\quad\quad\quad + \frac12 \left[ v^\lambda \partial_\lambda T_{\mu\nu} + v^\lambda \partial_\nu T_{\mu\lambda} - T_{\mu\nu} \left( \partial_\beta v^\beta \right)\right] \\
+		&= \left( v^\alpha \partial_\alpha T_{\mu\nu} + \partial_\mu v^\alpha T_{\alpha\nu} + \partial_\nu v^\alpha T_{\mu\alpha}\right) \\
+		&\quad\quad\quad\quad+ v^\alpha \partial_\alpha T_{\mu\nu} - v^\alpha \partial_\mu T_{\alpha\nu} - v^\alpha \partial_\nu T_{\mu\alpha} + v^\lambda \partial_\lambda T_{\mu\nu}
+	\end{align*}
+	By manipulation of indices we have that
+	\begin{align*}
+		v^\alpha \partial_\alpha T_{\mu\nu} - v^\alpha \partial_\mu T_{\alpha\nu} &= 0 & \text{As }\alpha \to \mu\\
+		v^\lambda \partial_\lambda T_{\mu\nu} - v^\alpha \partial_\mu T_{\alpha\nu} &= v^\nu \partial_\nu T_{\mu\nu} - v^\nu \partial_\nu T_{\mu\nu} & \text{As }\lambda \to \alpha \to \nu
+	\end{align*}
+	$$ \Lie_r T_{\mu\nu}  = v^\alpha \Del_\alpha T_{\mu\nu} +\Del_\mu v^\alpha T_{\alpha\nu} + \Del_\nu v^\alpha T_{\mu\alpha}$$
+	For the metric, we have
+	$$ \Lie_\nu g_{\mu\nu} = v^{\alpha} \Del_\alpha g_{\mu\nu} +\Del_\mu v^\alpha g_{\alpha\nu} + \Del_\nu v^\alpha g_{\mu\alpha}$$
+	Hence, as $\Del_\alpha g_{\mu\nu} = 0$, we have
+	$$ \Lie_v = g_{\mu\nu} = \Del_{\mu} v_\nu + \Del_\nu v_\mu$$
+	As expected.
+	\pagebreak
+	\section{Killing vectors}
+	\subsection{Continuity}
+	Assuming that we are given a stress tensor $T_{\mu\nu}$, we define $j_\mu = T_{\mu\nu} k^\nu$ such that
+	\begin{align*}
+		\Lie_k g_{\mu\nu} &= \Del_\mu k_\nu + \Del_\nu k_\mu \\
+		&= \Del_\mu k_\nu = - \Del_\nu k_\mu
+		\intertext{Considering the metric $g_{\alpha\nu}$ we have}
+		\Del_\mu \left( g_{\alpha\nu} k^\alpha\right) &= -\Del_\nu \left( g_{\alpha\mu} k^\alpha \right) \\
+		\therefore \Del_\mu k^\alpha &= \delta_\nu^\mu \left(-\Del_\nu k^\alpha\right) = - \Del_\mu k^\alpha
+	\end{align*}
+	Which implies that $\Del_\mu k^\alpha = 0$ as desired. For more detail, look at problem 1.
+	\subsection{Noether charge}
+		We must show that $I(\lambda)$ is conserved such that it does not change with respect to $\lambda$. Define a tangent vector $v^\mu = \frac{\partial x^\mu}{\partial \lambda} = \partial_\lambda x^\mu$ where $x^\mu = (x^0 (\lambda), x^1 (\lambda), \dots)$. So by conservation we have
+		\begin{align*}
+			v^\nu \Del_\nu I (\lambda) &= 0 \\
+			&= v^\nu \Del_\nu \left( k_\mu v^\mu \right) \\
+			&= v^\nu \left(\Del_\nu k_\mu \right) v^\mu + v^\nu k_\mu \left(\Del_\nu v^\mu \right)
+		\end{align*}
+		Which implies that $v^\nu \left(\Del_\nu v^\mu\right) = 0$ for a tangent vector along the worldline defined. Furthermore, $\Del_\nu k_\mu = -\Del_\nu k_\mu = 0$, so $v^\nu \Del_\nu I(\lambda) = 0 \implies \frac{dI(\lambda)}{d\lambda} = 0$.
+		To show that indeed $\frac{dI(\lambda)}{d\lambda} = 0$, we have
+		\begin{align*}
+			\frac{dI(\lambda)}{d\lambda} &= \frac{d}{d\lambda} k_\mu v^\mu \\
+			&= \frac{dk_\mu}{d\lambda} \frac{dx^\mu}{d\lambda} + k_\mu \frac{d^2 x^\mu}{d\lambda^2} \\
+			&= \frac{\partial k^\mu}{\partial x^\nu} \frac{dx^\nu}{d\lambda} \frac{dx^\mu}{d\lambda} + k_\mu \frac{d^2 x^\mu}{d\lambda^2} \\
+			&= \left( \Del_\nu k_\alpha + \Gamma_{\mu\nu}^\alpha k_\alpha\right) \frac{dx^\mu}{d\lambda} \frac{dx^\nu}{d\lambda} + k_\alpha \frac{d^2 x^\alpha}{d\lambda^2}
+		\end{align*}
+		And as we saw that $\Del_\nu k_\alpha = 0$, it follows that
+		$$ k_\alpha  \left[ \frac{d^2 x^\mu}{d\lambda^2} + \Gamma_{\mu\nu}^\alpha \frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}\right] = 0$$
+		Which clearly implies that $\frac{dI(\lambda)}{d\lambda} = 0$ as the geodesic equation vanishes along a worldline parametrized by $\lambda$, a parametrization of the geodesic itself.
+		\subsection{Moving particle}
+		We have that $g_{\mu\nu} = \eta_{\mu\nu}$ and $x^\mu = (t,x,y,z)$. Thus, the momentum 4-vector is
+		$$ p^\mu = \left( \frac{E}{c^2}, p_x, p_y, p_z\right) = \left( E, \gamma m \vec{v}\right)$$
+		As we let $c=1$. Now recalling the previous parts of question 2, we note that the 4 velocity to the worldline is the tangent vector $v^\mu = \frac{dx^\mu}{d\lambda}$ for a time-like geodesic. The momentum vector is then
+		$$ p^\mu = \gamma m v^\mu = mu^\mu$$
+		For $k = \partial_t $ such that $k_\mu = (1,0,0,0)$, we can write
+		$$ I(\lambda) = k_\mu v^\mu = \frac{dt}{d\lambda}$$
+		Since $p^0 = E = mu^0 = \gamma m \frac{dt}{d\lambda}$, then $\frac{dt}{d\lambda} = \frac{E}{\gamma m}$
+		So with $K =\partial_t$, then $I(\lambda) = \frac{dt}{d\lambda} \propto E$ as expected.
+		On the other hand, $k = \partial_i$ implies $I(\lambda) = \partial_i \frac{dx^\mu}{d\lambda}$ for spatial coordinates $i$. This redefines the momentum vector as
+		$$ p^\mu = \gamma m v^\mu$$
+		Where we have
+		$$ p^i = \gamma m v^i = \gamma m \frac{dx^i}{d\lambda} = \gamma \left(m v_i\right)$$
+		Hence
+		$$ \frac{dx^i}{d\lambda} = \frac{p^i}{\gamma m} \quad\quad \text{AND} \quad\quad I(\lambda) = \frac{dx^i}{d\lambda}\propto p^i$$
+		For momentum in $x^i$ direction.
+	\pagebreak
+		\subsection{Null geodesics}
+		\begin{align*}
+			\frac{d \log I}{d\lambda} &= \frac{1}{I} \frac{dI(\lambda)}{d\lambda} \\
+			&= \frac{1}{I} \left[ \frac{\partial k_\nu}{\partial x^\mu} \frac{dx^\mu}{d\lambda} \frac{dx^\nu}{d\lambda} + k_\alpha \frac{d^2 x^\alpha}{d\lambda^2}\right] \\
+			&= \frac{K_\alpha}{I} \left[ \frac{d^2 x^\alpha}{d\lambda^2} + \Gamma_{\mu\nu}^\alpha \frac{dx^\mu}{d\lambda} \frac{dx^\nu}{d\lambda}\right]
+		\end{align*}
+		Now,
+		\begin{align*}
+			u^\mu \Del_\mu v^\nu &= v^\mu \left( \partial_\mu v^\nu + \Gamma_{\mu\alpha}^\nu v^\alpha \right) \\
+			&= v^\mu \partial_\mu v^\nu + \Gamma_{\mu\alpha}^\nu v^\mu v^\alpha \\
+			&= \frac{d}{d\lambda} \frac{dx^\nu}{d\lambda} + \Gamma_{\mu\alpha}^\nu \frac{dx^\mu}{d\lambda} \frac{dx^\mu}{d\lambda} \\
+			&= \frac{d^2 x^\mu}{d\lambda^2} + \Gamma_{\mu\alpha}^\nu \frac{dx^\mu}{d\lambda} \frac{dx^\alpha}{d\lambda} = f(\lambda) v^\nu
+		\end{align*}
+		Therefore
+		\begin{align*}
+			\frac{d \log I(\lambda)}{d\lambda} &= \frac{K_\alpha}{I} \left[ \frac{d^2 x^\alpha}{d\lambda^2} + \Gamma_{\mu\nu}^\alpha \frac{dx^\mu}{d\lambda}  \frac{dx^\nu}{d\lambda}\right] \\
+			&= \frac{K_\alpha}{I} f(\lambda)v^\alpha \\
+			&= f(\lambda) 
+		\end{align*}
+		Now if $I_1 = k_\mu^1 v^\mu$ and $I_2 = k_\mu^2 v^\mu$, then 
+		$$ 	\frac{d \log \left(\frac{I_1}{I_2}\right)}{d\lambda} = 	\frac{d \log I_1}{d\lambda} - \frac{d \log I_2}{d\lambda}$$
+		$$ \therefore \log \left( \frac{I_1}{I_2}\right) = C$$
+		Where $C$ is a constant along the geodesic.
+	\pagebreak
+		\subsection{Commuter}
+		We have $\left[v, u \right]^\mu = v^\nu \partial_\nu u^\mu - u^\nu \partial_\nu v^\mu$ so
+		\begin{align*}
+			\left[v, u \right]^\mu &=  v^\nu \Del_\nu u^\mu - u^\nu \Del_\nu v^\mu \\
+			&= v^\nu \left[ \partial_\nu u^\mu + \Gamma_{\nu\lambda}^\mu u^\lambda\right] - u^\nu \left[ \partial_\nu v^\mu + \Gamma_{\nu\lambda}^\mu v^\lambda\right] \\
+			&= v^\nu \partial_\nu u^\mu - u^\nu\partial_\nu v^\mu + \Gamma_{\nu\lambda}^\mu u^\lambda v^\nu - \Gamma_{\nu\lambda}^\mu v^\lambda u^\nu
+		\end{align*}
+		Now we change indices $\lambda \leftrightarrow \nu$ such that we have the Christoffel symbol 
+		$$ \Gamma_{\lambda\nu}^\mu u^\nu v^\lambda = \Gamma_{\nu\lambda}^\mu u^\nu v^\lambda$$
+		So
+		$$ \left[ v,u\right]^\mu = v^\nu \Del_\nu u^\mu - u^\nu \Del_\nu v^\mu = v^\nu \partial_\nu u^\mu - u^\nu d_\nu v^\mu$$
+		Now, assuming that $\left[v,u\right]^\mu$ and $v^\mu, u^\mu$ are killing vectors, we have
+		$$ \Del_\nu v^\mu + \Del_\mu v^\nu = 0 \implies \Del_\nu v^\mu =- \Del_\mu v^\nu $$
+		Hence
+		$$ [v,u]^\mu = v^\nu \Del_\nu u^\mu - u^\nu \Del_\nu v^\mu = \Lie_\nu u^\mu$$
+		Let $k = [v,u]$ and $\Lie_k g_{\mu\nu} = 0 = \Del_\mu k_\nu + \Del_\nu k_\mu$, so
+		\begin{align*}
+			\Lie_k g_{\mu\nu} &= g_{\mu\nu} \left[ \Del_\mu \left[v,u \right]^\mu + \Del_\nu \left[v,u\right]^\nu\right] \\
+			&= g_{\mu\nu} \left[ \Del_\mu v^\nu \Del_\nu u^\mu + v^\nu \Del_\mu \Del_\nu u^\mu - \Del_\mu u^\nu \Del_\nu v^\mu - u^\nu \Del_\mu \Del_\nu v^\mu \right. \\
+			&\quad\quad\quad\quad \left.+ \Del_\nu v^\mu \Del_\mu u^\nu + v^\mu \Del_\mu \Del_\nu u^\nu - \Del_\nu u^\mu \Del_\mu v^\nu - u^\mu \Del_\mu \Del_\nu v^\nu\right] 
+			\intertext{As $\Del_\nu u^\mu = -\Del_\mu u^nu$, then}
+			&= g_{\mu\nu} \left[ v^\nu \Del_\mu \Del_\nu u^\mu - u^\nu \Del_\mu \Del_\nu v^\mu - u^\mu \Del_\mu \Del_\nu v^\nu \right] \\
+			\intertext{Recalling that $u^\mu, v^\mu$ are killing vectors we get}
+			&= 0
+		\end{align*}
+		Thus, $\left[v,u\right]^\mu$ is a killing vector if $v^\mu$ and $u^\mu$ are killing vectors.
+	\pagebreak
+	\section{Christoffel symbols and Riemann tensors}
+	Recall the Riemann tensor symmetries when considering lowering indices
+	\begin{align*}
+		R_{\rho \sigma\mu \nu} &= - R_{\rho\sigma\nu\mu} \\
+		R_{\rho \sigma\mu \nu} &= - R_{\sigma\rho\nu\mu} \\
+		R_{\rho \sigma\mu \nu} &=  R_{\mu\nu\rho\sigma}
+	\end{align*}
+	Where we defined a Riemann tensor to be
+	$$ R_{\sigma\mu\nu}^\rho = \partial_\mu \Gamma_{\nu\sigma}^\rho - \partial_\nu \Gamma_{\mu\sigma}^\rho + \Gamma_{\mu\lambda}^\rho \Gamma_{\nu\sigma}^\lambda - \Gamma_{\nu\lambda}^\rho \Gamma_{\mu\sigma}^\lambda$$
+	So given an interval $$ ds^2 = -e^{2\alpha (r)} dt^2 + e^{2\beta(r)} dr^2 + r^2 d\Omega^2 $$ and considering the similarly tedious process in Problem set 4 question 3, we have the Christoffel symbols:
+	\begin{align*}
+		\Gamma_{rt}^t &= \Gamma_{tr}^t = \partial_r \alpha & \Gamma_{\mu\nu}^r = \begin{pmatrix}
+			\partial_r \alpha e^{2\alpha - 2\beta} & 0 & 0 \\
+			0 & \partial_r \beta & 0 \\
+			0 & 0 & -re^{-2\beta} 
+		\end{pmatrix} \\
+		\Gamma_{r\Omega}^\Omega &= \Gamma_{\Omega r}^\Omega = \frac1r
+	\end{align*}
+	With the usual definition $\Gamma_{\mu\nu}^\rho = \frac12 g^{\rho\sigma} \left( g_{\sigma\mu;\nu} + g_{\sigma\nu;\mu} - g_{\mu\nu;\sigma} \right)$. We may now compute the Riemann tensors and then the Ricci tensors, which are $R^\rho_{\mu\rho\nu} = R_{\mu\nu}$. So the Riemann tensors are
+	\begin{align*}
+		R^{t}_{rrt} &= -R^t_{rtr} = \left(\partial_r^2 \alpha\right) + \left(\partial_r \alpha\right)^2 - \left(\partial_r \alpha\right)\left(\partial_r \beta\right) & R_{ttr}^r &= -R_{trt}^r = e^{2\alpha-2\beta}R^t_{rrt} = -e^{2\alpha - 2\beta} R^t_{rtr} \\
+		R^{t}_{\Omega\Omega t} &= - R_{\Omega t \Omega}^t = \left( \partial_r \alpha \right)\left( r e^{-2\beta} \right) & R_{tt\Omega}^\Omega &= -R_{t\Omega t}^\Omega = -\partial_r \alpha \frac{e^{2\alpha - 2 \beta}}{r} \\
+		R^{r}_{\Omega r \Omega} &= - R_{\Omega \Omega r}^r = \left(\partial_r \beta \right) \left( e^{-2\beta}r \right) & R_{r\Omega r}^\Omega &= - R^\Omega_{rr\Omega} = \frac{\partial_r \beta}{r}
+	\end{align*}
+	And the Ricci tensors are
+	\begin{align*}
+		R_{rr} &= R^{t}_{rtr} + R_{rrr}^r R_{r\Omega r}^\Omega = \partial_r \alpha \partial_r \beta+ \frac{\partial_r \beta}{r} - \left( \partial_r^2 \alpha\right) - \left( \partial_r \alpha \right)^2 \\
+		R_{tt} &= R^{t}_{ttt} + R^{r}_{trt} + R^{\Omega}_{t\Omega t} = e^{2\alpha - 2 \beta} \left[ - \partial_r \alpha \partial_r \beta+ \frac{\partial_r \alpha}{r} + \left( \partial_r^2 \alpha\right) + \left( \partial_r \alpha \right)^2 \right] \\
+		R_{\Omega\Omega} &= R^t_{\Omega t \Omega} + R_{\Omega r \Omega}^r + R_{\Omega\Omega \Omega}^\Omega = re^{-2\beta} \left( \partial_r \beta - \partial_r \alpha\right)
+	\end{align*}
+\end{document}

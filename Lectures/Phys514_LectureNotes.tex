@@ -1525,7 +1525,7 @@
  			If we have a scalar quantity, then we know that this quantity will be constant if it is the same for every point in the manifold. However, if we had a more complicated tensor, we cannot define it as constant over some coordinate system as that is not a coordinate independent notion. Thus, in order for a tensor to be constant we have to consider it being. \textbf{covariantly constant}.
  			\begin{exe}
  				Consider the manifold $\R^2$ where the spacetime interval is given by two coordinate systems as
- 				$$ ds^2 = dx^2 + dy^2 = dr^2 r^2 d\theta^2$$
+ 				$$ ds^2 = dx^2 + dy^2 = dr^2 +r^2 d\theta^2$$
  				Recall than in Cartesian coordinates, the Christoffel symbol vanishes. However, in Polar coordinates we have
  				$$ \Gamma_{\theta\theta}^r = -r \quad\quad \text{AND} \quad\quad \Gamma_{r\theta}^\theta = r^{-1}$$
  				Now consider a radial vector of unit length such that $v^r = 1$ and $v^\theta = 0$. Compute $\Del_\mu v^\mu$ in both coordinate systems and verify that the answers are equal, as the divergence of the vectors will be a (0,0)-tensor.
@@ -1598,7 +1598,11 @@
  		The notion above captures the fact that vectors fail to conserve their direction when they are translated over a curved manifold. In order to make this precise, we need to understand how vectors can change when they are transported around cycles as the ones in Fig. 11 and Fig. 12.
  		
  		\begin{thm}
- 			A vector $w^\mu$ is transported in parallel along a worldline $x^\mu (\lambda)$ if $$v^\mu \Del_\mu w^\nu = 0$$
+ 			A vector $w^\mu$ is transported in parallel along a worldline $x^\mu (\lambda)$ if 
+ 			\begin{equation}
+ 				\label{eq:ParallellyTransported}
+ 				\boxed{v^\mu \Del_\mu w^\nu = 0}
+ 			\end{equation}
  			Where $v^\mu = \dot{x}^\mu = \frac{dx^\mu}{d\lambda}$ 
  		\end{thm}
  		\begin{exmp}
@@ -1638,6 +1642,7 @@
  				\end{minipage}
  			\end{figure}
  		\end{exmp}
+ 		\subsection{Riemann Tensor}
  		So how does a vector change as we parallel transport it around some small cycle in spacetime? Let us start by defining a parallelogram. We define each edge of the parallelogram as a directional vector from one vertex to another.
  		\begin{figure}[h]
  			\begin{tikzpicture}
@@ -1665,8 +1670,20 @@
  		So if we transport the vector around the cycle given by the parallelogram, we have a variation
  		\begin{equation}
  			\label{eq:VectorVariation}
- 			\delta v^\rho = A^\mu B^\nu \left[ \Del_\mu, \Del_\nu \right] v^\rho
+ 			\delta v^\rho = A^\mu B^\nu \left[ \Del_\mu, \Del_\nu \right] v^\rho 
  		\end{equation}
+ 		Furthermore, if $x^\mu + B^\mu \to x^\mu + B^\mu + A^\mu$, then
+ 		\begin{equation}
+ 			\label{eq:VectorChange2}
+ 			v^\mu  B^\alpha \to v^\mu + B^\alpha \Del_\alpha v^\mu + A^\beta \Del_\beta \left( v^\mu + B^\alpha \Del_\alpha v^\mu \right) + \dots 
+ 		\end{equation}
+ 		So
+ 		\begin{equation}
+ 			\label{eq:VectorVariation2}
+ 			\delta v^\rho = A^\mu B^\nu \left[ \Del_\mu, \Del_\nu \right] v^\rho  = A^\mu A^\nu \left( \Del_\mu 
+ 			\Del_\nu - \Del_\nu \Del_\mu \right)
+ 		\end{equation}
+ 		
  		This is a characterization of the local curvature at some point in spacetime. We are considering initial points and subsequent infinitesimal displacements from said points.
  		\begin{defn}
  			The \textbf{Riemann curvature tensor} $R^{\rho}_{\sigma\mu\nu}$ of some vector $v^\rho$ in terms of the commutator of covariant derivatives $\left[\Del_\mu, \Del_\nu \right]$ and arbitrary infinitesimal displacement vectors $A^\mu$ and $B^\nu$ is a (1,3)-tensor that defines the change in $v^\rho$ over displacements $A^\mu$ and $B^\mu$ given the curvature of a manifold as given by $\left[\Del_\mu, \Del_\nu \right]$, such that
@@ -1690,4 +1707,152 @@
  			\label{eq:CurvatureTensor}
  			\boxed{R^\rho_{\sigma\mu\nu} =  \partial_\mu \Gamma_{\nu\sigma}^\rho - \partial_\nu \Gamma_{\mu\sigma}^\rho + \Gamma_{\mu\lambda}^\rho \Gamma_{\nu\sigma}^\lambda - \Gamma_{\nu\lambda}^\rho \Gamma_{\mu\sigma}^\lambda}
  		\end{equation}
-\end{document} 
+ 		We now define a few properties of the Riemann tensor:
+ 		\begin{enumerate}[$\quad\quad$(1)]
+ 			\item \textbf{The Riemann tensor is a tensor}
+ 				\subitem 
+ 				The Riemann tensor $R^\rho_{\sigma\mu\nu}$ as given in Definition 3.1 is a (1,3)-tensor despite our knowledge that the Christoffel symbol is not a tensor. We can show this by recalling that the definition is given in terms of covariant derivatives, and as they give a tensor to tensor transformation, they themselves must be a tensor. This means that the Riemann tensor is a covariant notion of curvature, that is, it is independent of choice of coordinates.
+ 				\begin{thm}
+ 					If we find that $R^\rho_{\sigma\mu\nu} = 0$, then we say that spacetime is flat.
+ 				\end{thm}
+ 			\item \textbf{Constant metric and flatness}
+ 				\subitem
+ 				If there exists a coordinate system where the metric is constant, then in that metric the Christoffel symbol clearly vanishes and hence so does the Riemann tensor. On the other hand, we consider as a fact that a flat spacetime implies that there is a coordinate system where the metric is constant.
+ 				\begin{thm}
+ 					Spacetime is said to be flat if and only if there exists a coordinate system where the metric $g_{\mu\nu}$ is constant such that $\Gamma^\rho_{\mu\nu} = 0$.
+ 				\end{thm}
+ 			\item \textbf{Symmetries}
+ 				\subitem 
+ 				We use the inverse of the metric as usual to lower the index of a Riemann tensor
+ 				\begin{equation}
+ 					\label{eq:RiemannLower}
+ 					R_{\rho\sigma\mu\nu} = g^{\rho\alpha} R^\alpha_{\sigma\mu\nu}
+ 				\end{equation}
+ 				\begin{thm}
+ 					Lowering indices for a Riemann tensor leads to the symmetries
+ 					\begin{equation}
+ 						\label{eq:RiemannSymmetry}
+ 						\boxed{R_{\rho\sigma\mu\nu} = -R_{\rho\sigma\nu\mu}}
+ 					\end{equation}
+ 					\begin{equation}
+ 						\label{eq:RiemannSymmetry2}
+ 						\boxed{R_{\rho\sigma\mu\nu} = -R_{\sigma\rho\mu\nu}}
+ 					\end{equation}
+ 					\begin{equation}
+ 						\label{eq:RiemannSymmetry3}
+ 						\boxed{R_{\rho\sigma\mu\nu} = -R_{\mu\nu\rho\sigma}}
+ 					\end{equation}
+ 					And anti-symmetrization over all the indices gives
+ 					\begin{equation}
+ 						\label{eq:RiemannAntiSymmetry}
+ 						\boxed{R_{\left[ \rho\sigma\mu\nu \right]} = 0}
+ 					\end{equation}
+ 				\end{thm}
+ 		\end{enumerate}
+ 		\begin{defn}
+			The \textbf{Ricci curvature tensor} $R_{\mu\nu}$ is a symmetric (0,2)-tensor arising from a contraction of the contravariant and the second covariant index of the Riemann Tensor $R^{\rho}_{\mu\sigma\nu}$ such that
+			\begin{equation}
+				\label{eq:RicciTensor}
+				\boxed{R_{\mu\nu} = R^{\rho}_{\mu\rho\nu}}
+			\end{equation}
+		\end{defn}
+		From the definition, we can see that indeed it is a symmetric tensor
+		\begin{equation}
+			R_{\mu\nu} = R_{\nu\mu}
+		\end{equation}
+	 	\begin{defn}
+	 		The \textbf{scalar curvature tensor} is a (0,0)-tensor given by contracting the indices of the Ricci tensor $R_{\mu\nu}$ with the inverse metric $g^{\mu\nu}$ such that
+	 		\begin{equation}
+	 			\label{eq:ScalarCurvature}
+	 			\boxed{R = R_{\mu\nu} g^{\mu\nu} }
+	 		\end{equation}
+	 	\end{defn}
+ 		We are developing a brief but comprehensive theory of differential geometry to better introduce general relativity, as this is the language it is defined in. In general relativity, the effect of gravity is described by the curvature of spacetime, which implies that the equation of motion for spacetime is going to be an equation involving the Riemann tensor. So what equations of gravitation can we write? One possibility to describe the curvature of spacetime, we write $R^{\rho}_{\mu\nu\sigma} = 0$. However, we know this is Minkowski spacetime so there is no curvature in the metric, so this is far too simple to study General Relativity. The next simplest equation would be when the Ricci tensor vanishes, which is known as \textbf{Einstein's equation in the absence of matter.}
+ 		\begin{equation}
+ 			\label{eq:EinsteinEquation0}
+ 			\boxed{R_{\mu\nu} = 0}
+ 		\end{equation}
+ 		\begin{exe}
+ 			Consider the manifold $\R^2$ with two coordinate systems $x^\mu = (x,y)$ and $x^{\mu'} = (r,\theta)$ such that
+ 			$$ ds^2 = dx^2 + dy^2 = dr^2 + r^2 d\theta^2$$
+ 			Here, we have $\Gamma_{\theta\theta}^r = -r$ and $\Gamma_{r\theta}^\theta = \frac{1}{r}$. Compute the Riemann tensor in both coordinate systems.
+ 		\end{exe}
+ 		
+ 		\pagebreak
+ 		We now recall that from a metric $g_{\mu\nu}$ we obtain the \hyperref[eq:ChristoffelSymbol]{Christoffel Symbol}, which is not a tensor and it captures the deviation of a particle from being in a straight line. It achieves this capture using the effect of fictitious forces in an accelerating coordinate system as well as the effect of some curvature in the geometry of the metric. In order to get this notion of curvature, we observed how vectors transform over cycles in spacetime using the \hyperref[eq:RiemannTensor]{Riemann Tensor}, which is defined by a linear combination of the first derivatives of the Christoffel symbol and the squares of the Christoffel symbol. In other words, the Riemann tensor captures the extent to which spacetime is not flat. So it is impossible to find a coordinate system where the metric is constant.
+ 		
+ 		The \hyperref[defn:StrongEquivalence]{Equivalence Principle} states that for any point $x_0^\mu$ in spacetime given coordinates $x^\mu$, we can find a new coordinate system $x^{\mu'}$ which has the property that at this point $x_0^\mu = x^{\mu'} = 0$ we have:
+ 		\begin{equation}
+ 			\label{eq:FlatMetric2}
+ 			g_{\mu'\nu'} = \eta_{\mu' \nu'}
+ 		\end{equation}
+ 		For this, we consider a metric $g_{\mu\nu}$ in some coordinates $x^\mu$. Now define a new coordinate system $x^{\mu'}$ such that the metric 
+ 		becomes
+ 		\begin{equation}
+ 			\label{eq:MetricTransform}
+ 			\boxed{g_{\mu'\nu'} = \frac{\partial x^\mu}{\partial x^{\mu'}} \frac{\partial x^\nu}{\partial x^{\nu'}} g_{\mu\nu}}
+ 		\end{equation} 
+ 		We now Taylor expands both sides in powers of $x^{\mu'}$ around the point $x^{\mu'} = 0$. At this point, the metric $g_{\mu\nu}$ has 10 degrees of freedom and the Jacobian $\frac{\partial x^{\mu}}{\partial x^{\mu'}}$ is a $4\times 4$ matrix with 16 degrees of freedom. This implies that we can choose a Jacobian such that we yield equation (\ref{eq:FlatMetric2}). So we adjust the free parameters in the Jacobian that we've used when referring to the Equivalence Principle.
+ 		
+ 		If we now consider the neighbourhood around $x^{\mu'} = 0$, we now expand the Jacobian in terms in order of powers of $x^{\mu'}$.
+ 		\begin{align*}
+ 			\frac{\partial x^\mu}{\partial x^{\mu'}} &= \left. \frac{\partial x^\mu}{\partial x^{\mu'}} \right|_{x^{\mu'} = 0} + \left. \frac{\partial^2 x^\mu}{\partial x^{\mu'} \partial x^{\nu'} } \right|_{x^{\mu'} = 0} x^{\mu'} + \left. \frac{\partial^3 x^{\mu}}{\partial x^{\mu'} \partial x^{\nu'} \partial x^{\sigma'} }\right|_{x^{\mu'} = 0} \left( x^{\mu'} \right)^2 + \cdots 
+ 		\end{align*}
+ 		On the expansion, the first term has $4\times 4 = 16$ degrees of freedom as it is the Jacobian as usual, the second term has $4 \times 10 = 40$ degrees of freedom as we have 4 choices for the coordinates and 10 degrees of freedom in a symmetric (2,0)-tensor, and the third term has $4 \times 20 = 80$ degrees of freedom given the 4 choices of coordinates and the 20 degrees of freedom in a symmetric (3,0)-tensor. We remember that we are attempting to compare these degrees of freedom to the number of degrees of freedom in $g_{\mu'\nu'}$ expanded around $x^{\mu'} = 0$.
+ 		$$ g_{\mu'\nu'} = \left. g_{\mu'\nu'} \right|_{x^{\mu'} = 0} + \left. \partial_\mu g_{\mu'\nu'} x^\mu \right|_{x^{\mu'} = 0}+ \left. \partial_\mu \partial_\nu g_{\mu'\nu'} \right|_{x^{\mu'} = 0} \left( x^{\mu'}\right)^2 + \cdots$$
+ 		On this expansion we know the metric will have 10 degrees of freedom. The derivative of the metric will be over 4 coordinates, so it will be $4 \times 10 = 40$ degrees of freedom on the second term. The third term will be the number of degrees of freedom in the metric squared, so it will have $10^2 = 100$ degrees of freedom. 
+ 		
+ 		Let us do this explicitly by expanding at $\mathcal{O}\Big(\big(x^{\mu'} \big)^0\Big)$. As we saw for equation (\ref{eq:FlatMetric2}), the 16 degrees of freedom in the Jacobian allow us to have the metric equal to a Minkowski metric. For $\mathcal{O}\Big(\big(x^{\mu'} \big)^1\Big)$ we have the same number of degrees of freedom which allows us to say $\partial g_{\mu'\nu'} = 0$. At order $\mathcal{O}\Big(\big(x^{\mu'} \big)^2\Big)$ we have a 20 degree of freedom difference, so we have 20 degrees of freedom in the second derivative of the metric that cannot be removed by some choice of coordinates.
+ 		
+ 		To summarize this, we can always choose coordinates where the metric is the flat metric and the first derivative of the metric vanishes at any given point, which in the above example we chose to be the origin $x^{\mu'}=0$
+ 		$$ g_{\mu' \nu'} = \eta_{\nu'\mu'} \quad\quad \text{AND} \quad \quad \partial_{\rho'} g_{\mu' \nu} = 0$$
+ 		\begin{defn}
+ 			The coordinates $x^{\mu'}$ that allow for a flat metric $g_{\mu' \nu'} = \eta_{\nu'\mu'}$ and a zero first derivative at any point $\partial_{\rho'} g_{\mu' \nu} = 0$ are denoted \textbf{Riemann Normal Coordinates} or \textbf{Locally Inertial Coordinates} or \textbf{Freely Falling Coordinates}.
+ 		\end{defn}
+ 		Recalling Einstein's elevator accelerating downwards at $9.8$ m s$^{-2}$, one would experience a net zero force and would not move on the reference frame of the elevator, considering the elevator is falling towards the Earth. This technique is how airplanes emulate zero-gravity. Thus, we can also extrapolate this to General Relativity where $\Gamma_{\mu'\nu'}^{\rho'} = 0$ for some given point. So now it is natural to wonder what the Riemann tensor would be in Riemann Normal Coordinates. We first lower the Riemann tensor index and define it at the point $x^{\mu'} = 0$.
+ 		\begin{align*}
+ 			R_{\rho'\sigma'\mu'\nu'} &= g_{\rho'\alpha'} R^{\alpha'}_{\sigma'\mu'\nu'} \\
+ 			&= g_{\rho'\alpha'} \left( \partial_{\mu'} \Gamma_{\sigma'\nu'}^{\alpha'} - \partial_{\nu'} \Gamma_{\sigma'\nu'}^{\alpha'} \right) \\
+ 			&=  g_{\rho'\alpha'} \left( \partial_{\mu'} \left( \frac12 g^{\alpha'\beta'} \left( g_{\sigma'\beta';\nu'} + g_{\nu'\beta';\sigma'} - g_{\sigma'\nu';\beta'}\right)\right) - \partial_{\nu'} \left( \frac12 g^{\alpha'\beta'} \left( g_{\sigma'\beta';\mu'} + g_{\mu'\beta';\sigma'} - g_{\sigma'\mu';\beta'}\right)\right) \right) \\
+ 			&= \frac12 \left( \partial_{\mu'} \left( \partial_{\nu'} g_{\sigma'\rho'} + \partial_{\sigma'} g_{\nu'\rho'} - \partial_\rho g_{\sigma'\nu'}\right) - \partial_{\nu'} \left( \partial_{\mu'} g_{\sigma' \rho'} + \partial_{\sigma'} g_{\mu'\rho'} - \partial_{\rho'} g_{\sigma'\mu'}\right)\right) \\
+ 			&= \frac12 \left( \partial_{\mu'} \partial_{\sigma'} g_{\nu'\rho'} - \partial_{\mu'} \partial_{\rho'} g_{\sigma'\nu'} - \partial_{\nu'} \partial_{\sigma'} g_{\rho'\mu'} + \partial_{\nu'} \partial_{\rho'} g_{\sigma'\mu'} \right)
+ 		\end{align*}
+ 		This implies symmetries from the properties of the Riemann tensor
+ 		\begin{align*}
+ 			R_{\rho'\sigma'\mu'\nu'} &= -R_{\rho'\sigma'\nu'\mu'} \\
+ 			 &= - R_{\sigma'\rho'\mu'\nu'} \\
+ 			 &= R_{\mu'\nu'\rho'\sigma'}
+ 		\end{align*}
+ 		And the anti-symmetry:
+ 		$$ R_{\left[ \rho' \sigma' \mu'\nu' \right]} = R_{\rho' \left[\sigma'\mu'\nu'\right]}=0$$
+ 		
+ 	\pagebreak
+ 		So we made a clever choice of coordinates which allowed us to evaluate the Riemann tensor at the point $x^{\mu'} = 0$. So given these symmetry conditions, we find the degrees of freedom in the Riemann tensor. Equations (\ref{eq:RiemannSymmetry}) and (\ref{eq:RiemannSymmetry2}) imply that the first and second pairs of indices in the Riemann tensor each act like a $4 \times 4$ anti-symmetric matrix, meaning we have $\frac{4\times3}{2} = 6$ degrees of freedom. Recall that for $D$-dimensions, a square matrix has $D^2$ degrees of freedom, a symmetric matrix has $\frac{(D+1)D}{2}$ degrees of freedom, and an anti-symmetric matrix has $\frac{D(D-1)}{2}$ degrees of freedom. Equation (\ref{eq:RiemannSymmetry3}) implies that the Riemann tensor itself behaves like a symmetric $6 \times 6$ matrix, so we have $\frac{6\times7}{2}=21$ degrees of freedom. Finally, equation (\ref{eq:RiemannAntiSymmetry}) removes the number of degrees of freedom in a 4-index anti-symmetric tensor, so it removes 1 degree of freedom. In conclusion, the number of degrees of freedom in a Riemann tensor has $21-1=20$ degrees of freedom.
+ 		\begin{rem}
+ 			The Riemann tensor $R^\rho_{\sigma\mu\nu}$ is a packaging of the 20 independent degrees of freedom in the second derivative of the metric $\partial^2 g$ into a tensor.
+ 		\end{rem}
+ 		\begin{defn}
+ 			The \textbf{Binachi Identity} is a property of the first derivative of a Riemann tensor with respect to $\lambda$ such that
+ 			\begin{equation}
+ 				\label{eq:BinachiIdentity}
+ 				\boxed{\Del_{\left[\lambda \right.} R_{\left. \rho \sigma \right] \mu\nu}}
+ 			\end{equation}
+ 		\end{defn}
+ 		So we defined the Ricci tensor as the trace of the Riemann tensor (\ref{eq:RicciTensor}), and we defined the Scalar curvature as the trace of the Ricci scalar (\ref{eq:ScalarCurvature}). Hence, by the Binachi identity we can show that
+ 		\begin{equation}
+ 			\label{eq:BinachiIdentityApplied}
+ 			\boxed{\Del^\mu R_{\mu\nu} = \frac12 \Del_\nu R}
+ 		\end{equation}
+ 		\begin{defn}
+ 			We define the \textbf{Einstein Tensor} as
+ 			\begin{equation}
+ 				\label{eq:EinsteinTensor}
+ 				\boxed{G_{\mu\nu} = R_{\mu\nu} - \frac12 g_{\mu\nu} R}
+ 			\end{equation}
+ 		\end{defn}
+ 		The Binachi identity and the Einstein tensor yield
+ 		\begin{equation}
+ 			\label{eq:EinsteinTensorBinachi}
+ 			\boxed{\Del^\mu G_{\mu\nu} = 0}
+ 		\end{equation}
+\end{document}

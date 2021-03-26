@@ -1,0 +1,9 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Lie derivatives}{1}{section.1}%
+\contentsline {section}{\numberline {2}Killing vectors}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Continuity}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Noether charge}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Moving particle}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Null geodesics}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Commuter}{6}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Christoffel symbols and Riemann tensors}{7}{section.3}%
